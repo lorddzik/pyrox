@@ -61,6 +61,17 @@ class UpdateGroupCall(TLObject):  # type: ignore
         self.live_story = live_story  # flags.2?true
         self.peer = peer  # flags.1?Peer
 
+    @property
+    def chat_id(self) -> int:
+        if self.peer is not None:
+            if hasattr(self.peer, "chat_id"):
+                return self.peer.chat_id
+            if hasattr(self.peer, "channel_id"):
+                return self.peer.channel_id
+            if hasattr(self.peer, "user_id"):
+                return self.peer.user_id
+        return 0
+
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UpdateGroupCall":
         
