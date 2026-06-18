@@ -36,7 +36,7 @@ class ArchivedStickers(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.ArchivedStickers`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4FCBA9C8``
 
     Parameters:

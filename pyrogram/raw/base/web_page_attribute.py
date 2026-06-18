@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-WebPageAttribute = Union[raw.types.WebPageAttributeStory, raw.types.WebPageAttributeTheme]
+WebPageAttribute = Union[raw.types.WebPageAttributeAiComposeTone, raw.types.WebPageAttributeStarGiftAuction, raw.types.WebPageAttributeStarGiftCollection, raw.types.WebPageAttributeStickerSet, raw.types.WebPageAttributeStory, raw.types.WebPageAttributeTheme, raw.types.WebPageAttributeUniqueStarGift]
 
 
 # noinspection PyRedeclaration
@@ -34,15 +34,20 @@ class WebPageAttribute:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 2 constructors available.
+        This base type has 7 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
         .. autosummary::
             :nosignatures:
 
+            WebPageAttributeAiComposeTone
+            WebPageAttributeStarGiftAuction
+            WebPageAttributeStarGiftCollection
+            WebPageAttributeStickerSet
             WebPageAttributeStory
             WebPageAttributeTheme
+            WebPageAttributeUniqueStarGift
     """
 
     QUALNAME = "pyrogram.raw.base.WebPageAttribute"

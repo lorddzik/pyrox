@@ -34,7 +34,7 @@ class TogglePreHistoryHidden(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``EABBB94C``
 
     Parameters:

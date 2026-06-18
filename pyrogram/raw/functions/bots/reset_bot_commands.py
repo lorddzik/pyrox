@@ -34,7 +34,7 @@ class ResetBotCommands(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3D8DE0F9``
 
     Parameters:

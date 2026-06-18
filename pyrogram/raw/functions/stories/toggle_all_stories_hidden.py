@@ -34,7 +34,7 @@ class ToggleAllStoriesHidden(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``7C2557C4``
 
     Parameters:

@@ -36,7 +36,7 @@ class MediaAreaVenue(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MediaArea`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BE82DB9C``
 
     Parameters:

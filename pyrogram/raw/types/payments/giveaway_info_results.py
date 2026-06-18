@@ -36,8 +36,8 @@ class GiveawayInfoResults(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.payments.GiveawayInfo`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``CD5570``
+        - Layer: ``227``
+        - ID: ``E175E66F``
 
     Parameters:
         start_date (``int`` ``32-bit``):
@@ -49,9 +49,6 @@ class GiveawayInfoResults(TLObject):  # type: ignore
         winners_count (``int`` ``32-bit``):
             N/A
 
-        activated_count (``int`` ``32-bit``):
-            N/A
-
         winner (``bool``, *optional*):
             N/A
 
@@ -59,6 +56,12 @@ class GiveawayInfoResults(TLObject):  # type: ignore
             N/A
 
         gift_code_slug (``str``, *optional*):
+            N/A
+
+        stars_prize (``int`` ``64-bit``, *optional*):
+            N/A
+
+        activated_count (``int`` ``32-bit``, *optional*):
             N/A
 
     Functions:
@@ -72,19 +75,20 @@ class GiveawayInfoResults(TLObject):  # type: ignore
             payments.GetGiveawayInfo
     """
 
-    __slots__: List[str] = ["start_date", "finish_date", "winners_count", "activated_count", "winner", "refunded", "gift_code_slug"]
+    __slots__: List[str] = ["start_date", "finish_date", "winners_count", "winner", "refunded", "gift_code_slug", "stars_prize", "activated_count"]
 
-    ID = 0xcd5570
+    ID = 0xe175e66f
     QUALNAME = "types.payments.GiveawayInfoResults"
 
-    def __init__(self, *, start_date: int, finish_date: int, winners_count: int, activated_count: int, winner: Optional[bool] = None, refunded: Optional[bool] = None, gift_code_slug: Optional[str] = None) -> None:
+    def __init__(self, *, start_date: int, finish_date: int, winners_count: int, winner: Optional[bool] = None, refunded: Optional[bool] = None, gift_code_slug: Optional[str] = None, stars_prize: Optional[int] = None, activated_count: Optional[int] = None) -> None:
         self.start_date = start_date  # int
         self.finish_date = finish_date  # int
         self.winners_count = winners_count  # int
-        self.activated_count = activated_count  # int
         self.winner = winner  # flags.0?true
         self.refunded = refunded  # flags.1?true
-        self.gift_code_slug = gift_code_slug  # flags.0?string
+        self.gift_code_slug = gift_code_slug  # flags.3?string
+        self.stars_prize = stars_prize  # flags.4?long
+        self.activated_count = activated_count  # flags.2?int
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "GiveawayInfoResults":
@@ -95,14 +99,14 @@ class GiveawayInfoResults(TLObject):  # type: ignore
         refunded = True if flags & (1 << 1) else False
         start_date = Int.read(b)
         
-        gift_code_slug = String.read(b) if flags & (1 << 0) else None
+        gift_code_slug = String.read(b) if flags & (1 << 3) else None
+        stars_prize = Long.read(b) if flags & (1 << 4) else None
         finish_date = Int.read(b)
         
         winners_count = Int.read(b)
         
-        activated_count = Int.read(b)
-        
-        return GiveawayInfoResults(start_date=start_date, finish_date=finish_date, winners_count=winners_count, activated_count=activated_count, winner=winner, refunded=refunded, gift_code_slug=gift_code_slug)
+        activated_count = Int.read(b) if flags & (1 << 2) else None
+        return GiveawayInfoResults(start_date=start_date, finish_date=finish_date, winners_count=winners_count, winner=winner, refunded=refunded, gift_code_slug=gift_code_slug, stars_prize=stars_prize, activated_count=activated_count)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -111,7 +115,9 @@ class GiveawayInfoResults(TLObject):  # type: ignore
         flags = 0
         flags |= (1 << 0) if self.winner else 0
         flags |= (1 << 1) if self.refunded else 0
-        flags |= (1 << 0) if self.gift_code_slug is not None else 0
+        flags |= (1 << 3) if self.gift_code_slug is not None else 0
+        flags |= (1 << 4) if self.stars_prize is not None else 0
+        flags |= (1 << 2) if self.activated_count is not None else 0
         b.write(Int(flags))
         
         b.write(Int(self.start_date))
@@ -119,10 +125,14 @@ class GiveawayInfoResults(TLObject):  # type: ignore
         if self.gift_code_slug is not None:
             b.write(String(self.gift_code_slug))
         
+        if self.stars_prize is not None:
+            b.write(Long(self.stars_prize))
+        
         b.write(Int(self.finish_date))
         
         b.write(Int(self.winners_count))
         
-        b.write(Int(self.activated_count))
+        if self.activated_count is not None:
+            b.write(Int(self.activated_count))
         
         return b.getvalue()

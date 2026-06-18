@@ -36,7 +36,7 @@ class MessageEntityStrike(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BF0693D4``
 
     Parameters:

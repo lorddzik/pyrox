@@ -36,7 +36,7 @@ class UserInfoEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.UserInfo`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F3AE2EED``
 
     Parameters:

@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionDeleteMessage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``42E047BB``
 
     Parameters:

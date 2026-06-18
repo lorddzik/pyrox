@@ -36,7 +36,7 @@ class HistoryImport(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.HistoryImport`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1662AF0B``
 
     Parameters:

@@ -34,7 +34,7 @@ class GetDocumentByHash(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``B1F2061F``
 
     Parameters:

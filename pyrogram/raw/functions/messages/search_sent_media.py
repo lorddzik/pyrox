@@ -34,7 +34,7 @@ class SearchSentMedia(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``107E31A0``
 
     Parameters:

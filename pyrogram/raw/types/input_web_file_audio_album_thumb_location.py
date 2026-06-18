@@ -36,7 +36,7 @@ class InputWebFileAudioAlbumThumbLocation(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputWebFileLocation`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F46FE924``
 
     Parameters:

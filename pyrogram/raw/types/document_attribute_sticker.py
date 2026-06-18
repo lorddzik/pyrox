@@ -36,7 +36,7 @@ class DocumentAttributeSticker(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DocumentAttribute`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``6319D612``
 
     Parameters:

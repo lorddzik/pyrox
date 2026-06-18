@@ -36,7 +36,7 @@ class SecureValueTypeRentalAgreement(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``8B883488``
 
     Parameters:

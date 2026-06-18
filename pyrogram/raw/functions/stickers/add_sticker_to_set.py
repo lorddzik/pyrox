@@ -34,7 +34,7 @@ class AddStickerToSet(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``8653FEBE``
 
     Parameters:

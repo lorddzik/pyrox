@@ -34,7 +34,7 @@ class GetStatuses(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C4A353EE``
 
     Parameters:

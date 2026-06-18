@@ -36,7 +36,7 @@ class InputUserFromMessage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputUser`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1DA448E2``
 
     Parameters:

@@ -36,7 +36,7 @@ class WallPapersNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.WallPapers`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1C199183``
 
     Parameters:

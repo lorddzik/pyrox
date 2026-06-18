@@ -36,7 +36,7 @@ class CdnPublicKey(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.CdnPublicKey`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C982EABA``
 
     Parameters:

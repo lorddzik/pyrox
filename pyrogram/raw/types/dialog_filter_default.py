@@ -36,21 +36,12 @@ class DialogFilterDefault(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DialogFilter`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``363293AE``
 
     Parameters:
         No parameters required.
 
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            messages.GetDialogFilters
     """
 
     __slots__: List[str] = []

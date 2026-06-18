@@ -36,7 +36,7 @@ class BindAuthKeyInner(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BindAuthKeyInner`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``75A3F765``
 
     Parameters:

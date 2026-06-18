@@ -36,7 +36,7 @@ class PhotoPathSize(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PhotoSize`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D8214D41``
 
     Parameters:

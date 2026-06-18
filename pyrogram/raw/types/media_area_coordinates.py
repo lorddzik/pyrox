@@ -36,8 +36,8 @@ class MediaAreaCoordinates(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MediaAreaCoordinates`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``3D1EA4E``
+        - Layer: ``227``
+        - ID: ``CFC9E002``
 
     Parameters:
         x (``float`` ``64-bit``):
@@ -55,23 +55,28 @@ class MediaAreaCoordinates(TLObject):  # type: ignore
         rotation (``float`` ``64-bit``):
             N/A
 
+        radius (``float`` ``64-bit``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["x", "y", "w", "h", "rotation"]
+    __slots__: List[str] = ["x", "y", "w", "h", "rotation", "radius"]
 
-    ID = 0x3d1ea4e
+    ID = 0xcfc9e002
     QUALNAME = "types.MediaAreaCoordinates"
 
-    def __init__(self, *, x: float, y: float, w: float, h: float, rotation: float) -> None:
+    def __init__(self, *, x: float, y: float, w: float, h: float, rotation: float, radius: Optional[float] = None) -> None:
         self.x = x  # double
         self.y = y  # double
         self.w = w  # double
         self.h = h  # double
         self.rotation = rotation  # double
+        self.radius = radius  # flags.0?double
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MediaAreaCoordinates":
-        # No flags
+        
+        flags = Int.read(b)
         
         x = Double.read(b)
         
@@ -83,13 +88,16 @@ class MediaAreaCoordinates(TLObject):  # type: ignore
         
         rotation = Double.read(b)
         
-        return MediaAreaCoordinates(x=x, y=y, w=w, h=h, rotation=rotation)
+        radius = Double.read(b) if flags & (1 << 0) else None
+        return MediaAreaCoordinates(x=x, y=y, w=w, h=h, rotation=rotation, radius=radius)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 0) if self.radius is not None else 0
+        b.write(Int(flags))
         
         b.write(Double(self.x))
         
@@ -100,5 +108,8 @@ class MediaAreaCoordinates(TLObject):  # type: ignore
         b.write(Double(self.h))
         
         b.write(Double(self.rotation))
+        
+        if self.radius is not None:
+            b.write(Double(self.radius))
         
         return b.getvalue()

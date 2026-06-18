@@ -36,7 +36,7 @@ class InputEncryptedFileBigUploaded(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputEncryptedFile`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``2DC173C8``
 
     Parameters:

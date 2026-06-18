@@ -34,7 +34,7 @@ class GetChatlistUpdates(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``89419521``
 
     Parameters:

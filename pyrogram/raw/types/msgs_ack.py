@@ -36,7 +36,7 @@ class MsgsAck(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MsgsAck`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``62D6B459``
 
     Parameters:

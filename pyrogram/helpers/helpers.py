@@ -20,25 +20,30 @@ def ikb(rows=None):
     for row in rows:
         line = []
         for button in row:
-            button = (
-                btn(button, button) if isinstance(button, str) else btn(*button)
-            )  # InlineKeyboardButton
+            if isinstance(button, InlineKeyboardButton):
+                pass
+            else:
+                button = (
+                    btn(button, button) if isinstance(button, str) else btn(*button)
+                )  # InlineKeyboardButton
             line.append(button)
         lines.append(line)
     return InlineKeyboardMarkup(inline_keyboard=lines)
     # return {'inline_keyboard': lines}
 
 
-def btn(text, value, type="callback_data"):
+def btn(text, value, type="callback_data", style=None, icon_custom_emoji_id=None):
     """
     Create an InlineKeyboardButton.
 
     :param text: Text of the button.
     :param value: Value of the button.
     :param type: Type of the button. Defaults to "callback_data".
+    :param style: Style of the button.
+    :param icon_custom_emoji_id: Icon custom emoji ID.
     :return: InlineKeyboardButton
     """
-    return InlineKeyboardButton(text, **{type: value})
+    return InlineKeyboardButton(text, **{type: value}, style=style, icon_custom_emoji_id=icon_custom_emoji_id)
     # return {'text': text, type: value}
 
 

@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionDiscardGroupCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DB9F9140``
 
     Parameters:

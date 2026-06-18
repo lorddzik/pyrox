@@ -36,7 +36,7 @@ class EmojiList(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EmojiList`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``7A1E11D1``
 
     Parameters:
@@ -47,7 +47,7 @@ class EmojiList(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 4 functions.
+        This object can be returned by 5 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -57,6 +57,7 @@ class EmojiList(TLObject):  # type: ignore
             account.GetDefaultProfilePhotoEmojis
             account.GetDefaultGroupPhotoEmojis
             account.GetDefaultBackgroundEmojis
+            account.GetChannelRestrictedStatusEmojis
             messages.SearchCustomEmoji
     """
 

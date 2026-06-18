@@ -36,7 +36,7 @@ class MessageEntityBankCard(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``761E6AF4``
 
     Parameters:

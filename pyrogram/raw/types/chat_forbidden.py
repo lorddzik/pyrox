@@ -36,7 +36,7 @@ class ChatForbidden(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Chat`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``6592A1A7``
 
     Parameters:

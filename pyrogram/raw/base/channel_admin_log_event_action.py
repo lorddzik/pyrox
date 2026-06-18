@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-ChannelAdminLogEventAction = Union[raw.types.ChannelAdminLogEventActionChangeAbout, raw.types.ChannelAdminLogEventActionChangeAvailableReactions, raw.types.ChannelAdminLogEventActionChangeBackgroundEmoji, raw.types.ChannelAdminLogEventActionChangeColor, raw.types.ChannelAdminLogEventActionChangeHistoryTTL, raw.types.ChannelAdminLogEventActionChangeLinkedChat, raw.types.ChannelAdminLogEventActionChangeLocation, raw.types.ChannelAdminLogEventActionChangePhoto, raw.types.ChannelAdminLogEventActionChangeStickerSet, raw.types.ChannelAdminLogEventActionChangeTitle, raw.types.ChannelAdminLogEventActionChangeUsername, raw.types.ChannelAdminLogEventActionChangeUsernames, raw.types.ChannelAdminLogEventActionCreateTopic, raw.types.ChannelAdminLogEventActionDefaultBannedRights, raw.types.ChannelAdminLogEventActionDeleteMessage, raw.types.ChannelAdminLogEventActionDeleteTopic, raw.types.ChannelAdminLogEventActionDiscardGroupCall, raw.types.ChannelAdminLogEventActionEditMessage, raw.types.ChannelAdminLogEventActionEditTopic, raw.types.ChannelAdminLogEventActionExportedInviteDelete, raw.types.ChannelAdminLogEventActionExportedInviteEdit, raw.types.ChannelAdminLogEventActionExportedInviteRevoke, raw.types.ChannelAdminLogEventActionParticipantInvite, raw.types.ChannelAdminLogEventActionParticipantJoin, raw.types.ChannelAdminLogEventActionParticipantJoinByInvite, raw.types.ChannelAdminLogEventActionParticipantJoinByRequest, raw.types.ChannelAdminLogEventActionParticipantLeave, raw.types.ChannelAdminLogEventActionParticipantMute, raw.types.ChannelAdminLogEventActionParticipantToggleAdmin, raw.types.ChannelAdminLogEventActionParticipantToggleBan, raw.types.ChannelAdminLogEventActionParticipantUnmute, raw.types.ChannelAdminLogEventActionParticipantVolume, raw.types.ChannelAdminLogEventActionPinTopic, raw.types.ChannelAdminLogEventActionSendMessage, raw.types.ChannelAdminLogEventActionStartGroupCall, raw.types.ChannelAdminLogEventActionStopPoll, raw.types.ChannelAdminLogEventActionToggleAntiSpam, raw.types.ChannelAdminLogEventActionToggleForum, raw.types.ChannelAdminLogEventActionToggleGroupCallSetting, raw.types.ChannelAdminLogEventActionToggleInvites, raw.types.ChannelAdminLogEventActionToggleNoForwards, raw.types.ChannelAdminLogEventActionTogglePreHistoryHidden, raw.types.ChannelAdminLogEventActionToggleSignatures, raw.types.ChannelAdminLogEventActionToggleSlowMode, raw.types.ChannelAdminLogEventActionUpdatePinned]
+ChannelAdminLogEventAction = Union[raw.types.ChannelAdminLogEventActionChangeAbout, raw.types.ChannelAdminLogEventActionChangeAvailableReactions, raw.types.ChannelAdminLogEventActionChangeEmojiStatus, raw.types.ChannelAdminLogEventActionChangeEmojiStickerSet, raw.types.ChannelAdminLogEventActionChangeHistoryTTL, raw.types.ChannelAdminLogEventActionChangeLinkedChat, raw.types.ChannelAdminLogEventActionChangeLocation, raw.types.ChannelAdminLogEventActionChangePeerColor, raw.types.ChannelAdminLogEventActionChangePhoto, raw.types.ChannelAdminLogEventActionChangeProfilePeerColor, raw.types.ChannelAdminLogEventActionChangeStickerSet, raw.types.ChannelAdminLogEventActionChangeTitle, raw.types.ChannelAdminLogEventActionChangeUsername, raw.types.ChannelAdminLogEventActionChangeUsernames, raw.types.ChannelAdminLogEventActionChangeWallpaper, raw.types.ChannelAdminLogEventActionCreateTopic, raw.types.ChannelAdminLogEventActionDefaultBannedRights, raw.types.ChannelAdminLogEventActionDeleteMessage, raw.types.ChannelAdminLogEventActionDeleteTopic, raw.types.ChannelAdminLogEventActionDiscardGroupCall, raw.types.ChannelAdminLogEventActionEditMessage, raw.types.ChannelAdminLogEventActionEditTopic, raw.types.ChannelAdminLogEventActionExportedInviteDelete, raw.types.ChannelAdminLogEventActionExportedInviteEdit, raw.types.ChannelAdminLogEventActionExportedInviteRevoke, raw.types.ChannelAdminLogEventActionParticipantEditRank, raw.types.ChannelAdminLogEventActionParticipantInvite, raw.types.ChannelAdminLogEventActionParticipantJoin, raw.types.ChannelAdminLogEventActionParticipantJoinByInvite, raw.types.ChannelAdminLogEventActionParticipantJoinByRequest, raw.types.ChannelAdminLogEventActionParticipantLeave, raw.types.ChannelAdminLogEventActionParticipantMute, raw.types.ChannelAdminLogEventActionParticipantSubExtend, raw.types.ChannelAdminLogEventActionParticipantToggleAdmin, raw.types.ChannelAdminLogEventActionParticipantToggleBan, raw.types.ChannelAdminLogEventActionParticipantUnmute, raw.types.ChannelAdminLogEventActionParticipantVolume, raw.types.ChannelAdminLogEventActionPinTopic, raw.types.ChannelAdminLogEventActionSendMessage, raw.types.ChannelAdminLogEventActionStartGroupCall, raw.types.ChannelAdminLogEventActionStopPoll, raw.types.ChannelAdminLogEventActionToggleAntiSpam, raw.types.ChannelAdminLogEventActionToggleAutotranslation, raw.types.ChannelAdminLogEventActionToggleForum, raw.types.ChannelAdminLogEventActionToggleGroupCallSetting, raw.types.ChannelAdminLogEventActionToggleInvites, raw.types.ChannelAdminLogEventActionToggleNoForwards, raw.types.ChannelAdminLogEventActionTogglePreHistoryHidden, raw.types.ChannelAdminLogEventActionToggleSignatureProfiles, raw.types.ChannelAdminLogEventActionToggleSignatures, raw.types.ChannelAdminLogEventActionToggleSlowMode, raw.types.ChannelAdminLogEventActionUpdatePinned]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class ChannelAdminLogEventAction:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 45 constructors available.
+        This base type has 52 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -43,16 +43,19 @@ class ChannelAdminLogEventAction:  # type: ignore
 
             ChannelAdminLogEventActionChangeAbout
             ChannelAdminLogEventActionChangeAvailableReactions
-            ChannelAdminLogEventActionChangeBackgroundEmoji
-            ChannelAdminLogEventActionChangeColor
+            ChannelAdminLogEventActionChangeEmojiStatus
+            ChannelAdminLogEventActionChangeEmojiStickerSet
             ChannelAdminLogEventActionChangeHistoryTTL
             ChannelAdminLogEventActionChangeLinkedChat
             ChannelAdminLogEventActionChangeLocation
+            ChannelAdminLogEventActionChangePeerColor
             ChannelAdminLogEventActionChangePhoto
+            ChannelAdminLogEventActionChangeProfilePeerColor
             ChannelAdminLogEventActionChangeStickerSet
             ChannelAdminLogEventActionChangeTitle
             ChannelAdminLogEventActionChangeUsername
             ChannelAdminLogEventActionChangeUsernames
+            ChannelAdminLogEventActionChangeWallpaper
             ChannelAdminLogEventActionCreateTopic
             ChannelAdminLogEventActionDefaultBannedRights
             ChannelAdminLogEventActionDeleteMessage
@@ -63,12 +66,14 @@ class ChannelAdminLogEventAction:  # type: ignore
             ChannelAdminLogEventActionExportedInviteDelete
             ChannelAdminLogEventActionExportedInviteEdit
             ChannelAdminLogEventActionExportedInviteRevoke
+            ChannelAdminLogEventActionParticipantEditRank
             ChannelAdminLogEventActionParticipantInvite
             ChannelAdminLogEventActionParticipantJoin
             ChannelAdminLogEventActionParticipantJoinByInvite
             ChannelAdminLogEventActionParticipantJoinByRequest
             ChannelAdminLogEventActionParticipantLeave
             ChannelAdminLogEventActionParticipantMute
+            ChannelAdminLogEventActionParticipantSubExtend
             ChannelAdminLogEventActionParticipantToggleAdmin
             ChannelAdminLogEventActionParticipantToggleBan
             ChannelAdminLogEventActionParticipantUnmute
@@ -78,11 +83,13 @@ class ChannelAdminLogEventAction:  # type: ignore
             ChannelAdminLogEventActionStartGroupCall
             ChannelAdminLogEventActionStopPoll
             ChannelAdminLogEventActionToggleAntiSpam
+            ChannelAdminLogEventActionToggleAutotranslation
             ChannelAdminLogEventActionToggleForum
             ChannelAdminLogEventActionToggleGroupCallSetting
             ChannelAdminLogEventActionToggleInvites
             ChannelAdminLogEventActionToggleNoForwards
             ChannelAdminLogEventActionTogglePreHistoryHidden
+            ChannelAdminLogEventActionToggleSignatureProfiles
             ChannelAdminLogEventActionToggleSignatures
             ChannelAdminLogEventActionToggleSlowMode
             ChannelAdminLogEventActionUpdatePinned

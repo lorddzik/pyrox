@@ -36,7 +36,7 @@ class AutoSaveException(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.AutoSaveException`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``81602D47``
 
     Parameters:

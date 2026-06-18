@@ -45,7 +45,7 @@ class Authorization:  # type: ignore
             auth.AuthorizationSignUpRequired
 
     Functions:
-        This object can be returned by 7 functions.
+        This object can be returned by 8 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -59,6 +59,7 @@ class Authorization:  # type: ignore
             auth.CheckPassword
             auth.RecoverPassword
             auth.ImportWebTokenAuthorization
+            auth.FinishPasskeyLogin
     """
 
     QUALNAME = "pyrogram.raw.base.auth.Authorization"

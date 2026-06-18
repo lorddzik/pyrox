@@ -34,8 +34,8 @@ class EditAdmin(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``D33C8902``
+        - Layer: ``227``
+        - ID: ``9A98AD68``
 
     Parameters:
         channel (:obj:`InputChannel <pyrogram.raw.base.InputChannel>`):
@@ -47,7 +47,7 @@ class EditAdmin(TLObject):  # type: ignore
         admin_rights (:obj:`ChatAdminRights <pyrogram.raw.base.ChatAdminRights>`):
             N/A
 
-        rank (``str``):
+        rank (``str``, *optional*):
             N/A
 
     Returns:
@@ -56,18 +56,19 @@ class EditAdmin(TLObject):  # type: ignore
 
     __slots__: List[str] = ["channel", "user_id", "admin_rights", "rank"]
 
-    ID = 0xd33c8902
+    ID = 0x9a98ad68
     QUALNAME = "functions.channels.EditAdmin"
 
-    def __init__(self, *, channel: "raw.base.InputChannel", user_id: "raw.base.InputUser", admin_rights: "raw.base.ChatAdminRights", rank: str) -> None:
+    def __init__(self, *, channel: "raw.base.InputChannel", user_id: "raw.base.InputUser", admin_rights: "raw.base.ChatAdminRights", rank: Optional[str] = None) -> None:
         self.channel = channel  # InputChannel
         self.user_id = user_id  # InputUser
         self.admin_rights = admin_rights  # ChatAdminRights
-        self.rank = rank  # string
+        self.rank = rank  # flags.0?string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "EditAdmin":
-        # No flags
+        
+        flags = Int.read(b)
         
         channel = TLObject.read(b)
         
@@ -75,15 +76,16 @@ class EditAdmin(TLObject):  # type: ignore
         
         admin_rights = TLObject.read(b)
         
-        rank = String.read(b)
-        
+        rank = String.read(b) if flags & (1 << 0) else None
         return EditAdmin(channel=channel, user_id=user_id, admin_rights=admin_rights, rank=rank)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 0) if self.rank is not None else 0
+        b.write(Int(flags))
         
         b.write(self.channel.write())
         
@@ -91,6 +93,7 @@ class EditAdmin(TLObject):  # type: ignore
         
         b.write(self.admin_rights.write())
         
-        b.write(String(self.rank))
+        if self.rank is not None:
+            b.write(String(self.rank))
         
         return b.getvalue()

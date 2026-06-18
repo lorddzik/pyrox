@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-StoryView = Union[raw.types.StoryView]
+StoryView = Union[raw.types.StoryView, raw.types.StoryViewPublicForward, raw.types.StoryViewPublicRepost]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class StoryView:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 1 constructor available.
+        This base type has 3 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,6 +42,8 @@ class StoryView:  # type: ignore
             :nosignatures:
 
             StoryView
+            StoryViewPublicForward
+            StoryViewPublicRepost
     """
 
     QUALNAME = "pyrogram.raw.base.StoryView"

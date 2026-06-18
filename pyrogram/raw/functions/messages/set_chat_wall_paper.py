@@ -34,11 +34,17 @@ class SetChatWallPaper(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``8FFACAE1``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
+            N/A
+
+        for_both (``bool``, *optional*):
+            N/A
+
+        revert (``bool``, *optional*):
             N/A
 
         wallpaper (:obj:`InputWallPaper <pyrogram.raw.base.InputWallPaper>`, *optional*):
@@ -54,13 +60,15 @@ class SetChatWallPaper(TLObject):  # type: ignore
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["peer", "wallpaper", "settings", "id"]
+    __slots__: List[str] = ["peer", "for_both", "revert", "wallpaper", "settings", "id"]
 
     ID = 0x8ffacae1
     QUALNAME = "functions.messages.SetChatWallPaper"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", wallpaper: "raw.base.InputWallPaper" = None, settings: "raw.base.WallPaperSettings" = None, id: Optional[int] = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", for_both: Optional[bool] = None, revert: Optional[bool] = None, wallpaper: "raw.base.InputWallPaper" = None, settings: "raw.base.WallPaperSettings" = None, id: Optional[int] = None) -> None:
         self.peer = peer  # InputPeer
+        self.for_both = for_both  # flags.3?true
+        self.revert = revert  # flags.4?true
         self.wallpaper = wallpaper  # flags.0?InputWallPaper
         self.settings = settings  # flags.2?WallPaperSettings
         self.id = id  # flags.1?int
@@ -70,6 +78,8 @@ class SetChatWallPaper(TLObject):  # type: ignore
         
         flags = Int.read(b)
         
+        for_both = True if flags & (1 << 3) else False
+        revert = True if flags & (1 << 4) else False
         peer = TLObject.read(b)
         
         wallpaper = TLObject.read(b) if flags & (1 << 0) else None
@@ -77,13 +87,15 @@ class SetChatWallPaper(TLObject):  # type: ignore
         settings = TLObject.read(b) if flags & (1 << 2) else None
         
         id = Int.read(b) if flags & (1 << 1) else None
-        return SetChatWallPaper(peer=peer, wallpaper=wallpaper, settings=settings, id=id)
+        return SetChatWallPaper(peer=peer, for_both=for_both, revert=revert, wallpaper=wallpaper, settings=settings, id=id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
         flags = 0
+        flags |= (1 << 3) if self.for_both else 0
+        flags |= (1 << 4) if self.revert else 0
         flags |= (1 << 0) if self.wallpaper is not None else 0
         flags |= (1 << 2) if self.settings is not None else 0
         flags |= (1 << 1) if self.id is not None else 0

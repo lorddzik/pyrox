@@ -36,7 +36,7 @@ class SecureValueError(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueError`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``869D758F``
 
     Parameters:

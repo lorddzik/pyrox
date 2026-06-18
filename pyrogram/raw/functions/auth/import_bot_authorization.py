@@ -34,7 +34,7 @@ class ImportBotAuthorization(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``67A3FF2C``
 
     Parameters:

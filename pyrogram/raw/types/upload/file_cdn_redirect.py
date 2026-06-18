@@ -36,7 +36,7 @@ class FileCdnRedirect(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.upload.File`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F18CDA44``
 
     Parameters:

@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-InputStickerSet = Union[raw.types.InputStickerSetAnimatedEmoji, raw.types.InputStickerSetAnimatedEmojiAnimations, raw.types.InputStickerSetDice, raw.types.InputStickerSetEmojiDefaultStatuses, raw.types.InputStickerSetEmojiDefaultTopicIcons, raw.types.InputStickerSetEmojiGenericAnimations, raw.types.InputStickerSetEmpty, raw.types.InputStickerSetID, raw.types.InputStickerSetPremiumGifts, raw.types.InputStickerSetShortName]
+InputStickerSet = Union[raw.types.InputStickerSetAnimatedEmoji, raw.types.InputStickerSetAnimatedEmojiAnimations, raw.types.InputStickerSetDice, raw.types.InputStickerSetEmojiChannelDefaultStatuses, raw.types.InputStickerSetEmojiDefaultStatuses, raw.types.InputStickerSetEmojiDefaultTopicIcons, raw.types.InputStickerSetEmojiGenericAnimations, raw.types.InputStickerSetEmpty, raw.types.InputStickerSetID, raw.types.InputStickerSetPremiumGifts, raw.types.InputStickerSetShortName, raw.types.InputStickerSetTonGifts]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class InputStickerSet:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 10 constructors available.
+        This base type has 12 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -44,6 +44,7 @@ class InputStickerSet:  # type: ignore
             InputStickerSetAnimatedEmoji
             InputStickerSetAnimatedEmojiAnimations
             InputStickerSetDice
+            InputStickerSetEmojiChannelDefaultStatuses
             InputStickerSetEmojiDefaultStatuses
             InputStickerSetEmojiDefaultTopicIcons
             InputStickerSetEmojiGenericAnimations
@@ -51,6 +52,7 @@ class InputStickerSet:  # type: ignore
             InputStickerSetID
             InputStickerSetPremiumGifts
             InputStickerSetShortName
+            InputStickerSetTonGifts
     """
 
     QUALNAME = "pyrogram.raw.base.InputStickerSet"

@@ -36,7 +36,7 @@ class ChatBannedRights(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatBannedRights`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9F120418``
 
     Parameters:
@@ -103,14 +103,20 @@ class ChatBannedRights(TLObject):  # type: ignore
         send_plain (``bool``, *optional*):
             N/A
 
+        edit_rank (``bool``, *optional*):
+            N/A
+
+        send_reactions (``bool``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["until_date", "view_messages", "send_messages", "send_media", "send_stickers", "send_gifs", "send_games", "send_inline", "embed_links", "send_polls", "change_info", "invite_users", "pin_messages", "manage_topics", "send_photos", "send_videos", "send_roundvideos", "send_audios", "send_voices", "send_docs", "send_plain"]
+    __slots__: List[str] = ["until_date", "view_messages", "send_messages", "send_media", "send_stickers", "send_gifs", "send_games", "send_inline", "embed_links", "send_polls", "change_info", "invite_users", "pin_messages", "manage_topics", "send_photos", "send_videos", "send_roundvideos", "send_audios", "send_voices", "send_docs", "send_plain", "edit_rank", "send_reactions"]
 
     ID = 0x9f120418
     QUALNAME = "types.ChatBannedRights"
 
-    def __init__(self, *, until_date: int, view_messages: Optional[bool] = None, send_messages: Optional[bool] = None, send_media: Optional[bool] = None, send_stickers: Optional[bool] = None, send_gifs: Optional[bool] = None, send_games: Optional[bool] = None, send_inline: Optional[bool] = None, embed_links: Optional[bool] = None, send_polls: Optional[bool] = None, change_info: Optional[bool] = None, invite_users: Optional[bool] = None, pin_messages: Optional[bool] = None, manage_topics: Optional[bool] = None, send_photos: Optional[bool] = None, send_videos: Optional[bool] = None, send_roundvideos: Optional[bool] = None, send_audios: Optional[bool] = None, send_voices: Optional[bool] = None, send_docs: Optional[bool] = None, send_plain: Optional[bool] = None) -> None:
+    def __init__(self, *, until_date: int, view_messages: Optional[bool] = None, send_messages: Optional[bool] = None, send_media: Optional[bool] = None, send_stickers: Optional[bool] = None, send_gifs: Optional[bool] = None, send_games: Optional[bool] = None, send_inline: Optional[bool] = None, embed_links: Optional[bool] = None, send_polls: Optional[bool] = None, change_info: Optional[bool] = None, invite_users: Optional[bool] = None, pin_messages: Optional[bool] = None, manage_topics: Optional[bool] = None, send_photos: Optional[bool] = None, send_videos: Optional[bool] = None, send_roundvideos: Optional[bool] = None, send_audios: Optional[bool] = None, send_voices: Optional[bool] = None, send_docs: Optional[bool] = None, send_plain: Optional[bool] = None, edit_rank: Optional[bool] = None, send_reactions: Optional[bool] = None) -> None:
         self.until_date = until_date  # int
         self.view_messages = view_messages  # flags.0?true
         self.send_messages = send_messages  # flags.1?true
@@ -132,6 +138,8 @@ class ChatBannedRights(TLObject):  # type: ignore
         self.send_voices = send_voices  # flags.23?true
         self.send_docs = send_docs  # flags.24?true
         self.send_plain = send_plain  # flags.25?true
+        self.edit_rank = edit_rank  # flags.26?true
+        self.send_reactions = send_reactions  # flags.27?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ChatBannedRights":
@@ -158,9 +166,11 @@ class ChatBannedRights(TLObject):  # type: ignore
         send_voices = True if flags & (1 << 23) else False
         send_docs = True if flags & (1 << 24) else False
         send_plain = True if flags & (1 << 25) else False
+        edit_rank = True if flags & (1 << 26) else False
+        send_reactions = True if flags & (1 << 27) else False
         until_date = Int.read(b)
         
-        return ChatBannedRights(until_date=until_date, view_messages=view_messages, send_messages=send_messages, send_media=send_media, send_stickers=send_stickers, send_gifs=send_gifs, send_games=send_games, send_inline=send_inline, embed_links=embed_links, send_polls=send_polls, change_info=change_info, invite_users=invite_users, pin_messages=pin_messages, manage_topics=manage_topics, send_photos=send_photos, send_videos=send_videos, send_roundvideos=send_roundvideos, send_audios=send_audios, send_voices=send_voices, send_docs=send_docs, send_plain=send_plain)
+        return ChatBannedRights(until_date=until_date, view_messages=view_messages, send_messages=send_messages, send_media=send_media, send_stickers=send_stickers, send_gifs=send_gifs, send_games=send_games, send_inline=send_inline, embed_links=embed_links, send_polls=send_polls, change_info=change_info, invite_users=invite_users, pin_messages=pin_messages, manage_topics=manage_topics, send_photos=send_photos, send_videos=send_videos, send_roundvideos=send_roundvideos, send_audios=send_audios, send_voices=send_voices, send_docs=send_docs, send_plain=send_plain, edit_rank=edit_rank, send_reactions=send_reactions)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -187,6 +197,8 @@ class ChatBannedRights(TLObject):  # type: ignore
         flags |= (1 << 23) if self.send_voices else 0
         flags |= (1 << 24) if self.send_docs else 0
         flags |= (1 << 25) if self.send_plain else 0
+        flags |= (1 << 26) if self.edit_rank else 0
+        flags |= (1 << 27) if self.send_reactions else 0
         b.write(Int(flags))
         
         b.write(Int(self.until_date))

@@ -34,7 +34,7 @@ class UploadImportedMedia(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``2A862092``
 
     Parameters:

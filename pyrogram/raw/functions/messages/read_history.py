@@ -34,7 +34,7 @@ class ReadHistory(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E306D3A``
 
     Parameters:

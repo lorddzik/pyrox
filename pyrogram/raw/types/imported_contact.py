@@ -36,7 +36,7 @@ class ImportedContact(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ImportedContact`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C13E3C50``
 
     Parameters:

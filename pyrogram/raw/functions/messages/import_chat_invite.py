@@ -34,20 +34,20 @@ class ImportChatInvite(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``6C50051C``
+        - Layer: ``227``
+        - ID: ``DE91436E``
 
     Parameters:
         hash (``str``):
             N/A
 
     Returns:
-        :obj:`Updates <pyrogram.raw.base.Updates>`
+        :obj:`messages.ChatInviteJoinResult <pyrogram.raw.base.messages.ChatInviteJoinResult>`
     """
 
     __slots__: List[str] = ["hash"]
 
-    ID = 0x6c50051c
+    ID = 0xde91436e
     QUALNAME = "functions.messages.ImportChatInvite"
 
     def __init__(self, *, hash: str) -> None:

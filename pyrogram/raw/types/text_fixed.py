@@ -36,7 +36,7 @@ class TextFixed(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RichText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``6C3F19B9``
 
     Parameters:

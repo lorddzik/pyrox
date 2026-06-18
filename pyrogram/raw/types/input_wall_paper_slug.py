@@ -36,7 +36,7 @@ class InputWallPaperSlug(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputWallPaper`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``72091C80``
 
     Parameters:

@@ -36,7 +36,7 @@ class SecurePasswordKdfAlgoUnknown(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecurePasswordKdfAlgo`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4A8537``
 
     Parameters:

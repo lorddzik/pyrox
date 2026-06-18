@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-KeyboardButton = Union[raw.types.InputKeyboardButtonUrlAuth, raw.types.InputKeyboardButtonUserProfile, raw.types.KeyboardButton, raw.types.KeyboardButtonBuy, raw.types.KeyboardButtonCallback, raw.types.KeyboardButtonGame, raw.types.KeyboardButtonRequestGeoLocation, raw.types.KeyboardButtonRequestPeer, raw.types.KeyboardButtonRequestPhone, raw.types.KeyboardButtonRequestPoll, raw.types.KeyboardButtonSimpleWebView, raw.types.KeyboardButtonSwitchInline, raw.types.KeyboardButtonUrl, raw.types.KeyboardButtonUrlAuth, raw.types.KeyboardButtonUserProfile, raw.types.KeyboardButtonWebView, raw.types.KeyboardButtonCopy]
+KeyboardButton = Union[raw.types.InputKeyboardButtonRequestPeer, raw.types.InputKeyboardButtonUrlAuth, raw.types.InputKeyboardButtonUserProfile, raw.types.KeyboardButton, raw.types.KeyboardButtonBuy, raw.types.KeyboardButtonCallback, raw.types.KeyboardButtonCopy, raw.types.KeyboardButtonGame, raw.types.KeyboardButtonRequestGeoLocation, raw.types.KeyboardButtonRequestPeer, raw.types.KeyboardButtonRequestPhone, raw.types.KeyboardButtonRequestPoll, raw.types.KeyboardButtonSimpleWebView, raw.types.KeyboardButtonSwitchInline, raw.types.KeyboardButtonUrl, raw.types.KeyboardButtonUrlAuth, raw.types.KeyboardButtonUserProfile, raw.types.KeyboardButtonWebView]
 
 
 # noinspection PyRedeclaration
@@ -34,18 +34,20 @@ class KeyboardButton:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 16 constructors available.
+        This base type has 18 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
         .. autosummary::
             :nosignatures:
 
+            InputKeyboardButtonRequestPeer
             InputKeyboardButtonUrlAuth
             InputKeyboardButtonUserProfile
             KeyboardButton
             KeyboardButtonBuy
             KeyboardButtonCallback
+            KeyboardButtonCopy
             KeyboardButtonGame
             KeyboardButtonRequestGeoLocation
             KeyboardButtonRequestPeer
@@ -57,7 +59,16 @@ class KeyboardButton:  # type: ignore
             KeyboardButtonUrlAuth
             KeyboardButtonUserProfile
             KeyboardButtonWebView
-            KeyboardButtonCopy
+
+    Functions:
+        This object can be returned by 1 function.
+
+        .. currentmodule:: pyrogram.raw.functions
+
+        .. autosummary::
+            :nosignatures:
+
+            bots.GetRequestedWebViewButton
     """
 
     QUALNAME = "pyrogram.raw.base.KeyboardButton"

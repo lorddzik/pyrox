@@ -36,7 +36,7 @@ class EmailVerifyPurposeLoginSetup(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EmailVerifyPurpose`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4345BE73``
 
     Parameters:

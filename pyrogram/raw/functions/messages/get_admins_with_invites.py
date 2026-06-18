@@ -34,7 +34,7 @@ class GetAdminsWithInvites(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3920E6EF``
 
     Parameters:

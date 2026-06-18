@@ -34,7 +34,7 @@ class UpdateDialogFiltersOrder(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C563C1E4``
 
     Parameters:

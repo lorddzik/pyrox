@@ -34,20 +34,20 @@ class CanSendStory(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``C7DFDFDD``
+        - Layer: ``227``
+        - ID: ``30EB63F0``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
             N/A
 
     Returns:
-        ``bool``
+        :obj:`stories.CanSendStoryCount <pyrogram.raw.base.stories.CanSendStoryCount>`
     """
 
     __slots__: List[str] = ["peer"]
 
-    ID = 0xc7dfdfdd
+    ID = 0x30eb63f0
     QUALNAME = "functions.stories.CanSendStory"
 
     def __init__(self, *, peer: "raw.base.InputPeer") -> None:

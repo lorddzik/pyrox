@@ -36,7 +36,7 @@ class PhotoSizeProgressive(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PhotoSize`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``FA3EFB95``
 
     Parameters:

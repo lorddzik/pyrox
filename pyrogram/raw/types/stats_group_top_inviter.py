@@ -36,7 +36,7 @@ class StatsGroupTopInviter(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StatsGroupTopInviter`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``535F779D``
 
     Parameters:

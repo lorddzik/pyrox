@@ -36,7 +36,7 @@ class Stickers(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.Stickers`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``30A6EC7E``
 
     Parameters:

@@ -34,7 +34,7 @@ class CreateStickerSet(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9021AB67``
 
     Parameters:
@@ -53,12 +53,6 @@ class CreateStickerSet(TLObject):  # type: ignore
         masks (``bool``, *optional*):
             N/A
 
-        animated (``bool``, *optional*):
-            N/A
-
-        videos (``bool``, *optional*):
-            N/A
-
         emojis (``bool``, *optional*):
             N/A
 
@@ -75,19 +69,17 @@ class CreateStickerSet(TLObject):  # type: ignore
         :obj:`messages.StickerSet <pyrogram.raw.base.messages.StickerSet>`
     """
 
-    __slots__: List[str] = ["user_id", "title", "short_name", "stickers", "masks", "animated", "videos", "emojis", "text_color", "thumb", "software"]
+    __slots__: List[str] = ["user_id", "title", "short_name", "stickers", "masks", "emojis", "text_color", "thumb", "software"]
 
     ID = 0x9021ab67
     QUALNAME = "functions.stickers.CreateStickerSet"
 
-    def __init__(self, *, user_id: "raw.base.InputUser", title: str, short_name: str, stickers: List["raw.base.InputStickerSetItem"], masks: Optional[bool] = None, animated: Optional[bool] = None, videos: Optional[bool] = None, emojis: Optional[bool] = None, text_color: Optional[bool] = None, thumb: "raw.base.InputDocument" = None, software: Optional[str] = None) -> None:
+    def __init__(self, *, user_id: "raw.base.InputUser", title: str, short_name: str, stickers: List["raw.base.InputStickerSetItem"], masks: Optional[bool] = None, emojis: Optional[bool] = None, text_color: Optional[bool] = None, thumb: "raw.base.InputDocument" = None, software: Optional[str] = None) -> None:
         self.user_id = user_id  # InputUser
         self.title = title  # string
         self.short_name = short_name  # string
         self.stickers = stickers  # Vector<InputStickerSetItem>
         self.masks = masks  # flags.0?true
-        self.animated = animated  # flags.1?true
-        self.videos = videos  # flags.4?true
         self.emojis = emojis  # flags.5?true
         self.text_color = text_color  # flags.6?true
         self.thumb = thumb  # flags.2?InputDocument
@@ -99,8 +91,6 @@ class CreateStickerSet(TLObject):  # type: ignore
         flags = Int.read(b)
         
         masks = True if flags & (1 << 0) else False
-        animated = True if flags & (1 << 1) else False
-        videos = True if flags & (1 << 4) else False
         emojis = True if flags & (1 << 5) else False
         text_color = True if flags & (1 << 6) else False
         user_id = TLObject.read(b)
@@ -114,7 +104,7 @@ class CreateStickerSet(TLObject):  # type: ignore
         stickers = TLObject.read(b)
         
         software = String.read(b) if flags & (1 << 3) else None
-        return CreateStickerSet(user_id=user_id, title=title, short_name=short_name, stickers=stickers, masks=masks, animated=animated, videos=videos, emojis=emojis, text_color=text_color, thumb=thumb, software=software)
+        return CreateStickerSet(user_id=user_id, title=title, short_name=short_name, stickers=stickers, masks=masks, emojis=emojis, text_color=text_color, thumb=thumb, software=software)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -122,8 +112,6 @@ class CreateStickerSet(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.masks else 0
-        flags |= (1 << 1) if self.animated else 0
-        flags |= (1 << 4) if self.videos else 0
         flags |= (1 << 5) if self.emojis else 0
         flags |= (1 << 6) if self.text_color else 0
         flags |= (1 << 2) if self.thumb is not None else 0

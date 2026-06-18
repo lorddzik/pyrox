@@ -34,8 +34,8 @@ class InviteToChannel(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``199F3A6C``
+        - Layer: ``227``
+        - ID: ``C9E33D54``
 
     Parameters:
         channel (:obj:`InputChannel <pyrogram.raw.base.InputChannel>`):
@@ -45,12 +45,12 @@ class InviteToChannel(TLObject):  # type: ignore
             N/A
 
     Returns:
-        :obj:`Updates <pyrogram.raw.base.Updates>`
+        :obj:`messages.InvitedUsers <pyrogram.raw.base.messages.InvitedUsers>`
     """
 
     __slots__: List[str] = ["channel", "users"]
 
-    ID = 0x199f3a6c
+    ID = 0xc9e33d54
     QUALNAME = "functions.channels.InviteToChannel"
 
     def __init__(self, *, channel: "raw.base.InputChannel", users: List["raw.base.InputUser"]) -> None:

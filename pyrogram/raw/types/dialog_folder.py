@@ -36,7 +36,7 @@ class DialogFolder(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Dialog`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``71BD134C``
 
     Parameters:

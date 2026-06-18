@@ -34,7 +34,7 @@ class GetRecentLocations(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``702A40E0``
 
     Parameters:

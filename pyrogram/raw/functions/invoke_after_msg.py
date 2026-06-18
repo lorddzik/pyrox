@@ -34,7 +34,7 @@ class InvokeAfterMsg(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``CB9F372D``
 
     Parameters:

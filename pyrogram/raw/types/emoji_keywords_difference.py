@@ -36,7 +36,7 @@ class EmojiKeywordsDifference(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EmojiKeywordsDifference`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``5CC761BD``
 
     Parameters:

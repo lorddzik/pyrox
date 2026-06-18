@@ -34,7 +34,7 @@ class GetChatInviteImporters(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DF04DD4E``
 
     Parameters:
@@ -53,6 +53,9 @@ class GetChatInviteImporters(TLObject):  # type: ignore
         requested (``bool``, *optional*):
             N/A
 
+        subscription_expired (``bool``, *optional*):
+            N/A
+
         link (``str``, *optional*):
             N/A
 
@@ -63,17 +66,18 @@ class GetChatInviteImporters(TLObject):  # type: ignore
         :obj:`messages.ChatInviteImporters <pyrogram.raw.base.messages.ChatInviteImporters>`
     """
 
-    __slots__: List[str] = ["peer", "offset_date", "offset_user", "limit", "requested", "link", "q"]
+    __slots__: List[str] = ["peer", "offset_date", "offset_user", "limit", "requested", "subscription_expired", "link", "q"]
 
     ID = 0xdf04dd4e
     QUALNAME = "functions.messages.GetChatInviteImporters"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", offset_date: int, offset_user: "raw.base.InputUser", limit: int, requested: Optional[bool] = None, link: Optional[str] = None, q: Optional[str] = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", offset_date: int, offset_user: "raw.base.InputUser", limit: int, requested: Optional[bool] = None, subscription_expired: Optional[bool] = None, link: Optional[str] = None, q: Optional[str] = None) -> None:
         self.peer = peer  # InputPeer
         self.offset_date = offset_date  # int
         self.offset_user = offset_user  # InputUser
         self.limit = limit  # int
         self.requested = requested  # flags.0?true
+        self.subscription_expired = subscription_expired  # flags.3?true
         self.link = link  # flags.1?string
         self.q = q  # flags.2?string
 
@@ -83,6 +87,7 @@ class GetChatInviteImporters(TLObject):  # type: ignore
         flags = Int.read(b)
         
         requested = True if flags & (1 << 0) else False
+        subscription_expired = True if flags & (1 << 3) else False
         peer = TLObject.read(b)
         
         link = String.read(b) if flags & (1 << 1) else None
@@ -93,7 +98,7 @@ class GetChatInviteImporters(TLObject):  # type: ignore
         
         limit = Int.read(b)
         
-        return GetChatInviteImporters(peer=peer, offset_date=offset_date, offset_user=offset_user, limit=limit, requested=requested, link=link, q=q)
+        return GetChatInviteImporters(peer=peer, offset_date=offset_date, offset_user=offset_user, limit=limit, requested=requested, subscription_expired=subscription_expired, link=link, q=q)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -101,6 +106,7 @@ class GetChatInviteImporters(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.requested else 0
+        flags |= (1 << 3) if self.subscription_expired else 0
         flags |= (1 << 1) if self.link is not None else 0
         flags |= (1 << 2) if self.q is not None else 0
         b.write(Int(flags))

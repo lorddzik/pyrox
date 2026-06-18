@@ -36,7 +36,7 @@ class InputChannel(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputChannel`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F35AEC28``
 
     Parameters:

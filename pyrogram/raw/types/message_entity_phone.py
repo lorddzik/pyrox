@@ -36,7 +36,7 @@ class MessageEntityPhone(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9B69E34B``
 
     Parameters:

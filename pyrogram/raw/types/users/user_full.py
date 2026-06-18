@@ -36,7 +36,7 @@ class UserFull(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.users.UserFull`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3B6D152E``
 
     Parameters:

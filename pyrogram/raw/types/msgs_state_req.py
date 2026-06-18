@@ -36,7 +36,7 @@ class MsgsStateReq(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MsgsStateReq`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DA69FB52``
 
     Parameters:

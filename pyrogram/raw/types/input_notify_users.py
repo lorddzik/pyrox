@@ -36,7 +36,7 @@ class InputNotifyUsers(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputNotifyPeer`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``193B4417``
 
     Parameters:

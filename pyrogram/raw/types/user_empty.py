@@ -36,7 +36,7 @@ class UserEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.User`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D3BC4B7A``
 
     Parameters:
@@ -44,7 +44,7 @@ class UserEmpty(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 5 functions.
+        This object can be returned by 9 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -56,6 +56,10 @@ class UserEmpty(TLObject):  # type: ignore
             account.ChangePhone
             users.GetUsers
             contacts.ImportContactToken
+            messages.GetFutureChatCreatorAfterLeave
+            channels.GetMessageAuthor
+            bots.GetAdminedBots
+            bots.CreateBot
     """
 
     __slots__: List[str] = ["id"]

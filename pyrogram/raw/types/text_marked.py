@@ -36,7 +36,7 @@ class TextMarked(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RichText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``34B8621``
 
     Parameters:

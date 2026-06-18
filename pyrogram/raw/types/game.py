@@ -36,7 +36,7 @@ class Game(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Game`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BDF9653B``
 
     Parameters:

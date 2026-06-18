@@ -36,7 +36,7 @@ class WebPage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.WebPage`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E89C45B2``
 
     Parameters:
@@ -53,6 +53,9 @@ class WebPage(TLObject):  # type: ignore
             N/A
 
         has_large_media (``bool``, *optional*):
+            N/A
+
+        video_cover_photo (``bool``, *optional*):
             N/A
 
         type (``str``, *optional*):
@@ -99,17 +102,18 @@ class WebPage(TLObject):  # type: ignore
 
     """
 
-    __slots__: List[str] = ["id", "url", "display_url", "hash", "has_large_media", "type", "site_name", "title", "description", "photo", "embed_url", "embed_type", "embed_width", "embed_height", "duration", "author", "document", "cached_page", "attributes"]
+    __slots__: List[str] = ["id", "url", "display_url", "hash", "has_large_media", "video_cover_photo", "type", "site_name", "title", "description", "photo", "embed_url", "embed_type", "embed_width", "embed_height", "duration", "author", "document", "cached_page", "attributes"]
 
     ID = 0xe89c45b2
     QUALNAME = "types.WebPage"
 
-    def __init__(self, *, id: int, url: str, display_url: str, hash: int, has_large_media: Optional[bool] = None, type: Optional[str] = None, site_name: Optional[str] = None, title: Optional[str] = None, description: Optional[str] = None, photo: "raw.base.Photo" = None, embed_url: Optional[str] = None, embed_type: Optional[str] = None, embed_width: Optional[int] = None, embed_height: Optional[int] = None, duration: Optional[int] = None, author: Optional[str] = None, document: "raw.base.Document" = None, cached_page: "raw.base.Page" = None, attributes: Optional[List["raw.base.WebPageAttribute"]] = None) -> None:
+    def __init__(self, *, id: int, url: str, display_url: str, hash: int, has_large_media: Optional[bool] = None, video_cover_photo: Optional[bool] = None, type: Optional[str] = None, site_name: Optional[str] = None, title: Optional[str] = None, description: Optional[str] = None, photo: "raw.base.Photo" = None, embed_url: Optional[str] = None, embed_type: Optional[str] = None, embed_width: Optional[int] = None, embed_height: Optional[int] = None, duration: Optional[int] = None, author: Optional[str] = None, document: "raw.base.Document" = None, cached_page: "raw.base.Page" = None, attributes: Optional[List["raw.base.WebPageAttribute"]] = None) -> None:
         self.id = id  # long
         self.url = url  # string
         self.display_url = display_url  # string
         self.hash = hash  # int
         self.has_large_media = has_large_media  # flags.13?true
+        self.video_cover_photo = video_cover_photo  # flags.14?true
         self.type = type  # flags.0?string
         self.site_name = site_name  # flags.1?string
         self.title = title  # flags.2?string
@@ -131,6 +135,7 @@ class WebPage(TLObject):  # type: ignore
         flags = Int.read(b)
         
         has_large_media = True if flags & (1 << 13) else False
+        video_cover_photo = True if flags & (1 << 14) else False
         id = Long.read(b)
         
         url = String.read(b)
@@ -157,7 +162,7 @@ class WebPage(TLObject):  # type: ignore
         
         attributes = TLObject.read(b) if flags & (1 << 12) else []
         
-        return WebPage(id=id, url=url, display_url=display_url, hash=hash, has_large_media=has_large_media, type=type, site_name=site_name, title=title, description=description, photo=photo, embed_url=embed_url, embed_type=embed_type, embed_width=embed_width, embed_height=embed_height, duration=duration, author=author, document=document, cached_page=cached_page, attributes=attributes)
+        return WebPage(id=id, url=url, display_url=display_url, hash=hash, has_large_media=has_large_media, video_cover_photo=video_cover_photo, type=type, site_name=site_name, title=title, description=description, photo=photo, embed_url=embed_url, embed_type=embed_type, embed_width=embed_width, embed_height=embed_height, duration=duration, author=author, document=document, cached_page=cached_page, attributes=attributes)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -165,6 +170,7 @@ class WebPage(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 13) if self.has_large_media else 0
+        flags |= (1 << 14) if self.video_cover_photo else 0
         flags |= (1 << 0) if self.type is not None else 0
         flags |= (1 << 1) if self.site_name is not None else 0
         flags |= (1 << 2) if self.title is not None else 0

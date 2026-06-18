@@ -36,7 +36,7 @@ class VideoSize(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.VideoSize`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DE33B094``
 
     Parameters:

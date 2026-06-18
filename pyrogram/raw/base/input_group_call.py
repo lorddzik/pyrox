@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-InputGroupCall = Union[raw.types.InputGroupCall]
+InputGroupCall = Union[raw.types.InputGroupCall, raw.types.InputGroupCallInviteMessage, raw.types.InputGroupCallSlug]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class InputGroupCall:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 1 constructor available.
+        This base type has 3 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,6 +42,8 @@ class InputGroupCall:  # type: ignore
             :nosignatures:
 
             InputGroupCall
+            InputGroupCallInviteMessage
+            InputGroupCallSlug
     """
 
     QUALNAME = "pyrogram.raw.base.InputGroupCall"

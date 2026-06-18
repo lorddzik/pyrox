@@ -36,7 +36,7 @@ class TextPlain(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RichText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``744694E0``
 
     Parameters:

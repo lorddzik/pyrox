@@ -34,7 +34,7 @@ class SendScheduledMessages(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BD38850A``
 
     Parameters:

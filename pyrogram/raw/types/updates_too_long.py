@@ -36,14 +36,14 @@ class UpdatesTooLong(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Updates`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E317AF7E``
 
     Parameters:
         No parameters required.
 
     Functions:
-        This object can be returned by 96 functions.
+        This object can be returned by 130 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -51,6 +51,10 @@ class UpdatesTooLong(TLObject):  # type: ignore
             :nosignatures:
 
             account.GetNotifyExceptions
+            account.UpdateConnectedBot
+            account.GetBotBusinessConnection
+            account.ToggleWebBrowserSettingsException
+            users.SuggestBirthday
             contacts.DeleteContacts
             contacts.AddContact
             contacts.AcceptContact
@@ -61,10 +65,7 @@ class UpdatesTooLong(TLObject):  # type: ignore
             messages.ForwardMessages
             messages.EditChatTitle
             messages.EditChatPhoto
-            messages.AddChatUser
             messages.DeleteChatUser
-            messages.CreateChat
-            messages.ImportChatInvite
             messages.StartBot
             messages.MigrateChat
             messages.SendInlineBotResult
@@ -91,37 +92,60 @@ class UpdatesTooLong(TLObject):  # type: ignore
             messages.GetExtendedMedia
             messages.SendBotRequestedPeer
             messages.SetChatWallPaper
-            help.GetAppChangelog
+            messages.SendQuickReplyMessages
+            messages.DeleteQuickReplyMessages
+            messages.EditFactCheck
+            messages.DeleteFactCheck
+            messages.SendPaidReaction
+            messages.GetPaidReactionPrivacy
+            messages.ToggleTodoCompleted
+            messages.AppendTodoList
+            messages.ToggleSuggestedPostApproval
+            messages.EditForumTopic
+            messages.UpdatePinnedForumTopic
+            messages.ReorderPinnedForumTopics
+            messages.CreateForumTopic
+            messages.EditChatCreator
+            messages.EditChatParticipantRank
+            messages.AddPollAnswer
+            messages.DeletePollAnswer
+            messages.DeleteParticipantReaction
             channels.CreateChannel
             channels.EditAdmin
             channels.EditTitle
             channels.EditPhoto
-            channels.JoinChannel
             channels.LeaveChannel
-            channels.InviteToChannel
             channels.DeleteChannel
             channels.ToggleSignatures
             channels.EditBanned
             channels.DeleteHistory
             channels.TogglePreHistoryHidden
-            channels.EditCreator
             channels.ToggleSlowMode
             channels.ConvertToGigagroup
             channels.ToggleJoinToSend
             channels.ToggleJoinRequest
             channels.ToggleForum
-            channels.CreateForumTopic
-            channels.EditForumTopic
-            channels.UpdatePinnedForumTopic
-            channels.ReorderPinnedForumTopics
             channels.ToggleAntiSpam
             channels.ToggleParticipantsHidden
             channels.UpdateColor
+            channels.ToggleViewForumAsMessages
+            channels.UpdateEmojiStatus
+            channels.SetBoostsToUnblockRestrictions
+            channels.RestrictSponsoredMessages
+            channels.UpdatePaidMessagesPrice
+            channels.ToggleAutotranslation
             bots.AllowSendMessage
             payments.AssignAppStoreTransaction
             payments.AssignPlayMarketTransaction
             payments.ApplyGiftCode
             payments.LaunchPrepaidGiveaway
+            payments.RefundStarsCharge
+            payments.UpgradeStarGift
+            payments.TransferStarGift
+            payments.UpdateStarGiftPrice
+            payments.ResolveStarGiftOffer
+            payments.SendStarGiftOffer
+            payments.CraftStarGift
             phone.DiscardCall
             phone.SetCallRating
             phone.CreateGroupCall
@@ -137,6 +161,15 @@ class UpdatesTooLong(TLObject):  # type: ignore
             phone.StartScheduledGroupCall
             phone.JoinGroupCallPresentation
             phone.LeaveGroupCallPresentation
+            phone.CreateConferenceCall
+            phone.DeleteConferenceCallParticipants
+            phone.SendConferenceCallBroadcast
+            phone.InviteConferenceCallParticipant
+            phone.DeclineConferenceCallInvite
+            phone.GetGroupCallChainBlocks
+            phone.SendGroupCallMessage
+            phone.DeleteGroupCallMessages
+            phone.DeleteGroupCallParticipantMessages
             folders.EditPeerFolders
             chatlists.JoinChatlistInvite
             chatlists.JoinChatlistUpdates
@@ -146,6 +179,7 @@ class UpdatesTooLong(TLObject):  # type: ignore
             stories.ActivateStealthMode
             stories.SendReaction
             stories.GetAllReadPeerStories
+            stories.StartLive
     """
 
     __slots__: List[str] = []

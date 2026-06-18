@@ -36,7 +36,7 @@ class TextConcat(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RichText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``7E6260D7``
 
     Parameters:

@@ -36,7 +36,7 @@ class BaseThemeArctic(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BaseTheme`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``5B11125A``
 
     Parameters:

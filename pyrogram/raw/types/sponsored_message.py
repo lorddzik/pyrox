@@ -36,41 +36,41 @@ class SponsoredMessage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SponsoredMessage`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``DAAFFF6B``
+        - Layer: ``227``
+        - ID: ``7DBF8673``
 
     Parameters:
         random_id (``bytes``):
             N/A
 
+        url (``str``):
+            N/A
+
+        title (``str``):
+            N/A
+
         message (``str``):
+            N/A
+
+        button_text (``str``):
             N/A
 
         recommended (``bool``, *optional*):
             N/A
 
-        show_peer_photo (``bool``, *optional*):
-            N/A
-
-        from_id (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
-            N/A
-
-        chat_invite (:obj:`ChatInvite <pyrogram.raw.base.ChatInvite>`, *optional*):
-            N/A
-
-        chat_invite_hash (``str``, *optional*):
-            N/A
-
-        channel_post (``int`` ``32-bit``, *optional*):
-            N/A
-
-        start_param (``str``, *optional*):
-            N/A
-
-        webpage (:obj:`SponsoredWebPage <pyrogram.raw.base.SponsoredWebPage>`, *optional*):
+        can_report (``bool``, *optional*):
             N/A
 
         entities (List of :obj:`MessageEntity <pyrogram.raw.base.MessageEntity>`, *optional*):
+            N/A
+
+        photo (:obj:`Photo <pyrogram.raw.base.Photo>`, *optional*):
+            N/A
+
+        media (:obj:`MessageMedia <pyrogram.raw.base.MessageMedia>`, *optional*):
+            N/A
+
+        color (:obj:`PeerColor <pyrogram.raw.base.PeerColor>`, *optional*):
             N/A
 
         sponsor_info (``str``, *optional*):
@@ -79,27 +79,35 @@ class SponsoredMessage(TLObject):  # type: ignore
         additional_info (``str``, *optional*):
             N/A
 
+        min_display_duration (``int`` ``32-bit``, *optional*):
+            N/A
+
+        max_display_duration (``int`` ``32-bit``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["random_id", "message", "recommended", "show_peer_photo", "from_id", "chat_invite", "chat_invite_hash", "channel_post", "start_param", "webpage", "entities", "sponsor_info", "additional_info"]
+    __slots__: List[str] = ["random_id", "url", "title", "message", "button_text", "recommended", "can_report", "entities", "photo", "media", "color", "sponsor_info", "additional_info", "min_display_duration", "max_display_duration"]
 
-    ID = 0xdaafff6b
+    ID = 0x7dbf8673
     QUALNAME = "types.SponsoredMessage"
 
-    def __init__(self, *, random_id: bytes, message: str, recommended: Optional[bool] = None, show_peer_photo: Optional[bool] = None, from_id: "raw.base.Peer" = None, chat_invite: "raw.base.ChatInvite" = None, chat_invite_hash: Optional[str] = None, channel_post: Optional[int] = None, start_param: Optional[str] = None, webpage: "raw.base.SponsoredWebPage" = None, entities: Optional[List["raw.base.MessageEntity"]] = None, sponsor_info: Optional[str] = None, additional_info: Optional[str] = None) -> None:
+    def __init__(self, *, random_id: bytes, url: str, title: str, message: str, button_text: str, recommended: Optional[bool] = None, can_report: Optional[bool] = None, entities: Optional[List["raw.base.MessageEntity"]] = None, photo: "raw.base.Photo" = None, media: "raw.base.MessageMedia" = None, color: "raw.base.PeerColor" = None, sponsor_info: Optional[str] = None, additional_info: Optional[str] = None, min_display_duration: Optional[int] = None, max_display_duration: Optional[int] = None) -> None:
         self.random_id = random_id  # bytes
+        self.url = url  # string
+        self.title = title  # string
         self.message = message  # string
+        self.button_text = button_text  # string
         self.recommended = recommended  # flags.5?true
-        self.show_peer_photo = show_peer_photo  # flags.6?true
-        self.from_id = from_id  # flags.3?Peer
-        self.chat_invite = chat_invite  # flags.4?ChatInvite
-        self.chat_invite_hash = chat_invite_hash  # flags.4?string
-        self.channel_post = channel_post  # flags.2?int
-        self.start_param = start_param  # flags.0?string
-        self.webpage = webpage  # flags.9?SponsoredWebPage
+        self.can_report = can_report  # flags.12?true
         self.entities = entities  # flags.1?Vector<MessageEntity>
+        self.photo = photo  # flags.6?Photo
+        self.media = media  # flags.14?MessageMedia
+        self.color = color  # flags.13?PeerColor
         self.sponsor_info = sponsor_info  # flags.7?string
         self.additional_info = additional_info  # flags.8?string
+        self.min_display_duration = min_display_duration  # flags.15?int
+        self.max_display_duration = max_display_duration  # flags.15?int
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "SponsoredMessage":
@@ -107,25 +115,30 @@ class SponsoredMessage(TLObject):  # type: ignore
         flags = Int.read(b)
         
         recommended = True if flags & (1 << 5) else False
-        show_peer_photo = True if flags & (1 << 6) else False
+        can_report = True if flags & (1 << 12) else False
         random_id = Bytes.read(b)
         
-        from_id = TLObject.read(b) if flags & (1 << 3) else None
+        url = String.read(b)
         
-        chat_invite = TLObject.read(b) if flags & (1 << 4) else None
-        
-        chat_invite_hash = String.read(b) if flags & (1 << 4) else None
-        channel_post = Int.read(b) if flags & (1 << 2) else None
-        start_param = String.read(b) if flags & (1 << 0) else None
-        webpage = TLObject.read(b) if flags & (1 << 9) else None
+        title = String.read(b)
         
         message = String.read(b)
         
         entities = TLObject.read(b) if flags & (1 << 1) else []
         
+        photo = TLObject.read(b) if flags & (1 << 6) else None
+        
+        media = TLObject.read(b) if flags & (1 << 14) else None
+        
+        color = TLObject.read(b) if flags & (1 << 13) else None
+        
+        button_text = String.read(b)
+        
         sponsor_info = String.read(b) if flags & (1 << 7) else None
         additional_info = String.read(b) if flags & (1 << 8) else None
-        return SponsoredMessage(random_id=random_id, message=message, recommended=recommended, show_peer_photo=show_peer_photo, from_id=from_id, chat_invite=chat_invite, chat_invite_hash=chat_invite_hash, channel_post=channel_post, start_param=start_param, webpage=webpage, entities=entities, sponsor_info=sponsor_info, additional_info=additional_info)
+        min_display_duration = Int.read(b) if flags & (1 << 15) else None
+        max_display_duration = Int.read(b) if flags & (1 << 15) else None
+        return SponsoredMessage(random_id=random_id, url=url, title=title, message=message, button_text=button_text, recommended=recommended, can_report=can_report, entities=entities, photo=photo, media=media, color=color, sponsor_info=sponsor_info, additional_info=additional_info, min_display_duration=min_display_duration, max_display_duration=max_display_duration)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -133,47 +146,49 @@ class SponsoredMessage(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 5) if self.recommended else 0
-        flags |= (1 << 6) if self.show_peer_photo else 0
-        flags |= (1 << 3) if self.from_id is not None else 0
-        flags |= (1 << 4) if self.chat_invite is not None else 0
-        flags |= (1 << 4) if self.chat_invite_hash is not None else 0
-        flags |= (1 << 2) if self.channel_post is not None else 0
-        flags |= (1 << 0) if self.start_param is not None else 0
-        flags |= (1 << 9) if self.webpage is not None else 0
+        flags |= (1 << 12) if self.can_report else 0
         flags |= (1 << 1) if self.entities else 0
+        flags |= (1 << 6) if self.photo is not None else 0
+        flags |= (1 << 14) if self.media is not None else 0
+        flags |= (1 << 13) if self.color is not None else 0
         flags |= (1 << 7) if self.sponsor_info is not None else 0
         flags |= (1 << 8) if self.additional_info is not None else 0
+        flags |= (1 << 15) if self.min_display_duration is not None else 0
+        flags |= (1 << 15) if self.max_display_duration is not None else 0
         b.write(Int(flags))
         
         b.write(Bytes(self.random_id))
         
-        if self.from_id is not None:
-            b.write(self.from_id.write())
+        b.write(String(self.url))
         
-        if self.chat_invite is not None:
-            b.write(self.chat_invite.write())
-        
-        if self.chat_invite_hash is not None:
-            b.write(String(self.chat_invite_hash))
-        
-        if self.channel_post is not None:
-            b.write(Int(self.channel_post))
-        
-        if self.start_param is not None:
-            b.write(String(self.start_param))
-        
-        if self.webpage is not None:
-            b.write(self.webpage.write())
+        b.write(String(self.title))
         
         b.write(String(self.message))
         
         if self.entities is not None:
             b.write(Vector(self.entities))
         
+        if self.photo is not None:
+            b.write(self.photo.write())
+        
+        if self.media is not None:
+            b.write(self.media.write())
+        
+        if self.color is not None:
+            b.write(self.color.write())
+        
+        b.write(String(self.button_text))
+        
         if self.sponsor_info is not None:
             b.write(String(self.sponsor_info))
         
         if self.additional_info is not None:
             b.write(String(self.additional_info))
+        
+        if self.min_display_duration is not None:
+            b.write(Int(self.min_display_duration))
+        
+        if self.max_display_duration is not None:
+            b.write(Int(self.max_display_duration))
         
         return b.getvalue()

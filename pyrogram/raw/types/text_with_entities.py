@@ -36,7 +36,7 @@ class TextWithEntities(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.TextWithEntities`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``751F3146``
 
     Parameters:
@@ -46,6 +46,15 @@ class TextWithEntities(TLObject):  # type: ignore
         entities (List of :obj:`MessageEntity <pyrogram.raw.base.MessageEntity>`):
             N/A
 
+    Functions:
+        This object can be returned by 1 function.
+
+        .. currentmodule:: pyrogram.raw.functions
+
+        .. autosummary::
+            :nosignatures:
+
+            messages.SummarizeText
     """
 
     __slots__: List[str] = ["text", "entities"]

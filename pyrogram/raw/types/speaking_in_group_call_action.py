@@ -36,7 +36,7 @@ class SpeakingInGroupCallAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D92C2285``
 
     Parameters:

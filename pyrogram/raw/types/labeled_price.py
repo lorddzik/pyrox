@@ -36,7 +36,7 @@ class LabeledPrice(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.LabeledPrice`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``CB296BF8``
 
     Parameters:

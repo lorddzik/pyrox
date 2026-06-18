@@ -36,7 +36,7 @@ class InputMediaGeoPoint(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMedia`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F9C44144``
 
     Parameters:

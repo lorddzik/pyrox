@@ -34,20 +34,20 @@ class GetPeerMaxIDs(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``535983C3``
+        - Layer: ``227``
+        - ID: ``78499170``
 
     Parameters:
         id (List of :obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
             N/A
 
     Returns:
-        List of ``int`` ``32-bit``
+        List of :obj:`RecentStory <pyrogram.raw.base.RecentStory>`
     """
 
     __slots__: List[str] = ["id"]
 
-    ID = 0x535983c3
+    ID = 0x78499170
     QUALNAME = "functions.stories.GetPeerMaxIDs"
 
     def __init__(self, *, id: List["raw.base.InputPeer"]) -> None:

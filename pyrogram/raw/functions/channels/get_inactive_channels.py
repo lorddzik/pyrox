@@ -34,7 +34,7 @@ class GetInactiveChannels(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``11E831EE``
 
     Parameters:

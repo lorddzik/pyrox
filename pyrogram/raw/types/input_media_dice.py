@@ -36,7 +36,7 @@ class InputMediaDice(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMedia`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E66FBF7B``
 
     Parameters:

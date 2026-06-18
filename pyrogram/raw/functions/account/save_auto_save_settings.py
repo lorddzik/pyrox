@@ -34,7 +34,7 @@ class SaveAutoSaveSettings(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D69B8361``
 
     Parameters:

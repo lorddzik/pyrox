@@ -36,7 +36,7 @@ class MessageActionTopicEdit(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C0944820``
 
     Parameters:

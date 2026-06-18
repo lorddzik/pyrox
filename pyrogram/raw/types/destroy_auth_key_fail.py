@@ -36,7 +36,7 @@ class DestroyAuthKeyFail(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DestroyAuthKeyRes`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``EA109B13``
 
     Parameters:

@@ -36,7 +36,7 @@ class InputMessageReplyTo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMessage`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BAD88395``
 
     Parameters:

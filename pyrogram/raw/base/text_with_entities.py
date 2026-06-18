@@ -42,6 +42,16 @@ class TextWithEntities:  # type: ignore
             :nosignatures:
 
             TextWithEntities
+
+    Functions:
+        This object can be returned by 1 function.
+
+        .. currentmodule:: pyrogram.raw.functions
+
+        .. autosummary::
+            :nosignatures:
+
+            messages.SummarizeText
     """
 
     QUALNAME = "pyrogram.raw.base.TextWithEntities"

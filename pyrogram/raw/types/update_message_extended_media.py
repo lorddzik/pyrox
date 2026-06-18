@@ -36,8 +36,8 @@ class UpdateMessageExtendedMedia(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``5A73A98C``
+        - Layer: ``227``
+        - ID: ``D5A41724``
 
     Parameters:
         peer (:obj:`Peer <pyrogram.raw.base.Peer>`):
@@ -46,20 +46,20 @@ class UpdateMessageExtendedMedia(TLObject):  # type: ignore
         msg_id (``int`` ``32-bit``):
             N/A
 
-        extended_media (:obj:`MessageExtendedMedia <pyrogram.raw.base.MessageExtendedMedia>`):
+        extended_media (List of :obj:`MessageExtendedMedia <pyrogram.raw.base.MessageExtendedMedia>`):
             N/A
 
     """
 
     __slots__: List[str] = ["peer", "msg_id", "extended_media"]
 
-    ID = 0x5a73a98c
+    ID = 0xd5a41724
     QUALNAME = "types.UpdateMessageExtendedMedia"
 
-    def __init__(self, *, peer: "raw.base.Peer", msg_id: int, extended_media: "raw.base.MessageExtendedMedia") -> None:
+    def __init__(self, *, peer: "raw.base.Peer", msg_id: int, extended_media: List["raw.base.MessageExtendedMedia"]) -> None:
         self.peer = peer  # Peer
         self.msg_id = msg_id  # int
-        self.extended_media = extended_media  # MessageExtendedMedia
+        self.extended_media = extended_media  # Vector<MessageExtendedMedia>
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UpdateMessageExtendedMedia":
@@ -83,6 +83,6 @@ class UpdateMessageExtendedMedia(TLObject):  # type: ignore
         
         b.write(Int(self.msg_id))
         
-        b.write(self.extended_media.write())
+        b.write(Vector(self.extended_media))
         
         return b.getvalue()

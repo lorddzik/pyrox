@@ -36,7 +36,7 @@ class InlineQueryPeerTypeMegagroup(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InlineQueryPeerType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``5EC4BE43``
 
     Parameters:

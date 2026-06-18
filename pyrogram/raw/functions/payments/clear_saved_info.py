@@ -34,7 +34,7 @@ class ClearSavedInfo(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D83D70C1``
 
     Parameters:

@@ -36,7 +36,7 @@ class WebAuthorizations(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.WebAuthorizations`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``ED56C9FC``
 
     Parameters:

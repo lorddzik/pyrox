@@ -36,7 +36,7 @@ class CodeTypeMissedCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.CodeType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D61AD6EE``
 
     Parameters:

@@ -36,7 +36,7 @@ class ReactionEmoji(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Reaction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1B2286B8``
 
     Parameters:

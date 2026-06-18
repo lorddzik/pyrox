@@ -36,30 +36,30 @@ class MessageActionSetChatTheme(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``AA786345``
+        - Layer: ``227``
+        - ID: ``B91BBD3A``
 
     Parameters:
-        emoticon (``str``):
+        theme (:obj:`ChatTheme <pyrogram.raw.base.ChatTheme>`):
             N/A
 
     """
 
-    __slots__: List[str] = ["emoticon"]
+    __slots__: List[str] = ["theme"]
 
-    ID = 0xaa786345
+    ID = 0xb91bbd3a
     QUALNAME = "types.MessageActionSetChatTheme"
 
-    def __init__(self, *, emoticon: str) -> None:
-        self.emoticon = emoticon  # string
+    def __init__(self, *, theme: "raw.base.ChatTheme") -> None:
+        self.theme = theme  # ChatTheme
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessageActionSetChatTheme":
         # No flags
         
-        emoticon = String.read(b)
+        theme = TLObject.read(b)
         
-        return MessageActionSetChatTheme(emoticon=emoticon)
+        return MessageActionSetChatTheme(theme=theme)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -67,6 +67,6 @@ class MessageActionSetChatTheme(TLObject):  # type: ignore
 
         # No flags
         
-        b.write(String(self.emoticon))
+        b.write(self.theme.write())
         
         return b.getvalue()

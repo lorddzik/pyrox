@@ -36,7 +36,7 @@ class PrivacyKeyPhoneCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PrivacyKey`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3D662B7B``
 
     Parameters:

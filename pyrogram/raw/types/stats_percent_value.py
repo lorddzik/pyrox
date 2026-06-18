@@ -36,7 +36,7 @@ class StatsPercentValue(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StatsPercentValue`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``CBCE2FE0``
 
     Parameters:

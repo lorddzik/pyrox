@@ -36,7 +36,7 @@ class GroupCallStreamRtmpUrl(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.phone.GroupCallStreamRtmpUrl`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``2DBF3432``
 
     Parameters:

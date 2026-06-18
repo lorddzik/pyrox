@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-PrepaidGiveaway = Union[raw.types.PrepaidGiveaway]
+PrepaidGiveaway = Union[raw.types.PrepaidGiveaway, raw.types.PrepaidStarsGiveaway]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class PrepaidGiveaway:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 1 constructor available.
+        This base type has 2 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,6 +42,7 @@ class PrepaidGiveaway:  # type: ignore
             :nosignatures:
 
             PrepaidGiveaway
+            PrepaidStarsGiveaway
     """
 
     QUALNAME = "pyrogram.raw.base.PrepaidGiveaway"

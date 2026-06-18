@@ -36,7 +36,7 @@ class LoginTokenMigrateTo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.LoginToken`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``68E9916``
 
     Parameters:

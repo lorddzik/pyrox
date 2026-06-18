@@ -34,7 +34,7 @@ class DeleteScheduledMessages(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``59AE2B16``
 
     Parameters:

@@ -34,8 +34,8 @@ class Search(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``A0FDA762``
+        - Layer: ``227``
+        - ID: ``29EE847A``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -74,6 +74,12 @@ class Search(TLObject):  # type: ignore
         from_id (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
             N/A
 
+        saved_peer_id (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
+            N/A
+
+        saved_reaction (List of :obj:`Reaction <pyrogram.raw.base.Reaction>`, *optional*):
+            N/A
+
         top_msg_id (``int`` ``32-bit``, *optional*):
             N/A
 
@@ -81,12 +87,12 @@ class Search(TLObject):  # type: ignore
         :obj:`messages.Messages <pyrogram.raw.base.messages.Messages>`
     """
 
-    __slots__: List[str] = ["peer", "q", "filter", "min_date", "max_date", "offset_id", "add_offset", "limit", "max_id", "min_id", "hash", "from_id", "top_msg_id"]
+    __slots__: List[str] = ["peer", "q", "filter", "min_date", "max_date", "offset_id", "add_offset", "limit", "max_id", "min_id", "hash", "from_id", "saved_peer_id", "saved_reaction", "top_msg_id"]
 
-    ID = 0xa0fda762
+    ID = 0x29ee847a
     QUALNAME = "functions.messages.Search"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", q: str, filter: "raw.base.MessagesFilter", min_date: int, max_date: int, offset_id: int, add_offset: int, limit: int, max_id: int, min_id: int, hash: int, from_id: "raw.base.InputPeer" = None, top_msg_id: Optional[int] = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", q: str, filter: "raw.base.MessagesFilter", min_date: int, max_date: int, offset_id: int, add_offset: int, limit: int, max_id: int, min_id: int, hash: int, from_id: "raw.base.InputPeer" = None, saved_peer_id: "raw.base.InputPeer" = None, saved_reaction: Optional[List["raw.base.Reaction"]] = None, top_msg_id: Optional[int] = None) -> None:
         self.peer = peer  # InputPeer
         self.q = q  # string
         self.filter = filter  # MessagesFilter
@@ -99,6 +105,8 @@ class Search(TLObject):  # type: ignore
         self.min_id = min_id  # int
         self.hash = hash  # long
         self.from_id = from_id  # flags.0?InputPeer
+        self.saved_peer_id = saved_peer_id  # flags.2?InputPeer
+        self.saved_reaction = saved_reaction  # flags.3?Vector<Reaction>
         self.top_msg_id = top_msg_id  # flags.1?int
 
     @staticmethod
@@ -111,6 +119,10 @@ class Search(TLObject):  # type: ignore
         q = String.read(b)
         
         from_id = TLObject.read(b) if flags & (1 << 0) else None
+        
+        saved_peer_id = TLObject.read(b) if flags & (1 << 2) else None
+        
+        saved_reaction = TLObject.read(b) if flags & (1 << 3) else []
         
         top_msg_id = Int.read(b) if flags & (1 << 1) else None
         filter = TLObject.read(b)
@@ -131,7 +143,7 @@ class Search(TLObject):  # type: ignore
         
         hash = Long.read(b)
         
-        return Search(peer=peer, q=q, filter=filter, min_date=min_date, max_date=max_date, offset_id=offset_id, add_offset=add_offset, limit=limit, max_id=max_id, min_id=min_id, hash=hash, from_id=from_id, top_msg_id=top_msg_id)
+        return Search(peer=peer, q=q, filter=filter, min_date=min_date, max_date=max_date, offset_id=offset_id, add_offset=add_offset, limit=limit, max_id=max_id, min_id=min_id, hash=hash, from_id=from_id, saved_peer_id=saved_peer_id, saved_reaction=saved_reaction, top_msg_id=top_msg_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -139,6 +151,8 @@ class Search(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.from_id is not None else 0
+        flags |= (1 << 2) if self.saved_peer_id is not None else 0
+        flags |= (1 << 3) if self.saved_reaction else 0
         flags |= (1 << 1) if self.top_msg_id is not None else 0
         b.write(Int(flags))
         
@@ -148,6 +162,12 @@ class Search(TLObject):  # type: ignore
         
         if self.from_id is not None:
             b.write(self.from_id.write())
+        
+        if self.saved_peer_id is not None:
+            b.write(self.saved_peer_id.write())
+        
+        if self.saved_reaction is not None:
+            b.write(Vector(self.saved_reaction))
         
         if self.top_msg_id is not None:
             b.write(Int(self.top_msg_id))

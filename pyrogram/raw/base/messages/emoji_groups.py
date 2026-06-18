@@ -45,7 +45,7 @@ class EmojiGroups:  # type: ignore
             messages.EmojiGroupsNotModified
 
     Functions:
-        This object can be returned by 3 functions.
+        This object can be returned by 4 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -55,6 +55,7 @@ class EmojiGroups:  # type: ignore
             messages.GetEmojiGroups
             messages.GetEmojiStatusGroups
             messages.GetEmojiProfilePhotoGroups
+            messages.GetEmojiStickerGroups
     """
 
     QUALNAME = "pyrogram.raw.base.messages.EmojiGroups"

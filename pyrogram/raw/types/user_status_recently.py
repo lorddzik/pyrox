@@ -36,32 +36,37 @@ class UserStatusRecently(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.UserStatus`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``E26F42F1``
+        - Layer: ``227``
+        - ID: ``7B197DC8``
 
     Parameters:
-        No parameters required.
+        by_me (``bool``, *optional*):
+            N/A
 
     """
 
-    __slots__: List[str] = []
+    __slots__: List[str] = ["by_me"]
 
-    ID = 0xe26f42f1
+    ID = 0x7b197dc8
     QUALNAME = "types.UserStatusRecently"
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, *, by_me: Optional[bool] = None) -> None:
+        self.by_me = by_me  # flags.0?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UserStatusRecently":
-        # No flags
         
-        return UserStatusRecently()
+        flags = Int.read(b)
+        
+        by_me = True if flags & (1 << 0) else False
+        return UserStatusRecently(by_me=by_me)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 0) if self.by_me else 0
+        b.write(Int(flags))
         
         return b.getvalue()

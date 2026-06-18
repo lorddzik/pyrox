@@ -34,7 +34,7 @@ class JoinChatlistUpdates(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E089F8F5``
 
     Parameters:

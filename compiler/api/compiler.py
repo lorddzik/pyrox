@@ -258,10 +258,13 @@ def start(format: bool = False):
 
             args = ARGS_RE.findall(line)
 
-            # Fix arg name being "self" (reserved python keyword)
+            # Fix arg name being reserved python keywords
+            reserved_keywords = {"self", "from", "global", "in", "is", "class", "def", "import", "as"}
             for i, item in enumerate(args):
                 if item[0] == "self":
                     args[i] = ("is_self", item[1])
+                elif item[0] in reserved_keywords:
+                    args[i] = (f"{item[0]}_", item[1])
 
             combinator = Combinator(
                 section=section,

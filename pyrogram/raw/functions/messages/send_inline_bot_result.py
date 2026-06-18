@@ -34,8 +34,8 @@ class SendInlineBotResult(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``F7BC68BA``
+        - Layer: ``227``
+        - ID: ``C0CF7646``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -71,16 +71,22 @@ class SendInlineBotResult(TLObject):  # type: ignore
         send_as (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
             N/A
 
+        quick_reply_shortcut (:obj:`InputQuickReplyShortcut <pyrogram.raw.base.InputQuickReplyShortcut>`, *optional*):
+            N/A
+
+        allow_paid_stars (``int`` ``64-bit``, *optional*):
+            N/A
+
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["peer", "random_id", "query_id", "id", "silent", "background", "clear_draft", "hide_via", "reply_to", "schedule_date", "send_as"]
+    __slots__: List[str] = ["peer", "random_id", "query_id", "id", "silent", "background", "clear_draft", "hide_via", "reply_to", "schedule_date", "send_as", "quick_reply_shortcut", "allow_paid_stars"]
 
-    ID = 0xf7bc68ba
+    ID = 0xc0cf7646
     QUALNAME = "functions.messages.SendInlineBotResult"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", random_id: int, query_id: int, id: str, silent: Optional[bool] = None, background: Optional[bool] = None, clear_draft: Optional[bool] = None, hide_via: Optional[bool] = None, reply_to: "raw.base.InputReplyTo" = None, schedule_date: Optional[int] = None, send_as: "raw.base.InputPeer" = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", random_id: int, query_id: int, id: str, silent: Optional[bool] = None, background: Optional[bool] = None, clear_draft: Optional[bool] = None, hide_via: Optional[bool] = None, reply_to: "raw.base.InputReplyTo" = None, schedule_date: Optional[int] = None, send_as: "raw.base.InputPeer" = None, quick_reply_shortcut: "raw.base.InputQuickReplyShortcut" = None, allow_paid_stars: Optional[int] = None) -> None:
         self.peer = peer  # InputPeer
         self.random_id = random_id  # long
         self.query_id = query_id  # long
@@ -92,6 +98,8 @@ class SendInlineBotResult(TLObject):  # type: ignore
         self.reply_to = reply_to  # flags.0?InputReplyTo
         self.schedule_date = schedule_date  # flags.10?int
         self.send_as = send_as  # flags.13?InputPeer
+        self.quick_reply_shortcut = quick_reply_shortcut  # flags.17?InputQuickReplyShortcut
+        self.allow_paid_stars = allow_paid_stars  # flags.21?long
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "SendInlineBotResult":
@@ -115,7 +123,10 @@ class SendInlineBotResult(TLObject):  # type: ignore
         schedule_date = Int.read(b) if flags & (1 << 10) else None
         send_as = TLObject.read(b) if flags & (1 << 13) else None
         
-        return SendInlineBotResult(peer=peer, random_id=random_id, query_id=query_id, id=id, silent=silent, background=background, clear_draft=clear_draft, hide_via=hide_via, reply_to=reply_to, schedule_date=schedule_date, send_as=send_as)
+        quick_reply_shortcut = TLObject.read(b) if flags & (1 << 17) else None
+        
+        allow_paid_stars = Long.read(b) if flags & (1 << 21) else None
+        return SendInlineBotResult(peer=peer, random_id=random_id, query_id=query_id, id=id, silent=silent, background=background, clear_draft=clear_draft, hide_via=hide_via, reply_to=reply_to, schedule_date=schedule_date, send_as=send_as, quick_reply_shortcut=quick_reply_shortcut, allow_paid_stars=allow_paid_stars)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -129,6 +140,8 @@ class SendInlineBotResult(TLObject):  # type: ignore
         flags |= (1 << 0) if self.reply_to is not None else 0
         flags |= (1 << 10) if self.schedule_date is not None else 0
         flags |= (1 << 13) if self.send_as is not None else 0
+        flags |= (1 << 17) if self.quick_reply_shortcut is not None else 0
+        flags |= (1 << 21) if self.allow_paid_stars is not None else 0
         b.write(Int(flags))
         
         b.write(self.peer.write())
@@ -147,5 +160,11 @@ class SendInlineBotResult(TLObject):  # type: ignore
         
         if self.send_as is not None:
             b.write(self.send_as.write())
+        
+        if self.quick_reply_shortcut is not None:
+            b.write(self.quick_reply_shortcut.write())
+        
+        if self.allow_paid_stars is not None:
+            b.write(Long(self.allow_paid_stars))
         
         return b.getvalue()

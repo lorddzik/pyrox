@@ -36,7 +36,7 @@ class ChannelParticipantsContacts(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelParticipantsFilter`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BB6AE88D``
 
     Parameters:

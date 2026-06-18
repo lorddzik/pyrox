@@ -34,7 +34,7 @@ class GetRecentMeUrls(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3DC0F114``
 
     Parameters:

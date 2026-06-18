@@ -36,7 +36,7 @@ class SentCodeTypeSms(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.SentCodeType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C000BBA2``
 
     Parameters:

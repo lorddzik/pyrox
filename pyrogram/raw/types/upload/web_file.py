@@ -36,7 +36,7 @@ class WebFile(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.upload.WebFile`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``21E753BC``
 
     Parameters:
