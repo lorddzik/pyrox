@@ -745,7 +745,7 @@ class Message(Object, Update):
                         )
 
                         parsed_message.service = enums.MessageServiceType.GAME_HIGH_SCORE
-                    except Exception:
+                    except MessageIdsEmpty:
                         pass
 
             client.message_cache[(parsed_message.chat.id, parsed_message.id)] = parsed_message
@@ -1047,11 +1047,11 @@ class Message(Object, Update):
                                         replies=replies - 1,
                                         **reply_to_params
                                     )
-                                except Exception:
+                                except ChannelPrivate:
                                     pass
                             if reply_to_message and not reply_to_message.forum_topic_created:
                                 parsed_message.reply_to_message = reply_to_message
-                        except Exception:
+                        except MessageIdsEmpty:
                             pass
                     elif parsed_message.reply_to_story_id:
                         try:

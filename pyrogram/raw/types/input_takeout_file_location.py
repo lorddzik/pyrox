@@ -36,7 +36,7 @@ class InputTakeoutFileLocation(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputFileLocation`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``29BE5899``
 
     Parameters:

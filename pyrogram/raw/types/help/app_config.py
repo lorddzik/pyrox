@@ -36,7 +36,7 @@ class AppConfig(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.AppConfig`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``DD18782E``
 
     Parameters:

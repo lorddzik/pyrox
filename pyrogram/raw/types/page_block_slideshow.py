@@ -36,7 +36,7 @@ class PageBlockSlideshow(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``31F9590``
 
     Parameters:

@@ -34,7 +34,7 @@ class InvokeWithLayer(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``DA9B0D0D``
 
     Parameters:

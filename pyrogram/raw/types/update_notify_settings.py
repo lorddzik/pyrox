@@ -36,7 +36,7 @@ class UpdateNotifySettings(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``BEC268EF``
 
     Parameters:

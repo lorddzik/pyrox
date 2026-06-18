@@ -36,8 +36,8 @@ class InputKeyboardButtonUserProfile(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButton`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``7D5E07C7``
+        - Layer: ``166``
+        - ID: ``E988037B``
 
     Parameters:
         text (``str``):
@@ -46,53 +46,32 @@ class InputKeyboardButtonUserProfile(TLObject):  # type: ignore
         user_id (:obj:`InputUser <pyrogram.raw.base.InputUser>`):
             N/A
 
-        style (:obj:`KeyboardButtonStyle <pyrogram.raw.base.KeyboardButtonStyle>`, *optional*):
-            N/A
-
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            bots.GetRequestedWebViewButton
     """
 
-    __slots__: List[str] = ["text", "user_id", "style"]
+    __slots__: List[str] = ["text", "user_id"]
 
-    ID = 0x7d5e07c7
+    ID = 0xe988037b
     QUALNAME = "types.InputKeyboardButtonUserProfile"
 
-    def __init__(self, *, text: str, user_id: "raw.base.InputUser", style: "raw.base.KeyboardButtonStyle" = None) -> None:
+    def __init__(self, *, text: str, user_id: "raw.base.InputUser") -> None:
         self.text = text  # string
         self.user_id = user_id  # InputUser
-        self.style = style  # flags.10?KeyboardButtonStyle
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "InputKeyboardButtonUserProfile":
-        
-        flags = Int.read(b)
-        
-        style = TLObject.read(b) if flags & (1 << 10) else None
+        # No flags
         
         text = String.read(b)
         
         user_id = TLObject.read(b)
         
-        return InputKeyboardButtonUserProfile(text=text, user_id=user_id, style=style)
+        return InputKeyboardButtonUserProfile(text=text, user_id=user_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 10) if self.style is not None else 0
-        b.write(Int(flags))
-        
-        if self.style is not None:
-            b.write(self.style.write())
+        # No flags
         
         b.write(String(self.text))
         

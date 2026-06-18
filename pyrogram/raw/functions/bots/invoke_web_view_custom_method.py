@@ -34,7 +34,7 @@ class InvokeWebViewCustomMethod(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``87FC5E7``
 
     Parameters:

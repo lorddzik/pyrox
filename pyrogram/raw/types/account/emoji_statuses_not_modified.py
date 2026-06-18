@@ -36,14 +36,14 @@ class EmojiStatusesNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.EmojiStatuses`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D08CE645``
 
     Parameters:
         No parameters required.
 
     Functions:
-        This object can be returned by 4 functions.
+        This object can be returned by 2 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -52,8 +52,6 @@ class EmojiStatusesNotModified(TLObject):  # type: ignore
 
             account.GetDefaultEmojiStatuses
             account.GetRecentEmojiStatuses
-            account.GetChannelDefaultEmojiStatuses
-            account.GetCollectibleEmojiStatuses
     """
 
     __slots__: List[str] = []

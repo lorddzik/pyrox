@@ -34,7 +34,7 @@ class TogglePinned(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9A75A1EF``
 
     Parameters:

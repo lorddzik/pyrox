@@ -36,7 +36,7 @@ class ForumTopicDeleted(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ForumTopic`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``23F109B``
 
     Parameters:

@@ -36,8 +36,8 @@ class ChannelFull(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatFull`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``A04E8D3A``
+        - Layer: ``166``
+        - ID: ``723027BD``
 
     Parameters:
         id (``int`` ``64-bit``):
@@ -104,30 +104,6 @@ class ChannelFull(TLObject):  # type: ignore
             N/A
 
         stories_pinned_available (``bool``, *optional*):
-            N/A
-
-        view_forum_as_messages (``bool``, *optional*):
-            N/A
-
-        restricted_sponsored (``bool``, *optional*):
-            N/A
-
-        can_view_revenue (``bool``, *optional*):
-            N/A
-
-        paid_media_allowed (``bool``, *optional*):
-            N/A
-
-        can_view_stars_revenue (``bool``, *optional*):
-            N/A
-
-        paid_reactions_available (``bool``, *optional*):
-            N/A
-
-        stargifts_available (``bool``, *optional*):
-            N/A
-
-        paid_messages_available (``bool``, *optional*):
             N/A
 
         participants_count (``int`` ``32-bit``, *optional*):
@@ -208,47 +184,17 @@ class ChannelFull(TLObject):  # type: ignore
         available_reactions (:obj:`ChatReactions <pyrogram.raw.base.ChatReactions>`, *optional*):
             N/A
 
-        reactions_limit (``int`` ``32-bit``, *optional*):
-            N/A
-
         stories (:obj:`PeerStories <pyrogram.raw.base.PeerStories>`, *optional*):
-            N/A
-
-        wallpaper (:obj:`WallPaper <pyrogram.raw.base.WallPaper>`, *optional*):
-            N/A
-
-        boosts_applied (``int`` ``32-bit``, *optional*):
-            N/A
-
-        boosts_unrestrict (``int`` ``32-bit``, *optional*):
-            N/A
-
-        emojiset (:obj:`StickerSet <pyrogram.raw.base.StickerSet>`, *optional*):
-            N/A
-
-        bot_verification (:obj:`BotVerification <pyrogram.raw.base.BotVerification>`, *optional*):
-            N/A
-
-        stargifts_count (``int`` ``32-bit``, *optional*):
-            N/A
-
-        send_paid_messages_stars (``int`` ``64-bit``, *optional*):
-            N/A
-
-        main_tab (:obj:`ProfileTab <pyrogram.raw.base.ProfileTab>`, *optional*):
-            N/A
-
-        guard_bot_id (``int`` ``64-bit``, *optional*):
             N/A
 
     """
 
-    __slots__: List[str] = ["id", "about", "read_inbox_max_id", "read_outbox_max_id", "unread_count", "chat_photo", "notify_settings", "bot_info", "pts", "can_view_participants", "can_set_username", "can_set_stickers", "hidden_prehistory", "can_set_location", "has_scheduled", "can_view_stats", "blocked", "can_delete_channel", "antispam", "participants_hidden", "translations_disabled", "stories_pinned_available", "view_forum_as_messages", "restricted_sponsored", "can_view_revenue", "paid_media_allowed", "can_view_stars_revenue", "paid_reactions_available", "stargifts_available", "paid_messages_available", "participants_count", "admins_count", "kicked_count", "banned_count", "online_count", "exported_invite", "migrated_from_chat_id", "migrated_from_max_id", "pinned_msg_id", "stickerset", "available_min_id", "folder_id", "linked_chat_id", "location", "slowmode_seconds", "slowmode_next_send_date", "stats_dc", "call", "ttl_period", "pending_suggestions", "groupcall_default_join_as", "theme_emoticon", "requests_pending", "recent_requesters", "default_send_as", "available_reactions", "reactions_limit", "stories", "wallpaper", "boosts_applied", "boosts_unrestrict", "emojiset", "bot_verification", "stargifts_count", "send_paid_messages_stars", "main_tab", "guard_bot_id"]
+    __slots__: List[str] = ["id", "about", "read_inbox_max_id", "read_outbox_max_id", "unread_count", "chat_photo", "notify_settings", "bot_info", "pts", "can_view_participants", "can_set_username", "can_set_stickers", "hidden_prehistory", "can_set_location", "has_scheduled", "can_view_stats", "blocked", "can_delete_channel", "antispam", "participants_hidden", "translations_disabled", "stories_pinned_available", "participants_count", "admins_count", "kicked_count", "banned_count", "online_count", "exported_invite", "migrated_from_chat_id", "migrated_from_max_id", "pinned_msg_id", "stickerset", "available_min_id", "folder_id", "linked_chat_id", "location", "slowmode_seconds", "slowmode_next_send_date", "stats_dc", "call", "ttl_period", "pending_suggestions", "groupcall_default_join_as", "theme_emoticon", "requests_pending", "recent_requesters", "default_send_as", "available_reactions", "stories"]
 
-    ID = 0xa04e8d3a
+    ID = 0x723027bd
     QUALNAME = "types.ChannelFull"
 
-    def __init__(self, *, id: int, about: str, read_inbox_max_id: int, read_outbox_max_id: int, unread_count: int, chat_photo: "raw.base.Photo", notify_settings: "raw.base.PeerNotifySettings", bot_info: List["raw.base.BotInfo"], pts: int, can_view_participants: Optional[bool] = None, can_set_username: Optional[bool] = None, can_set_stickers: Optional[bool] = None, hidden_prehistory: Optional[bool] = None, can_set_location: Optional[bool] = None, has_scheduled: Optional[bool] = None, can_view_stats: Optional[bool] = None, blocked: Optional[bool] = None, can_delete_channel: Optional[bool] = None, antispam: Optional[bool] = None, participants_hidden: Optional[bool] = None, translations_disabled: Optional[bool] = None, stories_pinned_available: Optional[bool] = None, view_forum_as_messages: Optional[bool] = None, restricted_sponsored: Optional[bool] = None, can_view_revenue: Optional[bool] = None, paid_media_allowed: Optional[bool] = None, can_view_stars_revenue: Optional[bool] = None, paid_reactions_available: Optional[bool] = None, stargifts_available: Optional[bool] = None, paid_messages_available: Optional[bool] = None, participants_count: Optional[int] = None, admins_count: Optional[int] = None, kicked_count: Optional[int] = None, banned_count: Optional[int] = None, online_count: Optional[int] = None, exported_invite: "raw.base.ExportedChatInvite" = None, migrated_from_chat_id: Optional[int] = None, migrated_from_max_id: Optional[int] = None, pinned_msg_id: Optional[int] = None, stickerset: "raw.base.StickerSet" = None, available_min_id: Optional[int] = None, folder_id: Optional[int] = None, linked_chat_id: Optional[int] = None, location: "raw.base.ChannelLocation" = None, slowmode_seconds: Optional[int] = None, slowmode_next_send_date: Optional[int] = None, stats_dc: Optional[int] = None, call: "raw.base.InputGroupCall" = None, ttl_period: Optional[int] = None, pending_suggestions: Optional[List[str]] = None, groupcall_default_join_as: "raw.base.Peer" = None, theme_emoticon: Optional[str] = None, requests_pending: Optional[int] = None, recent_requesters: Optional[List[int]] = None, default_send_as: "raw.base.Peer" = None, available_reactions: "raw.base.ChatReactions" = None, reactions_limit: Optional[int] = None, stories: "raw.base.PeerStories" = None, wallpaper: "raw.base.WallPaper" = None, boosts_applied: Optional[int] = None, boosts_unrestrict: Optional[int] = None, emojiset: "raw.base.StickerSet" = None, bot_verification: "raw.base.BotVerification" = None, stargifts_count: Optional[int] = None, send_paid_messages_stars: Optional[int] = None, main_tab: "raw.base.ProfileTab" = None, guard_bot_id: Optional[int] = None) -> None:
+    def __init__(self, *, id: int, about: str, read_inbox_max_id: int, read_outbox_max_id: int, unread_count: int, chat_photo: "raw.base.Photo", notify_settings: "raw.base.PeerNotifySettings", bot_info: List["raw.base.BotInfo"], pts: int, can_view_participants: Optional[bool] = None, can_set_username: Optional[bool] = None, can_set_stickers: Optional[bool] = None, hidden_prehistory: Optional[bool] = None, can_set_location: Optional[bool] = None, has_scheduled: Optional[bool] = None, can_view_stats: Optional[bool] = None, blocked: Optional[bool] = None, can_delete_channel: Optional[bool] = None, antispam: Optional[bool] = None, participants_hidden: Optional[bool] = None, translations_disabled: Optional[bool] = None, stories_pinned_available: Optional[bool] = None, participants_count: Optional[int] = None, admins_count: Optional[int] = None, kicked_count: Optional[int] = None, banned_count: Optional[int] = None, online_count: Optional[int] = None, exported_invite: "raw.base.ExportedChatInvite" = None, migrated_from_chat_id: Optional[int] = None, migrated_from_max_id: Optional[int] = None, pinned_msg_id: Optional[int] = None, stickerset: "raw.base.StickerSet" = None, available_min_id: Optional[int] = None, folder_id: Optional[int] = None, linked_chat_id: Optional[int] = None, location: "raw.base.ChannelLocation" = None, slowmode_seconds: Optional[int] = None, slowmode_next_send_date: Optional[int] = None, stats_dc: Optional[int] = None, call: "raw.base.InputGroupCall" = None, ttl_period: Optional[int] = None, pending_suggestions: Optional[List[str]] = None, groupcall_default_join_as: "raw.base.Peer" = None, theme_emoticon: Optional[str] = None, requests_pending: Optional[int] = None, recent_requesters: Optional[List[int]] = None, default_send_as: "raw.base.Peer" = None, available_reactions: "raw.base.ChatReactions" = None, stories: "raw.base.PeerStories" = None) -> None:
         self.id = id  # long
         self.about = about  # string
         self.read_inbox_max_id = read_inbox_max_id  # int
@@ -271,14 +217,6 @@ class ChannelFull(TLObject):  # type: ignore
         self.participants_hidden = participants_hidden  # flags2.2?true
         self.translations_disabled = translations_disabled  # flags2.3?true
         self.stories_pinned_available = stories_pinned_available  # flags2.5?true
-        self.view_forum_as_messages = view_forum_as_messages  # flags2.6?true
-        self.restricted_sponsored = restricted_sponsored  # flags2.11?true
-        self.can_view_revenue = can_view_revenue  # flags2.12?true
-        self.paid_media_allowed = paid_media_allowed  # flags2.14?true
-        self.can_view_stars_revenue = can_view_stars_revenue  # flags2.15?true
-        self.paid_reactions_available = paid_reactions_available  # flags2.16?true
-        self.stargifts_available = stargifts_available  # flags2.19?true
-        self.paid_messages_available = paid_messages_available  # flags2.20?true
         self.participants_count = participants_count  # flags.0?int
         self.admins_count = admins_count  # flags.1?int
         self.kicked_count = kicked_count  # flags.2?int
@@ -305,17 +243,7 @@ class ChannelFull(TLObject):  # type: ignore
         self.recent_requesters = recent_requesters  # flags.28?Vector<long>
         self.default_send_as = default_send_as  # flags.29?Peer
         self.available_reactions = available_reactions  # flags.30?ChatReactions
-        self.reactions_limit = reactions_limit  # flags2.13?int
         self.stories = stories  # flags2.4?PeerStories
-        self.wallpaper = wallpaper  # flags2.7?WallPaper
-        self.boosts_applied = boosts_applied  # flags2.8?int
-        self.boosts_unrestrict = boosts_unrestrict  # flags2.9?int
-        self.emojiset = emojiset  # flags2.10?StickerSet
-        self.bot_verification = bot_verification  # flags2.17?BotVerification
-        self.stargifts_count = stargifts_count  # flags2.18?int
-        self.send_paid_messages_stars = send_paid_messages_stars  # flags2.21?long
-        self.main_tab = main_tab  # flags2.22?ProfileTab
-        self.guard_bot_id = guard_bot_id  # flags2.23?long
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ChannelFull":
@@ -337,14 +265,6 @@ class ChannelFull(TLObject):  # type: ignore
         participants_hidden = True if flags2 & (1 << 2) else False
         translations_disabled = True if flags2 & (1 << 3) else False
         stories_pinned_available = True if flags2 & (1 << 5) else False
-        view_forum_as_messages = True if flags2 & (1 << 6) else False
-        restricted_sponsored = True if flags2 & (1 << 11) else False
-        can_view_revenue = True if flags2 & (1 << 12) else False
-        paid_media_allowed = True if flags2 & (1 << 14) else False
-        can_view_stars_revenue = True if flags2 & (1 << 15) else False
-        paid_reactions_available = True if flags2 & (1 << 16) else False
-        stargifts_available = True if flags2 & (1 << 19) else False
-        paid_messages_available = True if flags2 & (1 << 20) else False
         id = Long.read(b)
         
         about = String.read(b)
@@ -398,23 +318,9 @@ class ChannelFull(TLObject):  # type: ignore
         
         available_reactions = TLObject.read(b) if flags & (1 << 30) else None
         
-        reactions_limit = Int.read(b) if flags2 & (1 << 13) else None
         stories = TLObject.read(b) if flags2 & (1 << 4) else None
         
-        wallpaper = TLObject.read(b) if flags2 & (1 << 7) else None
-        
-        boosts_applied = Int.read(b) if flags2 & (1 << 8) else None
-        boosts_unrestrict = Int.read(b) if flags2 & (1 << 9) else None
-        emojiset = TLObject.read(b) if flags2 & (1 << 10) else None
-        
-        bot_verification = TLObject.read(b) if flags2 & (1 << 17) else None
-        
-        stargifts_count = Int.read(b) if flags2 & (1 << 18) else None
-        send_paid_messages_stars = Long.read(b) if flags2 & (1 << 21) else None
-        main_tab = TLObject.read(b) if flags2 & (1 << 22) else None
-        
-        guard_bot_id = Long.read(b) if flags2 & (1 << 23) else None
-        return ChannelFull(id=id, about=about, read_inbox_max_id=read_inbox_max_id, read_outbox_max_id=read_outbox_max_id, unread_count=unread_count, chat_photo=chat_photo, notify_settings=notify_settings, bot_info=bot_info, pts=pts, can_view_participants=can_view_participants, can_set_username=can_set_username, can_set_stickers=can_set_stickers, hidden_prehistory=hidden_prehistory, can_set_location=can_set_location, has_scheduled=has_scheduled, can_view_stats=can_view_stats, blocked=blocked, can_delete_channel=can_delete_channel, antispam=antispam, participants_hidden=participants_hidden, translations_disabled=translations_disabled, stories_pinned_available=stories_pinned_available, view_forum_as_messages=view_forum_as_messages, restricted_sponsored=restricted_sponsored, can_view_revenue=can_view_revenue, paid_media_allowed=paid_media_allowed, can_view_stars_revenue=can_view_stars_revenue, paid_reactions_available=paid_reactions_available, stargifts_available=stargifts_available, paid_messages_available=paid_messages_available, participants_count=participants_count, admins_count=admins_count, kicked_count=kicked_count, banned_count=banned_count, online_count=online_count, exported_invite=exported_invite, migrated_from_chat_id=migrated_from_chat_id, migrated_from_max_id=migrated_from_max_id, pinned_msg_id=pinned_msg_id, stickerset=stickerset, available_min_id=available_min_id, folder_id=folder_id, linked_chat_id=linked_chat_id, location=location, slowmode_seconds=slowmode_seconds, slowmode_next_send_date=slowmode_next_send_date, stats_dc=stats_dc, call=call, ttl_period=ttl_period, pending_suggestions=pending_suggestions, groupcall_default_join_as=groupcall_default_join_as, theme_emoticon=theme_emoticon, requests_pending=requests_pending, recent_requesters=recent_requesters, default_send_as=default_send_as, available_reactions=available_reactions, reactions_limit=reactions_limit, stories=stories, wallpaper=wallpaper, boosts_applied=boosts_applied, boosts_unrestrict=boosts_unrestrict, emojiset=emojiset, bot_verification=bot_verification, stargifts_count=stargifts_count, send_paid_messages_stars=send_paid_messages_stars, main_tab=main_tab, guard_bot_id=guard_bot_id)
+        return ChannelFull(id=id, about=about, read_inbox_max_id=read_inbox_max_id, read_outbox_max_id=read_outbox_max_id, unread_count=unread_count, chat_photo=chat_photo, notify_settings=notify_settings, bot_info=bot_info, pts=pts, can_view_participants=can_view_participants, can_set_username=can_set_username, can_set_stickers=can_set_stickers, hidden_prehistory=hidden_prehistory, can_set_location=can_set_location, has_scheduled=has_scheduled, can_view_stats=can_view_stats, blocked=blocked, can_delete_channel=can_delete_channel, antispam=antispam, participants_hidden=participants_hidden, translations_disabled=translations_disabled, stories_pinned_available=stories_pinned_available, participants_count=participants_count, admins_count=admins_count, kicked_count=kicked_count, banned_count=banned_count, online_count=online_count, exported_invite=exported_invite, migrated_from_chat_id=migrated_from_chat_id, migrated_from_max_id=migrated_from_max_id, pinned_msg_id=pinned_msg_id, stickerset=stickerset, available_min_id=available_min_id, folder_id=folder_id, linked_chat_id=linked_chat_id, location=location, slowmode_seconds=slowmode_seconds, slowmode_next_send_date=slowmode_next_send_date, stats_dc=stats_dc, call=call, ttl_period=ttl_period, pending_suggestions=pending_suggestions, groupcall_default_join_as=groupcall_default_join_as, theme_emoticon=theme_emoticon, requests_pending=requests_pending, recent_requesters=recent_requesters, default_send_as=default_send_as, available_reactions=available_reactions, stories=stories)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -462,25 +368,7 @@ class ChannelFull(TLObject):  # type: ignore
         flags2 |= (1 << 2) if self.participants_hidden else 0
         flags2 |= (1 << 3) if self.translations_disabled else 0
         flags2 |= (1 << 5) if self.stories_pinned_available else 0
-        flags2 |= (1 << 6) if self.view_forum_as_messages else 0
-        flags2 |= (1 << 11) if self.restricted_sponsored else 0
-        flags2 |= (1 << 12) if self.can_view_revenue else 0
-        flags2 |= (1 << 14) if self.paid_media_allowed else 0
-        flags2 |= (1 << 15) if self.can_view_stars_revenue else 0
-        flags2 |= (1 << 16) if self.paid_reactions_available else 0
-        flags2 |= (1 << 19) if self.stargifts_available else 0
-        flags2 |= (1 << 20) if self.paid_messages_available else 0
-        flags2 |= (1 << 13) if self.reactions_limit is not None else 0
         flags2 |= (1 << 4) if self.stories is not None else 0
-        flags2 |= (1 << 7) if self.wallpaper is not None else 0
-        flags2 |= (1 << 8) if self.boosts_applied is not None else 0
-        flags2 |= (1 << 9) if self.boosts_unrestrict is not None else 0
-        flags2 |= (1 << 10) if self.emojiset is not None else 0
-        flags2 |= (1 << 17) if self.bot_verification is not None else 0
-        flags2 |= (1 << 18) if self.stargifts_count is not None else 0
-        flags2 |= (1 << 21) if self.send_paid_messages_stars is not None else 0
-        flags2 |= (1 << 22) if self.main_tab is not None else 0
-        flags2 |= (1 << 23) if self.guard_bot_id is not None else 0
         b.write(Int(flags2))
         
         b.write(Long(self.id))
@@ -579,37 +467,7 @@ class ChannelFull(TLObject):  # type: ignore
         if self.available_reactions is not None:
             b.write(self.available_reactions.write())
         
-        if self.reactions_limit is not None:
-            b.write(Int(self.reactions_limit))
-        
         if self.stories is not None:
             b.write(self.stories.write())
-        
-        if self.wallpaper is not None:
-            b.write(self.wallpaper.write())
-        
-        if self.boosts_applied is not None:
-            b.write(Int(self.boosts_applied))
-        
-        if self.boosts_unrestrict is not None:
-            b.write(Int(self.boosts_unrestrict))
-        
-        if self.emojiset is not None:
-            b.write(self.emojiset.write())
-        
-        if self.bot_verification is not None:
-            b.write(self.bot_verification.write())
-        
-        if self.stargifts_count is not None:
-            b.write(Int(self.stargifts_count))
-        
-        if self.send_paid_messages_stars is not None:
-            b.write(Long(self.send_paid_messages_stars))
-        
-        if self.main_tab is not None:
-            b.write(self.main_tab.write())
-        
-        if self.guard_bot_id is not None:
-            b.write(Long(self.guard_bot_id))
         
         return b.getvalue()

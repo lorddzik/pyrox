@@ -34,7 +34,7 @@ class CheckGroupCall(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B59CF977``
 
     Parameters:

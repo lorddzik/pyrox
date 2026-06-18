@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-EmojiStatus = Union[raw.types.EmojiStatus, raw.types.EmojiStatusCollectible, raw.types.EmojiStatusEmpty, raw.types.InputEmojiStatusCollectible]
+EmojiStatus = Union[raw.types.EmojiStatus, raw.types.EmojiStatusEmpty, raw.types.EmojiStatusUntil]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class EmojiStatus:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 4 constructors available.
+        This base type has 3 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,9 +42,8 @@ class EmojiStatus:  # type: ignore
             :nosignatures:
 
             EmojiStatus
-            EmojiStatusCollectible
             EmojiStatusEmpty
-            InputEmojiStatusCollectible
+            EmojiStatusUntil
     """
 
     QUALNAME = "pyrogram.raw.base.EmojiStatus"

@@ -36,7 +36,7 @@ class ReactionCount(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ReactionCount`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A3D1CB80``
 
     Parameters:

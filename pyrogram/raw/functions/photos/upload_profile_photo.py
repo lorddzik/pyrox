@@ -34,7 +34,7 @@ class UploadProfilePhoto(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``388A3B5``
 
     Parameters:

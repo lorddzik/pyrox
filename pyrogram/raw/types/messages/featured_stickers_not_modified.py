@@ -36,7 +36,7 @@ class FeaturedStickersNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.FeaturedStickers`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C6DC0C66``
 
     Parameters:

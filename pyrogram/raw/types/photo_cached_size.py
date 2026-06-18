@@ -36,7 +36,7 @@ class PhotoCachedSize(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PhotoSize`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``21E1AD6``
 
     Parameters:

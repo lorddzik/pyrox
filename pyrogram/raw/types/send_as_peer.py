@@ -36,7 +36,7 @@ class SendAsPeer(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendAsPeer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B81C7034``
 
     Parameters:

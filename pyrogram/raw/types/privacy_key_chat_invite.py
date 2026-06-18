@@ -36,7 +36,7 @@ class PrivacyKeyChatInvite(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PrivacyKey`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``500E6DFA``
 
     Parameters:

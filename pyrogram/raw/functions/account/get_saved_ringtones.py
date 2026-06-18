@@ -34,7 +34,7 @@ class GetSavedRingtones(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E1902288``
 
     Parameters:

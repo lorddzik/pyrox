@@ -36,7 +36,7 @@ class InputPrivacyKeyPhoneP2P(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputPrivacyKey`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``DB9E70D2``
 
     Parameters:

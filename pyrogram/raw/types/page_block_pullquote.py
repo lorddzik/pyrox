@@ -36,7 +36,7 @@ class PageBlockPullquote(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``4F4456D3``
 
     Parameters:

@@ -34,7 +34,7 @@ class UploadEncryptedFile(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5057C497``
 
     Parameters:

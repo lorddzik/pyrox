@@ -34,7 +34,7 @@ class EditBanned(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``96E6CD81``
 
     Parameters:

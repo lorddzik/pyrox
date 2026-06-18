@@ -34,7 +34,7 @@ class ReorderPinnedDialogs(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``3B1ADF37``
 
     Parameters:

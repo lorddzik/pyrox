@@ -36,7 +36,7 @@ class ResolvedPeer(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.contacts.ResolvedPeer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7F077AD9``
 
     Parameters:

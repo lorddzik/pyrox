@@ -34,7 +34,7 @@ class GetContentSettings(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``8B9B4DAE``
 
     Parameters:

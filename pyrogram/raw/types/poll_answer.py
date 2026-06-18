@@ -36,76 +36,45 @@ class PollAnswer(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PollAnswer`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``4B7D786A``
+        - Layer: ``166``
+        - ID: ``6CA9C2E9``
 
     Parameters:
-        text (:obj:`TextWithEntities <pyrogram.raw.base.TextWithEntities>`):
+        text (``str``):
             N/A
 
         option (``bytes``):
             N/A
 
-        media (:obj:`MessageMedia <pyrogram.raw.base.MessageMedia>`, *optional*):
-            N/A
-
-        added_by (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
-            N/A
-
-        date (``int`` ``32-bit``, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["text", "option", "media", "added_by", "date"]
+    __slots__: List[str] = ["text", "option"]
 
-    ID = 0x4b7d786a
+    ID = 0x6ca9c2e9
     QUALNAME = "types.PollAnswer"
 
-    def __init__(self, *, text: "raw.base.TextWithEntities", option: bytes, media: "raw.base.MessageMedia" = None, added_by: "raw.base.Peer" = None, date: Optional[int] = None) -> None:
-        self.text = text  # TextWithEntities
+    def __init__(self, *, text: str, option: bytes) -> None:
+        self.text = text  # string
         self.option = option  # bytes
-        self.media = media  # flags.0?MessageMedia
-        self.added_by = added_by  # flags.1?Peer
-        self.date = date  # flags.1?int
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "PollAnswer":
+        # No flags
         
-        flags = Int.read(b)
-        
-        text = TLObject.read(b)
+        text = String.read(b)
         
         option = Bytes.read(b)
         
-        media = TLObject.read(b) if flags & (1 << 0) else None
-        
-        added_by = TLObject.read(b) if flags & (1 << 1) else None
-        
-        date = Int.read(b) if flags & (1 << 1) else None
-        return PollAnswer(text=text, option=option, media=media, added_by=added_by, date=date)
+        return PollAnswer(text=text, option=option)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.media is not None else 0
-        flags |= (1 << 1) if self.added_by is not None else 0
-        flags |= (1 << 1) if self.date is not None else 0
-        b.write(Int(flags))
+        # No flags
         
-        b.write(self.text.write())
+        b.write(String(self.text))
         
         b.write(Bytes(self.option))
-        
-        if self.media is not None:
-            b.write(self.media.write())
-        
-        if self.added_by is not None:
-            b.write(self.added_by.write())
-        
-        if self.date is not None:
-            b.write(Int(self.date))
         
         return b.getvalue()

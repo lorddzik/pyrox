@@ -36,8 +36,8 @@ class InputKeyboardButtonUrlAuth(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButton`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``68013E72``
+        - Layer: ``166``
+        - ID: ``D02E7FD4``
 
     Parameters:
         text (``str``):
@@ -52,34 +52,21 @@ class InputKeyboardButtonUrlAuth(TLObject):  # type: ignore
         request_write_access (``bool``, *optional*):
             N/A
 
-        style (:obj:`KeyboardButtonStyle <pyrogram.raw.base.KeyboardButtonStyle>`, *optional*):
-            N/A
-
         fwd_text (``str``, *optional*):
             N/A
 
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            bots.GetRequestedWebViewButton
     """
 
-    __slots__: List[str] = ["text", "url", "bot", "request_write_access", "style", "fwd_text"]
+    __slots__: List[str] = ["text", "url", "bot", "request_write_access", "fwd_text"]
 
-    ID = 0x68013e72
+    ID = 0xd02e7fd4
     QUALNAME = "types.InputKeyboardButtonUrlAuth"
 
-    def __init__(self, *, text: str, url: str, bot: "raw.base.InputUser", request_write_access: Optional[bool] = None, style: "raw.base.KeyboardButtonStyle" = None, fwd_text: Optional[str] = None) -> None:
+    def __init__(self, *, text: str, url: str, bot: "raw.base.InputUser", request_write_access: Optional[bool] = None, fwd_text: Optional[str] = None) -> None:
         self.text = text  # string
         self.url = url  # string
         self.bot = bot  # InputUser
         self.request_write_access = request_write_access  # flags.0?true
-        self.style = style  # flags.10?KeyboardButtonStyle
         self.fwd_text = fwd_text  # flags.1?string
 
     @staticmethod
@@ -88,8 +75,6 @@ class InputKeyboardButtonUrlAuth(TLObject):  # type: ignore
         flags = Int.read(b)
         
         request_write_access = True if flags & (1 << 0) else False
-        style = TLObject.read(b) if flags & (1 << 10) else None
-        
         text = String.read(b)
         
         fwd_text = String.read(b) if flags & (1 << 1) else None
@@ -97,7 +82,7 @@ class InputKeyboardButtonUrlAuth(TLObject):  # type: ignore
         
         bot = TLObject.read(b)
         
-        return InputKeyboardButtonUrlAuth(text=text, url=url, bot=bot, request_write_access=request_write_access, style=style, fwd_text=fwd_text)
+        return InputKeyboardButtonUrlAuth(text=text, url=url, bot=bot, request_write_access=request_write_access, fwd_text=fwd_text)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -105,12 +90,8 @@ class InputKeyboardButtonUrlAuth(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.request_write_access else 0
-        flags |= (1 << 10) if self.style is not None else 0
         flags |= (1 << 1) if self.fwd_text is not None else 0
         b.write(Int(flags))
-        
-        if self.style is not None:
-            b.write(self.style.write())
         
         b.write(String(self.text))
         

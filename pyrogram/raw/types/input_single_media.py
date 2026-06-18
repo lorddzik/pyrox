@@ -36,7 +36,7 @@ class InputSingleMedia(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputSingleMedia`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1CC6E91F``
 
     Parameters:

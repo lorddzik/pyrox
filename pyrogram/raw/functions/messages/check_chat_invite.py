@@ -34,7 +34,7 @@ class CheckChatInvite(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``3EADB1BB``
 
     Parameters:

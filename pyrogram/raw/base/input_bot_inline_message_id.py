@@ -43,16 +43,6 @@ class InputBotInlineMessageID:  # type: ignore
 
             InputBotInlineMessageID
             InputBotInlineMessageID64
-
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            messages.SetBotGuestChatResult
     """
 
     QUALNAME = "pyrogram.raw.base.InputBotInlineMessageID"

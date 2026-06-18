@@ -36,7 +36,7 @@ class AppUpdate(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.AppUpdate`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``CCBBCE30``
 
     Parameters:

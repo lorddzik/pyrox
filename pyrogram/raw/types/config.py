@@ -36,7 +36,7 @@ class Config(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Config`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``CC1A241E``
 
     Parameters:

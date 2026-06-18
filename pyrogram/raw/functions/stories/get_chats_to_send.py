@@ -34,7 +34,7 @@ class GetChatsToSend(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A56A8B60``
 
     Parameters:

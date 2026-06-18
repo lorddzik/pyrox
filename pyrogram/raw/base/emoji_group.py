@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-EmojiGroup = Union[raw.types.EmojiGroup, raw.types.EmojiGroupGreeting, raw.types.EmojiGroupPremium]
+EmojiGroup = Union[raw.types.EmojiGroup]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class EmojiGroup:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 3 constructors available.
+        This base type has 1 constructor available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,8 +42,6 @@ class EmojiGroup:  # type: ignore
             :nosignatures:
 
             EmojiGroup
-            EmojiGroupGreeting
-            EmojiGroupPremium
     """
 
     QUALNAME = "pyrogram.raw.base.EmojiGroup"

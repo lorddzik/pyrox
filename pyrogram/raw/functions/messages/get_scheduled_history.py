@@ -34,7 +34,7 @@ class GetScheduledHistory(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F516760B``
 
     Parameters:

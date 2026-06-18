@@ -34,7 +34,7 @@ class SetHistoryTTL(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B80E5FE4``
 
     Parameters:

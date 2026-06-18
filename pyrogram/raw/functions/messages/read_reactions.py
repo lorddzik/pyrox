@@ -34,8 +34,8 @@ class ReadReactions(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``9EC44F93``
+        - Layer: ``166``
+        - ID: ``54AA7F8E``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -44,22 +44,18 @@ class ReadReactions(TLObject):  # type: ignore
         top_msg_id (``int`` ``32-bit``, *optional*):
             N/A
 
-        saved_peer_id (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
-            N/A
-
     Returns:
         :obj:`messages.AffectedHistory <pyrogram.raw.base.messages.AffectedHistory>`
     """
 
-    __slots__: List[str] = ["peer", "top_msg_id", "saved_peer_id"]
+    __slots__: List[str] = ["peer", "top_msg_id"]
 
-    ID = 0x9ec44f93
+    ID = 0x54aa7f8e
     QUALNAME = "functions.messages.ReadReactions"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", top_msg_id: Optional[int] = None, saved_peer_id: "raw.base.InputPeer" = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", top_msg_id: Optional[int] = None) -> None:
         self.peer = peer  # InputPeer
         self.top_msg_id = top_msg_id  # flags.0?int
-        self.saved_peer_id = saved_peer_id  # flags.1?InputPeer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ReadReactions":
@@ -69,9 +65,7 @@ class ReadReactions(TLObject):  # type: ignore
         peer = TLObject.read(b)
         
         top_msg_id = Int.read(b) if flags & (1 << 0) else None
-        saved_peer_id = TLObject.read(b) if flags & (1 << 1) else None
-        
-        return ReadReactions(peer=peer, top_msg_id=top_msg_id, saved_peer_id=saved_peer_id)
+        return ReadReactions(peer=peer, top_msg_id=top_msg_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -79,15 +73,11 @@ class ReadReactions(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.top_msg_id is not None else 0
-        flags |= (1 << 1) if self.saved_peer_id is not None else 0
         b.write(Int(flags))
         
         b.write(self.peer.write())
         
         if self.top_msg_id is not None:
             b.write(Int(self.top_msg_id))
-        
-        if self.saved_peer_id is not None:
-            b.write(self.saved_peer_id.write())
         
         return b.getvalue()

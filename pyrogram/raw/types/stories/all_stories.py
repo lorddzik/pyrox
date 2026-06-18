@@ -36,7 +36,7 @@ class AllStories(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.stories.AllStories`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6EFC5E81``
 
     Parameters:

@@ -36,7 +36,7 @@ class BotCommandScopeChatAdmins(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotCommandScope`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B9AA606A``
 
     Parameters:

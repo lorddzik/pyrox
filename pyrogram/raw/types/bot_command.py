@@ -36,7 +36,7 @@ class BotCommand(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotCommand`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C27AC8C7``
 
     Parameters:

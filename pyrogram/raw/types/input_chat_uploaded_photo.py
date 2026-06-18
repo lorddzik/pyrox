@@ -36,7 +36,7 @@ class InputChatUploadedPhoto(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputChatPhoto`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``BDCDAEC0``
 
     Parameters:

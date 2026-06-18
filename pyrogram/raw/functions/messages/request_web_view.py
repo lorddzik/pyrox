@@ -34,7 +34,7 @@ class RequestWebView(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``269DC2C1``
 
     Parameters:
@@ -51,12 +51,6 @@ class RequestWebView(TLObject):  # type: ignore
             N/A
 
         silent (``bool``, *optional*):
-            N/A
-
-        compact (``bool``, *optional*):
-            N/A
-
-        fullscreen (``bool``, *optional*):
             N/A
 
         url (``str``, *optional*):
@@ -78,19 +72,17 @@ class RequestWebView(TLObject):  # type: ignore
         :obj:`WebViewResult <pyrogram.raw.base.WebViewResult>`
     """
 
-    __slots__: List[str] = ["peer", "bot", "platform", "from_bot_menu", "silent", "compact", "fullscreen", "url", "start_param", "theme_params", "reply_to", "send_as"]
+    __slots__: List[str] = ["peer", "bot", "platform", "from_bot_menu", "silent", "url", "start_param", "theme_params", "reply_to", "send_as"]
 
     ID = 0x269dc2c1
     QUALNAME = "functions.messages.RequestWebView"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", bot: "raw.base.InputUser", platform: str, from_bot_menu: Optional[bool] = None, silent: Optional[bool] = None, compact: Optional[bool] = None, fullscreen: Optional[bool] = None, url: Optional[str] = None, start_param: Optional[str] = None, theme_params: "raw.base.DataJSON" = None, reply_to: "raw.base.InputReplyTo" = None, send_as: "raw.base.InputPeer" = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", bot: "raw.base.InputUser", platform: str, from_bot_menu: Optional[bool] = None, silent: Optional[bool] = None, url: Optional[str] = None, start_param: Optional[str] = None, theme_params: "raw.base.DataJSON" = None, reply_to: "raw.base.InputReplyTo" = None, send_as: "raw.base.InputPeer" = None) -> None:
         self.peer = peer  # InputPeer
         self.bot = bot  # InputUser
         self.platform = platform  # string
         self.from_bot_menu = from_bot_menu  # flags.4?true
         self.silent = silent  # flags.5?true
-        self.compact = compact  # flags.7?true
-        self.fullscreen = fullscreen  # flags.8?true
         self.url = url  # flags.1?string
         self.start_param = start_param  # flags.3?string
         self.theme_params = theme_params  # flags.2?DataJSON
@@ -104,8 +96,6 @@ class RequestWebView(TLObject):  # type: ignore
         
         from_bot_menu = True if flags & (1 << 4) else False
         silent = True if flags & (1 << 5) else False
-        compact = True if flags & (1 << 7) else False
-        fullscreen = True if flags & (1 << 8) else False
         peer = TLObject.read(b)
         
         bot = TLObject.read(b)
@@ -120,7 +110,7 @@ class RequestWebView(TLObject):  # type: ignore
         
         send_as = TLObject.read(b) if flags & (1 << 13) else None
         
-        return RequestWebView(peer=peer, bot=bot, platform=platform, from_bot_menu=from_bot_menu, silent=silent, compact=compact, fullscreen=fullscreen, url=url, start_param=start_param, theme_params=theme_params, reply_to=reply_to, send_as=send_as)
+        return RequestWebView(peer=peer, bot=bot, platform=platform, from_bot_menu=from_bot_menu, silent=silent, url=url, start_param=start_param, theme_params=theme_params, reply_to=reply_to, send_as=send_as)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -129,8 +119,6 @@ class RequestWebView(TLObject):  # type: ignore
         flags = 0
         flags |= (1 << 4) if self.from_bot_menu else 0
         flags |= (1 << 5) if self.silent else 0
-        flags |= (1 << 7) if self.compact else 0
-        flags |= (1 << 8) if self.fullscreen else 0
         flags |= (1 << 1) if self.url is not None else 0
         flags |= (1 << 3) if self.start_param is not None else 0
         flags |= (1 << 2) if self.theme_params is not None else 0

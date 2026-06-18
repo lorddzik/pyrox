@@ -36,7 +36,7 @@ class BotAppNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotApp`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5DA674B7``
 
     Parameters:

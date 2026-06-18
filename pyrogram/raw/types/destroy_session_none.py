@@ -36,7 +36,7 @@ class DestroySessionNone(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DestroySessionRes`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``62D350C9``
 
     Parameters:

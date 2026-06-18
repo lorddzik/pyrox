@@ -45,7 +45,7 @@ class EmojiList:  # type: ignore
             EmojiListNotModified
 
     Functions:
-        This object can be returned by 5 functions.
+        This object can be returned by 4 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -55,7 +55,6 @@ class EmojiList:  # type: ignore
             account.GetDefaultProfilePhotoEmojis
             account.GetDefaultGroupPhotoEmojis
             account.GetDefaultBackgroundEmojis
-            account.GetChannelRestrictedStatusEmojis
             messages.SearchCustomEmoji
     """
 

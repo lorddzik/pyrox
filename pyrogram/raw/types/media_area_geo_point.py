@@ -36,8 +36,8 @@ class MediaAreaGeoPoint(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MediaArea`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``CAD5452D``
+        - Layer: ``166``
+        - ID: ``DF8B3B22``
 
     Parameters:
         coordinates (:obj:`MediaAreaCoordinates <pyrogram.raw.base.MediaAreaCoordinates>`):
@@ -46,47 +46,35 @@ class MediaAreaGeoPoint(TLObject):  # type: ignore
         geo (:obj:`GeoPoint <pyrogram.raw.base.GeoPoint>`):
             N/A
 
-        address (:obj:`GeoPointAddress <pyrogram.raw.base.GeoPointAddress>`, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["coordinates", "geo", "address"]
+    __slots__: List[str] = ["coordinates", "geo"]
 
-    ID = 0xcad5452d
+    ID = 0xdf8b3b22
     QUALNAME = "types.MediaAreaGeoPoint"
 
-    def __init__(self, *, coordinates: "raw.base.MediaAreaCoordinates", geo: "raw.base.GeoPoint", address: "raw.base.GeoPointAddress" = None) -> None:
+    def __init__(self, *, coordinates: "raw.base.MediaAreaCoordinates", geo: "raw.base.GeoPoint") -> None:
         self.coordinates = coordinates  # MediaAreaCoordinates
         self.geo = geo  # GeoPoint
-        self.address = address  # flags.0?GeoPointAddress
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MediaAreaGeoPoint":
-        
-        flags = Int.read(b)
+        # No flags
         
         coordinates = TLObject.read(b)
         
         geo = TLObject.read(b)
         
-        address = TLObject.read(b) if flags & (1 << 0) else None
-        
-        return MediaAreaGeoPoint(coordinates=coordinates, geo=geo, address=address)
+        return MediaAreaGeoPoint(coordinates=coordinates, geo=geo)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.address is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.coordinates.write())
         
         b.write(self.geo.write())
-        
-        if self.address is not None:
-            b.write(self.address.write())
         
         return b.getvalue()

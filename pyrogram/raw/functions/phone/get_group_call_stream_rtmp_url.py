@@ -34,8 +34,8 @@ class GetGroupCallStreamRtmpUrl(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``5AF4C73A``
+        - Layer: ``166``
+        - ID: ``DEB3ABBF``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -44,42 +44,34 @@ class GetGroupCallStreamRtmpUrl(TLObject):  # type: ignore
         revoke (``bool``):
             N/A
 
-        live_story (``bool``, *optional*):
-            N/A
-
     Returns:
         :obj:`phone.GroupCallStreamRtmpUrl <pyrogram.raw.base.phone.GroupCallStreamRtmpUrl>`
     """
 
-    __slots__: List[str] = ["peer", "revoke", "live_story"]
+    __slots__: List[str] = ["peer", "revoke"]
 
-    ID = 0x5af4c73a
+    ID = 0xdeb3abbf
     QUALNAME = "functions.phone.GetGroupCallStreamRtmpUrl"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", revoke: bool, live_story: Optional[bool] = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", revoke: bool) -> None:
         self.peer = peer  # InputPeer
         self.revoke = revoke  # Bool
-        self.live_story = live_story  # flags.0?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "GetGroupCallStreamRtmpUrl":
+        # No flags
         
-        flags = Int.read(b)
-        
-        live_story = True if flags & (1 << 0) else False
         peer = TLObject.read(b)
         
         revoke = Bool.read(b)
         
-        return GetGroupCallStreamRtmpUrl(peer=peer, revoke=revoke, live_story=live_story)
+        return GetGroupCallStreamRtmpUrl(peer=peer, revoke=revoke)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.live_story else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.peer.write())
         

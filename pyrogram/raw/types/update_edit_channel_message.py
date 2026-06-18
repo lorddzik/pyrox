@@ -36,7 +36,7 @@ class UpdateEditChannelMessage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1B3F4DF7``
 
     Parameters:

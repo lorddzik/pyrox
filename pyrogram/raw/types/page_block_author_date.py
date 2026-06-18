@@ -36,7 +36,7 @@ class PageBlockAuthorDate(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``BAAFE5E0``
 
     Parameters:

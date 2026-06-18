@@ -36,7 +36,7 @@ class WebDocument(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.WebDocument`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1C570ED1``
 
     Parameters:

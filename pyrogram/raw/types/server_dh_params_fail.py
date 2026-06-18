@@ -36,7 +36,7 @@ class ServerDHParamsFail(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ServerDHParams`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``79CB045D``
 
     Parameters:

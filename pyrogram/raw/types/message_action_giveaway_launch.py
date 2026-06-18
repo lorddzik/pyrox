@@ -36,40 +36,32 @@ class MessageActionGiveawayLaunch(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``A80F51E4``
+        - Layer: ``166``
+        - ID: ``332BA9ED``
 
     Parameters:
-        stars (``int`` ``64-bit``, *optional*):
-            N/A
+        No parameters required.
 
     """
 
-    __slots__: List[str] = ["stars"]
+    __slots__: List[str] = []
 
-    ID = 0xa80f51e4
+    ID = 0x332ba9ed
     QUALNAME = "types.MessageActionGiveawayLaunch"
 
-    def __init__(self, *, stars: Optional[int] = None) -> None:
-        self.stars = stars  # flags.0?long
+    def __init__(self) -> None:
+        pass
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessageActionGiveawayLaunch":
+        # No flags
         
-        flags = Int.read(b)
-        
-        stars = Long.read(b) if flags & (1 << 0) else None
-        return MessageActionGiveawayLaunch(stars=stars)
+        return MessageActionGiveawayLaunch()
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.stars is not None else 0
-        b.write(Int(flags))
-        
-        if self.stars is not None:
-            b.write(Long(self.stars))
+        # No flags
         
         return b.getvalue()

@@ -34,7 +34,7 @@ class UnregisterDevice(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6A0D3206``
 
     Parameters:

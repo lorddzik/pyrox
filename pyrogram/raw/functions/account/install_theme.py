@@ -34,7 +34,7 @@ class InstallTheme(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C727BB3B``
 
     Parameters:

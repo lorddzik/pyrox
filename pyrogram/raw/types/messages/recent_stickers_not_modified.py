@@ -36,7 +36,7 @@ class RecentStickersNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.RecentStickers`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B17F890``
 
     Parameters:

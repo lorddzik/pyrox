@@ -36,7 +36,7 @@ class EmojiGroup(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EmojiGroup`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7A9ABDA9``
 
     Parameters:

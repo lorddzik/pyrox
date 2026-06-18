@@ -34,8 +34,8 @@ class AddContact(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``D9BA2E54``
+        - Layer: ``166``
+        - ID: ``E8F463D0``
 
     Parameters:
         id (:obj:`InputUser <pyrogram.raw.base.InputUser>`):
@@ -53,25 +53,21 @@ class AddContact(TLObject):  # type: ignore
         add_phone_privacy_exception (``bool``, *optional*):
             N/A
 
-        note (:obj:`TextWithEntities <pyrogram.raw.base.TextWithEntities>`, *optional*):
-            N/A
-
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["id", "first_name", "last_name", "phone", "add_phone_privacy_exception", "note"]
+    __slots__: List[str] = ["id", "first_name", "last_name", "phone", "add_phone_privacy_exception"]
 
-    ID = 0xd9ba2e54
+    ID = 0xe8f463d0
     QUALNAME = "functions.contacts.AddContact"
 
-    def __init__(self, *, id: "raw.base.InputUser", first_name: str, last_name: str, phone: str, add_phone_privacy_exception: Optional[bool] = None, note: "raw.base.TextWithEntities" = None) -> None:
+    def __init__(self, *, id: "raw.base.InputUser", first_name: str, last_name: str, phone: str, add_phone_privacy_exception: Optional[bool] = None) -> None:
         self.id = id  # InputUser
         self.first_name = first_name  # string
         self.last_name = last_name  # string
         self.phone = phone  # string
         self.add_phone_privacy_exception = add_phone_privacy_exception  # flags.0?true
-        self.note = note  # flags.1?TextWithEntities
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "AddContact":
@@ -87,9 +83,7 @@ class AddContact(TLObject):  # type: ignore
         
         phone = String.read(b)
         
-        note = TLObject.read(b) if flags & (1 << 1) else None
-        
-        return AddContact(id=id, first_name=first_name, last_name=last_name, phone=phone, add_phone_privacy_exception=add_phone_privacy_exception, note=note)
+        return AddContact(id=id, first_name=first_name, last_name=last_name, phone=phone, add_phone_privacy_exception=add_phone_privacy_exception)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -97,7 +91,6 @@ class AddContact(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.add_phone_privacy_exception else 0
-        flags |= (1 << 1) if self.note is not None else 0
         b.write(Int(flags))
         
         b.write(self.id.write())
@@ -107,8 +100,5 @@ class AddContact(TLObject):  # type: ignore
         b.write(String(self.last_name))
         
         b.write(String(self.phone))
-        
-        if self.note is not None:
-            b.write(self.note.write())
         
         return b.getvalue()

@@ -36,7 +36,7 @@ class UpdateConfig(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A229DD06``
 
     Parameters:

@@ -36,7 +36,7 @@ class UpdateReadChannelOutbox(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B75F99A9``
 
     Parameters:

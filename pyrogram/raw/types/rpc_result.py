@@ -36,7 +36,7 @@ class RpcResult(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RpcResult`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F35C6D01``
 
     Parameters:

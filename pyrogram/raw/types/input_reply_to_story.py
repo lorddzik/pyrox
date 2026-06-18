@@ -36,11 +36,11 @@ class InputReplyToStory(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputReplyTo`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``5881323A``
+        - Layer: ``166``
+        - ID: ``15B0F283``
 
     Parameters:
-        peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
+        user_id (:obj:`InputUser <pyrogram.raw.base.InputUser>`):
             N/A
 
         story_id (``int`` ``32-bit``):
@@ -48,24 +48,24 @@ class InputReplyToStory(TLObject):  # type: ignore
 
     """
 
-    __slots__: List[str] = ["peer", "story_id"]
+    __slots__: List[str] = ["user_id", "story_id"]
 
-    ID = 0x5881323a
+    ID = 0x15b0f283
     QUALNAME = "types.InputReplyToStory"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", story_id: int) -> None:
-        self.peer = peer  # InputPeer
+    def __init__(self, *, user_id: "raw.base.InputUser", story_id: int) -> None:
+        self.user_id = user_id  # InputUser
         self.story_id = story_id  # int
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "InputReplyToStory":
         # No flags
         
-        peer = TLObject.read(b)
+        user_id = TLObject.read(b)
         
         story_id = Int.read(b)
         
-        return InputReplyToStory(peer=peer, story_id=story_id)
+        return InputReplyToStory(user_id=user_id, story_id=story_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -73,7 +73,7 @@ class InputReplyToStory(TLObject):  # type: ignore
 
         # No flags
         
-        b.write(self.peer.write())
+        b.write(self.user_id.write())
         
         b.write(Int(self.story_id))
         

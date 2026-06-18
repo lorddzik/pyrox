@@ -36,7 +36,7 @@ class AccountDaysTTL(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.AccountDaysTTL`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B8D0AFDF``
 
     Parameters:

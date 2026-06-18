@@ -44,7 +44,7 @@ class WebViewResult:  # type: ignore
             WebViewResultUrl
 
     Functions:
-        This object can be returned by 4 functions.
+        This object can be returned by 1 function.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -52,9 +52,6 @@ class WebViewResult:  # type: ignore
             :nosignatures:
 
             messages.RequestWebView
-            messages.RequestSimpleWebView
-            messages.RequestAppWebView
-            messages.RequestMainWebView
     """
 
     QUALNAME = "pyrogram.raw.base.WebViewResult"

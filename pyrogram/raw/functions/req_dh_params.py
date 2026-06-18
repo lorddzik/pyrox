@@ -34,7 +34,7 @@ class ReqDHParams(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D712E4BE``
 
     Parameters:

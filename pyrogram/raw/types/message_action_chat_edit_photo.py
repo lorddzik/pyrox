@@ -36,7 +36,7 @@ class MessageActionChatEditPhoto(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7FCB13A8``
 
     Parameters:

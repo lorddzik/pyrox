@@ -34,8 +34,8 @@ class Report(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``FC78AF9B``
+        - Layer: ``166``
+        - ID: ``8953AB4E``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -44,25 +44,25 @@ class Report(TLObject):  # type: ignore
         id (List of ``int`` ``32-bit``):
             N/A
 
-        option (``bytes``):
+        reason (:obj:`ReportReason <pyrogram.raw.base.ReportReason>`):
             N/A
 
         message (``str``):
             N/A
 
     Returns:
-        :obj:`ReportResult <pyrogram.raw.base.ReportResult>`
+        ``bool``
     """
 
-    __slots__: List[str] = ["peer", "id", "option", "message"]
+    __slots__: List[str] = ["peer", "id", "reason", "message"]
 
-    ID = 0xfc78af9b
+    ID = 0x8953ab4e
     QUALNAME = "functions.messages.Report"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", id: List[int], option: bytes, message: str) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", id: List[int], reason: "raw.base.ReportReason", message: str) -> None:
         self.peer = peer  # InputPeer
         self.id = id  # Vector<int>
-        self.option = option  # bytes
+        self.reason = reason  # ReportReason
         self.message = message  # string
 
     @staticmethod
@@ -73,11 +73,11 @@ class Report(TLObject):  # type: ignore
         
         id = TLObject.read(b, Int)
         
-        option = Bytes.read(b)
+        reason = TLObject.read(b)
         
         message = String.read(b)
         
-        return Report(peer=peer, id=id, option=option, message=message)
+        return Report(peer=peer, id=id, reason=reason, message=message)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -89,7 +89,7 @@ class Report(TLObject):  # type: ignore
         
         b.write(Vector(self.id, Int))
         
-        b.write(Bytes(self.option))
+        b.write(self.reason.write())
         
         b.write(String(self.message))
         

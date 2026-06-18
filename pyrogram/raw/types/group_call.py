@@ -36,8 +36,8 @@ class GroupCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.GroupCall`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``EFB2B617``
+        - Layer: ``166``
+        - ID: ``D597650C``
 
     Parameters:
         id (``int`` ``64-bit``):
@@ -79,21 +79,6 @@ class GroupCall(TLObject):  # type: ignore
         listeners_hidden (``bool``, *optional*):
             N/A
 
-        conference (``bool``, *optional*):
-            N/A
-
-        creator (``bool``, *optional*):
-            N/A
-
-        messages_enabled (``bool``, *optional*):
-            N/A
-
-        can_change_messages_enabled (``bool``, *optional*):
-            N/A
-
-        min (``bool``, *optional*):
-            N/A
-
         title (``str``, *optional*):
             N/A
 
@@ -109,23 +94,14 @@ class GroupCall(TLObject):  # type: ignore
         unmuted_video_count (``int`` ``32-bit``, *optional*):
             N/A
 
-        invite_link (``str``, *optional*):
-            N/A
-
-        send_paid_messages_stars (``int`` ``64-bit``, *optional*):
-            N/A
-
-        default_send_as (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["id", "access_hash", "participants_count", "unmuted_video_limit", "version", "join_muted", "can_change_join_muted", "join_date_asc", "schedule_start_subscribed", "can_start_video", "record_video_active", "rtmp_stream", "listeners_hidden", "conference", "creator", "messages_enabled", "can_change_messages_enabled", "min", "title", "stream_dc_id", "record_start_date", "schedule_date", "unmuted_video_count", "invite_link", "send_paid_messages_stars", "default_send_as"]
+    __slots__: List[str] = ["id", "access_hash", "participants_count", "unmuted_video_limit", "version", "join_muted", "can_change_join_muted", "join_date_asc", "schedule_start_subscribed", "can_start_video", "record_video_active", "rtmp_stream", "listeners_hidden", "title", "stream_dc_id", "record_start_date", "schedule_date", "unmuted_video_count"]
 
-    ID = 0xefb2b617
+    ID = 0xd597650c
     QUALNAME = "types.GroupCall"
 
-    def __init__(self, *, id: int, access_hash: int, participants_count: int, unmuted_video_limit: int, version: int, join_muted: Optional[bool] = None, can_change_join_muted: Optional[bool] = None, join_date_asc: Optional[bool] = None, schedule_start_subscribed: Optional[bool] = None, can_start_video: Optional[bool] = None, record_video_active: Optional[bool] = None, rtmp_stream: Optional[bool] = None, listeners_hidden: Optional[bool] = None, conference: Optional[bool] = None, creator: Optional[bool] = None, messages_enabled: Optional[bool] = None, can_change_messages_enabled: Optional[bool] = None, min: Optional[bool] = None, title: Optional[str] = None, stream_dc_id: Optional[int] = None, record_start_date: Optional[int] = None, schedule_date: Optional[int] = None, unmuted_video_count: Optional[int] = None, invite_link: Optional[str] = None, send_paid_messages_stars: Optional[int] = None, default_send_as: "raw.base.Peer" = None) -> None:
+    def __init__(self, *, id: int, access_hash: int, participants_count: int, unmuted_video_limit: int, version: int, join_muted: Optional[bool] = None, can_change_join_muted: Optional[bool] = None, join_date_asc: Optional[bool] = None, schedule_start_subscribed: Optional[bool] = None, can_start_video: Optional[bool] = None, record_video_active: Optional[bool] = None, rtmp_stream: Optional[bool] = None, listeners_hidden: Optional[bool] = None, title: Optional[str] = None, stream_dc_id: Optional[int] = None, record_start_date: Optional[int] = None, schedule_date: Optional[int] = None, unmuted_video_count: Optional[int] = None) -> None:
         self.id = id  # long
         self.access_hash = access_hash  # long
         self.participants_count = participants_count  # int
@@ -139,19 +115,11 @@ class GroupCall(TLObject):  # type: ignore
         self.record_video_active = record_video_active  # flags.11?true
         self.rtmp_stream = rtmp_stream  # flags.12?true
         self.listeners_hidden = listeners_hidden  # flags.13?true
-        self.conference = conference  # flags.14?true
-        self.creator = creator  # flags.15?true
-        self.messages_enabled = messages_enabled  # flags.17?true
-        self.can_change_messages_enabled = can_change_messages_enabled  # flags.18?true
-        self.min = min  # flags.19?true
         self.title = title  # flags.3?string
         self.stream_dc_id = stream_dc_id  # flags.4?int
         self.record_start_date = record_start_date  # flags.5?int
         self.schedule_date = schedule_date  # flags.7?int
         self.unmuted_video_count = unmuted_video_count  # flags.10?int
-        self.invite_link = invite_link  # flags.16?string
-        self.send_paid_messages_stars = send_paid_messages_stars  # flags.20?long
-        self.default_send_as = default_send_as  # flags.21?Peer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "GroupCall":
@@ -166,11 +134,6 @@ class GroupCall(TLObject):  # type: ignore
         record_video_active = True if flags & (1 << 11) else False
         rtmp_stream = True if flags & (1 << 12) else False
         listeners_hidden = True if flags & (1 << 13) else False
-        conference = True if flags & (1 << 14) else False
-        creator = True if flags & (1 << 15) else False
-        messages_enabled = True if flags & (1 << 17) else False
-        can_change_messages_enabled = True if flags & (1 << 18) else False
-        min = True if flags & (1 << 19) else False
         id = Long.read(b)
         
         access_hash = Long.read(b)
@@ -186,11 +149,7 @@ class GroupCall(TLObject):  # type: ignore
         
         version = Int.read(b)
         
-        invite_link = String.read(b) if flags & (1 << 16) else None
-        send_paid_messages_stars = Long.read(b) if flags & (1 << 20) else None
-        default_send_as = TLObject.read(b) if flags & (1 << 21) else None
-        
-        return GroupCall(id=id, access_hash=access_hash, participants_count=participants_count, unmuted_video_limit=unmuted_video_limit, version=version, join_muted=join_muted, can_change_join_muted=can_change_join_muted, join_date_asc=join_date_asc, schedule_start_subscribed=schedule_start_subscribed, can_start_video=can_start_video, record_video_active=record_video_active, rtmp_stream=rtmp_stream, listeners_hidden=listeners_hidden, conference=conference, creator=creator, messages_enabled=messages_enabled, can_change_messages_enabled=can_change_messages_enabled, min=min, title=title, stream_dc_id=stream_dc_id, record_start_date=record_start_date, schedule_date=schedule_date, unmuted_video_count=unmuted_video_count, invite_link=invite_link, send_paid_messages_stars=send_paid_messages_stars, default_send_as=default_send_as)
+        return GroupCall(id=id, access_hash=access_hash, participants_count=participants_count, unmuted_video_limit=unmuted_video_limit, version=version, join_muted=join_muted, can_change_join_muted=can_change_join_muted, join_date_asc=join_date_asc, schedule_start_subscribed=schedule_start_subscribed, can_start_video=can_start_video, record_video_active=record_video_active, rtmp_stream=rtmp_stream, listeners_hidden=listeners_hidden, title=title, stream_dc_id=stream_dc_id, record_start_date=record_start_date, schedule_date=schedule_date, unmuted_video_count=unmuted_video_count)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -205,19 +164,11 @@ class GroupCall(TLObject):  # type: ignore
         flags |= (1 << 11) if self.record_video_active else 0
         flags |= (1 << 12) if self.rtmp_stream else 0
         flags |= (1 << 13) if self.listeners_hidden else 0
-        flags |= (1 << 14) if self.conference else 0
-        flags |= (1 << 15) if self.creator else 0
-        flags |= (1 << 17) if self.messages_enabled else 0
-        flags |= (1 << 18) if self.can_change_messages_enabled else 0
-        flags |= (1 << 19) if self.min else 0
         flags |= (1 << 3) if self.title is not None else 0
         flags |= (1 << 4) if self.stream_dc_id is not None else 0
         flags |= (1 << 5) if self.record_start_date is not None else 0
         flags |= (1 << 7) if self.schedule_date is not None else 0
         flags |= (1 << 10) if self.unmuted_video_count is not None else 0
-        flags |= (1 << 16) if self.invite_link is not None else 0
-        flags |= (1 << 20) if self.send_paid_messages_stars is not None else 0
-        flags |= (1 << 21) if self.default_send_as is not None else 0
         b.write(Int(flags))
         
         b.write(Long(self.id))
@@ -244,14 +195,5 @@ class GroupCall(TLObject):  # type: ignore
         b.write(Int(self.unmuted_video_limit))
         
         b.write(Int(self.version))
-        
-        if self.invite_link is not None:
-            b.write(String(self.invite_link))
-        
-        if self.send_paid_messages_stars is not None:
-            b.write(Long(self.send_paid_messages_stars))
-        
-        if self.default_send_as is not None:
-            b.write(self.default_send_as.write())
         
         return b.getvalue()

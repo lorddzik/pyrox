@@ -36,7 +36,7 @@ class SecureData(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureData`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``8AEABEC3``
 
     Parameters:

@@ -36,7 +36,7 @@ class BaseThemeClassic(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BaseTheme`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C3A12462``
 
     Parameters:

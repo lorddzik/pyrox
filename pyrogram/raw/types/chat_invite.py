@@ -36,8 +36,8 @@ class ChatInvite(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatInvite`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``5C9D3702``
+        - Layer: ``166``
+        - ID: ``CDE0EC40``
 
     Parameters:
         title (``str``):
@@ -76,22 +76,10 @@ class ChatInvite(TLObject):  # type: ignore
         fake (``bool``, *optional*):
             N/A
 
-        can_refulfill_subscription (``bool``, *optional*):
-            N/A
-
         about (``str``, *optional*):
             N/A
 
         participants (List of :obj:`User <pyrogram.raw.base.User>`, *optional*):
-            N/A
-
-        subscription_pricing (:obj:`StarsSubscriptionPricing <pyrogram.raw.base.StarsSubscriptionPricing>`, *optional*):
-            N/A
-
-        subscription_form_id (``int`` ``64-bit``, *optional*):
-            N/A
-
-        bot_verification (:obj:`BotVerification <pyrogram.raw.base.BotVerification>`, *optional*):
             N/A
 
     Functions:
@@ -105,12 +93,12 @@ class ChatInvite(TLObject):  # type: ignore
             messages.CheckChatInvite
     """
 
-    __slots__: List[str] = ["title", "photo", "participants_count", "color", "channel", "broadcast", "public", "megagroup", "request_needed", "verified", "scam", "fake", "can_refulfill_subscription", "about", "participants", "subscription_pricing", "subscription_form_id", "bot_verification"]
+    __slots__: List[str] = ["title", "photo", "participants_count", "color", "channel", "broadcast", "public", "megagroup", "request_needed", "verified", "scam", "fake", "about", "participants"]
 
-    ID = 0x5c9d3702
+    ID = 0xcde0ec40
     QUALNAME = "types.ChatInvite"
 
-    def __init__(self, *, title: str, photo: "raw.base.Photo", participants_count: int, color: int, channel: Optional[bool] = None, broadcast: Optional[bool] = None, public: Optional[bool] = None, megagroup: Optional[bool] = None, request_needed: Optional[bool] = None, verified: Optional[bool] = None, scam: Optional[bool] = None, fake: Optional[bool] = None, can_refulfill_subscription: Optional[bool] = None, about: Optional[str] = None, participants: Optional[List["raw.base.User"]] = None, subscription_pricing: "raw.base.StarsSubscriptionPricing" = None, subscription_form_id: Optional[int] = None, bot_verification: "raw.base.BotVerification" = None) -> None:
+    def __init__(self, *, title: str, photo: "raw.base.Photo", participants_count: int, color: int, channel: Optional[bool] = None, broadcast: Optional[bool] = None, public: Optional[bool] = None, megagroup: Optional[bool] = None, request_needed: Optional[bool] = None, verified: Optional[bool] = None, scam: Optional[bool] = None, fake: Optional[bool] = None, about: Optional[str] = None, participants: Optional[List["raw.base.User"]] = None) -> None:
         self.title = title  # string
         self.photo = photo  # Photo
         self.participants_count = participants_count  # int
@@ -123,12 +111,8 @@ class ChatInvite(TLObject):  # type: ignore
         self.verified = verified  # flags.7?true
         self.scam = scam  # flags.8?true
         self.fake = fake  # flags.9?true
-        self.can_refulfill_subscription = can_refulfill_subscription  # flags.11?true
         self.about = about  # flags.5?string
         self.participants = participants  # flags.4?Vector<User>
-        self.subscription_pricing = subscription_pricing  # flags.10?StarsSubscriptionPricing
-        self.subscription_form_id = subscription_form_id  # flags.12?long
-        self.bot_verification = bot_verification  # flags.13?BotVerification
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ChatInvite":
@@ -143,7 +127,6 @@ class ChatInvite(TLObject):  # type: ignore
         verified = True if flags & (1 << 7) else False
         scam = True if flags & (1 << 8) else False
         fake = True if flags & (1 << 9) else False
-        can_refulfill_subscription = True if flags & (1 << 11) else False
         title = String.read(b)
         
         about = String.read(b) if flags & (1 << 5) else None
@@ -155,12 +138,7 @@ class ChatInvite(TLObject):  # type: ignore
         
         color = Int.read(b)
         
-        subscription_pricing = TLObject.read(b) if flags & (1 << 10) else None
-        
-        subscription_form_id = Long.read(b) if flags & (1 << 12) else None
-        bot_verification = TLObject.read(b) if flags & (1 << 13) else None
-        
-        return ChatInvite(title=title, photo=photo, participants_count=participants_count, color=color, channel=channel, broadcast=broadcast, public=public, megagroup=megagroup, request_needed=request_needed, verified=verified, scam=scam, fake=fake, can_refulfill_subscription=can_refulfill_subscription, about=about, participants=participants, subscription_pricing=subscription_pricing, subscription_form_id=subscription_form_id, bot_verification=bot_verification)
+        return ChatInvite(title=title, photo=photo, participants_count=participants_count, color=color, channel=channel, broadcast=broadcast, public=public, megagroup=megagroup, request_needed=request_needed, verified=verified, scam=scam, fake=fake, about=about, participants=participants)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -175,12 +153,8 @@ class ChatInvite(TLObject):  # type: ignore
         flags |= (1 << 7) if self.verified else 0
         flags |= (1 << 8) if self.scam else 0
         flags |= (1 << 9) if self.fake else 0
-        flags |= (1 << 11) if self.can_refulfill_subscription else 0
         flags |= (1 << 5) if self.about is not None else 0
         flags |= (1 << 4) if self.participants else 0
-        flags |= (1 << 10) if self.subscription_pricing is not None else 0
-        flags |= (1 << 12) if self.subscription_form_id is not None else 0
-        flags |= (1 << 13) if self.bot_verification is not None else 0
         b.write(Int(flags))
         
         b.write(String(self.title))
@@ -196,14 +170,5 @@ class ChatInvite(TLObject):  # type: ignore
             b.write(Vector(self.participants))
         
         b.write(Int(self.color))
-        
-        if self.subscription_pricing is not None:
-            b.write(self.subscription_pricing.write())
-        
-        if self.subscription_form_id is not None:
-            b.write(Long(self.subscription_form_id))
-        
-        if self.bot_verification is not None:
-            b.write(self.bot_verification.write())
         
         return b.getvalue()

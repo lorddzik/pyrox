@@ -52,7 +52,7 @@ class SponsoredMessages:  # type: ignore
         .. autosummary::
             :nosignatures:
 
-            messages.GetSponsoredMessages
+            channels.GetSponsoredMessages
     """
 
     QUALNAME = "pyrogram.raw.base.messages.SponsoredMessages"

@@ -36,7 +36,7 @@ class ExportedChatInvite(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.ExportedChatInvite`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1871BE50``
 
     Parameters:

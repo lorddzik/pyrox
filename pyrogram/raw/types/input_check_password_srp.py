@@ -36,7 +36,7 @@ class InputCheckPasswordSRP(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputCheckPasswordSRP`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D27FF082``
 
     Parameters:

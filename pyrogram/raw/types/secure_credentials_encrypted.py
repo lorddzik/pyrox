@@ -36,7 +36,7 @@ class SecureCredentialsEncrypted(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureCredentialsEncrypted`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``33F0EA47``
 
     Parameters:

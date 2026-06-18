@@ -44,7 +44,7 @@ class BoostsList:  # type: ignore
             premium.BoostsList
 
     Functions:
-        This object can be returned by 2 functions.
+        This object can be returned by 1 function.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -52,7 +52,6 @@ class BoostsList:  # type: ignore
             :nosignatures:
 
             premium.GetBoostsList
-            premium.GetUserBoosts
     """
 
     QUALNAME = "pyrogram.raw.base.premium.BoostsList"

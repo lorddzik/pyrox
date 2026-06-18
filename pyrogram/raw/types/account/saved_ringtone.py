@@ -36,7 +36,7 @@ class SavedRingtone(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.SavedRingtone`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B7263F6D``
 
     Parameters:

@@ -34,7 +34,7 @@ class SendChangePhoneCode(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``82574AE5``
 
     Parameters:

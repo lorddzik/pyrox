@@ -36,7 +36,7 @@ class PremiumPromo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.PremiumPromo`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5334759C``
 
     Parameters:

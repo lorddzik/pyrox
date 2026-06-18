@@ -36,7 +36,7 @@ class MessageEntityHashtag(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6F635B0D``
 
     Parameters:

@@ -36,7 +36,7 @@ class FileMov(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.storage.FileType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``4B09EBBC``
 
     Parameters:

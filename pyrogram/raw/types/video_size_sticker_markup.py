@@ -36,7 +36,7 @@ class VideoSizeStickerMarkup(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.VideoSize`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``DA082FE``
 
     Parameters:

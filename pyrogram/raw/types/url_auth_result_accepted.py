@@ -36,11 +36,11 @@ class UrlAuthResultAccepted(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.UrlAuthResult`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``623A8FA0``
+        - Layer: ``166``
+        - ID: ``8F8C0E4E``
 
     Parameters:
-        url (``str``, *optional*):
+        url (``str``):
             N/A
 
     Functions:
@@ -57,29 +57,26 @@ class UrlAuthResultAccepted(TLObject):  # type: ignore
 
     __slots__: List[str] = ["url"]
 
-    ID = 0x623a8fa0
+    ID = 0x8f8c0e4e
     QUALNAME = "types.UrlAuthResultAccepted"
 
-    def __init__(self, *, url: Optional[str] = None) -> None:
-        self.url = url  # flags.0?string
+    def __init__(self, *, url: str) -> None:
+        self.url = url  # string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UrlAuthResultAccepted":
+        # No flags
         
-        flags = Int.read(b)
+        url = String.read(b)
         
-        url = String.read(b) if flags & (1 << 0) else None
         return UrlAuthResultAccepted(url=url)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.url is not None else 0
-        b.write(Int(flags))
+        # No flags
         
-        if self.url is not None:
-            b.write(String(self.url))
+        b.write(String(self.url))
         
         return b.getvalue()

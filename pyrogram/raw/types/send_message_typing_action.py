@@ -36,7 +36,7 @@ class SendMessageTypingAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``16BF744E``
 
     Parameters:
