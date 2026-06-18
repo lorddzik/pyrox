@@ -36,7 +36,7 @@ class PrivacyValueAllowChatParticipants(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PrivacyRule`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``6B134E8E``
 
     Parameters:

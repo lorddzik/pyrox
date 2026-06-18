@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-PhoneCallDiscardReason = Union[raw.types.PhoneCallDiscardReasonBusy, raw.types.PhoneCallDiscardReasonDisconnect, raw.types.PhoneCallDiscardReasonHangup, raw.types.PhoneCallDiscardReasonMissed]
+PhoneCallDiscardReason = Union[raw.types.PhoneCallDiscardReasonBusy, raw.types.PhoneCallDiscardReasonDisconnect, raw.types.PhoneCallDiscardReasonHangup, raw.types.PhoneCallDiscardReasonMigrateConferenceCall, raw.types.PhoneCallDiscardReasonMissed]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class PhoneCallDiscardReason:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 4 constructors available.
+        This base type has 5 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -44,6 +44,7 @@ class PhoneCallDiscardReason:  # type: ignore
             PhoneCallDiscardReasonBusy
             PhoneCallDiscardReasonDisconnect
             PhoneCallDiscardReasonHangup
+            PhoneCallDiscardReasonMigrateConferenceCall
             PhoneCallDiscardReasonMissed
     """
 

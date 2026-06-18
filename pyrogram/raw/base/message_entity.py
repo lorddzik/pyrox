@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-MessageEntity = Union[raw.types.InputMessageEntityMentionName, raw.types.MessageEntityBankCard, raw.types.MessageEntityBlockquote, raw.types.MessageEntityBold, raw.types.MessageEntityBotCommand, raw.types.MessageEntityCashtag, raw.types.MessageEntityCode, raw.types.MessageEntityCustomEmoji, raw.types.MessageEntityEmail, raw.types.MessageEntityHashtag, raw.types.MessageEntityItalic, raw.types.MessageEntityMention, raw.types.MessageEntityMentionName, raw.types.MessageEntityPhone, raw.types.MessageEntityPre, raw.types.MessageEntitySpoiler, raw.types.MessageEntityStrike, raw.types.MessageEntityTextUrl, raw.types.MessageEntityUnderline, raw.types.MessageEntityUnknown, raw.types.MessageEntityUrl]
+MessageEntity = Union[raw.types.InputMessageEntityMentionName, raw.types.MessageEntityBankCard, raw.types.MessageEntityBlockquote, raw.types.MessageEntityBold, raw.types.MessageEntityBotCommand, raw.types.MessageEntityCashtag, raw.types.MessageEntityCode, raw.types.MessageEntityCustomEmoji, raw.types.MessageEntityDiffDelete, raw.types.MessageEntityDiffInsert, raw.types.MessageEntityDiffReplace, raw.types.MessageEntityEmail, raw.types.MessageEntityFormattedDate, raw.types.MessageEntityHashtag, raw.types.MessageEntityItalic, raw.types.MessageEntityMention, raw.types.MessageEntityMentionName, raw.types.MessageEntityPhone, raw.types.MessageEntityPre, raw.types.MessageEntitySpoiler, raw.types.MessageEntityStrike, raw.types.MessageEntityTextUrl, raw.types.MessageEntityUnderline, raw.types.MessageEntityUnknown, raw.types.MessageEntityUrl]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class MessageEntity:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 21 constructors available.
+        This base type has 25 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -49,7 +49,11 @@ class MessageEntity:  # type: ignore
             MessageEntityCashtag
             MessageEntityCode
             MessageEntityCustomEmoji
+            MessageEntityDiffDelete
+            MessageEntityDiffInsert
+            MessageEntityDiffReplace
             MessageEntityEmail
+            MessageEntityFormattedDate
             MessageEntityHashtag
             MessageEntityItalic
             MessageEntityMention

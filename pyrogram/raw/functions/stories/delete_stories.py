@@ -34,7 +34,7 @@ class DeleteStories(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``AE59DB5F``
 
     Parameters:

@@ -34,7 +34,7 @@ class GetBoostsStatus(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``42F1F61``
 
     Parameters:

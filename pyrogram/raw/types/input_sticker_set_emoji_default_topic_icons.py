@@ -36,7 +36,7 @@ class InputStickerSetEmojiDefaultTopicIcons(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputStickerSet`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``44C1F8E9``
 
     Parameters:

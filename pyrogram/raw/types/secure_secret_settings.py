@@ -36,7 +36,7 @@ class SecureSecretSettings(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureSecretSettings`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1527BCAC``
 
     Parameters:

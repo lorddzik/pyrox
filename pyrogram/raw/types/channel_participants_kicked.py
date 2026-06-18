@@ -36,7 +36,7 @@ class ChannelParticipantsKicked(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelParticipantsFilter`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A3B54985``
 
     Parameters:

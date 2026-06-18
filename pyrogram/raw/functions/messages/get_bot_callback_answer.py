@@ -34,7 +34,7 @@ class GetBotCallbackAnswer(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9342CA07``
 
     Parameters:

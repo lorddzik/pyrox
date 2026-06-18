@@ -36,7 +36,7 @@ class StickerSet(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StickerSet`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``2DD14EDC``
 
     Parameters:
@@ -67,16 +67,16 @@ class StickerSet(TLObject):  # type: ignore
         masks (``bool``, *optional*):
             N/A
 
-        animated (``bool``, *optional*):
-            N/A
-
-        videos (``bool``, *optional*):
-            N/A
-
         emojis (``bool``, *optional*):
             N/A
 
         text_color (``bool``, *optional*):
+            N/A
+
+        channel_emoji_status (``bool``, *optional*):
+            N/A
+
+        creator (``bool``, *optional*):
             N/A
 
         installed_date (``int`` ``32-bit``, *optional*):
@@ -96,12 +96,12 @@ class StickerSet(TLObject):  # type: ignore
 
     """
 
-    __slots__: List[str] = ["id", "access_hash", "title", "short_name", "count", "hash", "archived", "official", "masks", "animated", "videos", "emojis", "text_color", "installed_date", "thumbs", "thumb_dc_id", "thumb_version", "thumb_document_id"]
+    __slots__: List[str] = ["id", "access_hash", "title", "short_name", "count", "hash", "archived", "official", "masks", "emojis", "text_color", "channel_emoji_status", "creator", "installed_date", "thumbs", "thumb_dc_id", "thumb_version", "thumb_document_id"]
 
     ID = 0x2dd14edc
     QUALNAME = "types.StickerSet"
 
-    def __init__(self, *, id: int, access_hash: int, title: str, short_name: str, count: int, hash: int, archived: Optional[bool] = None, official: Optional[bool] = None, masks: Optional[bool] = None, animated: Optional[bool] = None, videos: Optional[bool] = None, emojis: Optional[bool] = None, text_color: Optional[bool] = None, installed_date: Optional[int] = None, thumbs: Optional[List["raw.base.PhotoSize"]] = None, thumb_dc_id: Optional[int] = None, thumb_version: Optional[int] = None, thumb_document_id: Optional[int] = None) -> None:
+    def __init__(self, *, id: int, access_hash: int, title: str, short_name: str, count: int, hash: int, archived: Optional[bool] = None, official: Optional[bool] = None, masks: Optional[bool] = None, emojis: Optional[bool] = None, text_color: Optional[bool] = None, channel_emoji_status: Optional[bool] = None, creator: Optional[bool] = None, installed_date: Optional[int] = None, thumbs: Optional[List["raw.base.PhotoSize"]] = None, thumb_dc_id: Optional[int] = None, thumb_version: Optional[int] = None, thumb_document_id: Optional[int] = None) -> None:
         self.id = id  # long
         self.access_hash = access_hash  # long
         self.title = title  # string
@@ -111,10 +111,10 @@ class StickerSet(TLObject):  # type: ignore
         self.archived = archived  # flags.1?true
         self.official = official  # flags.2?true
         self.masks = masks  # flags.3?true
-        self.animated = animated  # flags.5?true
-        self.videos = videos  # flags.6?true
         self.emojis = emojis  # flags.7?true
         self.text_color = text_color  # flags.9?true
+        self.channel_emoji_status = channel_emoji_status  # flags.10?true
+        self.creator = creator  # flags.11?true
         self.installed_date = installed_date  # flags.0?int
         self.thumbs = thumbs  # flags.4?Vector<PhotoSize>
         self.thumb_dc_id = thumb_dc_id  # flags.4?int
@@ -129,10 +129,10 @@ class StickerSet(TLObject):  # type: ignore
         archived = True if flags & (1 << 1) else False
         official = True if flags & (1 << 2) else False
         masks = True if flags & (1 << 3) else False
-        animated = True if flags & (1 << 5) else False
-        videos = True if flags & (1 << 6) else False
         emojis = True if flags & (1 << 7) else False
         text_color = True if flags & (1 << 9) else False
+        channel_emoji_status = True if flags & (1 << 10) else False
+        creator = True if flags & (1 << 11) else False
         installed_date = Int.read(b) if flags & (1 << 0) else None
         id = Long.read(b)
         
@@ -151,7 +151,7 @@ class StickerSet(TLObject):  # type: ignore
         
         hash = Int.read(b)
         
-        return StickerSet(id=id, access_hash=access_hash, title=title, short_name=short_name, count=count, hash=hash, archived=archived, official=official, masks=masks, animated=animated, videos=videos, emojis=emojis, text_color=text_color, installed_date=installed_date, thumbs=thumbs, thumb_dc_id=thumb_dc_id, thumb_version=thumb_version, thumb_document_id=thumb_document_id)
+        return StickerSet(id=id, access_hash=access_hash, title=title, short_name=short_name, count=count, hash=hash, archived=archived, official=official, masks=masks, emojis=emojis, text_color=text_color, channel_emoji_status=channel_emoji_status, creator=creator, installed_date=installed_date, thumbs=thumbs, thumb_dc_id=thumb_dc_id, thumb_version=thumb_version, thumb_document_id=thumb_document_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -161,10 +161,10 @@ class StickerSet(TLObject):  # type: ignore
         flags |= (1 << 1) if self.archived else 0
         flags |= (1 << 2) if self.official else 0
         flags |= (1 << 3) if self.masks else 0
-        flags |= (1 << 5) if self.animated else 0
-        flags |= (1 << 6) if self.videos else 0
         flags |= (1 << 7) if self.emojis else 0
         flags |= (1 << 9) if self.text_color else 0
+        flags |= (1 << 10) if self.channel_emoji_status else 0
+        flags |= (1 << 11) if self.creator else 0
         flags |= (1 << 0) if self.installed_date is not None else 0
         flags |= (1 << 4) if self.thumbs else 0
         flags |= (1 << 4) if self.thumb_dc_id is not None else 0

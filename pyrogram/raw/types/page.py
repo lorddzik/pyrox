@@ -36,7 +36,7 @@ class Page(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Page`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``98657F0D``
 
     Parameters:

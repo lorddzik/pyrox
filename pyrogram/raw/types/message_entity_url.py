@@ -36,7 +36,7 @@ class MessageEntityUrl(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``6ED02538``
 
     Parameters:

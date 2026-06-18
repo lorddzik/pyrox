@@ -36,7 +36,7 @@ class MessagesNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.Messages`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``74535F21``
 
     Parameters:
@@ -44,7 +44,7 @@ class MessagesNotModified(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 13 functions.
+        This object can be returned by 18 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -62,8 +62,13 @@ class MessagesNotModified(TLObject):  # type: ignore
             messages.GetReplies
             messages.GetUnreadReactions
             messages.SearchSentMedia
+            messages.GetSavedHistory
+            messages.GetQuickReplyMessages
+            messages.GetUnreadPollVotes
+            messages.GetPersonalChannelHistory
+            messages.GetRichMessage
             channels.GetMessages
-            stats.GetMessagePublicForwards
+            channels.SearchPosts
     """
 
     __slots__: List[str] = ["count"]

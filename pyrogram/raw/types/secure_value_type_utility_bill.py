@@ -36,7 +36,7 @@ class SecureValueTypeUtilityBill(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``FC36954E``
 
     Parameters:

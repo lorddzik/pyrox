@@ -36,7 +36,7 @@ class MessageActionInviteToGroupCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``502F92F7``
 
     Parameters:

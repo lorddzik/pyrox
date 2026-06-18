@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-PrivacyKey = Union[raw.types.PrivacyKeyAbout, raw.types.PrivacyKeyAddedByPhone, raw.types.PrivacyKeyChatInvite, raw.types.PrivacyKeyForwards, raw.types.PrivacyKeyPhoneCall, raw.types.PrivacyKeyPhoneNumber, raw.types.PrivacyKeyPhoneP2P, raw.types.PrivacyKeyProfilePhoto, raw.types.PrivacyKeyStatusTimestamp, raw.types.PrivacyKeyVoiceMessages]
+PrivacyKey = Union[raw.types.PrivacyKeyAbout, raw.types.PrivacyKeyAddedByPhone, raw.types.PrivacyKeyBirthday, raw.types.PrivacyKeyChatInvite, raw.types.PrivacyKeyForwards, raw.types.PrivacyKeyNoPaidMessages, raw.types.PrivacyKeyPhoneCall, raw.types.PrivacyKeyPhoneNumber, raw.types.PrivacyKeyPhoneP2P, raw.types.PrivacyKeyProfilePhoto, raw.types.PrivacyKeySavedMusic, raw.types.PrivacyKeyStarGiftsAutoSave, raw.types.PrivacyKeyStatusTimestamp, raw.types.PrivacyKeyVoiceMessages]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class PrivacyKey:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 10 constructors available.
+        This base type has 14 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -43,12 +43,16 @@ class PrivacyKey:  # type: ignore
 
             PrivacyKeyAbout
             PrivacyKeyAddedByPhone
+            PrivacyKeyBirthday
             PrivacyKeyChatInvite
             PrivacyKeyForwards
+            PrivacyKeyNoPaidMessages
             PrivacyKeyPhoneCall
             PrivacyKeyPhoneNumber
             PrivacyKeyPhoneP2P
             PrivacyKeyProfilePhoto
+            PrivacyKeySavedMusic
+            PrivacyKeyStarGiftsAutoSave
             PrivacyKeyStatusTimestamp
             PrivacyKeyVoiceMessages
     """

@@ -36,7 +36,7 @@ class Chat(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Chat`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``41CBF256``
 
     Parameters:

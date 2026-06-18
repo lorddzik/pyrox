@@ -36,8 +36,8 @@ class KeyboardButtonUserProfile(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButton`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``308660C1``
+        - Layer: ``227``
+        - ID: ``C0FD5D09``
 
     Parameters:
         text (``str``):
@@ -46,32 +46,53 @@ class KeyboardButtonUserProfile(TLObject):  # type: ignore
         user_id (``int`` ``64-bit``):
             N/A
 
+        style (:obj:`KeyboardButtonStyle <pyrogram.raw.base.KeyboardButtonStyle>`, *optional*):
+            N/A
+
+    Functions:
+        This object can be returned by 1 function.
+
+        .. currentmodule:: pyrogram.raw.functions
+
+        .. autosummary::
+            :nosignatures:
+
+            bots.GetRequestedWebViewButton
     """
 
-    __slots__: List[str] = ["text", "user_id"]
+    __slots__: List[str] = ["text", "user_id", "style"]
 
-    ID = 0x308660c1
+    ID = 0xc0fd5d09
     QUALNAME = "types.KeyboardButtonUserProfile"
 
-    def __init__(self, *, text: str, user_id: int) -> None:
+    def __init__(self, *, text: str, user_id: int, style: "raw.base.KeyboardButtonStyle" = None) -> None:
         self.text = text  # string
         self.user_id = user_id  # long
+        self.style = style  # flags.10?KeyboardButtonStyle
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "KeyboardButtonUserProfile":
-        # No flags
+        
+        flags = Int.read(b)
+        
+        style = TLObject.read(b) if flags & (1 << 10) else None
         
         text = String.read(b)
         
         user_id = Long.read(b)
         
-        return KeyboardButtonUserProfile(text=text, user_id=user_id)
+        return KeyboardButtonUserProfile(text=text, user_id=user_id, style=style)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 10) if self.style is not None else 0
+        b.write(Int(flags))
+        
+        if self.style is not None:
+            b.write(self.style.write())
         
         b.write(String(self.text))
         

@@ -36,7 +36,7 @@ class UpdateUserName(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A7848924``
 
     Parameters:

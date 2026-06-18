@@ -36,8 +36,8 @@ class KeyboardButtonCopy(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButton`.
 
     Details:
-        - Layer: ``195``
-        - ID: ``75D2698E``
+        - Layer: ``227``
+        - ID: ``BCC4AF10``
 
     Parameters:
         text (``str``):
@@ -46,32 +46,53 @@ class KeyboardButtonCopy(TLObject):  # type: ignore
         copy_text (``str``):
             N/A
 
+        style (:obj:`KeyboardButtonStyle <pyrogram.raw.base.KeyboardButtonStyle>`, *optional*):
+            N/A
+
+    Functions:
+        This object can be returned by 1 function.
+
+        .. currentmodule:: pyrogram.raw.functions
+
+        .. autosummary::
+            :nosignatures:
+
+            bots.GetRequestedWebViewButton
     """
 
-    __slots__: List[str] = ["text", "copy_text"]
+    __slots__: List[str] = ["text", "copy_text", "style"]
 
-    ID = 0x75d2698e
+    ID = 0xbcc4af10
     QUALNAME = "types.KeyboardButtonCopy"
 
-    def __init__(self, *, text: str, copy_text: str) -> None:
+    def __init__(self, *, text: str, copy_text: str, style: "raw.base.KeyboardButtonStyle" = None) -> None:
         self.text = text  # string
         self.copy_text = copy_text  # string
+        self.style = style  # flags.10?KeyboardButtonStyle
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "KeyboardButtonCopy":
-        # No flags
+        
+        flags = Int.read(b)
+        
+        style = TLObject.read(b) if flags & (1 << 10) else None
         
         text = String.read(b)
         
         copy_text = String.read(b)
         
-        return KeyboardButtonCopy(text=text, copy_text=copy_text)
+        return KeyboardButtonCopy(text=text, copy_text=copy_text, style=style)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 10) if self.style is not None else 0
+        b.write(Int(flags))
+        
+        if self.style is not None:
+            b.write(self.style.write())
         
         b.write(String(self.text))
         

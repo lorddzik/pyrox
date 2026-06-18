@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionParticipantMute(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F92424D2``
 
     Parameters:

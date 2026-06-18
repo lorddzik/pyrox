@@ -36,7 +36,7 @@ class InputSecureValue(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputSecureValue`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DB21D0A7``
 
     Parameters:

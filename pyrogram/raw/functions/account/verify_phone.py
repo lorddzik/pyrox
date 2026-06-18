@@ -34,7 +34,7 @@ class VerifyPhone(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4DD3A7F6``
 
     Parameters:

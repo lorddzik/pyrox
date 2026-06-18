@@ -34,7 +34,7 @@ class InvalidateSignInCodes(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``CA8AE8BA``
 
     Parameters:

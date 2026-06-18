@@ -36,7 +36,7 @@ class PageBlockVideo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``7C8FE7B6``
 
     Parameters:
@@ -52,18 +52,22 @@ class PageBlockVideo(TLObject):  # type: ignore
         loop (``bool``, *optional*):
             N/A
 
+        spoiler (``bool``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["video_id", "caption", "autoplay", "loop"]
+    __slots__: List[str] = ["video_id", "caption", "autoplay", "loop", "spoiler"]
 
     ID = 0x7c8fe7b6
     QUALNAME = "types.PageBlockVideo"
 
-    def __init__(self, *, video_id: int, caption: "raw.base.PageCaption", autoplay: Optional[bool] = None, loop: Optional[bool] = None) -> None:
+    def __init__(self, *, video_id: int, caption: "raw.base.PageCaption", autoplay: Optional[bool] = None, loop: Optional[bool] = None, spoiler: Optional[bool] = None) -> None:
         self.video_id = video_id  # long
         self.caption = caption  # PageCaption
         self.autoplay = autoplay  # flags.0?true
         self.loop = loop  # flags.1?true
+        self.spoiler = spoiler  # flags.2?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "PageBlockVideo":
@@ -72,11 +76,12 @@ class PageBlockVideo(TLObject):  # type: ignore
         
         autoplay = True if flags & (1 << 0) else False
         loop = True if flags & (1 << 1) else False
+        spoiler = True if flags & (1 << 2) else False
         video_id = Long.read(b)
         
         caption = TLObject.read(b)
         
-        return PageBlockVideo(video_id=video_id, caption=caption, autoplay=autoplay, loop=loop)
+        return PageBlockVideo(video_id=video_id, caption=caption, autoplay=autoplay, loop=loop, spoiler=spoiler)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -85,6 +90,7 @@ class PageBlockVideo(TLObject):  # type: ignore
         flags = 0
         flags |= (1 << 0) if self.autoplay else 0
         flags |= (1 << 1) if self.loop else 0
+        flags |= (1 << 2) if self.spoiler else 0
         b.write(Int(flags))
         
         b.write(Long(self.video_id))

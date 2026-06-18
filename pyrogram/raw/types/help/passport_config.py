@@ -36,7 +36,7 @@ class PassportConfig(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.PassportConfig`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A098D6AF``
 
     Parameters:

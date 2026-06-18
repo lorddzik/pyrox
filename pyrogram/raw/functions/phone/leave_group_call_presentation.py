@@ -34,7 +34,7 @@ class LeaveGroupCallPresentation(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1C50D144``
 
     Parameters:

@@ -36,7 +36,7 @@ class InputStickerSetThumb(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputFileLocation`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9D84F3DB``
 
     Parameters:

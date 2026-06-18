@@ -36,14 +36,17 @@ class MessagesSlice(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.Messages`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``3A54685E``
+        - Layer: ``227``
+        - ID: ``5F206716``
 
     Parameters:
         count (``int`` ``32-bit``):
             N/A
 
         messages (List of :obj:`Message <pyrogram.raw.base.Message>`):
+            N/A
+
+        topics (List of :obj:`ForumTopic <pyrogram.raw.base.ForumTopic>`):
             N/A
 
         chats (List of :obj:`Chat <pyrogram.raw.base.Chat>`):
@@ -61,8 +64,11 @@ class MessagesSlice(TLObject):  # type: ignore
         offset_id_offset (``int`` ``32-bit``, *optional*):
             N/A
 
+        search_flood (:obj:`SearchPostsFlood <pyrogram.raw.base.SearchPostsFlood>`, *optional*):
+            N/A
+
     Functions:
-        This object can be returned by 13 functions.
+        This object can be returned by 18 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -80,23 +86,30 @@ class MessagesSlice(TLObject):  # type: ignore
             messages.GetReplies
             messages.GetUnreadReactions
             messages.SearchSentMedia
+            messages.GetSavedHistory
+            messages.GetQuickReplyMessages
+            messages.GetUnreadPollVotes
+            messages.GetPersonalChannelHistory
+            messages.GetRichMessage
             channels.GetMessages
-            stats.GetMessagePublicForwards
+            channels.SearchPosts
     """
 
-    __slots__: List[str] = ["count", "messages", "chats", "users", "inexact", "next_rate", "offset_id_offset"]
+    __slots__: List[str] = ["count", "messages", "topics", "chats", "users", "inexact", "next_rate", "offset_id_offset", "search_flood"]
 
-    ID = 0x3a54685e
+    ID = 0x5f206716
     QUALNAME = "types.messages.MessagesSlice"
 
-    def __init__(self, *, count: int, messages: List["raw.base.Message"], chats: List["raw.base.Chat"], users: List["raw.base.User"], inexact: Optional[bool] = None, next_rate: Optional[int] = None, offset_id_offset: Optional[int] = None) -> None:
+    def __init__(self, *, count: int, messages: List["raw.base.Message"], topics: List["raw.base.ForumTopic"], chats: List["raw.base.Chat"], users: List["raw.base.User"], inexact: Optional[bool] = None, next_rate: Optional[int] = None, offset_id_offset: Optional[int] = None, search_flood: "raw.base.SearchPostsFlood" = None) -> None:
         self.count = count  # int
         self.messages = messages  # Vector<Message>
+        self.topics = topics  # Vector<ForumTopic>
         self.chats = chats  # Vector<Chat>
         self.users = users  # Vector<User>
         self.inexact = inexact  # flags.1?true
         self.next_rate = next_rate  # flags.0?int
         self.offset_id_offset = offset_id_offset  # flags.2?int
+        self.search_flood = search_flood  # flags.3?SearchPostsFlood
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessagesSlice":
@@ -108,13 +121,17 @@ class MessagesSlice(TLObject):  # type: ignore
         
         next_rate = Int.read(b) if flags & (1 << 0) else None
         offset_id_offset = Int.read(b) if flags & (1 << 2) else None
+        search_flood = TLObject.read(b) if flags & (1 << 3) else None
+        
         messages = TLObject.read(b)
+        
+        topics = TLObject.read(b)
         
         chats = TLObject.read(b)
         
         users = TLObject.read(b)
         
-        return MessagesSlice(count=count, messages=messages, chats=chats, users=users, inexact=inexact, next_rate=next_rate, offset_id_offset=offset_id_offset)
+        return MessagesSlice(count=count, messages=messages, topics=topics, chats=chats, users=users, inexact=inexact, next_rate=next_rate, offset_id_offset=offset_id_offset, search_flood=search_flood)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -124,6 +141,7 @@ class MessagesSlice(TLObject):  # type: ignore
         flags |= (1 << 1) if self.inexact else 0
         flags |= (1 << 0) if self.next_rate is not None else 0
         flags |= (1 << 2) if self.offset_id_offset is not None else 0
+        flags |= (1 << 3) if self.search_flood is not None else 0
         b.write(Int(flags))
         
         b.write(Int(self.count))
@@ -134,7 +152,12 @@ class MessagesSlice(TLObject):  # type: ignore
         if self.offset_id_offset is not None:
             b.write(Int(self.offset_id_offset))
         
+        if self.search_flood is not None:
+            b.write(self.search_flood.write())
+        
         b.write(Vector(self.messages))
+        
+        b.write(Vector(self.topics))
         
         b.write(Vector(self.chats))
         

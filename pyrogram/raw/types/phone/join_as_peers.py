@@ -36,7 +36,7 @@ class JoinAsPeers(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.phone.JoinAsPeers`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``AFE5623F``
 
     Parameters:

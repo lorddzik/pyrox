@@ -36,7 +36,7 @@ class EmailVerifyPurposePassport(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EmailVerifyPurpose`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BBF51685``
 
     Parameters:

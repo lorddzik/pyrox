@@ -34,7 +34,7 @@ class SendScreenshotNotification(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A1405817``
 
     Parameters:

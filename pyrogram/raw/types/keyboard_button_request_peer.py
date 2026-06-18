@@ -36,8 +36,8 @@ class KeyboardButtonRequestPeer(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButton`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``D0B468C``
+        - Layer: ``227``
+        - ID: ``5B0F15F5``
 
     Parameters:
         text (``str``):
@@ -49,21 +49,41 @@ class KeyboardButtonRequestPeer(TLObject):  # type: ignore
         peer_type (:obj:`RequestPeerType <pyrogram.raw.base.RequestPeerType>`):
             N/A
 
+        max_quantity (``int`` ``32-bit``):
+            N/A
+
+        style (:obj:`KeyboardButtonStyle <pyrogram.raw.base.KeyboardButtonStyle>`, *optional*):
+            N/A
+
+    Functions:
+        This object can be returned by 1 function.
+
+        .. currentmodule:: pyrogram.raw.functions
+
+        .. autosummary::
+            :nosignatures:
+
+            bots.GetRequestedWebViewButton
     """
 
-    __slots__: List[str] = ["text", "button_id", "peer_type"]
+    __slots__: List[str] = ["text", "button_id", "peer_type", "max_quantity", "style"]
 
-    ID = 0xd0b468c
+    ID = 0x5b0f15f5
     QUALNAME = "types.KeyboardButtonRequestPeer"
 
-    def __init__(self, *, text: str, button_id: int, peer_type: "raw.base.RequestPeerType") -> None:
+    def __init__(self, *, text: str, button_id: int, peer_type: "raw.base.RequestPeerType", max_quantity: int, style: "raw.base.KeyboardButtonStyle" = None) -> None:
         self.text = text  # string
         self.button_id = button_id  # int
         self.peer_type = peer_type  # RequestPeerType
+        self.max_quantity = max_quantity  # int
+        self.style = style  # flags.10?KeyboardButtonStyle
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "KeyboardButtonRequestPeer":
-        # No flags
+        
+        flags = Int.read(b)
+        
+        style = TLObject.read(b) if flags & (1 << 10) else None
         
         text = String.read(b)
         
@@ -71,18 +91,27 @@ class KeyboardButtonRequestPeer(TLObject):  # type: ignore
         
         peer_type = TLObject.read(b)
         
-        return KeyboardButtonRequestPeer(text=text, button_id=button_id, peer_type=peer_type)
+        max_quantity = Int.read(b)
+        
+        return KeyboardButtonRequestPeer(text=text, button_id=button_id, peer_type=peer_type, max_quantity=max_quantity, style=style)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 10) if self.style is not None else 0
+        b.write(Int(flags))
+        
+        if self.style is not None:
+            b.write(self.style.write())
         
         b.write(String(self.text))
         
         b.write(Int(self.button_id))
         
         b.write(self.peer_type.write())
+        
+        b.write(Int(self.max_quantity))
         
         return b.getvalue()

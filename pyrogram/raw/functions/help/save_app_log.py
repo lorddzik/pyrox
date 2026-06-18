@@ -34,7 +34,7 @@ class SaveAppLog(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``6F02F748``
 
     Parameters:

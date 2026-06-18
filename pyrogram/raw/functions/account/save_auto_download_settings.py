@@ -34,7 +34,7 @@ class SaveAutoDownloadSettings(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``76F36233``
 
     Parameters:

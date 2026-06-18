@@ -36,7 +36,7 @@ class SecureValueTypeAddress(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``CBE31E26``
 
     Parameters:

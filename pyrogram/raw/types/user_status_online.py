@@ -36,7 +36,7 @@ class UserStatusOnline(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.UserStatus`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``EDB93949``
 
     Parameters:

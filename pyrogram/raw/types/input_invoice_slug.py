@@ -36,7 +36,7 @@ class InputInvoiceSlug(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputInvoice`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C326CAEF``
 
     Parameters:

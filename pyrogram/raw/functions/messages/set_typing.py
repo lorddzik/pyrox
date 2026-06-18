@@ -34,7 +34,7 @@ class SetTyping(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``58943EE2``
 
     Parameters:

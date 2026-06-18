@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-InputMedia = Union[raw.types.InputMediaContact, raw.types.InputMediaDice, raw.types.InputMediaDocument, raw.types.InputMediaDocumentExternal, raw.types.InputMediaEmpty, raw.types.InputMediaGame, raw.types.InputMediaGeoLive, raw.types.InputMediaGeoPoint, raw.types.InputMediaInvoice, raw.types.InputMediaPhoto, raw.types.InputMediaPhotoExternal, raw.types.InputMediaPoll, raw.types.InputMediaStory, raw.types.InputMediaUploadedDocument, raw.types.InputMediaUploadedPhoto, raw.types.InputMediaVenue, raw.types.InputMediaWebPage]
+InputMedia = Union[raw.types.InputMediaContact, raw.types.InputMediaDice, raw.types.InputMediaDocument, raw.types.InputMediaDocumentExternal, raw.types.InputMediaEmpty, raw.types.InputMediaGame, raw.types.InputMediaGeoLive, raw.types.InputMediaGeoPoint, raw.types.InputMediaInvoice, raw.types.InputMediaPaidMedia, raw.types.InputMediaPhoto, raw.types.InputMediaPhotoExternal, raw.types.InputMediaPoll, raw.types.InputMediaStakeDice, raw.types.InputMediaStory, raw.types.InputMediaTodo, raw.types.InputMediaUploadedDocument, raw.types.InputMediaUploadedPhoto, raw.types.InputMediaVenue, raw.types.InputMediaWebPage]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class InputMedia:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 17 constructors available.
+        This base type has 20 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -50,10 +50,13 @@ class InputMedia:  # type: ignore
             InputMediaGeoLive
             InputMediaGeoPoint
             InputMediaInvoice
+            InputMediaPaidMedia
             InputMediaPhoto
             InputMediaPhotoExternal
             InputMediaPoll
+            InputMediaStakeDice
             InputMediaStory
+            InputMediaTodo
             InputMediaUploadedDocument
             InputMediaUploadedPhoto
             InputMediaVenue

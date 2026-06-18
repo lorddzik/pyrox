@@ -36,7 +36,7 @@ class SendMessageCancelAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``FD5EC8F5``
 
     Parameters:

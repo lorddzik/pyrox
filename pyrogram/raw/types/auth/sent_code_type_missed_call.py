@@ -36,7 +36,7 @@ class SentCodeTypeMissedCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.SentCodeType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``82006484``
 
     Parameters:

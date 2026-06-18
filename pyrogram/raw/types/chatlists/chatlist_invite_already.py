@@ -36,7 +36,7 @@ class ChatlistInviteAlready(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.chatlists.ChatlistInvite`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``FA87F659``
 
     Parameters:

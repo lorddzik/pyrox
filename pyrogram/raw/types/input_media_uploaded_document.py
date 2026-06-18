@@ -36,8 +36,8 @@ class InputMediaUploadedDocument(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMedia`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``5B38C6C1``
+        - Layer: ``227``
+        - ID: ``37C9330``
 
     Parameters:
         file (:obj:`InputFile <pyrogram.raw.base.InputFile>`):
@@ -64,17 +64,23 @@ class InputMediaUploadedDocument(TLObject):  # type: ignore
         stickers (List of :obj:`InputDocument <pyrogram.raw.base.InputDocument>`, *optional*):
             N/A
 
+        video_cover (:obj:`InputPhoto <pyrogram.raw.base.InputPhoto>`, *optional*):
+            N/A
+
+        video_timestamp (``int`` ``32-bit``, *optional*):
+            N/A
+
         ttl_seconds (``int`` ``32-bit``, *optional*):
             N/A
 
     """
 
-    __slots__: List[str] = ["file", "mime_type", "attributes", "nosound_video", "force_file", "spoiler", "thumb", "stickers", "ttl_seconds"]
+    __slots__: List[str] = ["file", "mime_type", "attributes", "nosound_video", "force_file", "spoiler", "thumb", "stickers", "video_cover", "video_timestamp", "ttl_seconds"]
 
-    ID = 0x5b38c6c1
+    ID = 0x37c9330
     QUALNAME = "types.InputMediaUploadedDocument"
 
-    def __init__(self, *, file: "raw.base.InputFile", mime_type: str, attributes: List["raw.base.DocumentAttribute"], nosound_video: Optional[bool] = None, force_file: Optional[bool] = None, spoiler: Optional[bool] = None, thumb: "raw.base.InputFile" = None, stickers: Optional[List["raw.base.InputDocument"]] = None, ttl_seconds: Optional[int] = None) -> None:
+    def __init__(self, *, file: "raw.base.InputFile", mime_type: str, attributes: List["raw.base.DocumentAttribute"], nosound_video: Optional[bool] = None, force_file: Optional[bool] = None, spoiler: Optional[bool] = None, thumb: "raw.base.InputFile" = None, stickers: Optional[List["raw.base.InputDocument"]] = None, video_cover: "raw.base.InputPhoto" = None, video_timestamp: Optional[int] = None, ttl_seconds: Optional[int] = None) -> None:
         self.file = file  # InputFile
         self.mime_type = mime_type  # string
         self.attributes = attributes  # Vector<DocumentAttribute>
@@ -83,6 +89,8 @@ class InputMediaUploadedDocument(TLObject):  # type: ignore
         self.spoiler = spoiler  # flags.5?true
         self.thumb = thumb  # flags.2?InputFile
         self.stickers = stickers  # flags.0?Vector<InputDocument>
+        self.video_cover = video_cover  # flags.6?InputPhoto
+        self.video_timestamp = video_timestamp  # flags.7?int
         self.ttl_seconds = ttl_seconds  # flags.1?int
 
     @staticmethod
@@ -103,8 +111,11 @@ class InputMediaUploadedDocument(TLObject):  # type: ignore
         
         stickers = TLObject.read(b) if flags & (1 << 0) else []
         
+        video_cover = TLObject.read(b) if flags & (1 << 6) else None
+        
+        video_timestamp = Int.read(b) if flags & (1 << 7) else None
         ttl_seconds = Int.read(b) if flags & (1 << 1) else None
-        return InputMediaUploadedDocument(file=file, mime_type=mime_type, attributes=attributes, nosound_video=nosound_video, force_file=force_file, spoiler=spoiler, thumb=thumb, stickers=stickers, ttl_seconds=ttl_seconds)
+        return InputMediaUploadedDocument(file=file, mime_type=mime_type, attributes=attributes, nosound_video=nosound_video, force_file=force_file, spoiler=spoiler, thumb=thumb, stickers=stickers, video_cover=video_cover, video_timestamp=video_timestamp, ttl_seconds=ttl_seconds)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -116,6 +127,8 @@ class InputMediaUploadedDocument(TLObject):  # type: ignore
         flags |= (1 << 5) if self.spoiler else 0
         flags |= (1 << 2) if self.thumb is not None else 0
         flags |= (1 << 0) if self.stickers else 0
+        flags |= (1 << 6) if self.video_cover is not None else 0
+        flags |= (1 << 7) if self.video_timestamp is not None else 0
         flags |= (1 << 1) if self.ttl_seconds is not None else 0
         b.write(Int(flags))
         
@@ -130,6 +143,12 @@ class InputMediaUploadedDocument(TLObject):  # type: ignore
         
         if self.stickers is not None:
             b.write(Vector(self.stickers))
+        
+        if self.video_cover is not None:
+            b.write(self.video_cover.write())
+        
+        if self.video_timestamp is not None:
+            b.write(Int(self.video_timestamp))
         
         if self.ttl_seconds is not None:
             b.write(Int(self.ttl_seconds))

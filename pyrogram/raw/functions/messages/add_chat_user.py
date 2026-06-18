@@ -34,8 +34,8 @@ class AddChatUser(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``F24753E3``
+        - Layer: ``227``
+        - ID: ``CBC6D107``
 
     Parameters:
         chat_id (``int`` ``64-bit``):
@@ -48,12 +48,12 @@ class AddChatUser(TLObject):  # type: ignore
             N/A
 
     Returns:
-        :obj:`Updates <pyrogram.raw.base.Updates>`
+        :obj:`messages.InvitedUsers <pyrogram.raw.base.messages.InvitedUsers>`
     """
 
     __slots__: List[str] = ["chat_id", "user_id", "fwd_limit"]
 
-    ID = 0xf24753e3
+    ID = 0xcbc6d107
     QUALNAME = "functions.messages.AddChatUser"
 
     def __init__(self, *, chat_id: int, user_id: "raw.base.InputUser", fwd_limit: int) -> None:

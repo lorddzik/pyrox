@@ -36,7 +36,7 @@ class GroupCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.phone.GroupCall`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9E727AAD``
 
     Parameters:

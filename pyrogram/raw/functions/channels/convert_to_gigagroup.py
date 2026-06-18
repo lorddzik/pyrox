@@ -34,7 +34,7 @@ class ConvertToGigagroup(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``B290C69``
 
     Parameters:

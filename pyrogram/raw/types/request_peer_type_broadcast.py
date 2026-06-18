@@ -36,7 +36,7 @@ class RequestPeerTypeBroadcast(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RequestPeerType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``339BEF6C``
 
     Parameters:

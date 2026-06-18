@@ -34,7 +34,7 @@ class CancelPasswordEmail(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C1CBD5B6``
 
     Parameters:

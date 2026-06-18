@@ -36,7 +36,7 @@ class Photos(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.photos.Photos`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``8DCA6AA5``
 
     Parameters:

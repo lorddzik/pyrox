@@ -36,8 +36,8 @@ class ChatInviteExported(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ExportedChatInvite`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``AB4A819``
+        - Layer: ``227``
+        - ID: ``A22CBD96``
 
     Parameters:
         link (``str``):
@@ -73,7 +73,13 @@ class ChatInviteExported(TLObject):  # type: ignore
         requested (``int`` ``32-bit``, *optional*):
             N/A
 
+        subscription_expired (``int`` ``32-bit``, *optional*):
+            N/A
+
         title (``str``, *optional*):
+            N/A
+
+        subscription_pricing (:obj:`StarsSubscriptionPricing <pyrogram.raw.base.StarsSubscriptionPricing>`, *optional*):
             N/A
 
     Functions:
@@ -87,12 +93,12 @@ class ChatInviteExported(TLObject):  # type: ignore
             messages.ExportChatInvite
     """
 
-    __slots__: List[str] = ["link", "admin_id", "date", "revoked", "permanent", "request_needed", "start_date", "expire_date", "usage_limit", "usage", "requested", "title"]
+    __slots__: List[str] = ["link", "admin_id", "date", "revoked", "permanent", "request_needed", "start_date", "expire_date", "usage_limit", "usage", "requested", "subscription_expired", "title", "subscription_pricing"]
 
-    ID = 0xab4a819
+    ID = 0xa22cbd96
     QUALNAME = "types.ChatInviteExported"
 
-    def __init__(self, *, link: str, admin_id: int, date: int, revoked: Optional[bool] = None, permanent: Optional[bool] = None, request_needed: Optional[bool] = None, start_date: Optional[int] = None, expire_date: Optional[int] = None, usage_limit: Optional[int] = None, usage: Optional[int] = None, requested: Optional[int] = None, title: Optional[str] = None) -> None:
+    def __init__(self, *, link: str, admin_id: int, date: int, revoked: Optional[bool] = None, permanent: Optional[bool] = None, request_needed: Optional[bool] = None, start_date: Optional[int] = None, expire_date: Optional[int] = None, usage_limit: Optional[int] = None, usage: Optional[int] = None, requested: Optional[int] = None, subscription_expired: Optional[int] = None, title: Optional[str] = None, subscription_pricing: "raw.base.StarsSubscriptionPricing" = None) -> None:
         self.link = link  # string
         self.admin_id = admin_id  # long
         self.date = date  # int
@@ -104,7 +110,9 @@ class ChatInviteExported(TLObject):  # type: ignore
         self.usage_limit = usage_limit  # flags.2?int
         self.usage = usage  # flags.3?int
         self.requested = requested  # flags.7?int
+        self.subscription_expired = subscription_expired  # flags.10?int
         self.title = title  # flags.8?string
+        self.subscription_pricing = subscription_pricing  # flags.9?StarsSubscriptionPricing
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ChatInviteExported":
@@ -125,8 +133,11 @@ class ChatInviteExported(TLObject):  # type: ignore
         usage_limit = Int.read(b) if flags & (1 << 2) else None
         usage = Int.read(b) if flags & (1 << 3) else None
         requested = Int.read(b) if flags & (1 << 7) else None
+        subscription_expired = Int.read(b) if flags & (1 << 10) else None
         title = String.read(b) if flags & (1 << 8) else None
-        return ChatInviteExported(link=link, admin_id=admin_id, date=date, revoked=revoked, permanent=permanent, request_needed=request_needed, start_date=start_date, expire_date=expire_date, usage_limit=usage_limit, usage=usage, requested=requested, title=title)
+        subscription_pricing = TLObject.read(b) if flags & (1 << 9) else None
+        
+        return ChatInviteExported(link=link, admin_id=admin_id, date=date, revoked=revoked, permanent=permanent, request_needed=request_needed, start_date=start_date, expire_date=expire_date, usage_limit=usage_limit, usage=usage, requested=requested, subscription_expired=subscription_expired, title=title, subscription_pricing=subscription_pricing)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -141,7 +152,9 @@ class ChatInviteExported(TLObject):  # type: ignore
         flags |= (1 << 2) if self.usage_limit is not None else 0
         flags |= (1 << 3) if self.usage is not None else 0
         flags |= (1 << 7) if self.requested is not None else 0
+        flags |= (1 << 10) if self.subscription_expired is not None else 0
         flags |= (1 << 8) if self.title is not None else 0
+        flags |= (1 << 9) if self.subscription_pricing is not None else 0
         b.write(Int(flags))
         
         b.write(String(self.link))
@@ -165,7 +178,13 @@ class ChatInviteExported(TLObject):  # type: ignore
         if self.requested is not None:
             b.write(Int(self.requested))
         
+        if self.subscription_expired is not None:
+            b.write(Int(self.subscription_expired))
+        
         if self.title is not None:
             b.write(String(self.title))
+        
+        if self.subscription_pricing is not None:
+            b.write(self.subscription_pricing.write())
         
         return b.getvalue()

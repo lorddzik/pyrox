@@ -36,7 +36,7 @@ class MessagePeerReaction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessagePeerReaction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``8C79B63C``
 
     Parameters:

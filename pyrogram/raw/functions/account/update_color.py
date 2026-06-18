@@ -34,50 +34,49 @@ class UpdateColor(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``A001CC43``
+        - Layer: ``227``
+        - ID: ``684D214E``
 
     Parameters:
-        color (``int`` ``32-bit``):
+        for_profile (``bool``, *optional*):
             N/A
 
-        background_emoji_id (``int`` ``64-bit``, *optional*):
+        color (:obj:`PeerColor <pyrogram.raw.base.PeerColor>`, *optional*):
             N/A
 
     Returns:
         ``bool``
     """
 
-    __slots__: List[str] = ["color", "background_emoji_id"]
+    __slots__: List[str] = ["for_profile", "color"]
 
-    ID = 0xa001cc43
+    ID = 0x684d214e
     QUALNAME = "functions.account.UpdateColor"
 
-    def __init__(self, *, color: int, background_emoji_id: Optional[int] = None) -> None:
-        self.color = color  # int
-        self.background_emoji_id = background_emoji_id  # flags.0?long
+    def __init__(self, *, for_profile: Optional[bool] = None, color: "raw.base.PeerColor" = None) -> None:
+        self.for_profile = for_profile  # flags.1?true
+        self.color = color  # flags.2?PeerColor
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UpdateColor":
         
         flags = Int.read(b)
         
-        color = Int.read(b)
+        for_profile = True if flags & (1 << 1) else False
+        color = TLObject.read(b) if flags & (1 << 2) else None
         
-        background_emoji_id = Long.read(b) if flags & (1 << 0) else None
-        return UpdateColor(color=color, background_emoji_id=background_emoji_id)
+        return UpdateColor(for_profile=for_profile, color=color)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
         flags = 0
-        flags |= (1 << 0) if self.background_emoji_id is not None else 0
+        flags |= (1 << 1) if self.for_profile else 0
+        flags |= (1 << 2) if self.color is not None else 0
         b.write(Int(flags))
         
-        b.write(Int(self.color))
-        
-        if self.background_emoji_id is not None:
-            b.write(Long(self.background_emoji_id))
+        if self.color is not None:
+            b.write(self.color.write())
         
         return b.getvalue()

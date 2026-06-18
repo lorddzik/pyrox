@@ -36,7 +36,7 @@ class GiveawayInfo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.payments.GiveawayInfo`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4367DAA0``
 
     Parameters:

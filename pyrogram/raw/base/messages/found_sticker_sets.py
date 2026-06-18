@@ -45,7 +45,7 @@ class FoundStickerSets:  # type: ignore
             messages.FoundStickerSetsNotModified
 
     Functions:
-        This object can be returned by 1 function.
+        This object can be returned by 2 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -53,6 +53,7 @@ class FoundStickerSets:  # type: ignore
             :nosignatures:
 
             messages.SearchStickerSets
+            messages.SearchEmojiStickerSets
     """
 
     QUALNAME = "pyrogram.raw.base.messages.FoundStickerSets"

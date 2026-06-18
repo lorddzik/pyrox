@@ -36,7 +36,7 @@ class MessageViews(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageViews`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``455B853D``
 
     Parameters:

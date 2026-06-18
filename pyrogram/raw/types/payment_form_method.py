@@ -36,7 +36,7 @@ class PaymentFormMethod(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PaymentFormMethod`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``88F8F21B``
 
     Parameters:

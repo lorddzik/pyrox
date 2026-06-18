@@ -36,7 +36,7 @@ class InputBotInlineMessageMediaInvoice(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputBotInlineMessage`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D7E78225``
 
     Parameters:

@@ -36,7 +36,7 @@ class InactiveChats(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.InactiveChats`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A927FEC5``
 
     Parameters:

@@ -36,7 +36,7 @@ class EmailVerifiedLogin(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.EmailVerified`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E1BB0D61``
 
     Parameters:

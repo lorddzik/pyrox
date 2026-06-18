@@ -36,7 +36,7 @@ class CdnConfig(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.CdnConfig`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``5725E40A``
 
     Parameters:

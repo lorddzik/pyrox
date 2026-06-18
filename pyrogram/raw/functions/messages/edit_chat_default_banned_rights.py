@@ -34,7 +34,7 @@ class EditChatDefaultBannedRights(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A5866B41``
 
     Parameters:

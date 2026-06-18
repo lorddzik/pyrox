@@ -36,7 +36,7 @@ class UpdateEncryptedMessagesRead(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``38FE25B7``
 
     Parameters:

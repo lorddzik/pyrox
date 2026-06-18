@@ -36,14 +36,14 @@ class EmojiListNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EmojiList`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``481EADFA``
 
     Parameters:
         No parameters required.
 
     Functions:
-        This object can be returned by 4 functions.
+        This object can be returned by 5 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -53,6 +53,7 @@ class EmojiListNotModified(TLObject):  # type: ignore
             account.GetDefaultProfilePhotoEmojis
             account.GetDefaultGroupPhotoEmojis
             account.GetDefaultBackgroundEmojis
+            account.GetChannelRestrictedStatusEmojis
             messages.SearchCustomEmoji
     """
 

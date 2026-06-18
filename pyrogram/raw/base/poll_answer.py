@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-PollAnswer = Union[raw.types.PollAnswer]
+PollAnswer = Union[raw.types.InputPollAnswer, raw.types.PollAnswer]
 
 
 # noinspection PyRedeclaration
@@ -34,13 +34,14 @@ class PollAnswer:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 1 constructor available.
+        This base type has 2 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
         .. autosummary::
             :nosignatures:
 
+            InputPollAnswer
             PollAnswer
     """
 

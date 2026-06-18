@@ -34,7 +34,7 @@ class GetStoriesViews(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``28E16CC8``
 
     Parameters:

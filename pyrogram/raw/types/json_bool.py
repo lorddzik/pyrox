@@ -36,7 +36,7 @@ class JsonBool(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.JSONValue`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C7345E6A``
 
     Parameters:

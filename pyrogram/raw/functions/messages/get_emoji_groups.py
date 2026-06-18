@@ -34,7 +34,7 @@ class GetEmojiGroups(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``7488CE5B``
 
     Parameters:

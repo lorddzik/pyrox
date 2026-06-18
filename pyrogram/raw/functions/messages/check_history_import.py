@@ -34,7 +34,7 @@ class CheckHistoryImport(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``43FE19F3``
 
     Parameters:

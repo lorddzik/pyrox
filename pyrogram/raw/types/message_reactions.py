@@ -36,8 +36,8 @@ class MessageReactions(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageReactions`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``4F2B9479``
+        - Layer: ``227``
+        - ID: ``A339F0B``
 
     Parameters:
         results (List of :obj:`ReactionCount <pyrogram.raw.base.ReactionCount>`):
@@ -49,21 +49,29 @@ class MessageReactions(TLObject):  # type: ignore
         can_see_list (``bool``, *optional*):
             N/A
 
+        reactions_as_tags (``bool``, *optional*):
+            N/A
+
         recent_reactions (List of :obj:`MessagePeerReaction <pyrogram.raw.base.MessagePeerReaction>`, *optional*):
+            N/A
+
+        top_reactors (List of :obj:`MessageReactor <pyrogram.raw.base.MessageReactor>`, *optional*):
             N/A
 
     """
 
-    __slots__: List[str] = ["results", "min", "can_see_list", "recent_reactions"]
+    __slots__: List[str] = ["results", "min", "can_see_list", "reactions_as_tags", "recent_reactions", "top_reactors"]
 
-    ID = 0x4f2b9479
+    ID = 0xa339f0b
     QUALNAME = "types.MessageReactions"
 
-    def __init__(self, *, results: List["raw.base.ReactionCount"], min: Optional[bool] = None, can_see_list: Optional[bool] = None, recent_reactions: Optional[List["raw.base.MessagePeerReaction"]] = None) -> None:
+    def __init__(self, *, results: List["raw.base.ReactionCount"], min: Optional[bool] = None, can_see_list: Optional[bool] = None, reactions_as_tags: Optional[bool] = None, recent_reactions: Optional[List["raw.base.MessagePeerReaction"]] = None, top_reactors: Optional[List["raw.base.MessageReactor"]] = None) -> None:
         self.results = results  # Vector<ReactionCount>
         self.min = min  # flags.0?true
         self.can_see_list = can_see_list  # flags.2?true
+        self.reactions_as_tags = reactions_as_tags  # flags.3?true
         self.recent_reactions = recent_reactions  # flags.1?Vector<MessagePeerReaction>
+        self.top_reactors = top_reactors  # flags.4?Vector<MessageReactor>
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessageReactions":
@@ -72,11 +80,14 @@ class MessageReactions(TLObject):  # type: ignore
         
         min = True if flags & (1 << 0) else False
         can_see_list = True if flags & (1 << 2) else False
+        reactions_as_tags = True if flags & (1 << 3) else False
         results = TLObject.read(b)
         
         recent_reactions = TLObject.read(b) if flags & (1 << 1) else []
         
-        return MessageReactions(results=results, min=min, can_see_list=can_see_list, recent_reactions=recent_reactions)
+        top_reactors = TLObject.read(b) if flags & (1 << 4) else []
+        
+        return MessageReactions(results=results, min=min, can_see_list=can_see_list, reactions_as_tags=reactions_as_tags, recent_reactions=recent_reactions, top_reactors=top_reactors)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -85,12 +96,17 @@ class MessageReactions(TLObject):  # type: ignore
         flags = 0
         flags |= (1 << 0) if self.min else 0
         flags |= (1 << 2) if self.can_see_list else 0
+        flags |= (1 << 3) if self.reactions_as_tags else 0
         flags |= (1 << 1) if self.recent_reactions else 0
+        flags |= (1 << 4) if self.top_reactors else 0
         b.write(Int(flags))
         
         b.write(Vector(self.results))
         
         if self.recent_reactions is not None:
             b.write(Vector(self.recent_reactions))
+        
+        if self.top_reactors is not None:
+            b.write(Vector(self.top_reactors))
         
         return b.getvalue()

@@ -36,7 +36,7 @@ class InputMediaStory(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMedia`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``89FDD778``
 
     Parameters:

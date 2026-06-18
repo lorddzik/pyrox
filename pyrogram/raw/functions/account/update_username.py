@@ -34,7 +34,7 @@ class UpdateUsername(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3E0BDD7C``
 
     Parameters:

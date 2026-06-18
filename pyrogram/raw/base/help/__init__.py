@@ -39,3 +39,7 @@ from .country import Country
 from .countries_list import CountriesList
 from .premium_promo import PremiumPromo
 from .app_config import AppConfig
+from .peer_color_set import PeerColorSet
+from .peer_color_option import PeerColorOption
+from .peer_colors import PeerColors
+from .timezones_list import TimezonesList

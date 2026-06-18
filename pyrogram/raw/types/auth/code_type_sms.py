@@ -36,7 +36,7 @@ class CodeTypeSms(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.CodeType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``72A3158C``
 
     Parameters:

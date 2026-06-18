@@ -36,7 +36,7 @@ class SecureValueTypeTemporaryRegistration(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``EA02EC33``
 
     Parameters:

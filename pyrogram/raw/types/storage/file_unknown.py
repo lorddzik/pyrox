@@ -36,7 +36,7 @@ class FileUnknown(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.storage.FileType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``AA963B05``
 
     Parameters:

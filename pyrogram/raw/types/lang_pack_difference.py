@@ -36,7 +36,7 @@ class LangPackDifference(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.LangPackDifference`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F385C1F6``
 
     Parameters:

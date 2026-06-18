@@ -34,7 +34,7 @@ class UpdateNotifySettings(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``84BE5B93``
 
     Parameters:

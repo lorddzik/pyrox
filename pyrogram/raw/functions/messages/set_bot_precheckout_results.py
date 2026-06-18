@@ -34,7 +34,7 @@ class SetBotPrecheckoutResults(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9C2DD95``
 
     Parameters:

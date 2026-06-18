@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionChangeAvailableReactions(TLObject):  # type: ign
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BE4E0EF8``
 
     Parameters:

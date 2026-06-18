@@ -36,7 +36,7 @@ class BotMenuButtonCommands(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotMenuButton`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4258C205``
 
     Parameters:

@@ -36,7 +36,7 @@ class StoriesStealthMode(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StoriesStealthMode`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``712E27FD``
 
     Parameters:

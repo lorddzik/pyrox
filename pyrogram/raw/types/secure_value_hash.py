@@ -36,7 +36,7 @@ class SecureValueHash(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueHash`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``ED1ECDB0``
 
     Parameters:

@@ -36,7 +36,7 @@ class BotInlineMediaResult(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotInlineResult`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``17DB940B``
 
     Parameters:

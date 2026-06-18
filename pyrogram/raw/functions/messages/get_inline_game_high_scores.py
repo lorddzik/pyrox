@@ -34,7 +34,7 @@ class GetInlineGameHighScores(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F635E1B``
 
     Parameters:

@@ -36,7 +36,7 @@ class SendMessageChooseContactAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``628CBC6F``
 
     Parameters:

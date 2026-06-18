@@ -36,36 +36,50 @@ class PageListItemBlocks(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageListItem`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``25E073FC``
+        - Layer: ``227``
+        - ID: ``63CA67AA``
 
     Parameters:
         blocks (List of :obj:`PageBlock <pyrogram.raw.base.PageBlock>`):
             N/A
 
+        checkbox (``bool``, *optional*):
+            N/A
+
+        checked (``bool``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["blocks"]
+    __slots__: List[str] = ["blocks", "checkbox", "checked"]
 
-    ID = 0x25e073fc
+    ID = 0x63ca67aa
     QUALNAME = "types.PageListItemBlocks"
 
-    def __init__(self, *, blocks: List["raw.base.PageBlock"]) -> None:
+    def __init__(self, *, blocks: List["raw.base.PageBlock"], checkbox: Optional[bool] = None, checked: Optional[bool] = None) -> None:
         self.blocks = blocks  # Vector<PageBlock>
+        self.checkbox = checkbox  # flags.0?true
+        self.checked = checked  # flags.1?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "PageListItemBlocks":
-        # No flags
         
+        flags = Int.read(b)
+        
+        checkbox = True if flags & (1 << 0) else False
+        checked = True if flags & (1 << 1) else False
         blocks = TLObject.read(b)
         
-        return PageListItemBlocks(blocks=blocks)
+        return PageListItemBlocks(blocks=blocks, checkbox=checkbox, checked=checked)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 0) if self.checkbox else 0
+        flags |= (1 << 1) if self.checked else 0
+        b.write(Int(flags))
         
         b.write(Vector(self.blocks))
         

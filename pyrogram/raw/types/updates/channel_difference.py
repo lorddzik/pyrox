@@ -36,7 +36,7 @@ class ChannelDifference(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.updates.ChannelDifference`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``2064674E``
 
     Parameters:

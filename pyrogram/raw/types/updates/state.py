@@ -36,7 +36,7 @@ class State(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.updates.State`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A56C2A3E``
 
     Parameters:

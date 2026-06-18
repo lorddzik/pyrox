@@ -36,7 +36,7 @@ class EncryptedFileEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EncryptedFile`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C21F497E``
 
     Parameters:

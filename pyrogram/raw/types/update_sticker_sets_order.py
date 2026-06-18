@@ -36,7 +36,7 @@ class UpdateStickerSetsOrder(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BB2D201``
 
     Parameters:

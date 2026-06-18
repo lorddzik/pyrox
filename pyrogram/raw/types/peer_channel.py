@@ -36,7 +36,7 @@ class PeerChannel(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Peer`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A2A5371E``
 
     Parameters:

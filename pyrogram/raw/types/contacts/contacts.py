@@ -36,7 +36,7 @@ class Contacts(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.contacts.Contacts`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``EAE87E42``
 
     Parameters:

@@ -36,7 +36,7 @@ class InviteText(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.InviteText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``18CB9F78``
 
     Parameters:

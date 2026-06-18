@@ -36,7 +36,7 @@ class TextItalic(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RichText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D912A59C``
 
     Parameters:

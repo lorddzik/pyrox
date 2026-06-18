@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionChangeStickerSet(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``B1C3CAA7``
 
     Parameters:

@@ -36,7 +36,7 @@ class SecureValueErrorSelfie(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueError`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E537CED6``
 
     Parameters:

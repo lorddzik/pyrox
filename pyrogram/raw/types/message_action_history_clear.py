@@ -36,7 +36,7 @@ class MessageActionHistoryClear(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9FBAB604``
 
     Parameters:

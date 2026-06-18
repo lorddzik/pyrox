@@ -36,7 +36,7 @@ class BotCommandScopeUsers(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotCommandScope`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3C4F04D8``
 
     Parameters:

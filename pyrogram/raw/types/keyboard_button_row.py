@@ -36,7 +36,7 @@ class KeyboardButtonRow(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButtonRow`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``77608B83``
 
     Parameters:

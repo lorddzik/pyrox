@@ -36,7 +36,7 @@ class DifferenceTooLong(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.updates.Difference`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4AFE8F6D``
 
     Parameters:

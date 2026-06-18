@@ -36,7 +36,7 @@ class SecureValueErrorTranslationFiles(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueError`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``34636DD8``
 
     Parameters:
