@@ -36,7 +36,7 @@ class AllStickersNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.AllStickers`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E86602C3``
 
     Parameters:

@@ -34,8 +34,8 @@ class ToggleGroupCallSettings(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``974392F2``
+        - Layer: ``166``
+        - ID: ``74BBB43D``
 
     Parameters:
         call (:obj:`InputGroupCall <pyrogram.raw.base.InputGroupCall>`):
@@ -47,27 +47,19 @@ class ToggleGroupCallSettings(TLObject):  # type: ignore
         join_muted (``bool``, *optional*):
             N/A
 
-        messages_enabled (``bool``, *optional*):
-            N/A
-
-        send_paid_messages_stars (``int`` ``64-bit``, *optional*):
-            N/A
-
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["call", "reset_invite_hash", "join_muted", "messages_enabled", "send_paid_messages_stars"]
+    __slots__: List[str] = ["call", "reset_invite_hash", "join_muted"]
 
-    ID = 0x974392f2
+    ID = 0x74bbb43d
     QUALNAME = "functions.phone.ToggleGroupCallSettings"
 
-    def __init__(self, *, call: "raw.base.InputGroupCall", reset_invite_hash: Optional[bool] = None, join_muted: Optional[bool] = None, messages_enabled: Optional[bool] = None, send_paid_messages_stars: Optional[int] = None) -> None:
+    def __init__(self, *, call: "raw.base.InputGroupCall", reset_invite_hash: Optional[bool] = None, join_muted: Optional[bool] = None) -> None:
         self.call = call  # InputGroupCall
         self.reset_invite_hash = reset_invite_hash  # flags.1?true
         self.join_muted = join_muted  # flags.0?Bool
-        self.messages_enabled = messages_enabled  # flags.2?Bool
-        self.send_paid_messages_stars = send_paid_messages_stars  # flags.3?long
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ToggleGroupCallSettings":
@@ -78,9 +70,7 @@ class ToggleGroupCallSettings(TLObject):  # type: ignore
         call = TLObject.read(b)
         
         join_muted = Bool.read(b) if flags & (1 << 0) else None
-        messages_enabled = Bool.read(b) if flags & (1 << 2) else None
-        send_paid_messages_stars = Long.read(b) if flags & (1 << 3) else None
-        return ToggleGroupCallSettings(call=call, reset_invite_hash=reset_invite_hash, join_muted=join_muted, messages_enabled=messages_enabled, send_paid_messages_stars=send_paid_messages_stars)
+        return ToggleGroupCallSettings(call=call, reset_invite_hash=reset_invite_hash, join_muted=join_muted)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -89,19 +79,11 @@ class ToggleGroupCallSettings(TLObject):  # type: ignore
         flags = 0
         flags |= (1 << 1) if self.reset_invite_hash else 0
         flags |= (1 << 0) if self.join_muted is not None else 0
-        flags |= (1 << 2) if self.messages_enabled is not None else 0
-        flags |= (1 << 3) if self.send_paid_messages_stars is not None else 0
         b.write(Int(flags))
         
         b.write(self.call.write())
         
         if self.join_muted is not None:
             b.write(Bool(self.join_muted))
-        
-        if self.messages_enabled is not None:
-            b.write(Bool(self.messages_enabled))
-        
-        if self.send_paid_messages_stars is not None:
-            b.write(Long(self.send_paid_messages_stars))
         
         return b.getvalue()

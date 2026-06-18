@@ -36,7 +36,7 @@ class DialogPeer(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DialogPeer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E56DBF05``
 
     Parameters:

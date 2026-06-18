@@ -36,7 +36,7 @@ class WebPageAttributeTheme(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.WebPageAttribute`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``54B56617``
 
     Parameters:

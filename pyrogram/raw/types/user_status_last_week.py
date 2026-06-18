@@ -36,37 +36,32 @@ class UserStatusLastWeek(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.UserStatus`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``541A1D1A``
+        - Layer: ``166``
+        - ID: ``7BF09FC``
 
     Parameters:
-        by_me (``bool``, *optional*):
-            N/A
+        No parameters required.
 
     """
 
-    __slots__: List[str] = ["by_me"]
+    __slots__: List[str] = []
 
-    ID = 0x541a1d1a
+    ID = 0x7bf09fc
     QUALNAME = "types.UserStatusLastWeek"
 
-    def __init__(self, *, by_me: Optional[bool] = None) -> None:
-        self.by_me = by_me  # flags.0?true
+    def __init__(self) -> None:
+        pass
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UserStatusLastWeek":
+        # No flags
         
-        flags = Int.read(b)
-        
-        by_me = True if flags & (1 << 0) else False
-        return UserStatusLastWeek(by_me=by_me)
+        return UserStatusLastWeek()
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.by_me else 0
-        b.write(Int(flags))
+        # No flags
         
         return b.getvalue()

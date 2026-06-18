@@ -36,7 +36,7 @@ class Country(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.Country`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C3878E23``
 
     Parameters:

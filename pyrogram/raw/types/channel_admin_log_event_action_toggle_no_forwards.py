@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionToggleNoForwards(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``CB2AC766``
 
     Parameters:

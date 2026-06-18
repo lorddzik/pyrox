@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionToggleGroupCallSetting(TLObject):  # type: ignor
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``56D6A247``
 
     Parameters:

@@ -36,7 +36,7 @@ class Support(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.Support`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``17C6B5F6``
 
     Parameters:

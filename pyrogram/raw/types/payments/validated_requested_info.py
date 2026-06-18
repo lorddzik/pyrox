@@ -36,7 +36,7 @@ class ValidatedRequestedInfo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.payments.ValidatedRequestedInfo`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D1451883``
 
     Parameters:

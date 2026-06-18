@@ -34,7 +34,7 @@ class CheckGiftCode(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``8E51B4C1``
 
     Parameters:

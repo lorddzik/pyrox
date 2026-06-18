@@ -36,7 +36,7 @@ class PhoneConnectionWebrtc(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PhoneConnection`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``635FE375``
 
     Parameters:

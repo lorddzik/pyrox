@@ -36,7 +36,7 @@ class UserStatusEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.UserStatus`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9D05049``
 
     Parameters:

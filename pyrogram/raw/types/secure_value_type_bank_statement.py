@@ -36,7 +36,7 @@ class SecureValueTypeBankStatement(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``89137C0D``
 
     Parameters:

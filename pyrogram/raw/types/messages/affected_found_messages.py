@@ -36,7 +36,7 @@ class AffectedFoundMessages(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.AffectedFoundMessages`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``EF8D3E6C``
 
     Parameters:

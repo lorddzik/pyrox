@@ -36,7 +36,7 @@ class EncryptedMessageService(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EncryptedMessage`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``23734B06``
 
     Parameters:

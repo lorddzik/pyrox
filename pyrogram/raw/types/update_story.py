@@ -36,7 +36,7 @@ class UpdateStory(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``75B3B798``
 
     Parameters:

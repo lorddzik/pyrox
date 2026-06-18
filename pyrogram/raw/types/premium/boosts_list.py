@@ -36,7 +36,7 @@ class BoostsList(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.premium.BoostsList`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``86F8613C``
 
     Parameters:
@@ -53,7 +53,7 @@ class BoostsList(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 2 functions.
+        This object can be returned by 1 function.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -61,7 +61,6 @@ class BoostsList(TLObject):  # type: ignore
             :nosignatures:
 
             premium.GetBoostsList
-            premium.GetUserBoosts
     """
 
     __slots__: List[str] = ["count", "boosts", "users", "next_offset"]

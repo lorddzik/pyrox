@@ -36,7 +36,7 @@ class ExportedAuthorization(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.ExportedAuthorization`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B434E2B8``
 
     Parameters:

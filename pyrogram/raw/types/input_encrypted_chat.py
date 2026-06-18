@@ -36,7 +36,7 @@ class InputEncryptedChat(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputEncryptedChat`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F141B5E1``
 
     Parameters:

@@ -36,7 +36,7 @@ class EmailVerificationGoogle(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EmailVerification`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``DB909EC2``
 
     Parameters:

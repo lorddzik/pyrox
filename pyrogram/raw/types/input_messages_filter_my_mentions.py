@@ -36,7 +36,7 @@ class InputMessagesFilterMyMentions(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessagesFilter`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C1F8E69A``
 
     Parameters:

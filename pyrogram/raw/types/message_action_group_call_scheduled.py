@@ -36,7 +36,7 @@ class MessageActionGroupCallScheduled(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B3A07661``
 
     Parameters:

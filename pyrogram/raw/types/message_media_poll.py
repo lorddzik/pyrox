@@ -36,8 +36,8 @@ class MessageMediaPoll(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageMedia`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``773F4E66``
+        - Layer: ``166``
+        - ID: ``4BD6E798``
 
     Parameters:
         poll (:obj:`Poll <pyrogram.raw.base.Poll>`):
@@ -46,57 +46,46 @@ class MessageMediaPoll(TLObject):  # type: ignore
         results (:obj:`PollResults <pyrogram.raw.base.PollResults>`):
             N/A
 
-        attached_media (:obj:`MessageMedia <pyrogram.raw.base.MessageMedia>`, *optional*):
-            N/A
-
     Functions:
-        This object can be returned by 2 functions.
+        This object can be returned by 3 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
         .. autosummary::
             :nosignatures:
 
+            messages.GetWebPagePreview
             messages.UploadMedia
             messages.UploadImportedMedia
     """
 
-    __slots__: List[str] = ["poll", "results", "attached_media"]
+    __slots__: List[str] = ["poll", "results"]
 
-    ID = 0x773f4e66
+    ID = 0x4bd6e798
     QUALNAME = "types.MessageMediaPoll"
 
-    def __init__(self, *, poll: "raw.base.Poll", results: "raw.base.PollResults", attached_media: "raw.base.MessageMedia" = None) -> None:
+    def __init__(self, *, poll: "raw.base.Poll", results: "raw.base.PollResults") -> None:
         self.poll = poll  # Poll
         self.results = results  # PollResults
-        self.attached_media = attached_media  # flags.0?MessageMedia
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessageMediaPoll":
-        
-        flags = Int.read(b)
+        # No flags
         
         poll = TLObject.read(b)
         
         results = TLObject.read(b)
         
-        attached_media = TLObject.read(b) if flags & (1 << 0) else None
-        
-        return MessageMediaPoll(poll=poll, results=results, attached_media=attached_media)
+        return MessageMediaPoll(poll=poll, results=results)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.attached_media is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.poll.write())
         
         b.write(self.results.write())
-        
-        if self.attached_media is not None:
-            b.write(self.attached_media.write())
         
         return b.getvalue()

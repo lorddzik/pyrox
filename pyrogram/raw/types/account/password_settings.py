@@ -36,7 +36,7 @@ class PasswordSettings(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.PasswordSettings`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9A5C33E5``
 
     Parameters:

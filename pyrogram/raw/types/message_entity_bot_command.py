@@ -36,7 +36,7 @@ class MessageEntityBotCommand(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6CEF8AC7``
 
     Parameters:

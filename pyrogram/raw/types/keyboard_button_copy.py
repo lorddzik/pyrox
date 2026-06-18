@@ -36,8 +36,8 @@ class KeyboardButtonCopy(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButton`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``BCC4AF10``
+        - Layer: ``195``
+        - ID: ``75D2698E``
 
     Parameters:
         text (``str``):
@@ -46,53 +46,32 @@ class KeyboardButtonCopy(TLObject):  # type: ignore
         copy_text (``str``):
             N/A
 
-        style (:obj:`KeyboardButtonStyle <pyrogram.raw.base.KeyboardButtonStyle>`, *optional*):
-            N/A
-
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            bots.GetRequestedWebViewButton
     """
 
-    __slots__: List[str] = ["text", "copy_text", "style"]
+    __slots__: List[str] = ["text", "copy_text"]
 
-    ID = 0xbcc4af10
+    ID = 0x75d2698e
     QUALNAME = "types.KeyboardButtonCopy"
 
-    def __init__(self, *, text: str, copy_text: str, style: "raw.base.KeyboardButtonStyle" = None) -> None:
+    def __init__(self, *, text: str, copy_text: str) -> None:
         self.text = text  # string
         self.copy_text = copy_text  # string
-        self.style = style  # flags.10?KeyboardButtonStyle
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "KeyboardButtonCopy":
-        
-        flags = Int.read(b)
-        
-        style = TLObject.read(b) if flags & (1 << 10) else None
+        # No flags
         
         text = String.read(b)
         
         copy_text = String.read(b)
         
-        return KeyboardButtonCopy(text=text, copy_text=copy_text, style=style)
+        return KeyboardButtonCopy(text=text, copy_text=copy_text)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 10) if self.style is not None else 0
-        b.write(Int(flags))
-        
-        if self.style is not None:
-            b.write(self.style.write())
+        # No flags
         
         b.write(String(self.text))
         

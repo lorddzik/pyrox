@@ -36,7 +36,7 @@ class NotificationSoundLocal(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.NotificationSound`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``830B9AE4``
 
     Parameters:

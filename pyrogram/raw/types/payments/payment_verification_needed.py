@@ -36,7 +36,7 @@ class PaymentVerificationNeeded(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.payments.PaymentResult`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D8411139``
 
     Parameters:
@@ -44,7 +44,7 @@ class PaymentVerificationNeeded(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 2 functions.
+        This object can be returned by 1 function.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -52,7 +52,6 @@ class PaymentVerificationNeeded(TLObject):  # type: ignore
             :nosignatures:
 
             payments.SendPaymentForm
-            payments.SendStarsForm
     """
 
     __slots__: List[str] = ["url"]

@@ -36,8 +36,8 @@ class UpdateBotChatInviteRequester(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``7CB34D79``
+        - Layer: ``166``
+        - ID: ``11DFA986``
 
     Parameters:
         peer (:obj:`Peer <pyrogram.raw.base.Peer>`):
@@ -58,29 +58,24 @@ class UpdateBotChatInviteRequester(TLObject):  # type: ignore
         qts (``int`` ``32-bit``):
             N/A
 
-        query_id (``int`` ``64-bit``, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["peer", "date", "user_id", "about", "invite", "qts", "query_id"]
+    __slots__: List[str] = ["peer", "date", "user_id", "about", "invite", "qts"]
 
-    ID = 0x7cb34d79
+    ID = 0x11dfa986
     QUALNAME = "types.UpdateBotChatInviteRequester"
 
-    def __init__(self, *, peer: "raw.base.Peer", date: int, user_id: int, about: str, invite: "raw.base.ExportedChatInvite", qts: int, query_id: Optional[int] = None) -> None:
+    def __init__(self, *, peer: "raw.base.Peer", date: int, user_id: int, about: str, invite: "raw.base.ExportedChatInvite", qts: int) -> None:
         self.peer = peer  # Peer
         self.date = date  # int
         self.user_id = user_id  # long
         self.about = about  # string
         self.invite = invite  # ExportedChatInvite
         self.qts = qts  # int
-        self.query_id = query_id  # flags.0?long
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UpdateBotChatInviteRequester":
-        
-        flags = Int.read(b)
+        # No flags
         
         peer = TLObject.read(b)
         
@@ -94,16 +89,13 @@ class UpdateBotChatInviteRequester(TLObject):  # type: ignore
         
         qts = Int.read(b)
         
-        query_id = Long.read(b) if flags & (1 << 0) else None
-        return UpdateBotChatInviteRequester(peer=peer, date=date, user_id=user_id, about=about, invite=invite, qts=qts, query_id=query_id)
+        return UpdateBotChatInviteRequester(peer=peer, date=date, user_id=user_id, about=about, invite=invite, qts=qts)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.query_id is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.peer.write())
         
@@ -116,8 +108,5 @@ class UpdateBotChatInviteRequester(TLObject):  # type: ignore
         b.write(self.invite.write())
         
         b.write(Int(self.qts))
-        
-        if self.query_id is not None:
-            b.write(Long(self.query_id))
         
         return b.getvalue()

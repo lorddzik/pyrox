@@ -36,7 +36,7 @@ class ChatOnlines(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatOnlines`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F041E250``
 
     Parameters:

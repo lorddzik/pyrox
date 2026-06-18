@@ -34,8 +34,8 @@ class CreateChat(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``92CEDDD4``
+        - Layer: ``166``
+        - ID: ``34A818``
 
     Parameters:
         users (List of :obj:`InputUser <pyrogram.raw.base.InputUser>`):
@@ -48,12 +48,12 @@ class CreateChat(TLObject):  # type: ignore
             N/A
 
     Returns:
-        :obj:`messages.InvitedUsers <pyrogram.raw.base.messages.InvitedUsers>`
+        :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
     __slots__: List[str] = ["users", "title", "ttl_period"]
 
-    ID = 0x92ceddd4
+    ID = 0x34a818
     QUALNAME = "functions.messages.CreateChat"
 
     def __init__(self, *, users: List["raw.base.InputUser"], title: str, ttl_period: Optional[int] = None) -> None:

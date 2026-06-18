@@ -36,7 +36,7 @@ class StatsURL(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StatsURL`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``47A971E0``
 
     Parameters:

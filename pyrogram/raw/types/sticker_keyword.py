@@ -36,7 +36,7 @@ class StickerKeyword(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StickerKeyword`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FCFEB29C``
 
     Parameters:

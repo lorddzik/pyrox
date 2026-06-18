@@ -36,7 +36,7 @@ class DhGenFail(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SetClientDHParamsAnswer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A69DAE02``
 
     Parameters:

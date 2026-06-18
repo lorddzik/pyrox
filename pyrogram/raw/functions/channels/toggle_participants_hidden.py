@@ -34,7 +34,7 @@ class ToggleParticipantsHidden(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6A6E7854``
 
     Parameters:

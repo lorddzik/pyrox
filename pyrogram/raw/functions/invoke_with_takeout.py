@@ -34,7 +34,7 @@ class InvokeWithTakeout(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``ACA9FD2E``
 
     Parameters:

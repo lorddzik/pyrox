@@ -34,7 +34,7 @@ class DiscardGroupCall(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7A777135``
 
     Parameters:

@@ -36,7 +36,7 @@ class UpdateRecentReactions(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6F7863F4``
 
     Parameters:

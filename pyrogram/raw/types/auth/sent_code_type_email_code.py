@@ -36,7 +36,7 @@ class SentCodeTypeEmailCode(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.SentCodeType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F450F59B``
 
     Parameters:

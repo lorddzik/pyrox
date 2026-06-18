@@ -36,7 +36,7 @@ class PaymentSavedCredentialsCard(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PaymentSavedCredentials`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``CDC27A1F``
 
     Parameters:

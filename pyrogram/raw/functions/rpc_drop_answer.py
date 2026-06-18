@@ -34,7 +34,7 @@ class RpcDropAnswer(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``58E4A740``
 
     Parameters:

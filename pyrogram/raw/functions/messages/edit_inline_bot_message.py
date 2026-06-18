@@ -34,8 +34,8 @@ class EditInlineBotMessage(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``A423BB51``
+        - Layer: ``166``
+        - ID: ``83557DBA``
 
     Parameters:
         id (:obj:`InputBotInlineMessageID <pyrogram.raw.base.InputBotInlineMessageID>`):
@@ -59,19 +59,16 @@ class EditInlineBotMessage(TLObject):  # type: ignore
         entities (List of :obj:`MessageEntity <pyrogram.raw.base.MessageEntity>`, *optional*):
             N/A
 
-        rich_message (:obj:`InputRichMessage <pyrogram.raw.base.InputRichMessage>`, *optional*):
-            N/A
-
     Returns:
         ``bool``
     """
 
-    __slots__: List[str] = ["id", "no_webpage", "invert_media", "message", "media", "reply_markup", "entities", "rich_message"]
+    __slots__: List[str] = ["id", "no_webpage", "invert_media", "message", "media", "reply_markup", "entities"]
 
-    ID = 0xa423bb51
+    ID = 0x83557dba
     QUALNAME = "functions.messages.EditInlineBotMessage"
 
-    def __init__(self, *, id: "raw.base.InputBotInlineMessageID", no_webpage: Optional[bool] = None, invert_media: Optional[bool] = None, message: Optional[str] = None, media: "raw.base.InputMedia" = None, reply_markup: "raw.base.ReplyMarkup" = None, entities: Optional[List["raw.base.MessageEntity"]] = None, rich_message: "raw.base.InputRichMessage" = None) -> None:
+    def __init__(self, *, id: "raw.base.InputBotInlineMessageID", no_webpage: Optional[bool] = None, invert_media: Optional[bool] = None, message: Optional[str] = None, media: "raw.base.InputMedia" = None, reply_markup: "raw.base.ReplyMarkup" = None, entities: Optional[List["raw.base.MessageEntity"]] = None) -> None:
         self.id = id  # InputBotInlineMessageID
         self.no_webpage = no_webpage  # flags.1?true
         self.invert_media = invert_media  # flags.16?true
@@ -79,7 +76,6 @@ class EditInlineBotMessage(TLObject):  # type: ignore
         self.media = media  # flags.14?InputMedia
         self.reply_markup = reply_markup  # flags.2?ReplyMarkup
         self.entities = entities  # flags.3?Vector<MessageEntity>
-        self.rich_message = rich_message  # flags.23?InputRichMessage
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "EditInlineBotMessage":
@@ -97,9 +93,7 @@ class EditInlineBotMessage(TLObject):  # type: ignore
         
         entities = TLObject.read(b) if flags & (1 << 3) else []
         
-        rich_message = TLObject.read(b) if flags & (1 << 23) else None
-        
-        return EditInlineBotMessage(id=id, no_webpage=no_webpage, invert_media=invert_media, message=message, media=media, reply_markup=reply_markup, entities=entities, rich_message=rich_message)
+        return EditInlineBotMessage(id=id, no_webpage=no_webpage, invert_media=invert_media, message=message, media=media, reply_markup=reply_markup, entities=entities)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -112,7 +106,6 @@ class EditInlineBotMessage(TLObject):  # type: ignore
         flags |= (1 << 14) if self.media is not None else 0
         flags |= (1 << 2) if self.reply_markup is not None else 0
         flags |= (1 << 3) if self.entities else 0
-        flags |= (1 << 23) if self.rich_message is not None else 0
         b.write(Int(flags))
         
         b.write(self.id.write())
@@ -128,8 +121,5 @@ class EditInlineBotMessage(TLObject):  # type: ignore
         
         if self.entities is not None:
             b.write(Vector(self.entities))
-        
-        if self.rich_message is not None:
-            b.write(self.rich_message.write())
         
         return b.getvalue()

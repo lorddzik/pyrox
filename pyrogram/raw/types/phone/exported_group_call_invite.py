@@ -36,7 +36,7 @@ class ExportedGroupCallInvite(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.phone.ExportedGroupCallInvite`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``204BD158``
 
     Parameters:

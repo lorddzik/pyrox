@@ -36,7 +36,7 @@ class DocumentAttributeAnimated(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DocumentAttribute`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``11B58939``
 
     Parameters:

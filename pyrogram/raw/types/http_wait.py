@@ -36,7 +36,7 @@ class HttpWait(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.HttpWait`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9299359F``
 
     Parameters:

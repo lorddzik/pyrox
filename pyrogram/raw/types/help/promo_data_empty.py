@@ -36,7 +36,7 @@ class PromoDataEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.PromoData`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``98F6AC75``
 
     Parameters:

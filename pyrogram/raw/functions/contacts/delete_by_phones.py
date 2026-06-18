@@ -34,7 +34,7 @@ class DeleteByPhones(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1013FD9E``
 
     Parameters:

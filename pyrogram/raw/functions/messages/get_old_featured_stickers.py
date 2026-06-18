@@ -34,7 +34,7 @@ class GetOldFeaturedStickers(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7ED094A1``
 
     Parameters:

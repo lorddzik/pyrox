@@ -34,7 +34,7 @@ class DeleteSecureValue(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B880BC4B``
 
     Parameters:

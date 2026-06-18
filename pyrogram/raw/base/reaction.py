@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-Reaction = Union[raw.types.ReactionCustomEmoji, raw.types.ReactionEmoji, raw.types.ReactionEmpty, raw.types.ReactionPaid]
+Reaction = Union[raw.types.ReactionCustomEmoji, raw.types.ReactionEmoji, raw.types.ReactionEmpty]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class Reaction:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 4 constructors available.
+        This base type has 3 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -44,7 +44,6 @@ class Reaction:  # type: ignore
             ReactionCustomEmoji
             ReactionEmoji
             ReactionEmpty
-            ReactionPaid
     """
 
     QUALNAME = "pyrogram.raw.base.Reaction"

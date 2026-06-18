@@ -34,7 +34,7 @@ class UpdatePasswordSettings(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A59B102F``
 
     Parameters:

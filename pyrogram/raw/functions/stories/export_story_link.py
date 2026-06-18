@@ -34,7 +34,7 @@ class ExportStoryLink(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7B8DEF20``
 
     Parameters:

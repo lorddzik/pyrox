@@ -36,7 +36,7 @@ class InputMessagesFilterGeo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessagesFilter`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E7026D0D``
 
     Parameters:

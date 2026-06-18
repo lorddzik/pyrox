@@ -34,8 +34,8 @@ class ExportChatInvite(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``A455DE90``
+        - Layer: ``166``
+        - ID: ``A02CE5D5``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -56,26 +56,22 @@ class ExportChatInvite(TLObject):  # type: ignore
         title (``str``, *optional*):
             N/A
 
-        subscription_pricing (:obj:`StarsSubscriptionPricing <pyrogram.raw.base.StarsSubscriptionPricing>`, *optional*):
-            N/A
-
     Returns:
         :obj:`ExportedChatInvite <pyrogram.raw.base.ExportedChatInvite>`
     """
 
-    __slots__: List[str] = ["peer", "legacy_revoke_permanent", "request_needed", "expire_date", "usage_limit", "title", "subscription_pricing"]
+    __slots__: List[str] = ["peer", "legacy_revoke_permanent", "request_needed", "expire_date", "usage_limit", "title"]
 
-    ID = 0xa455de90
+    ID = 0xa02ce5d5
     QUALNAME = "functions.messages.ExportChatInvite"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", legacy_revoke_permanent: Optional[bool] = None, request_needed: Optional[bool] = None, expire_date: Optional[int] = None, usage_limit: Optional[int] = None, title: Optional[str] = None, subscription_pricing: "raw.base.StarsSubscriptionPricing" = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", legacy_revoke_permanent: Optional[bool] = None, request_needed: Optional[bool] = None, expire_date: Optional[int] = None, usage_limit: Optional[int] = None, title: Optional[str] = None) -> None:
         self.peer = peer  # InputPeer
         self.legacy_revoke_permanent = legacy_revoke_permanent  # flags.2?true
         self.request_needed = request_needed  # flags.3?true
         self.expire_date = expire_date  # flags.0?int
         self.usage_limit = usage_limit  # flags.1?int
         self.title = title  # flags.4?string
-        self.subscription_pricing = subscription_pricing  # flags.5?StarsSubscriptionPricing
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ExportChatInvite":
@@ -89,9 +85,7 @@ class ExportChatInvite(TLObject):  # type: ignore
         expire_date = Int.read(b) if flags & (1 << 0) else None
         usage_limit = Int.read(b) if flags & (1 << 1) else None
         title = String.read(b) if flags & (1 << 4) else None
-        subscription_pricing = TLObject.read(b) if flags & (1 << 5) else None
-        
-        return ExportChatInvite(peer=peer, legacy_revoke_permanent=legacy_revoke_permanent, request_needed=request_needed, expire_date=expire_date, usage_limit=usage_limit, title=title, subscription_pricing=subscription_pricing)
+        return ExportChatInvite(peer=peer, legacy_revoke_permanent=legacy_revoke_permanent, request_needed=request_needed, expire_date=expire_date, usage_limit=usage_limit, title=title)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -103,7 +97,6 @@ class ExportChatInvite(TLObject):  # type: ignore
         flags |= (1 << 0) if self.expire_date is not None else 0
         flags |= (1 << 1) if self.usage_limit is not None else 0
         flags |= (1 << 4) if self.title is not None else 0
-        flags |= (1 << 5) if self.subscription_pricing is not None else 0
         b.write(Int(flags))
         
         b.write(self.peer.write())
@@ -116,8 +109,5 @@ class ExportChatInvite(TLObject):  # type: ignore
         
         if self.title is not None:
             b.write(String(self.title))
-        
-        if self.subscription_pricing is not None:
-            b.write(self.subscription_pricing.write())
         
         return b.getvalue()

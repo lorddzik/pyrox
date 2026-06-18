@@ -36,7 +36,7 @@ class UpdateChatParticipantAdmin(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D7CA61A2``
 
     Parameters:

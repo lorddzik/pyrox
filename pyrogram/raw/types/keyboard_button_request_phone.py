@@ -36,57 +36,36 @@ class KeyboardButtonRequestPhone(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButton`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``417EFD8F``
+        - Layer: ``166``
+        - ID: ``B16A6C29``
 
     Parameters:
         text (``str``):
             N/A
 
-        style (:obj:`KeyboardButtonStyle <pyrogram.raw.base.KeyboardButtonStyle>`, *optional*):
-            N/A
-
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            bots.GetRequestedWebViewButton
     """
 
-    __slots__: List[str] = ["text", "style"]
+    __slots__: List[str] = ["text"]
 
-    ID = 0x417efd8f
+    ID = 0xb16a6c29
     QUALNAME = "types.KeyboardButtonRequestPhone"
 
-    def __init__(self, *, text: str, style: "raw.base.KeyboardButtonStyle" = None) -> None:
+    def __init__(self, *, text: str) -> None:
         self.text = text  # string
-        self.style = style  # flags.10?KeyboardButtonStyle
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "KeyboardButtonRequestPhone":
-        
-        flags = Int.read(b)
-        
-        style = TLObject.read(b) if flags & (1 << 10) else None
+        # No flags
         
         text = String.read(b)
         
-        return KeyboardButtonRequestPhone(text=text, style=style)
+        return KeyboardButtonRequestPhone(text=text)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 10) if self.style is not None else 0
-        b.write(Int(flags))
-        
-        if self.style is not None:
-            b.write(self.style.write())
+        # No flags
         
         b.write(String(self.text))
         

@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionParticipantToggleBan(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E6D83D7E``
 
     Parameters:

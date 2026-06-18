@@ -36,8 +36,8 @@ class PhoneCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PhoneCall`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``30535AF5``
+        - Layer: ``166``
+        - ID: ``967F7C67``
 
     Parameters:
         id (``int`` ``64-bit``):
@@ -76,20 +76,14 @@ class PhoneCall(TLObject):  # type: ignore
         video (``bool``, *optional*):
             N/A
 
-        conference_supported (``bool``, *optional*):
-            N/A
-
-        custom_parameters (:obj:`DataJSON <pyrogram.raw.base.DataJSON>`, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["id", "access_hash", "date", "admin_id", "participant_id", "g_a_or_b", "key_fingerprint", "protocol", "connections", "start_date", "p2p_allowed", "video", "conference_supported", "custom_parameters"]
+    __slots__: List[str] = ["id", "access_hash", "date", "admin_id", "participant_id", "g_a_or_b", "key_fingerprint", "protocol", "connections", "start_date", "p2p_allowed", "video"]
 
-    ID = 0x30535af5
+    ID = 0x967f7c67
     QUALNAME = "types.PhoneCall"
 
-    def __init__(self, *, id: int, access_hash: int, date: int, admin_id: int, participant_id: int, g_a_or_b: bytes, key_fingerprint: int, protocol: "raw.base.PhoneCallProtocol", connections: List["raw.base.PhoneConnection"], start_date: int, p2p_allowed: Optional[bool] = None, video: Optional[bool] = None, conference_supported: Optional[bool] = None, custom_parameters: "raw.base.DataJSON" = None) -> None:
+    def __init__(self, *, id: int, access_hash: int, date: int, admin_id: int, participant_id: int, g_a_or_b: bytes, key_fingerprint: int, protocol: "raw.base.PhoneCallProtocol", connections: List["raw.base.PhoneConnection"], start_date: int, p2p_allowed: Optional[bool] = None, video: Optional[bool] = None) -> None:
         self.id = id  # long
         self.access_hash = access_hash  # long
         self.date = date  # int
@@ -102,8 +96,6 @@ class PhoneCall(TLObject):  # type: ignore
         self.start_date = start_date  # int
         self.p2p_allowed = p2p_allowed  # flags.5?true
         self.video = video  # flags.6?true
-        self.conference_supported = conference_supported  # flags.8?true
-        self.custom_parameters = custom_parameters  # flags.7?DataJSON
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "PhoneCall":
@@ -112,7 +104,6 @@ class PhoneCall(TLObject):  # type: ignore
         
         p2p_allowed = True if flags & (1 << 5) else False
         video = True if flags & (1 << 6) else False
-        conference_supported = True if flags & (1 << 8) else False
         id = Long.read(b)
         
         access_hash = Long.read(b)
@@ -133,9 +124,7 @@ class PhoneCall(TLObject):  # type: ignore
         
         start_date = Int.read(b)
         
-        custom_parameters = TLObject.read(b) if flags & (1 << 7) else None
-        
-        return PhoneCall(id=id, access_hash=access_hash, date=date, admin_id=admin_id, participant_id=participant_id, g_a_or_b=g_a_or_b, key_fingerprint=key_fingerprint, protocol=protocol, connections=connections, start_date=start_date, p2p_allowed=p2p_allowed, video=video, conference_supported=conference_supported, custom_parameters=custom_parameters)
+        return PhoneCall(id=id, access_hash=access_hash, date=date, admin_id=admin_id, participant_id=participant_id, g_a_or_b=g_a_or_b, key_fingerprint=key_fingerprint, protocol=protocol, connections=connections, start_date=start_date, p2p_allowed=p2p_allowed, video=video)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -144,8 +133,6 @@ class PhoneCall(TLObject):  # type: ignore
         flags = 0
         flags |= (1 << 5) if self.p2p_allowed else 0
         flags |= (1 << 6) if self.video else 0
-        flags |= (1 << 8) if self.conference_supported else 0
-        flags |= (1 << 7) if self.custom_parameters is not None else 0
         b.write(Int(flags))
         
         b.write(Long(self.id))
@@ -167,8 +154,5 @@ class PhoneCall(TLObject):  # type: ignore
         b.write(Vector(self.connections))
         
         b.write(Int(self.start_date))
-        
-        if self.custom_parameters is not None:
-            b.write(self.custom_parameters.write())
         
         return b.getvalue()

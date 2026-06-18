@@ -36,7 +36,7 @@ class RpcAnswerDroppedRunning(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RpcDropAnswer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``CD78E586``
 
     Parameters:

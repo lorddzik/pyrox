@@ -36,7 +36,7 @@ class WebViewMessageSent(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.WebViewMessageSent`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C94511C``
 
     Parameters:

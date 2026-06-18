@@ -47,10 +47,3 @@ from .countries_list import CountriesList
 from .premium_promo import PremiumPromo
 from .app_config_not_modified import AppConfigNotModified
 from .app_config import AppConfig
-from .peer_color_set import PeerColorSet
-from .peer_color_profile_set import PeerColorProfileSet
-from .peer_color_option import PeerColorOption
-from .peer_colors_not_modified import PeerColorsNotModified
-from .peer_colors import PeerColors
-from .timezones_list_not_modified import TimezonesListNotModified
-from .timezones_list import TimezonesList

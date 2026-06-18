@@ -36,7 +36,7 @@ class ChatInviteImporters(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.ChatInviteImporters`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``81B6B00A``
 
     Parameters:

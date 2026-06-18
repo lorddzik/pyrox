@@ -34,7 +34,7 @@ class AnswerWebhookJSONQuery(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E6213F4D``
 
     Parameters:

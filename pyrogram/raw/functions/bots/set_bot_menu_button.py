@@ -34,7 +34,7 @@ class SetBotMenuButton(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``4504D54F``
 
     Parameters:

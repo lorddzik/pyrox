@@ -36,7 +36,7 @@ class MessageReactionsList(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.MessageReactionsList`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``31BD492D``
 
     Parameters:

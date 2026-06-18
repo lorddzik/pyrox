@@ -34,19 +34,19 @@ class GetDialogFilters(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``EFD48C89``
+        - Layer: ``166``
+        - ID: ``F19ED96D``
 
     Parameters:
         No parameters required.
 
     Returns:
-        :obj:`messages.DialogFilters <pyrogram.raw.base.messages.DialogFilters>`
+        List of :obj:`DialogFilter <pyrogram.raw.base.DialogFilter>`
     """
 
     __slots__: List[str] = []
 
-    ID = 0xefd48c89
+    ID = 0xf19ed96d
     QUALNAME = "functions.messages.GetDialogFilters"
 
     def __init__(self) -> None:

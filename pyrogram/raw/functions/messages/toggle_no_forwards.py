@@ -34,8 +34,8 @@ class ToggleNoForwards(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``B2081A35``
+        - Layer: ``166``
+        - ID: ``B11EAFA2``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -44,48 +44,37 @@ class ToggleNoForwards(TLObject):  # type: ignore
         enabled (``bool``):
             N/A
 
-        request_msg_id (``int`` ``32-bit``, *optional*):
-            N/A
-
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["peer", "enabled", "request_msg_id"]
+    __slots__: List[str] = ["peer", "enabled"]
 
-    ID = 0xb2081a35
+    ID = 0xb11eafa2
     QUALNAME = "functions.messages.ToggleNoForwards"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", enabled: bool, request_msg_id: Optional[int] = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", enabled: bool) -> None:
         self.peer = peer  # InputPeer
         self.enabled = enabled  # Bool
-        self.request_msg_id = request_msg_id  # flags.0?int
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ToggleNoForwards":
-        
-        flags = Int.read(b)
+        # No flags
         
         peer = TLObject.read(b)
         
         enabled = Bool.read(b)
         
-        request_msg_id = Int.read(b) if flags & (1 << 0) else None
-        return ToggleNoForwards(peer=peer, enabled=enabled, request_msg_id=request_msg_id)
+        return ToggleNoForwards(peer=peer, enabled=enabled)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.request_msg_id is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.peer.write())
         
         b.write(Bool(self.enabled))
-        
-        if self.request_msg_id is not None:
-            b.write(Int(self.request_msg_id))
         
         return b.getvalue()

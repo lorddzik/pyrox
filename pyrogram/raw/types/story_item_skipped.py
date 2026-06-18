@@ -36,7 +36,7 @@ class StoryItemSkipped(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StoryItem`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FFADC913``
 
     Parameters:
@@ -52,22 +52,18 @@ class StoryItemSkipped(TLObject):  # type: ignore
         close_friends (``bool``, *optional*):
             N/A
 
-        live (``bool``, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["id", "date", "expire_date", "close_friends", "live"]
+    __slots__: List[str] = ["id", "date", "expire_date", "close_friends"]
 
     ID = 0xffadc913
     QUALNAME = "types.StoryItemSkipped"
 
-    def __init__(self, *, id: int, date: int, expire_date: int, close_friends: Optional[bool] = None, live: Optional[bool] = None) -> None:
+    def __init__(self, *, id: int, date: int, expire_date: int, close_friends: Optional[bool] = None) -> None:
         self.id = id  # int
         self.date = date  # int
         self.expire_date = expire_date  # int
         self.close_friends = close_friends  # flags.8?true
-        self.live = live  # flags.9?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "StoryItemSkipped":
@@ -75,14 +71,13 @@ class StoryItemSkipped(TLObject):  # type: ignore
         flags = Int.read(b)
         
         close_friends = True if flags & (1 << 8) else False
-        live = True if flags & (1 << 9) else False
         id = Int.read(b)
         
         date = Int.read(b)
         
         expire_date = Int.read(b)
         
-        return StoryItemSkipped(id=id, date=date, expire_date=expire_date, close_friends=close_friends, live=live)
+        return StoryItemSkipped(id=id, date=date, expire_date=expire_date, close_friends=close_friends)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -90,7 +85,6 @@ class StoryItemSkipped(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 8) if self.close_friends else 0
-        flags |= (1 << 9) if self.live else 0
         b.write(Int(flags))
         
         b.write(Int(self.id))

@@ -36,7 +36,7 @@ class StoryItemDeleted(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StoryItem`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``51E6EE4F``
 
     Parameters:

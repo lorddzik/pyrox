@@ -34,7 +34,7 @@ class AcceptAuthorization(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F3ED4C73``
 
     Parameters:

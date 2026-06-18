@@ -36,7 +36,7 @@ class PaymentCharge(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PaymentCharge`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``EA02C27E``
 
     Parameters:

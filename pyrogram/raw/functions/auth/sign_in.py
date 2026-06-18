@@ -34,7 +34,7 @@ class SignIn(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``8D52A951``
 
     Parameters:

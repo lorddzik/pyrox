@@ -36,7 +36,7 @@ class BotCommandScopePeerUser(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotCommandScope`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A1321F3``
 
     Parameters:

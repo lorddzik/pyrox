@@ -34,7 +34,7 @@ class SetBotGroupDefaultAdminRights(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``925EC9EA``
 
     Parameters:

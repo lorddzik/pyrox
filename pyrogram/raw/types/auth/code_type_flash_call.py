@@ -36,7 +36,7 @@ class CodeTypeFlashCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.CodeType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``226CCEFB``
 
     Parameters:

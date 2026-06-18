@@ -32,4 +32,3 @@ from .suggest_short_name import SuggestShortName
 from .change_sticker import ChangeSticker
 from .rename_sticker_set import RenameStickerSet
 from .delete_sticker_set import DeleteStickerSet
-from .replace_sticker import ReplaceSticker

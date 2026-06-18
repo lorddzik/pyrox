@@ -36,7 +36,7 @@ class FavedStickers(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.FavedStickers`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``2CB51097``
 
     Parameters:

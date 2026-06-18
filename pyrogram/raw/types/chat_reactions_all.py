@@ -36,7 +36,7 @@ class ChatReactionsAll(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatReactions`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``52928BCA``
 
     Parameters:

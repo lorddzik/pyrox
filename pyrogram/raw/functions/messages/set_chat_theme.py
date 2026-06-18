@@ -34,28 +34,28 @@ class SetChatTheme(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``81202C9``
+        - Layer: ``166``
+        - ID: ``E63BE13F``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
             N/A
 
-        theme (:obj:`InputChatTheme <pyrogram.raw.base.InputChatTheme>`):
+        emoticon (``str``):
             N/A
 
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["peer", "theme"]
+    __slots__: List[str] = ["peer", "emoticon"]
 
-    ID = 0x81202c9
+    ID = 0xe63be13f
     QUALNAME = "functions.messages.SetChatTheme"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", theme: "raw.base.InputChatTheme") -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", emoticon: str) -> None:
         self.peer = peer  # InputPeer
-        self.theme = theme  # InputChatTheme
+        self.emoticon = emoticon  # string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "SetChatTheme":
@@ -63,9 +63,9 @@ class SetChatTheme(TLObject):  # type: ignore
         
         peer = TLObject.read(b)
         
-        theme = TLObject.read(b)
+        emoticon = String.read(b)
         
-        return SetChatTheme(peer=peer, theme=theme)
+        return SetChatTheme(peer=peer, emoticon=emoticon)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -75,6 +75,6 @@ class SetChatTheme(TLObject):  # type: ignore
         
         b.write(self.peer.write())
         
-        b.write(self.theme.write())
+        b.write(String(self.emoticon))
         
         return b.getvalue()

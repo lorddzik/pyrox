@@ -36,8 +36,8 @@ class UpdateDialogUnreadMark(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``B658F23E``
+        - Layer: ``166``
+        - ID: ``E16459C3``
 
     Parameters:
         peer (:obj:`DialogPeer <pyrogram.raw.base.DialogPeer>`):
@@ -46,20 +46,16 @@ class UpdateDialogUnreadMark(TLObject):  # type: ignore
         unread (``bool``, *optional*):
             N/A
 
-        saved_peer_id (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["peer", "unread", "saved_peer_id"]
+    __slots__: List[str] = ["peer", "unread"]
 
-    ID = 0xb658f23e
+    ID = 0xe16459c3
     QUALNAME = "types.UpdateDialogUnreadMark"
 
-    def __init__(self, *, peer: "raw.base.DialogPeer", unread: Optional[bool] = None, saved_peer_id: "raw.base.Peer" = None) -> None:
+    def __init__(self, *, peer: "raw.base.DialogPeer", unread: Optional[bool] = None) -> None:
         self.peer = peer  # DialogPeer
         self.unread = unread  # flags.0?true
-        self.saved_peer_id = saved_peer_id  # flags.1?Peer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UpdateDialogUnreadMark":
@@ -69,9 +65,7 @@ class UpdateDialogUnreadMark(TLObject):  # type: ignore
         unread = True if flags & (1 << 0) else False
         peer = TLObject.read(b)
         
-        saved_peer_id = TLObject.read(b) if flags & (1 << 1) else None
-        
-        return UpdateDialogUnreadMark(peer=peer, unread=unread, saved_peer_id=saved_peer_id)
+        return UpdateDialogUnreadMark(peer=peer, unread=unread)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -79,12 +73,8 @@ class UpdateDialogUnreadMark(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.unread else 0
-        flags |= (1 << 1) if self.saved_peer_id is not None else 0
         b.write(Int(flags))
         
         b.write(self.peer.write())
-        
-        if self.saved_peer_id is not None:
-            b.write(self.saved_peer_id.write())
         
         return b.getvalue()
