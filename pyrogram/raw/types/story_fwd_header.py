@@ -54,14 +54,14 @@ class StoryFwdHeader(TLObject):  # type: ignore
 
     """
 
-    __slots__: List[str] = ["modified", "from", "from_name", "story_id"]
+    __slots__: List[str] = ["modified", "from_peer", "from_name", "story_id"]
 
     ID = 0xb826e150
     QUALNAME = "types.StoryFwdHeader"
 
-    def __init__(self, *, modified: Optional[bool] = None, from: "raw.base.Peer" = None, from_name: Optional[str] = None, story_id: Optional[int] = None) -> None:
+    def __init__(self, *, modified: Optional[bool] = None, from_peer: "raw.base.Peer" = None, from_name: Optional[str] = None, story_id: Optional[int] = None) -> None:
         self.modified = modified  # flags.3?true
-        self.from = from  # flags.0?Peer
+        self.from_peer = from_peer  # flags.0?Peer
         self.from_name = from_name  # flags.1?string
         self.story_id = story_id  # flags.2?int
 
@@ -71,11 +71,11 @@ class StoryFwdHeader(TLObject):  # type: ignore
         flags = Int.read(b)
         
         modified = True if flags & (1 << 3) else False
-        from = TLObject.read(b) if flags & (1 << 0) else None
+        from_peer = TLObject.read(b) if flags & (1 << 0) else None
         
         from_name = String.read(b) if flags & (1 << 1) else None
         story_id = Int.read(b) if flags & (1 << 2) else None
-        return StoryFwdHeader(modified=modified, from=from, from_name=from_name, story_id=story_id)
+        return StoryFwdHeader(modified=modified, from_peer=from_peer, from_name=from_name, story_id=story_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -83,13 +83,13 @@ class StoryFwdHeader(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 3) if self.modified else 0
-        flags |= (1 << 0) if self.from is not None else 0
+        flags |= (1 << 0) if self.from_peer is not None else 0
         flags |= (1 << 1) if self.from_name is not None else 0
         flags |= (1 << 2) if self.story_id is not None else 0
         b.write(Int(flags))
         
-        if self.from is not None:
-            b.write(self.from.write())
+        if self.from_peer is not None:
+            b.write(self.from_peer.write())
         
         if self.from_name is not None:
             b.write(String(self.from_name))

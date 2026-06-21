@@ -57,24 +57,24 @@ class AiComposeToneExample(TLObject):  # type: ignore
             aicompose.GetToneExample
     """
 
-    __slots__: List[str] = ["from", "to"]
+    __slots__: List[str] = ["from_peer", "to"]
 
     ID = 0xf1d628ec
     QUALNAME = "types.AiComposeToneExample"
 
-    def __init__(self, *, from: "raw.base.TextWithEntities", to: "raw.base.TextWithEntities") -> None:
-        self.from = from  # TextWithEntities
+    def __init__(self, *, from_peer: "raw.base.TextWithEntities", to: "raw.base.TextWithEntities") -> None:
+        self.from_peer = from_peer  # TextWithEntities
         self.to = to  # TextWithEntities
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "AiComposeToneExample":
         # No flags
         
-        from = TLObject.read(b)
+        from_peer = TLObject.read(b)
         
         to = TLObject.read(b)
         
-        return AiComposeToneExample(from=from, to=to)
+        return AiComposeToneExample(from_peer=from_peer, to=to)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -82,7 +82,7 @@ class AiComposeToneExample(TLObject):  # type: ignore
 
         # No flags
         
-        b.write(self.from.write())
+        b.write(self.from_peer.write())
         
         b.write(self.to.write())
         
