@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-PaymentReceipt = Union[raw.types.payments.PaymentReceipt]
+PaymentReceipt = Union[raw.types.payments.PaymentReceipt, raw.types.payments.PaymentReceiptStars]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class PaymentReceipt:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 1 constructor available.
+        This base type has 2 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,6 +42,7 @@ class PaymentReceipt:  # type: ignore
             :nosignatures:
 
             payments.PaymentReceipt
+            payments.PaymentReceiptStars
 
     Functions:
         This object can be returned by 1 function.

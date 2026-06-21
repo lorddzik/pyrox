@@ -34,7 +34,7 @@ class DeclinePasswordReset(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4C9409F6``
 
     Parameters:

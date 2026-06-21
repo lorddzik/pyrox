@@ -36,7 +36,7 @@ class InputPrivacyValueAllowAll(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputPrivacyRule`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``184B35CE``
 
     Parameters:

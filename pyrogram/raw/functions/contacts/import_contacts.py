@@ -34,7 +34,7 @@ class ImportContacts(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``2C800BE5``
 
     Parameters:

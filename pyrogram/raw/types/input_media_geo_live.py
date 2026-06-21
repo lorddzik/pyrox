@@ -36,7 +36,7 @@ class InputMediaGeoLive(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMedia`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``971FA843``
 
     Parameters:

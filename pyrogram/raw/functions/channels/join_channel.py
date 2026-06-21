@@ -34,20 +34,20 @@ class JoinChannel(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``24B524C5``
+        - Layer: ``227``
+        - ID: ``7F6A1E22``
 
     Parameters:
         channel (:obj:`InputChannel <pyrogram.raw.base.InputChannel>`):
             N/A
 
     Returns:
-        :obj:`Updates <pyrogram.raw.base.Updates>`
+        :obj:`messages.ChatInviteJoinResult <pyrogram.raw.base.messages.ChatInviteJoinResult>`
     """
 
     __slots__: List[str] = ["channel"]
 
-    ID = 0x24b524c5
+    ID = 0x7f6a1e22
     QUALNAME = "functions.channels.JoinChannel"
 
     def __init__(self, *, channel: "raw.base.InputChannel") -> None:

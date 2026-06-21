@@ -36,7 +36,7 @@ class DcOption(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DcOption`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``18B7A10D``
 
     Parameters:

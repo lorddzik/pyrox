@@ -36,7 +36,7 @@ class SendMessageEmojiInteractionSeen(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``B665902E``
 
     Parameters:

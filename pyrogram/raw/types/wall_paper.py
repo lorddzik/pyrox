@@ -36,7 +36,7 @@ class WallPaper(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.WallPaper`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A437C3ED``
 
     Parameters:

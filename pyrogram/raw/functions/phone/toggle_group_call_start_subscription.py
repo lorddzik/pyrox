@@ -34,7 +34,7 @@ class ToggleGroupCallStartSubscription(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``219C34E6``
 
     Parameters:

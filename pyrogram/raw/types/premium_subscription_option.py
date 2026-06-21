@@ -36,7 +36,7 @@ class PremiumSubscriptionOption(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PremiumSubscriptionOption`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``5F2D1DF2``
 
     Parameters:

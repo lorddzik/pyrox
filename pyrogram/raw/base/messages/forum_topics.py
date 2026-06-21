@@ -51,8 +51,8 @@ class ForumTopics:  # type: ignore
         .. autosummary::
             :nosignatures:
 
-            channels.GetForumTopics
-            channels.GetForumTopicsByID
+            messages.GetForumTopics
+            messages.GetForumTopicsByID
     """
 
     QUALNAME = "pyrogram.raw.base.messages.ForumTopics"

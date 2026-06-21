@@ -34,7 +34,7 @@ class GetSavedInfo(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``227D824B``
 
     Parameters:

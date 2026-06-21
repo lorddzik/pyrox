@@ -36,7 +36,7 @@ class Themes(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.Themes`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9A3D8C6D``
 
     Parameters:

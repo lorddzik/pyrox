@@ -36,7 +36,7 @@ class InputWebFileGeoPointLocation(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputWebFileLocation`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9F2221C9``
 
     Parameters:

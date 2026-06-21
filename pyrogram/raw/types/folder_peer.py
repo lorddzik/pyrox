@@ -36,7 +36,7 @@ class FolderPeer(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.FolderPeer`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E9BAA668``
 
     Parameters:

@@ -36,7 +36,7 @@ class InputMessagesFilterPhotoVideo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessagesFilter`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``56E9F0E4``
 
     Parameters:

@@ -36,7 +36,7 @@ class InputReportReasonGeoIrrelevant(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ReportReason`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DBD4FEED``
 
     Parameters:

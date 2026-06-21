@@ -45,7 +45,7 @@ class StickerSet:  # type: ignore
             messages.StickerSetNotModified
 
     Functions:
-        This object can be returned by 8 functions.
+        This object can be returned by 9 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -60,6 +60,7 @@ class StickerSet:  # type: ignore
             stickers.SetStickerSetThumb
             stickers.ChangeSticker
             stickers.RenameStickerSet
+            stickers.ReplaceSticker
     """
 
     QUALNAME = "pyrogram.raw.base.messages.StickerSet"

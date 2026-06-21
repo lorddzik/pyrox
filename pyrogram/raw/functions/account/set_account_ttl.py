@@ -34,7 +34,7 @@ class SetAccountTTL(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``2442485E``
 
     Parameters:

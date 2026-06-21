@@ -36,7 +36,7 @@ class InputMessagesFilterRoundVoice(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessagesFilter`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``7A7C17A4``
 
     Parameters:

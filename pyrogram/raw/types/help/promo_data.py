@@ -36,14 +36,17 @@ class PromoData(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.PromoData`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``8C39793F``
+        - Layer: ``227``
+        - ID: ``8A4D87A``
 
     Parameters:
         expires (``int`` ``32-bit``):
             N/A
 
-        peer (:obj:`Peer <pyrogram.raw.base.Peer>`):
+        pending_suggestions (List of ``str``):
+            N/A
+
+        dismissed_suggestions (List of ``str``):
             N/A
 
         chats (List of :obj:`Chat <pyrogram.raw.base.Chat>`):
@@ -55,10 +58,16 @@ class PromoData(TLObject):  # type: ignore
         proxy (``bool``, *optional*):
             N/A
 
+        peer (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
+            N/A
+
         psa_type (``str``, *optional*):
             N/A
 
         psa_message (``str``, *optional*):
+            N/A
+
+        custom_pending_suggestion (:obj:`PendingSuggestion <pyrogram.raw.base.PendingSuggestion>`, *optional*):
             N/A
 
     Functions:
@@ -72,19 +81,22 @@ class PromoData(TLObject):  # type: ignore
             help.GetPromoData
     """
 
-    __slots__: List[str] = ["expires", "peer", "chats", "users", "proxy", "psa_type", "psa_message"]
+    __slots__: List[str] = ["expires", "pending_suggestions", "dismissed_suggestions", "chats", "users", "proxy", "peer", "psa_type", "psa_message", "custom_pending_suggestion"]
 
-    ID = 0x8c39793f
+    ID = 0x8a4d87a
     QUALNAME = "types.help.PromoData"
 
-    def __init__(self, *, expires: int, peer: "raw.base.Peer", chats: List["raw.base.Chat"], users: List["raw.base.User"], proxy: Optional[bool] = None, psa_type: Optional[str] = None, psa_message: Optional[str] = None) -> None:
+    def __init__(self, *, expires: int, pending_suggestions: List[str], dismissed_suggestions: List[str], chats: List["raw.base.Chat"], users: List["raw.base.User"], proxy: Optional[bool] = None, peer: "raw.base.Peer" = None, psa_type: Optional[str] = None, psa_message: Optional[str] = None, custom_pending_suggestion: "raw.base.PendingSuggestion" = None) -> None:
         self.expires = expires  # int
-        self.peer = peer  # Peer
+        self.pending_suggestions = pending_suggestions  # Vector<string>
+        self.dismissed_suggestions = dismissed_suggestions  # Vector<string>
         self.chats = chats  # Vector<Chat>
         self.users = users  # Vector<User>
         self.proxy = proxy  # flags.0?true
+        self.peer = peer  # flags.3?Peer
         self.psa_type = psa_type  # flags.1?string
         self.psa_message = psa_message  # flags.2?string
+        self.custom_pending_suggestion = custom_pending_suggestion  # flags.4?PendingSuggestion
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "PromoData":
@@ -94,15 +106,21 @@ class PromoData(TLObject):  # type: ignore
         proxy = True if flags & (1 << 0) else False
         expires = Int.read(b)
         
-        peer = TLObject.read(b)
+        peer = TLObject.read(b) if flags & (1 << 3) else None
+        
+        psa_type = String.read(b) if flags & (1 << 1) else None
+        psa_message = String.read(b) if flags & (1 << 2) else None
+        pending_suggestions = TLObject.read(b, String)
+        
+        dismissed_suggestions = TLObject.read(b, String)
+        
+        custom_pending_suggestion = TLObject.read(b) if flags & (1 << 4) else None
         
         chats = TLObject.read(b)
         
         users = TLObject.read(b)
         
-        psa_type = String.read(b) if flags & (1 << 1) else None
-        psa_message = String.read(b) if flags & (1 << 2) else None
-        return PromoData(expires=expires, peer=peer, chats=chats, users=users, proxy=proxy, psa_type=psa_type, psa_message=psa_message)
+        return PromoData(expires=expires, pending_suggestions=pending_suggestions, dismissed_suggestions=dismissed_suggestions, chats=chats, users=users, proxy=proxy, peer=peer, psa_type=psa_type, psa_message=psa_message, custom_pending_suggestion=custom_pending_suggestion)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -110,22 +128,32 @@ class PromoData(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.proxy else 0
+        flags |= (1 << 3) if self.peer is not None else 0
         flags |= (1 << 1) if self.psa_type is not None else 0
         flags |= (1 << 2) if self.psa_message is not None else 0
+        flags |= (1 << 4) if self.custom_pending_suggestion is not None else 0
         b.write(Int(flags))
         
         b.write(Int(self.expires))
         
-        b.write(self.peer.write())
-        
-        b.write(Vector(self.chats))
-        
-        b.write(Vector(self.users))
+        if self.peer is not None:
+            b.write(self.peer.write())
         
         if self.psa_type is not None:
             b.write(String(self.psa_type))
         
         if self.psa_message is not None:
             b.write(String(self.psa_message))
+        
+        b.write(Vector(self.pending_suggestions, String))
+        
+        b.write(Vector(self.dismissed_suggestions, String))
+        
+        if self.custom_pending_suggestion is not None:
+            b.write(self.custom_pending_suggestion.write())
+        
+        b.write(Vector(self.chats))
+        
+        b.write(Vector(self.users))
         
         return b.getvalue()

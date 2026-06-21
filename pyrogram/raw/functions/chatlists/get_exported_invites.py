@@ -34,7 +34,7 @@ class GetExportedInvites(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``CE03DA83``
 
     Parameters:

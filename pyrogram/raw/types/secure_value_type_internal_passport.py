@@ -36,7 +36,7 @@ class SecureValueTypeInternalPassport(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``99A48F23``
 
     Parameters:

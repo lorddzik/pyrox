@@ -36,8 +36,8 @@ class ChatFull(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatFull`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``C9D31138``
+        - Layer: ``227``
+        - ID: ``2633421B``
 
     Parameters:
         id (``int`` ``64-bit``):
@@ -97,14 +97,17 @@ class ChatFull(TLObject):  # type: ignore
         available_reactions (:obj:`ChatReactions <pyrogram.raw.base.ChatReactions>`, *optional*):
             N/A
 
+        reactions_limit (``int`` ``32-bit``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["id", "about", "participants", "notify_settings", "can_set_username", "has_scheduled", "translations_disabled", "chat_photo", "exported_invite", "bot_info", "pinned_msg_id", "folder_id", "call", "ttl_period", "groupcall_default_join_as", "theme_emoticon", "requests_pending", "recent_requesters", "available_reactions"]
+    __slots__: List[str] = ["id", "about", "participants", "notify_settings", "can_set_username", "has_scheduled", "translations_disabled", "chat_photo", "exported_invite", "bot_info", "pinned_msg_id", "folder_id", "call", "ttl_period", "groupcall_default_join_as", "theme_emoticon", "requests_pending", "recent_requesters", "available_reactions", "reactions_limit"]
 
-    ID = 0xc9d31138
+    ID = 0x2633421b
     QUALNAME = "types.ChatFull"
 
-    def __init__(self, *, id: int, about: str, participants: "raw.base.ChatParticipants", notify_settings: "raw.base.PeerNotifySettings", can_set_username: Optional[bool] = None, has_scheduled: Optional[bool] = None, translations_disabled: Optional[bool] = None, chat_photo: "raw.base.Photo" = None, exported_invite: "raw.base.ExportedChatInvite" = None, bot_info: Optional[List["raw.base.BotInfo"]] = None, pinned_msg_id: Optional[int] = None, folder_id: Optional[int] = None, call: "raw.base.InputGroupCall" = None, ttl_period: Optional[int] = None, groupcall_default_join_as: "raw.base.Peer" = None, theme_emoticon: Optional[str] = None, requests_pending: Optional[int] = None, recent_requesters: Optional[List[int]] = None, available_reactions: "raw.base.ChatReactions" = None) -> None:
+    def __init__(self, *, id: int, about: str, participants: "raw.base.ChatParticipants", notify_settings: "raw.base.PeerNotifySettings", can_set_username: Optional[bool] = None, has_scheduled: Optional[bool] = None, translations_disabled: Optional[bool] = None, chat_photo: "raw.base.Photo" = None, exported_invite: "raw.base.ExportedChatInvite" = None, bot_info: Optional[List["raw.base.BotInfo"]] = None, pinned_msg_id: Optional[int] = None, folder_id: Optional[int] = None, call: "raw.base.InputGroupCall" = None, ttl_period: Optional[int] = None, groupcall_default_join_as: "raw.base.Peer" = None, theme_emoticon: Optional[str] = None, requests_pending: Optional[int] = None, recent_requesters: Optional[List[int]] = None, available_reactions: "raw.base.ChatReactions" = None, reactions_limit: Optional[int] = None) -> None:
         self.id = id  # long
         self.about = about  # string
         self.participants = participants  # ChatParticipants
@@ -124,6 +127,7 @@ class ChatFull(TLObject):  # type: ignore
         self.requests_pending = requests_pending  # flags.17?int
         self.recent_requesters = recent_requesters  # flags.17?Vector<long>
         self.available_reactions = available_reactions  # flags.18?ChatReactions
+        self.reactions_limit = reactions_limit  # flags.20?int
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ChatFull":
@@ -160,7 +164,8 @@ class ChatFull(TLObject):  # type: ignore
         
         available_reactions = TLObject.read(b) if flags & (1 << 18) else None
         
-        return ChatFull(id=id, about=about, participants=participants, notify_settings=notify_settings, can_set_username=can_set_username, has_scheduled=has_scheduled, translations_disabled=translations_disabled, chat_photo=chat_photo, exported_invite=exported_invite, bot_info=bot_info, pinned_msg_id=pinned_msg_id, folder_id=folder_id, call=call, ttl_period=ttl_period, groupcall_default_join_as=groupcall_default_join_as, theme_emoticon=theme_emoticon, requests_pending=requests_pending, recent_requesters=recent_requesters, available_reactions=available_reactions)
+        reactions_limit = Int.read(b) if flags & (1 << 20) else None
+        return ChatFull(id=id, about=about, participants=participants, notify_settings=notify_settings, can_set_username=can_set_username, has_scheduled=has_scheduled, translations_disabled=translations_disabled, chat_photo=chat_photo, exported_invite=exported_invite, bot_info=bot_info, pinned_msg_id=pinned_msg_id, folder_id=folder_id, call=call, ttl_period=ttl_period, groupcall_default_join_as=groupcall_default_join_as, theme_emoticon=theme_emoticon, requests_pending=requests_pending, recent_requesters=recent_requesters, available_reactions=available_reactions, reactions_limit=reactions_limit)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -182,6 +187,7 @@ class ChatFull(TLObject):  # type: ignore
         flags |= (1 << 17) if self.requests_pending is not None else 0
         flags |= (1 << 17) if self.recent_requesters else 0
         flags |= (1 << 18) if self.available_reactions is not None else 0
+        flags |= (1 << 20) if self.reactions_limit is not None else 0
         b.write(Int(flags))
         
         b.write(Long(self.id))
@@ -227,5 +233,8 @@ class ChatFull(TLObject):  # type: ignore
         
         if self.available_reactions is not None:
             b.write(self.available_reactions.write())
+        
+        if self.reactions_limit is not None:
+            b.write(Int(self.reactions_limit))
         
         return b.getvalue()

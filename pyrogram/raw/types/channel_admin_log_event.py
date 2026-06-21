@@ -36,7 +36,7 @@ class ChannelAdminLogEvent(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEvent`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1FAD68CD``
 
     Parameters:

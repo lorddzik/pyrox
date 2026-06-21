@@ -36,7 +36,7 @@ class CountriesList(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.CountriesList`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``87D0759E``
 
     Parameters:

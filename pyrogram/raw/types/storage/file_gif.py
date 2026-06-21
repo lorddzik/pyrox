@@ -36,7 +36,7 @@ class FileGif(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.storage.FileType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``CAE1AADF``
 
     Parameters:

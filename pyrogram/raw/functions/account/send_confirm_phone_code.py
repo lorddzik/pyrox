@@ -34,7 +34,7 @@ class SendConfirmPhoneCode(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1B3FAA88``
 
     Parameters:

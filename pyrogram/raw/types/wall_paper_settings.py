@@ -36,8 +36,8 @@ class WallPaperSettings(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.WallPaperSettings`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``1DC1BCA4``
+        - Layer: ``227``
+        - ID: ``372EFCD0``
 
     Parameters:
         blur (``bool``, *optional*):
@@ -64,14 +64,17 @@ class WallPaperSettings(TLObject):  # type: ignore
         rotation (``int`` ``32-bit``, *optional*):
             N/A
 
+        emoticon (``str``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["blur", "motion", "background_color", "second_background_color", "third_background_color", "fourth_background_color", "intensity", "rotation"]
+    __slots__: List[str] = ["blur", "motion", "background_color", "second_background_color", "third_background_color", "fourth_background_color", "intensity", "rotation", "emoticon"]
 
-    ID = 0x1dc1bca4
+    ID = 0x372efcd0
     QUALNAME = "types.WallPaperSettings"
 
-    def __init__(self, *, blur: Optional[bool] = None, motion: Optional[bool] = None, background_color: Optional[int] = None, second_background_color: Optional[int] = None, third_background_color: Optional[int] = None, fourth_background_color: Optional[int] = None, intensity: Optional[int] = None, rotation: Optional[int] = None) -> None:
+    def __init__(self, *, blur: Optional[bool] = None, motion: Optional[bool] = None, background_color: Optional[int] = None, second_background_color: Optional[int] = None, third_background_color: Optional[int] = None, fourth_background_color: Optional[int] = None, intensity: Optional[int] = None, rotation: Optional[int] = None, emoticon: Optional[str] = None) -> None:
         self.blur = blur  # flags.1?true
         self.motion = motion  # flags.2?true
         self.background_color = background_color  # flags.0?int
@@ -80,6 +83,7 @@ class WallPaperSettings(TLObject):  # type: ignore
         self.fourth_background_color = fourth_background_color  # flags.6?int
         self.intensity = intensity  # flags.3?int
         self.rotation = rotation  # flags.4?int
+        self.emoticon = emoticon  # flags.7?string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "WallPaperSettings":
@@ -94,7 +98,8 @@ class WallPaperSettings(TLObject):  # type: ignore
         fourth_background_color = Int.read(b) if flags & (1 << 6) else None
         intensity = Int.read(b) if flags & (1 << 3) else None
         rotation = Int.read(b) if flags & (1 << 4) else None
-        return WallPaperSettings(blur=blur, motion=motion, background_color=background_color, second_background_color=second_background_color, third_background_color=third_background_color, fourth_background_color=fourth_background_color, intensity=intensity, rotation=rotation)
+        emoticon = String.read(b) if flags & (1 << 7) else None
+        return WallPaperSettings(blur=blur, motion=motion, background_color=background_color, second_background_color=second_background_color, third_background_color=third_background_color, fourth_background_color=fourth_background_color, intensity=intensity, rotation=rotation, emoticon=emoticon)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -109,6 +114,7 @@ class WallPaperSettings(TLObject):  # type: ignore
         flags |= (1 << 6) if self.fourth_background_color is not None else 0
         flags |= (1 << 3) if self.intensity is not None else 0
         flags |= (1 << 4) if self.rotation is not None else 0
+        flags |= (1 << 7) if self.emoticon is not None else 0
         b.write(Int(flags))
         
         if self.background_color is not None:
@@ -128,5 +134,8 @@ class WallPaperSettings(TLObject):  # type: ignore
         
         if self.rotation is not None:
             b.write(Int(self.rotation))
+        
+        if self.emoticon is not None:
+            b.write(String(self.emoticon))
         
         return b.getvalue()

@@ -36,7 +36,7 @@ class DhGenOk(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SetClientDHParamsAnswer`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3BCBF734``
 
     Parameters:

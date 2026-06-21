@@ -36,7 +36,7 @@ class InputGameShortName(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputGame`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C331E80A``
 
     Parameters:

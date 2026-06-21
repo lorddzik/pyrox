@@ -36,8 +36,8 @@ class DocumentAttributeVideo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DocumentAttribute`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``D38FF1C2``
+        - Layer: ``227``
+        - ID: ``43C57C48``
 
     Parameters:
         duration (``float`` ``64-bit``):
@@ -61,14 +61,20 @@ class DocumentAttributeVideo(TLObject):  # type: ignore
         preload_prefix_size (``int`` ``32-bit``, *optional*):
             N/A
 
+        video_start_ts (``float`` ``64-bit``, *optional*):
+            N/A
+
+        video_codec (``str``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["duration", "w", "h", "round_message", "supports_streaming", "nosound", "preload_prefix_size"]
+    __slots__: List[str] = ["duration", "w", "h", "round_message", "supports_streaming", "nosound", "preload_prefix_size", "video_start_ts", "video_codec"]
 
-    ID = 0xd38ff1c2
+    ID = 0x43c57c48
     QUALNAME = "types.DocumentAttributeVideo"
 
-    def __init__(self, *, duration: float, w: int, h: int, round_message: Optional[bool] = None, supports_streaming: Optional[bool] = None, nosound: Optional[bool] = None, preload_prefix_size: Optional[int] = None) -> None:
+    def __init__(self, *, duration: float, w: int, h: int, round_message: Optional[bool] = None, supports_streaming: Optional[bool] = None, nosound: Optional[bool] = None, preload_prefix_size: Optional[int] = None, video_start_ts: Optional[float] = None, video_codec: Optional[str] = None) -> None:
         self.duration = duration  # double
         self.w = w  # int
         self.h = h  # int
@@ -76,6 +82,8 @@ class DocumentAttributeVideo(TLObject):  # type: ignore
         self.supports_streaming = supports_streaming  # flags.1?true
         self.nosound = nosound  # flags.3?true
         self.preload_prefix_size = preload_prefix_size  # flags.2?int
+        self.video_start_ts = video_start_ts  # flags.4?double
+        self.video_codec = video_codec  # flags.5?string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "DocumentAttributeVideo":
@@ -92,7 +100,9 @@ class DocumentAttributeVideo(TLObject):  # type: ignore
         h = Int.read(b)
         
         preload_prefix_size = Int.read(b) if flags & (1 << 2) else None
-        return DocumentAttributeVideo(duration=duration, w=w, h=h, round_message=round_message, supports_streaming=supports_streaming, nosound=nosound, preload_prefix_size=preload_prefix_size)
+        video_start_ts = Double.read(b) if flags & (1 << 4) else None
+        video_codec = String.read(b) if flags & (1 << 5) else None
+        return DocumentAttributeVideo(duration=duration, w=w, h=h, round_message=round_message, supports_streaming=supports_streaming, nosound=nosound, preload_prefix_size=preload_prefix_size, video_start_ts=video_start_ts, video_codec=video_codec)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -103,6 +113,8 @@ class DocumentAttributeVideo(TLObject):  # type: ignore
         flags |= (1 << 1) if self.supports_streaming else 0
         flags |= (1 << 3) if self.nosound else 0
         flags |= (1 << 2) if self.preload_prefix_size is not None else 0
+        flags |= (1 << 4) if self.video_start_ts is not None else 0
+        flags |= (1 << 5) if self.video_codec is not None else 0
         b.write(Int(flags))
         
         b.write(Double(self.duration))
@@ -113,5 +125,11 @@ class DocumentAttributeVideo(TLObject):  # type: ignore
         
         if self.preload_prefix_size is not None:
             b.write(Int(self.preload_prefix_size))
+        
+        if self.video_start_ts is not None:
+            b.write(Double(self.video_start_ts))
+        
+        if self.video_codec is not None:
+            b.write(String(self.video_codec))
         
         return b.getvalue()

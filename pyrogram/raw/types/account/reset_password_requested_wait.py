@@ -36,7 +36,7 @@ class ResetPasswordRequestedWait(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.ResetPasswordResult`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E9EFFC7D``
 
     Parameters:

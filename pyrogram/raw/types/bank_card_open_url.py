@@ -36,7 +36,7 @@ class BankCardOpenUrl(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BankCardOpenUrl`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F568028A``
 
     Parameters:

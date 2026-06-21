@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-TopPeerCategory = Union[raw.types.TopPeerCategoryBotsInline, raw.types.TopPeerCategoryBotsPM, raw.types.TopPeerCategoryChannels, raw.types.TopPeerCategoryCorrespondents, raw.types.TopPeerCategoryForwardChats, raw.types.TopPeerCategoryForwardUsers, raw.types.TopPeerCategoryGroups, raw.types.TopPeerCategoryPhoneCalls]
+TopPeerCategory = Union[raw.types.TopPeerCategoryBotsApp, raw.types.TopPeerCategoryBotsGuestChat, raw.types.TopPeerCategoryBotsInline, raw.types.TopPeerCategoryBotsPM, raw.types.TopPeerCategoryChannels, raw.types.TopPeerCategoryCorrespondents, raw.types.TopPeerCategoryForwardChats, raw.types.TopPeerCategoryForwardUsers, raw.types.TopPeerCategoryGroups, raw.types.TopPeerCategoryPhoneCalls]
 
 
 # noinspection PyRedeclaration
@@ -34,13 +34,15 @@ class TopPeerCategory:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 8 constructors available.
+        This base type has 10 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
         .. autosummary::
             :nosignatures:
 
+            TopPeerCategoryBotsApp
+            TopPeerCategoryBotsGuestChat
             TopPeerCategoryBotsInline
             TopPeerCategoryBotsPM
             TopPeerCategoryChannels

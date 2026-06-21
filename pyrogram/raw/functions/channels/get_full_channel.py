@@ -34,7 +34,7 @@ class GetFullChannel(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``8736A09``
 
     Parameters:

@@ -36,7 +36,7 @@ class PaymentReceipt(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.payments.PaymentReceipt`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``70C4FE03``
 
     Parameters:

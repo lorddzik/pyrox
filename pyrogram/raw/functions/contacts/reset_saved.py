@@ -34,7 +34,7 @@ class ResetSaved(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``879537F1``
 
     Parameters:

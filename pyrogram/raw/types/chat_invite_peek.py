@@ -36,7 +36,7 @@ class ChatInvitePeek(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatInvite`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``61695CB0``
 
     Parameters:

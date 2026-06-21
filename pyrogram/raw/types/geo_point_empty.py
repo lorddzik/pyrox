@@ -36,7 +36,7 @@ class GeoPointEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.GeoPoint`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1117DD5F``
 
     Parameters:

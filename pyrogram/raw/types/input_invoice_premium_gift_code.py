@@ -36,7 +36,7 @@ class InputInvoicePremiumGiftCode(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputInvoice`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``98986C0D``
 
     Parameters:

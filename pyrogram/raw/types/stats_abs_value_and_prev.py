@@ -36,7 +36,7 @@ class StatsAbsValueAndPrev(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StatsAbsValueAndPrev`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``CB43ACDE``
 
     Parameters:

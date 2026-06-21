@@ -34,7 +34,7 @@ class GetPremiumPromo(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``B81B93D4``
 
     Parameters:

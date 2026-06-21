@@ -36,7 +36,7 @@ class ThemesNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.Themes`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F41EB622``
 
     Parameters:

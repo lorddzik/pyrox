@@ -36,7 +36,7 @@ class UpdateDeleteChannelMessages(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C32D5B12``
 
     Parameters:

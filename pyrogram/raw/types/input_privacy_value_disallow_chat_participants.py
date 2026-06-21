@@ -36,7 +36,7 @@ class InputPrivacyValueDisallowChatParticipants(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputPrivacyRule`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E94F0F86``
 
     Parameters:

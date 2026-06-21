@@ -36,7 +36,7 @@ class MessageActionBotAllowed(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C516D679``
 
     Parameters:

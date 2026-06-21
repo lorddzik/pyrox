@@ -36,7 +36,7 @@ class InputStickeredMediaPhoto(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputStickeredMedia`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4A992157``
 
     Parameters:

@@ -36,7 +36,7 @@ class StoryViews(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.stories.StoryViews`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DE9EED1D``
 
     Parameters:

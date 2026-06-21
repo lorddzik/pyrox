@@ -36,7 +36,7 @@ class ContactStatus(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ContactStatus`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``16D9703B``
 
     Parameters:

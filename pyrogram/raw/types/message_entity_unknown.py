@@ -36,7 +36,7 @@ class MessageEntityUnknown(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BB92BA95``
 
     Parameters:

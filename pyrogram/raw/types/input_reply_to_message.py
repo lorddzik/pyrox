@@ -36,8 +36,8 @@ class InputReplyToMessage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputReplyTo`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``73EC805``
+        - Layer: ``227``
+        - ID: ``3BD4B7C2``
 
     Parameters:
         reply_to_msg_id (``int`` ``32-bit``):
@@ -55,19 +55,35 @@ class InputReplyToMessage(TLObject):  # type: ignore
         quote_entities (List of :obj:`MessageEntity <pyrogram.raw.base.MessageEntity>`, *optional*):
             N/A
 
+        quote_offset (``int`` ``32-bit``, *optional*):
+            N/A
+
+        monoforum_peer_id (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
+            N/A
+
+        todo_item_id (``int`` ``32-bit``, *optional*):
+            N/A
+
+        poll_option (``bytes``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["reply_to_msg_id", "top_msg_id", "reply_to_peer_id", "quote_text", "quote_entities"]
+    __slots__: List[str] = ["reply_to_msg_id", "top_msg_id", "reply_to_peer_id", "quote_text", "quote_entities", "quote_offset", "monoforum_peer_id", "todo_item_id", "poll_option"]
 
-    ID = 0x73ec805
+    ID = 0x3bd4b7c2
     QUALNAME = "types.InputReplyToMessage"
 
-    def __init__(self, *, reply_to_msg_id: int, top_msg_id: Optional[int] = None, reply_to_peer_id: "raw.base.InputPeer" = None, quote_text: Optional[str] = None, quote_entities: Optional[List["raw.base.MessageEntity"]] = None) -> None:
+    def __init__(self, *, reply_to_msg_id: int, top_msg_id: Optional[int] = None, reply_to_peer_id: "raw.base.InputPeer" = None, quote_text: Optional[str] = None, quote_entities: Optional[List["raw.base.MessageEntity"]] = None, quote_offset: Optional[int] = None, monoforum_peer_id: "raw.base.InputPeer" = None, todo_item_id: Optional[int] = None, poll_option: Optional[bytes] = None) -> None:
         self.reply_to_msg_id = reply_to_msg_id  # int
         self.top_msg_id = top_msg_id  # flags.0?int
         self.reply_to_peer_id = reply_to_peer_id  # flags.1?InputPeer
         self.quote_text = quote_text  # flags.2?string
         self.quote_entities = quote_entities  # flags.3?Vector<MessageEntity>
+        self.quote_offset = quote_offset  # flags.4?int
+        self.monoforum_peer_id = monoforum_peer_id  # flags.5?InputPeer
+        self.todo_item_id = todo_item_id  # flags.6?int
+        self.poll_option = poll_option  # flags.7?bytes
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "InputReplyToMessage":
@@ -82,7 +98,12 @@ class InputReplyToMessage(TLObject):  # type: ignore
         quote_text = String.read(b) if flags & (1 << 2) else None
         quote_entities = TLObject.read(b) if flags & (1 << 3) else []
         
-        return InputReplyToMessage(reply_to_msg_id=reply_to_msg_id, top_msg_id=top_msg_id, reply_to_peer_id=reply_to_peer_id, quote_text=quote_text, quote_entities=quote_entities)
+        quote_offset = Int.read(b) if flags & (1 << 4) else None
+        monoforum_peer_id = TLObject.read(b) if flags & (1 << 5) else None
+        
+        todo_item_id = Int.read(b) if flags & (1 << 6) else None
+        poll_option = Bytes.read(b) if flags & (1 << 7) else None
+        return InputReplyToMessage(reply_to_msg_id=reply_to_msg_id, top_msg_id=top_msg_id, reply_to_peer_id=reply_to_peer_id, quote_text=quote_text, quote_entities=quote_entities, quote_offset=quote_offset, monoforum_peer_id=monoforum_peer_id, todo_item_id=todo_item_id, poll_option=poll_option)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -93,6 +114,10 @@ class InputReplyToMessage(TLObject):  # type: ignore
         flags |= (1 << 1) if self.reply_to_peer_id is not None else 0
         flags |= (1 << 2) if self.quote_text is not None else 0
         flags |= (1 << 3) if self.quote_entities else 0
+        flags |= (1 << 4) if self.quote_offset is not None else 0
+        flags |= (1 << 5) if self.monoforum_peer_id is not None else 0
+        flags |= (1 << 6) if self.todo_item_id is not None else 0
+        flags |= (1 << 7) if self.poll_option is not None else 0
         b.write(Int(flags))
         
         b.write(Int(self.reply_to_msg_id))
@@ -108,5 +133,17 @@ class InputReplyToMessage(TLObject):  # type: ignore
         
         if self.quote_entities is not None:
             b.write(Vector(self.quote_entities))
+        
+        if self.quote_offset is not None:
+            b.write(Int(self.quote_offset))
+        
+        if self.monoforum_peer_id is not None:
+            b.write(self.monoforum_peer_id.write())
+        
+        if self.todo_item_id is not None:
+            b.write(Int(self.todo_item_id))
+        
+        if self.poll_option is not None:
+            b.write(Bytes(self.poll_option))
         
         return b.getvalue()

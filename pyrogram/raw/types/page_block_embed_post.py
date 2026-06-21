@@ -36,7 +36,7 @@ class PageBlockEmbedPost(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F259A80B``
 
     Parameters:

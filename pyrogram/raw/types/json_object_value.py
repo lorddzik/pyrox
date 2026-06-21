@@ -36,7 +36,7 @@ class JsonObjectValue(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.JSONObjectValue`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C0DE1BD9``
 
     Parameters:

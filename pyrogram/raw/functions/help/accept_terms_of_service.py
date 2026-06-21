@@ -34,7 +34,7 @@ class AcceptTermsOfService(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``EE72F79A``
 
     Parameters:

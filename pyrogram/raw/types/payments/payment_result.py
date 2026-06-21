@@ -36,7 +36,7 @@ class PaymentResult(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.payments.PaymentResult`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4E5F810D``
 
     Parameters:
@@ -44,7 +44,7 @@ class PaymentResult(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 1 function.
+        This object can be returned by 2 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -52,6 +52,7 @@ class PaymentResult(TLObject):  # type: ignore
             :nosignatures:
 
             payments.SendPaymentForm
+            payments.SendStarsForm
     """
 
     __slots__: List[str] = ["updates"]

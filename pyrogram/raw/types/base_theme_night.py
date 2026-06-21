@@ -36,7 +36,7 @@ class BaseThemeNight(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BaseTheme`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``B7B31EA8``
 
     Parameters:

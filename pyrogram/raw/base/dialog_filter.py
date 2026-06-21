@@ -44,16 +44,6 @@ class DialogFilter:  # type: ignore
             DialogFilter
             DialogFilterChatlist
             DialogFilterDefault
-
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            messages.GetDialogFilters
     """
 
     QUALNAME = "pyrogram.raw.base.DialogFilter"

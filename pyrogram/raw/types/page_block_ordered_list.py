@@ -36,37 +36,63 @@ class PageBlockOrderedList(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``9A8AE1E1``
+        - Layer: ``227``
+        - ID: ``1FD6F6C1``
 
     Parameters:
         items (List of :obj:`PageListOrderedItem <pyrogram.raw.base.PageListOrderedItem>`):
             N/A
 
+        reversed (``bool``, *optional*):
+            N/A
+
+        start (``int`` ``32-bit``, *optional*):
+            N/A
+
+        type (``str``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["items"]
+    __slots__: List[str] = ["items", "reversed", "start", "type"]
 
-    ID = 0x9a8ae1e1
+    ID = 0x1fd6f6c1
     QUALNAME = "types.PageBlockOrderedList"
 
-    def __init__(self, *, items: List["raw.base.PageListOrderedItem"]) -> None:
+    def __init__(self, *, items: List["raw.base.PageListOrderedItem"], reversed: Optional[bool] = None, start: Optional[int] = None, type: Optional[str] = None) -> None:
         self.items = items  # Vector<PageListOrderedItem>
+        self.reversed = reversed  # flags.2?true
+        self.start = start  # flags.0?int
+        self.type = type  # flags.1?string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "PageBlockOrderedList":
-        # No flags
         
+        flags = Int.read(b)
+        
+        reversed = True if flags & (1 << 2) else False
         items = TLObject.read(b)
         
-        return PageBlockOrderedList(items=items)
+        start = Int.read(b) if flags & (1 << 0) else None
+        type = String.read(b) if flags & (1 << 1) else None
+        return PageBlockOrderedList(items=items, reversed=reversed, start=start, type=type)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 2) if self.reversed else 0
+        flags |= (1 << 0) if self.start is not None else 0
+        flags |= (1 << 1) if self.type is not None else 0
+        b.write(Int(flags))
         
         b.write(Vector(self.items))
+        
+        if self.start is not None:
+            b.write(Int(self.start))
+        
+        if self.type is not None:
+            b.write(String(self.type))
         
         return b.getvalue()

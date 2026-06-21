@@ -34,7 +34,7 @@ class GetTopPeers(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``973478B6``
 
     Parameters:
@@ -71,16 +71,22 @@ class GetTopPeers(TLObject):  # type: ignore
         channels (``bool``, *optional*):
             N/A
 
+        bots_app (``bool``, *optional*):
+            N/A
+
+        bots_guestchat (``bool``, *optional*):
+            N/A
+
     Returns:
         :obj:`contacts.TopPeers <pyrogram.raw.base.contacts.TopPeers>`
     """
 
-    __slots__: List[str] = ["offset", "limit", "hash", "correspondents", "bots_pm", "bots_inline", "phone_calls", "forward_users", "forward_chats", "groups", "channels"]
+    __slots__: List[str] = ["offset", "limit", "hash", "correspondents", "bots_pm", "bots_inline", "phone_calls", "forward_users", "forward_chats", "groups", "channels", "bots_app", "bots_guestchat"]
 
     ID = 0x973478b6
     QUALNAME = "functions.contacts.GetTopPeers"
 
-    def __init__(self, *, offset: int, limit: int, hash: int, correspondents: Optional[bool] = None, bots_pm: Optional[bool] = None, bots_inline: Optional[bool] = None, phone_calls: Optional[bool] = None, forward_users: Optional[bool] = None, forward_chats: Optional[bool] = None, groups: Optional[bool] = None, channels: Optional[bool] = None) -> None:
+    def __init__(self, *, offset: int, limit: int, hash: int, correspondents: Optional[bool] = None, bots_pm: Optional[bool] = None, bots_inline: Optional[bool] = None, phone_calls: Optional[bool] = None, forward_users: Optional[bool] = None, forward_chats: Optional[bool] = None, groups: Optional[bool] = None, channels: Optional[bool] = None, bots_app: Optional[bool] = None, bots_guestchat: Optional[bool] = None) -> None:
         self.offset = offset  # int
         self.limit = limit  # int
         self.hash = hash  # long
@@ -92,6 +98,8 @@ class GetTopPeers(TLObject):  # type: ignore
         self.forward_chats = forward_chats  # flags.5?true
         self.groups = groups  # flags.10?true
         self.channels = channels  # flags.15?true
+        self.bots_app = bots_app  # flags.16?true
+        self.bots_guestchat = bots_guestchat  # flags.17?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "GetTopPeers":
@@ -106,13 +114,15 @@ class GetTopPeers(TLObject):  # type: ignore
         forward_chats = True if flags & (1 << 5) else False
         groups = True if flags & (1 << 10) else False
         channels = True if flags & (1 << 15) else False
+        bots_app = True if flags & (1 << 16) else False
+        bots_guestchat = True if flags & (1 << 17) else False
         offset = Int.read(b)
         
         limit = Int.read(b)
         
         hash = Long.read(b)
         
-        return GetTopPeers(offset=offset, limit=limit, hash=hash, correspondents=correspondents, bots_pm=bots_pm, bots_inline=bots_inline, phone_calls=phone_calls, forward_users=forward_users, forward_chats=forward_chats, groups=groups, channels=channels)
+        return GetTopPeers(offset=offset, limit=limit, hash=hash, correspondents=correspondents, bots_pm=bots_pm, bots_inline=bots_inline, phone_calls=phone_calls, forward_users=forward_users, forward_chats=forward_chats, groups=groups, channels=channels, bots_app=bots_app, bots_guestchat=bots_guestchat)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -127,6 +137,8 @@ class GetTopPeers(TLObject):  # type: ignore
         flags |= (1 << 5) if self.forward_chats else 0
         flags |= (1 << 10) if self.groups else 0
         flags |= (1 << 15) if self.channels else 0
+        flags |= (1 << 16) if self.bots_app else 0
+        flags |= (1 << 17) if self.bots_guestchat else 0
         b.write(Int(flags))
         
         b.write(Int(self.offset))

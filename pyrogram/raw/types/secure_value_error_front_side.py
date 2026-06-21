@@ -36,7 +36,7 @@ class SecureValueErrorFrontSide(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueError`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BE3DFA``
 
     Parameters:

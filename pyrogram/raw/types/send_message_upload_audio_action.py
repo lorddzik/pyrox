@@ -36,7 +36,7 @@ class SendMessageUploadAudioAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F351D7AB``
 
     Parameters:

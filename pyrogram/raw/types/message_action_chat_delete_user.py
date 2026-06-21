@@ -36,7 +36,7 @@ class MessageActionChatDeleteUser(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A43F30CC``
 
     Parameters:

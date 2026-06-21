@@ -36,7 +36,7 @@ class InputChatlistDialogFilter(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputChatlist`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F3E0DA33``
 
     Parameters:

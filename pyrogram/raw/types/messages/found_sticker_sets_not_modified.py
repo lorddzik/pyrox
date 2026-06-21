@@ -36,14 +36,14 @@ class FoundStickerSetsNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.FoundStickerSets`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D54B65D``
 
     Parameters:
         No parameters required.
 
     Functions:
-        This object can be returned by 1 function.
+        This object can be returned by 2 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -51,6 +51,7 @@ class FoundStickerSetsNotModified(TLObject):  # type: ignore
             :nosignatures:
 
             messages.SearchStickerSets
+            messages.SearchEmojiStickerSets
     """
 
     __slots__: List[str] = []

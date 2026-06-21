@@ -36,7 +36,7 @@ class ReplyInlineMarkup(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ReplyMarkup`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``48A30254``
 
     Parameters:

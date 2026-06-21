@@ -36,7 +36,7 @@ class StatsGroupTopPoster(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StatsGroupTopPoster`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9D04AF9B``
 
     Parameters:

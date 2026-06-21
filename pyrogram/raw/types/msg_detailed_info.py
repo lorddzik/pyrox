@@ -36,7 +36,7 @@ class MsgDetailedInfo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MsgDetailedInfo`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``276D3EC6``
 
     Parameters:

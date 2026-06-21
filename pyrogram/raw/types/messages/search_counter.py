@@ -36,7 +36,7 @@ class SearchCounter(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.SearchCounter`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E844EBFF``
 
     Parameters:

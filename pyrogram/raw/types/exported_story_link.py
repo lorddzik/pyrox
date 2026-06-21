@@ -36,7 +36,7 @@ class ExportedStoryLink(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ExportedStoryLink`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3FC9053B``
 
     Parameters:

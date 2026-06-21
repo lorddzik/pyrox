@@ -34,7 +34,7 @@ class SearchCustomEmoji(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``2C11C0D7``
 
     Parameters:

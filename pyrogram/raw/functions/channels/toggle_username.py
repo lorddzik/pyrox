@@ -34,7 +34,7 @@ class ToggleUsername(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``50F24105``
 
     Parameters:

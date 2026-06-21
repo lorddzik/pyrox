@@ -27,7 +27,6 @@ from .get_nearest_dc import GetNearestDc
 from .get_app_update import GetAppUpdate
 from .get_invite_text import GetInviteText
 from .get_support import GetSupport
-from .get_app_changelog import GetAppChangelog
 from .set_bot_updates_status import SetBotUpdatesStatus
 from .get_cdn_config import GetCdnConfig
 from .get_recent_me_urls import GetRecentMeUrls
@@ -45,3 +44,6 @@ from .hide_promo_data import HidePromoData
 from .dismiss_suggestion import DismissSuggestion
 from .get_countries_list import GetCountriesList
 from .get_premium_promo import GetPremiumPromo
+from .get_peer_colors import GetPeerColors
+from .get_peer_profile_colors import GetPeerProfileColors
+from .get_timezones_list import GetTimezonesList

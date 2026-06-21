@@ -34,7 +34,7 @@ class GetMessageReactionsList(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``461B3F48``
 
     Parameters:

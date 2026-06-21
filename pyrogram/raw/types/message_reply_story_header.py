@@ -36,11 +36,11 @@ class MessageReplyStoryHeader(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageReplyHeader`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``9C98BFC1``
+        - Layer: ``227``
+        - ID: ``E5AF939``
 
     Parameters:
-        user_id (``int`` ``64-bit``):
+        peer (:obj:`Peer <pyrogram.raw.base.Peer>`):
             N/A
 
         story_id (``int`` ``32-bit``):
@@ -48,24 +48,24 @@ class MessageReplyStoryHeader(TLObject):  # type: ignore
 
     """
 
-    __slots__: List[str] = ["user_id", "story_id"]
+    __slots__: List[str] = ["peer", "story_id"]
 
-    ID = 0x9c98bfc1
+    ID = 0xe5af939
     QUALNAME = "types.MessageReplyStoryHeader"
 
-    def __init__(self, *, user_id: int, story_id: int) -> None:
-        self.user_id = user_id  # long
+    def __init__(self, *, peer: "raw.base.Peer", story_id: int) -> None:
+        self.peer = peer  # Peer
         self.story_id = story_id  # int
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessageReplyStoryHeader":
         # No flags
         
-        user_id = Long.read(b)
+        peer = TLObject.read(b)
         
         story_id = Int.read(b)
         
-        return MessageReplyStoryHeader(user_id=user_id, story_id=story_id)
+        return MessageReplyStoryHeader(peer=peer, story_id=story_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -73,7 +73,7 @@ class MessageReplyStoryHeader(TLObject):  # type: ignore
 
         # No flags
         
-        b.write(Long(self.user_id))
+        b.write(self.peer.write())
         
         b.write(Int(self.story_id))
         

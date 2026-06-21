@@ -36,14 +36,14 @@ class StickerSetNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.StickerSet`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D3F924EB``
 
     Parameters:
         No parameters required.
 
     Functions:
-        This object can be returned by 8 functions.
+        This object can be returned by 9 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -58,6 +58,7 @@ class StickerSetNotModified(TLObject):  # type: ignore
             stickers.SetStickerSetThumb
             stickers.ChangeSticker
             stickers.RenameStickerSet
+            stickers.ReplaceSticker
     """
 
     __slots__: List[str] = []

@@ -34,7 +34,7 @@ class GetChatThemes(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D638DE89``
 
     Parameters:

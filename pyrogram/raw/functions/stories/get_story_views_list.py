@@ -34,7 +34,7 @@ class GetStoryViewsList(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``7ED23C57``
 
     Parameters:
@@ -56,6 +56,9 @@ class GetStoryViewsList(TLObject):  # type: ignore
         reactions_first (``bool``, *optional*):
             N/A
 
+        forwards_first (``bool``, *optional*):
+            N/A
+
         q (``str``, *optional*):
             N/A
 
@@ -63,18 +66,19 @@ class GetStoryViewsList(TLObject):  # type: ignore
         :obj:`stories.StoryViewsList <pyrogram.raw.base.stories.StoryViewsList>`
     """
 
-    __slots__: List[str] = ["peer", "id", "offset", "limit", "just_contacts", "reactions_first", "q"]
+    __slots__: List[str] = ["peer", "id", "offset", "limit", "just_contacts", "reactions_first", "forwards_first", "q"]
 
     ID = 0x7ed23c57
     QUALNAME = "functions.stories.GetStoryViewsList"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", id: int, offset: str, limit: int, just_contacts: Optional[bool] = None, reactions_first: Optional[bool] = None, q: Optional[str] = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", id: int, offset: str, limit: int, just_contacts: Optional[bool] = None, reactions_first: Optional[bool] = None, forwards_first: Optional[bool] = None, q: Optional[str] = None) -> None:
         self.peer = peer  # InputPeer
         self.id = id  # int
         self.offset = offset  # string
         self.limit = limit  # int
         self.just_contacts = just_contacts  # flags.0?true
         self.reactions_first = reactions_first  # flags.2?true
+        self.forwards_first = forwards_first  # flags.3?true
         self.q = q  # flags.1?string
 
     @staticmethod
@@ -84,6 +88,7 @@ class GetStoryViewsList(TLObject):  # type: ignore
         
         just_contacts = True if flags & (1 << 0) else False
         reactions_first = True if flags & (1 << 2) else False
+        forwards_first = True if flags & (1 << 3) else False
         peer = TLObject.read(b)
         
         q = String.read(b) if flags & (1 << 1) else None
@@ -93,7 +98,7 @@ class GetStoryViewsList(TLObject):  # type: ignore
         
         limit = Int.read(b)
         
-        return GetStoryViewsList(peer=peer, id=id, offset=offset, limit=limit, just_contacts=just_contacts, reactions_first=reactions_first, q=q)
+        return GetStoryViewsList(peer=peer, id=id, offset=offset, limit=limit, just_contacts=just_contacts, reactions_first=reactions_first, forwards_first=forwards_first, q=q)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -102,6 +107,7 @@ class GetStoryViewsList(TLObject):  # type: ignore
         flags = 0
         flags |= (1 << 0) if self.just_contacts else 0
         flags |= (1 << 2) if self.reactions_first else 0
+        flags |= (1 << 3) if self.forwards_first else 0
         flags |= (1 << 1) if self.q is not None else 0
         b.write(Int(flags))
         

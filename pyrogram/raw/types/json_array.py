@@ -36,7 +36,7 @@ class JsonArray(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.JSONValue`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F7444763``
 
     Parameters:

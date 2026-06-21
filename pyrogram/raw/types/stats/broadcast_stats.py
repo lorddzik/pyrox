@@ -36,8 +36,8 @@ class BroadcastStats(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.stats.BroadcastStats`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``BDF78394``
+        - Layer: ``227``
+        - ID: ``396CA5FC``
 
     Parameters:
         period (:obj:`StatsDateRangeDays <pyrogram.raw.base.StatsDateRangeDays>`):
@@ -50,6 +50,18 @@ class BroadcastStats(TLObject):  # type: ignore
             N/A
 
         shares_per_post (:obj:`StatsAbsValueAndPrev <pyrogram.raw.base.StatsAbsValueAndPrev>`):
+            N/A
+
+        reactions_per_post (:obj:`StatsAbsValueAndPrev <pyrogram.raw.base.StatsAbsValueAndPrev>`):
+            N/A
+
+        views_per_story (:obj:`StatsAbsValueAndPrev <pyrogram.raw.base.StatsAbsValueAndPrev>`):
+            N/A
+
+        shares_per_story (:obj:`StatsAbsValueAndPrev <pyrogram.raw.base.StatsAbsValueAndPrev>`):
+            N/A
+
+        reactions_per_story (:obj:`StatsAbsValueAndPrev <pyrogram.raw.base.StatsAbsValueAndPrev>`):
             N/A
 
         enabled_notifications (:obj:`StatsPercentValue <pyrogram.raw.base.StatsPercentValue>`):
@@ -82,7 +94,16 @@ class BroadcastStats(TLObject):  # type: ignore
         languages_graph (:obj:`StatsGraph <pyrogram.raw.base.StatsGraph>`):
             N/A
 
-        recent_message_interactions (List of :obj:`MessageInteractionCounters <pyrogram.raw.base.MessageInteractionCounters>`):
+        reactions_by_emotion_graph (:obj:`StatsGraph <pyrogram.raw.base.StatsGraph>`):
+            N/A
+
+        story_interactions_graph (:obj:`StatsGraph <pyrogram.raw.base.StatsGraph>`):
+            N/A
+
+        story_reactions_by_emotion_graph (:obj:`StatsGraph <pyrogram.raw.base.StatsGraph>`):
+            N/A
+
+        recent_posts_interactions (List of :obj:`PostInteractionCounters <pyrogram.raw.base.PostInteractionCounters>`):
             N/A
 
     Functions:
@@ -96,16 +117,20 @@ class BroadcastStats(TLObject):  # type: ignore
             stats.GetBroadcastStats
     """
 
-    __slots__: List[str] = ["period", "followers", "views_per_post", "shares_per_post", "enabled_notifications", "growth_graph", "followers_graph", "mute_graph", "top_hours_graph", "interactions_graph", "iv_interactions_graph", "views_by_source_graph", "new_followers_by_source_graph", "languages_graph", "recent_message_interactions"]
+    __slots__: List[str] = ["period", "followers", "views_per_post", "shares_per_post", "reactions_per_post", "views_per_story", "shares_per_story", "reactions_per_story", "enabled_notifications", "growth_graph", "followers_graph", "mute_graph", "top_hours_graph", "interactions_graph", "iv_interactions_graph", "views_by_source_graph", "new_followers_by_source_graph", "languages_graph", "reactions_by_emotion_graph", "story_interactions_graph", "story_reactions_by_emotion_graph", "recent_posts_interactions"]
 
-    ID = 0xbdf78394
+    ID = 0x396ca5fc
     QUALNAME = "types.stats.BroadcastStats"
 
-    def __init__(self, *, period: "raw.base.StatsDateRangeDays", followers: "raw.base.StatsAbsValueAndPrev", views_per_post: "raw.base.StatsAbsValueAndPrev", shares_per_post: "raw.base.StatsAbsValueAndPrev", enabled_notifications: "raw.base.StatsPercentValue", growth_graph: "raw.base.StatsGraph", followers_graph: "raw.base.StatsGraph", mute_graph: "raw.base.StatsGraph", top_hours_graph: "raw.base.StatsGraph", interactions_graph: "raw.base.StatsGraph", iv_interactions_graph: "raw.base.StatsGraph", views_by_source_graph: "raw.base.StatsGraph", new_followers_by_source_graph: "raw.base.StatsGraph", languages_graph: "raw.base.StatsGraph", recent_message_interactions: List["raw.base.MessageInteractionCounters"]) -> None:
+    def __init__(self, *, period: "raw.base.StatsDateRangeDays", followers: "raw.base.StatsAbsValueAndPrev", views_per_post: "raw.base.StatsAbsValueAndPrev", shares_per_post: "raw.base.StatsAbsValueAndPrev", reactions_per_post: "raw.base.StatsAbsValueAndPrev", views_per_story: "raw.base.StatsAbsValueAndPrev", shares_per_story: "raw.base.StatsAbsValueAndPrev", reactions_per_story: "raw.base.StatsAbsValueAndPrev", enabled_notifications: "raw.base.StatsPercentValue", growth_graph: "raw.base.StatsGraph", followers_graph: "raw.base.StatsGraph", mute_graph: "raw.base.StatsGraph", top_hours_graph: "raw.base.StatsGraph", interactions_graph: "raw.base.StatsGraph", iv_interactions_graph: "raw.base.StatsGraph", views_by_source_graph: "raw.base.StatsGraph", new_followers_by_source_graph: "raw.base.StatsGraph", languages_graph: "raw.base.StatsGraph", reactions_by_emotion_graph: "raw.base.StatsGraph", story_interactions_graph: "raw.base.StatsGraph", story_reactions_by_emotion_graph: "raw.base.StatsGraph", recent_posts_interactions: List["raw.base.PostInteractionCounters"]) -> None:
         self.period = period  # StatsDateRangeDays
         self.followers = followers  # StatsAbsValueAndPrev
         self.views_per_post = views_per_post  # StatsAbsValueAndPrev
         self.shares_per_post = shares_per_post  # StatsAbsValueAndPrev
+        self.reactions_per_post = reactions_per_post  # StatsAbsValueAndPrev
+        self.views_per_story = views_per_story  # StatsAbsValueAndPrev
+        self.shares_per_story = shares_per_story  # StatsAbsValueAndPrev
+        self.reactions_per_story = reactions_per_story  # StatsAbsValueAndPrev
         self.enabled_notifications = enabled_notifications  # StatsPercentValue
         self.growth_graph = growth_graph  # StatsGraph
         self.followers_graph = followers_graph  # StatsGraph
@@ -116,7 +141,10 @@ class BroadcastStats(TLObject):  # type: ignore
         self.views_by_source_graph = views_by_source_graph  # StatsGraph
         self.new_followers_by_source_graph = new_followers_by_source_graph  # StatsGraph
         self.languages_graph = languages_graph  # StatsGraph
-        self.recent_message_interactions = recent_message_interactions  # Vector<MessageInteractionCounters>
+        self.reactions_by_emotion_graph = reactions_by_emotion_graph  # StatsGraph
+        self.story_interactions_graph = story_interactions_graph  # StatsGraph
+        self.story_reactions_by_emotion_graph = story_reactions_by_emotion_graph  # StatsGraph
+        self.recent_posts_interactions = recent_posts_interactions  # Vector<PostInteractionCounters>
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "BroadcastStats":
@@ -129,6 +157,14 @@ class BroadcastStats(TLObject):  # type: ignore
         views_per_post = TLObject.read(b)
         
         shares_per_post = TLObject.read(b)
+        
+        reactions_per_post = TLObject.read(b)
+        
+        views_per_story = TLObject.read(b)
+        
+        shares_per_story = TLObject.read(b)
+        
+        reactions_per_story = TLObject.read(b)
         
         enabled_notifications = TLObject.read(b)
         
@@ -150,9 +186,15 @@ class BroadcastStats(TLObject):  # type: ignore
         
         languages_graph = TLObject.read(b)
         
-        recent_message_interactions = TLObject.read(b)
+        reactions_by_emotion_graph = TLObject.read(b)
         
-        return BroadcastStats(period=period, followers=followers, views_per_post=views_per_post, shares_per_post=shares_per_post, enabled_notifications=enabled_notifications, growth_graph=growth_graph, followers_graph=followers_graph, mute_graph=mute_graph, top_hours_graph=top_hours_graph, interactions_graph=interactions_graph, iv_interactions_graph=iv_interactions_graph, views_by_source_graph=views_by_source_graph, new_followers_by_source_graph=new_followers_by_source_graph, languages_graph=languages_graph, recent_message_interactions=recent_message_interactions)
+        story_interactions_graph = TLObject.read(b)
+        
+        story_reactions_by_emotion_graph = TLObject.read(b)
+        
+        recent_posts_interactions = TLObject.read(b)
+        
+        return BroadcastStats(period=period, followers=followers, views_per_post=views_per_post, shares_per_post=shares_per_post, reactions_per_post=reactions_per_post, views_per_story=views_per_story, shares_per_story=shares_per_story, reactions_per_story=reactions_per_story, enabled_notifications=enabled_notifications, growth_graph=growth_graph, followers_graph=followers_graph, mute_graph=mute_graph, top_hours_graph=top_hours_graph, interactions_graph=interactions_graph, iv_interactions_graph=iv_interactions_graph, views_by_source_graph=views_by_source_graph, new_followers_by_source_graph=new_followers_by_source_graph, languages_graph=languages_graph, reactions_by_emotion_graph=reactions_by_emotion_graph, story_interactions_graph=story_interactions_graph, story_reactions_by_emotion_graph=story_reactions_by_emotion_graph, recent_posts_interactions=recent_posts_interactions)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -167,6 +209,14 @@ class BroadcastStats(TLObject):  # type: ignore
         b.write(self.views_per_post.write())
         
         b.write(self.shares_per_post.write())
+        
+        b.write(self.reactions_per_post.write())
+        
+        b.write(self.views_per_story.write())
+        
+        b.write(self.shares_per_story.write())
+        
+        b.write(self.reactions_per_story.write())
         
         b.write(self.enabled_notifications.write())
         
@@ -188,6 +238,12 @@ class BroadcastStats(TLObject):  # type: ignore
         
         b.write(self.languages_graph.write())
         
-        b.write(Vector(self.recent_message_interactions))
+        b.write(self.reactions_by_emotion_graph.write())
+        
+        b.write(self.story_interactions_graph.write())
+        
+        b.write(self.story_reactions_by_emotion_graph.write())
+        
+        b.write(Vector(self.recent_posts_interactions))
         
         return b.getvalue()

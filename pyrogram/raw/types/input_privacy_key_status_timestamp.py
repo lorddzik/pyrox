@@ -36,7 +36,7 @@ class InputPrivacyKeyStatusTimestamp(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputPrivacyKey`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``4F96CB18``
 
     Parameters:

@@ -34,7 +34,7 @@ class SetPrivacy(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C9F81CE8``
 
     Parameters:

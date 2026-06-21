@@ -34,7 +34,7 @@ class EditGroupCallParticipant(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``A5273ABF``
 
     Parameters:

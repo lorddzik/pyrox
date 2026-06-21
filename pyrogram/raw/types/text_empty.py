@@ -36,7 +36,7 @@ class TextEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RichText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DC3D824F``
 
     Parameters:

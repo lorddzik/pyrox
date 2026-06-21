@@ -36,7 +36,7 @@ class Authorization(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Authorization`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``AD01D61D``
 
     Parameters:

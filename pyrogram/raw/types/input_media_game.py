@@ -36,7 +36,7 @@ class InputMediaGame(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMedia`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D33F43F3``
 
     Parameters:

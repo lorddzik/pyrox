@@ -36,7 +36,7 @@ class TopPeerCategoryPhoneCalls(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.TopPeerCategory`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1E76A78C``
 
     Parameters:

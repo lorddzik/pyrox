@@ -36,7 +36,7 @@ class GroupParticipants(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.phone.GroupParticipants`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F47751B6``
 
     Parameters:

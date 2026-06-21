@@ -45,7 +45,7 @@ class User:  # type: ignore
             UserEmpty
 
     Functions:
-        This object can be returned by 5 functions.
+        This object can be returned by 9 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -57,6 +57,10 @@ class User:  # type: ignore
             account.ChangePhone
             users.GetUsers
             contacts.ImportContactToken
+            messages.GetFutureChatCreatorAfterLeave
+            channels.GetMessageAuthor
+            bots.GetAdminedBots
+            bots.CreateBot
     """
 
     QUALNAME = "pyrogram.raw.base.User"

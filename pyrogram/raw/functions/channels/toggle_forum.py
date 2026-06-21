@@ -34,8 +34,8 @@ class ToggleForum(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``A4298B29``
+        - Layer: ``227``
+        - ID: ``3FF75734``
 
     Parameters:
         channel (:obj:`InputChannel <pyrogram.raw.base.InputChannel>`):
@@ -44,18 +44,22 @@ class ToggleForum(TLObject):  # type: ignore
         enabled (``bool``):
             N/A
 
+        tabs (``bool``):
+            N/A
+
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["channel", "enabled"]
+    __slots__: List[str] = ["channel", "enabled", "tabs"]
 
-    ID = 0xa4298b29
+    ID = 0x3ff75734
     QUALNAME = "functions.channels.ToggleForum"
 
-    def __init__(self, *, channel: "raw.base.InputChannel", enabled: bool) -> None:
+    def __init__(self, *, channel: "raw.base.InputChannel", enabled: bool, tabs: bool) -> None:
         self.channel = channel  # InputChannel
         self.enabled = enabled  # Bool
+        self.tabs = tabs  # Bool
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ToggleForum":
@@ -65,7 +69,9 @@ class ToggleForum(TLObject):  # type: ignore
         
         enabled = Bool.read(b)
         
-        return ToggleForum(channel=channel, enabled=enabled)
+        tabs = Bool.read(b)
+        
+        return ToggleForum(channel=channel, enabled=enabled, tabs=tabs)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -76,5 +82,7 @@ class ToggleForum(TLObject):  # type: ignore
         b.write(self.channel.write())
         
         b.write(Bool(self.enabled))
+        
+        b.write(Bool(self.tabs))
         
         return b.getvalue()

@@ -34,7 +34,7 @@ class UpdateEmojiStatus(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``FBD3DE6B``
 
     Parameters:

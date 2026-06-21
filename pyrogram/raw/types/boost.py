@@ -36,8 +36,8 @@ class Boost(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Boost`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``2A1C8C71``
+        - Layer: ``227``
+        - ID: ``4B3E14D6``
 
     Parameters:
         id (``str``):
@@ -70,14 +70,17 @@ class Boost(TLObject):  # type: ignore
         multiplier (``int`` ``32-bit``, *optional*):
             N/A
 
+        stars (``int`` ``64-bit``, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["id", "date", "expires", "gift", "giveaway", "unclaimed", "user_id", "giveaway_msg_id", "used_gift_slug", "multiplier"]
+    __slots__: List[str] = ["id", "date", "expires", "gift", "giveaway", "unclaimed", "user_id", "giveaway_msg_id", "used_gift_slug", "multiplier", "stars"]
 
-    ID = 0x2a1c8c71
+    ID = 0x4b3e14d6
     QUALNAME = "types.Boost"
 
-    def __init__(self, *, id: str, date: int, expires: int, gift: Optional[bool] = None, giveaway: Optional[bool] = None, unclaimed: Optional[bool] = None, user_id: Optional[int] = None, giveaway_msg_id: Optional[int] = None, used_gift_slug: Optional[str] = None, multiplier: Optional[int] = None) -> None:
+    def __init__(self, *, id: str, date: int, expires: int, gift: Optional[bool] = None, giveaway: Optional[bool] = None, unclaimed: Optional[bool] = None, user_id: Optional[int] = None, giveaway_msg_id: Optional[int] = None, used_gift_slug: Optional[str] = None, multiplier: Optional[int] = None, stars: Optional[int] = None) -> None:
         self.id = id  # string
         self.date = date  # int
         self.expires = expires  # int
@@ -88,6 +91,7 @@ class Boost(TLObject):  # type: ignore
         self.giveaway_msg_id = giveaway_msg_id  # flags.2?int
         self.used_gift_slug = used_gift_slug  # flags.4?string
         self.multiplier = multiplier  # flags.5?int
+        self.stars = stars  # flags.6?long
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "Boost":
@@ -107,7 +111,8 @@ class Boost(TLObject):  # type: ignore
         
         used_gift_slug = String.read(b) if flags & (1 << 4) else None
         multiplier = Int.read(b) if flags & (1 << 5) else None
-        return Boost(id=id, date=date, expires=expires, gift=gift, giveaway=giveaway, unclaimed=unclaimed, user_id=user_id, giveaway_msg_id=giveaway_msg_id, used_gift_slug=used_gift_slug, multiplier=multiplier)
+        stars = Long.read(b) if flags & (1 << 6) else None
+        return Boost(id=id, date=date, expires=expires, gift=gift, giveaway=giveaway, unclaimed=unclaimed, user_id=user_id, giveaway_msg_id=giveaway_msg_id, used_gift_slug=used_gift_slug, multiplier=multiplier, stars=stars)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -121,6 +126,7 @@ class Boost(TLObject):  # type: ignore
         flags |= (1 << 2) if self.giveaway_msg_id is not None else 0
         flags |= (1 << 4) if self.used_gift_slug is not None else 0
         flags |= (1 << 5) if self.multiplier is not None else 0
+        flags |= (1 << 6) if self.stars is not None else 0
         b.write(Int(flags))
         
         b.write(String(self.id))
@@ -140,5 +146,8 @@ class Boost(TLObject):  # type: ignore
         
         if self.multiplier is not None:
             b.write(Int(self.multiplier))
+        
+        if self.stars is not None:
+            b.write(Long(self.stars))
         
         return b.getvalue()

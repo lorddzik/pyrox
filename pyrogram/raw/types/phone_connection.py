@@ -36,7 +36,7 @@ class PhoneConnection(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PhoneConnection`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9CC123C7``
 
     Parameters:

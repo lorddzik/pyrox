@@ -36,7 +36,7 @@ class TextUnderline(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RichText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``C12622C4``
 
     Parameters:

@@ -36,7 +36,7 @@ class LangPackLanguage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.LangPackLanguage`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``EECA5CE3``
 
     Parameters:

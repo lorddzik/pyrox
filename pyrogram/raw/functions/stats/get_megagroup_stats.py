@@ -34,7 +34,7 @@ class GetMegagroupStats(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DCDF8607``
 
     Parameters:

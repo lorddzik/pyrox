@@ -36,7 +36,7 @@ class TopPeerCategoryBotsInline(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.TopPeerCategory`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``148677E2``
 
     Parameters:

@@ -36,7 +36,7 @@ class PageBlockPhoto(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``1759C560``
 
     Parameters:
@@ -44,6 +44,9 @@ class PageBlockPhoto(TLObject):  # type: ignore
             N/A
 
         caption (:obj:`PageCaption <pyrogram.raw.base.PageCaption>`):
+            N/A
+
+        spoiler (``bool``, *optional*):
             N/A
 
         url (``str``, *optional*):
@@ -54,14 +57,15 @@ class PageBlockPhoto(TLObject):  # type: ignore
 
     """
 
-    __slots__: List[str] = ["photo_id", "caption", "url", "webpage_id"]
+    __slots__: List[str] = ["photo_id", "caption", "spoiler", "url", "webpage_id"]
 
     ID = 0x1759c560
     QUALNAME = "types.PageBlockPhoto"
 
-    def __init__(self, *, photo_id: int, caption: "raw.base.PageCaption", url: Optional[str] = None, webpage_id: Optional[int] = None) -> None:
+    def __init__(self, *, photo_id: int, caption: "raw.base.PageCaption", spoiler: Optional[bool] = None, url: Optional[str] = None, webpage_id: Optional[int] = None) -> None:
         self.photo_id = photo_id  # long
         self.caption = caption  # PageCaption
+        self.spoiler = spoiler  # flags.1?true
         self.url = url  # flags.0?string
         self.webpage_id = webpage_id  # flags.0?long
 
@@ -70,19 +74,21 @@ class PageBlockPhoto(TLObject):  # type: ignore
         
         flags = Int.read(b)
         
+        spoiler = True if flags & (1 << 1) else False
         photo_id = Long.read(b)
         
         caption = TLObject.read(b)
         
         url = String.read(b) if flags & (1 << 0) else None
         webpage_id = Long.read(b) if flags & (1 << 0) else None
-        return PageBlockPhoto(photo_id=photo_id, caption=caption, url=url, webpage_id=webpage_id)
+        return PageBlockPhoto(photo_id=photo_id, caption=caption, spoiler=spoiler, url=url, webpage_id=webpage_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
         flags = 0
+        flags |= (1 << 1) if self.spoiler else 0
         flags |= (1 << 0) if self.url is not None else 0
         flags |= (1 << 0) if self.webpage_id is not None else 0
         b.write(Int(flags))

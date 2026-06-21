@@ -34,7 +34,7 @@ class ReportReaction(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``3F64C076``
 
     Parameters:

@@ -34,7 +34,7 @@ class GetAdminedPublicChannels(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``F8B036AF``
 
     Parameters:
@@ -44,18 +44,22 @@ class GetAdminedPublicChannels(TLObject):  # type: ignore
         check_limit (``bool``, *optional*):
             N/A
 
+        for_personal (``bool``, *optional*):
+            N/A
+
     Returns:
         :obj:`messages.Chats <pyrogram.raw.base.messages.Chats>`
     """
 
-    __slots__: List[str] = ["by_location", "check_limit"]
+    __slots__: List[str] = ["by_location", "check_limit", "for_personal"]
 
     ID = 0xf8b036af
     QUALNAME = "functions.channels.GetAdminedPublicChannels"
 
-    def __init__(self, *, by_location: Optional[bool] = None, check_limit: Optional[bool] = None) -> None:
+    def __init__(self, *, by_location: Optional[bool] = None, check_limit: Optional[bool] = None, for_personal: Optional[bool] = None) -> None:
         self.by_location = by_location  # flags.0?true
         self.check_limit = check_limit  # flags.1?true
+        self.for_personal = for_personal  # flags.2?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "GetAdminedPublicChannels":
@@ -64,7 +68,8 @@ class GetAdminedPublicChannels(TLObject):  # type: ignore
         
         by_location = True if flags & (1 << 0) else False
         check_limit = True if flags & (1 << 1) else False
-        return GetAdminedPublicChannels(by_location=by_location, check_limit=check_limit)
+        for_personal = True if flags & (1 << 2) else False
+        return GetAdminedPublicChannels(by_location=by_location, check_limit=check_limit, for_personal=for_personal)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -73,6 +78,7 @@ class GetAdminedPublicChannels(TLObject):  # type: ignore
         flags = 0
         flags |= (1 << 0) if self.by_location else 0
         flags |= (1 << 1) if self.check_limit else 0
+        flags |= (1 << 2) if self.for_personal else 0
         b.write(Int(flags))
         
         return b.getvalue()

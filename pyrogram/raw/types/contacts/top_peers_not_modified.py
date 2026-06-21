@@ -36,7 +36,7 @@ class TopPeersNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.contacts.TopPeers`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``DE266EF5``
 
     Parameters:

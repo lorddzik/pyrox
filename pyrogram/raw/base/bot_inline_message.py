@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-BotInlineMessage = Union[raw.types.BotInlineMessageMediaAuto, raw.types.BotInlineMessageMediaContact, raw.types.BotInlineMessageMediaGeo, raw.types.BotInlineMessageMediaInvoice, raw.types.BotInlineMessageMediaVenue, raw.types.BotInlineMessageMediaWebPage, raw.types.BotInlineMessageText]
+BotInlineMessage = Union[raw.types.BotInlineMessageMediaAuto, raw.types.BotInlineMessageMediaContact, raw.types.BotInlineMessageMediaGeo, raw.types.BotInlineMessageMediaInvoice, raw.types.BotInlineMessageMediaVenue, raw.types.BotInlineMessageMediaWebPage, raw.types.BotInlineMessageRichMessage, raw.types.BotInlineMessageText]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class BotInlineMessage:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 7 constructors available.
+        This base type has 8 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -47,6 +47,7 @@ class BotInlineMessage:  # type: ignore
             BotInlineMessageMediaInvoice
             BotInlineMessageMediaVenue
             BotInlineMessageMediaWebPage
+            BotInlineMessageRichMessage
             BotInlineMessageText
     """
 

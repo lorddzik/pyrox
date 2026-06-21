@@ -36,14 +36,14 @@ class EmojiGroupsNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.EmojiGroups`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``6FB4AD87``
 
     Parameters:
         No parameters required.
 
     Functions:
-        This object can be returned by 3 functions.
+        This object can be returned by 4 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -53,6 +53,7 @@ class EmojiGroupsNotModified(TLObject):  # type: ignore
             messages.GetEmojiGroups
             messages.GetEmojiStatusGroups
             messages.GetEmojiProfilePhotoGroups
+            messages.GetEmojiStickerGroups
     """
 
     __slots__: List[str] = []

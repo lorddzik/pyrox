@@ -34,7 +34,7 @@ class GetBlocked(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``9A868F80``
 
     Parameters:

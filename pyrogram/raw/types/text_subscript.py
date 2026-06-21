@@ -36,7 +36,7 @@ class TextSubscript(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RichText`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``ED6A8504``
 
     Parameters:

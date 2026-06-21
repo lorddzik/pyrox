@@ -36,7 +36,7 @@ class PageTableRow(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageTableRow`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``E0C0C5E5``
 
     Parameters:

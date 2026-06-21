@@ -36,8 +36,8 @@ class UpdateMessageReactions(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``166``
-        - ID: ``5E1B3CB8``
+        - Layer: ``227``
+        - ID: ``1E297BFA``
 
     Parameters:
         peer (:obj:`Peer <pyrogram.raw.base.Peer>`):
@@ -52,18 +52,22 @@ class UpdateMessageReactions(TLObject):  # type: ignore
         top_msg_id (``int`` ``32-bit``, *optional*):
             N/A
 
+        saved_peer_id (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
+            N/A
+
     """
 
-    __slots__: List[str] = ["peer", "msg_id", "reactions", "top_msg_id"]
+    __slots__: List[str] = ["peer", "msg_id", "reactions", "top_msg_id", "saved_peer_id"]
 
-    ID = 0x5e1b3cb8
+    ID = 0x1e297bfa
     QUALNAME = "types.UpdateMessageReactions"
 
-    def __init__(self, *, peer: "raw.base.Peer", msg_id: int, reactions: "raw.base.MessageReactions", top_msg_id: Optional[int] = None) -> None:
+    def __init__(self, *, peer: "raw.base.Peer", msg_id: int, reactions: "raw.base.MessageReactions", top_msg_id: Optional[int] = None, saved_peer_id: "raw.base.Peer" = None) -> None:
         self.peer = peer  # Peer
         self.msg_id = msg_id  # int
         self.reactions = reactions  # MessageReactions
         self.top_msg_id = top_msg_id  # flags.0?int
+        self.saved_peer_id = saved_peer_id  # flags.1?Peer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UpdateMessageReactions":
@@ -75,9 +79,11 @@ class UpdateMessageReactions(TLObject):  # type: ignore
         msg_id = Int.read(b)
         
         top_msg_id = Int.read(b) if flags & (1 << 0) else None
+        saved_peer_id = TLObject.read(b) if flags & (1 << 1) else None
+        
         reactions = TLObject.read(b)
         
-        return UpdateMessageReactions(peer=peer, msg_id=msg_id, reactions=reactions, top_msg_id=top_msg_id)
+        return UpdateMessageReactions(peer=peer, msg_id=msg_id, reactions=reactions, top_msg_id=top_msg_id, saved_peer_id=saved_peer_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -85,6 +91,7 @@ class UpdateMessageReactions(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.top_msg_id is not None else 0
+        flags |= (1 << 1) if self.saved_peer_id is not None else 0
         b.write(Int(flags))
         
         b.write(self.peer.write())
@@ -93,6 +100,9 @@ class UpdateMessageReactions(TLObject):  # type: ignore
         
         if self.top_msg_id is not None:
             b.write(Int(self.top_msg_id))
+        
+        if self.saved_peer_id is not None:
+            b.write(self.saved_peer_id.write())
         
         b.write(self.reactions.write())
         

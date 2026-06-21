@@ -34,7 +34,7 @@ class GetDifference(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``19C2F763``
 
     Parameters:

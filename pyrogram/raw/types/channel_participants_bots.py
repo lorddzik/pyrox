@@ -36,7 +36,7 @@ class ChannelParticipantsBots(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelParticipantsFilter`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``B0D1865B``
 
     Parameters:

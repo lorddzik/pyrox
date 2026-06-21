@@ -34,7 +34,7 @@ class RequestCall(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``42FF96ED``
 
     Parameters:

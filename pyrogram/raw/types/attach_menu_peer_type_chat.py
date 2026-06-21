@@ -36,7 +36,7 @@ class AttachMenuPeerTypeChat(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.AttachMenuPeerType`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``509113F``
 
     Parameters:

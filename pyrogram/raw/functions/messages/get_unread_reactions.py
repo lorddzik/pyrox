@@ -34,8 +34,8 @@ class GetUnreadReactions(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``3223495B``
+        - Layer: ``227``
+        - ID: ``BD7F90AC``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -59,16 +59,19 @@ class GetUnreadReactions(TLObject):  # type: ignore
         top_msg_id (``int`` ``32-bit``, *optional*):
             N/A
 
+        saved_peer_id (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
+            N/A
+
     Returns:
         :obj:`messages.Messages <pyrogram.raw.base.messages.Messages>`
     """
 
-    __slots__: List[str] = ["peer", "offset_id", "add_offset", "limit", "max_id", "min_id", "top_msg_id"]
+    __slots__: List[str] = ["peer", "offset_id", "add_offset", "limit", "max_id", "min_id", "top_msg_id", "saved_peer_id"]
 
-    ID = 0x3223495b
+    ID = 0xbd7f90ac
     QUALNAME = "functions.messages.GetUnreadReactions"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", offset_id: int, add_offset: int, limit: int, max_id: int, min_id: int, top_msg_id: Optional[int] = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", offset_id: int, add_offset: int, limit: int, max_id: int, min_id: int, top_msg_id: Optional[int] = None, saved_peer_id: "raw.base.InputPeer" = None) -> None:
         self.peer = peer  # InputPeer
         self.offset_id = offset_id  # int
         self.add_offset = add_offset  # int
@@ -76,6 +79,7 @@ class GetUnreadReactions(TLObject):  # type: ignore
         self.max_id = max_id  # int
         self.min_id = min_id  # int
         self.top_msg_id = top_msg_id  # flags.0?int
+        self.saved_peer_id = saved_peer_id  # flags.1?InputPeer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "GetUnreadReactions":
@@ -85,6 +89,8 @@ class GetUnreadReactions(TLObject):  # type: ignore
         peer = TLObject.read(b)
         
         top_msg_id = Int.read(b) if flags & (1 << 0) else None
+        saved_peer_id = TLObject.read(b) if flags & (1 << 1) else None
+        
         offset_id = Int.read(b)
         
         add_offset = Int.read(b)
@@ -95,7 +101,7 @@ class GetUnreadReactions(TLObject):  # type: ignore
         
         min_id = Int.read(b)
         
-        return GetUnreadReactions(peer=peer, offset_id=offset_id, add_offset=add_offset, limit=limit, max_id=max_id, min_id=min_id, top_msg_id=top_msg_id)
+        return GetUnreadReactions(peer=peer, offset_id=offset_id, add_offset=add_offset, limit=limit, max_id=max_id, min_id=min_id, top_msg_id=top_msg_id, saved_peer_id=saved_peer_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -103,12 +109,16 @@ class GetUnreadReactions(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.top_msg_id is not None else 0
+        flags |= (1 << 1) if self.saved_peer_id is not None else 0
         b.write(Int(flags))
         
         b.write(self.peer.write())
         
         if self.top_msg_id is not None:
             b.write(Int(self.top_msg_id))
+        
+        if self.saved_peer_id is not None:
+            b.write(self.saved_peer_id.write())
         
         b.write(Int(self.offset_id))
         

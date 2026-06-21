@@ -34,7 +34,7 @@ class GetTopReactions(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BB8125BA``
 
     Parameters:

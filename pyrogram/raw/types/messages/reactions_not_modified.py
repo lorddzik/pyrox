@@ -36,14 +36,14 @@ class ReactionsNotModified(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.Reactions`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``B06FDBDF``
 
     Parameters:
         No parameters required.
 
     Functions:
-        This object can be returned by 2 functions.
+        This object can be returned by 3 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -52,6 +52,7 @@ class ReactionsNotModified(TLObject):  # type: ignore
 
             messages.GetTopReactions
             messages.GetRecentReactions
+            messages.GetDefaultTagReactions
     """
 
     __slots__: List[str] = []

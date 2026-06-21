@@ -34,8 +34,8 @@ class MarkDialogUnread(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``C286D98F``
+        - Layer: ``227``
+        - ID: ``8C5006F8``
 
     Parameters:
         peer (:obj:`InputDialogPeer <pyrogram.raw.base.InputDialogPeer>`):
@@ -44,18 +44,22 @@ class MarkDialogUnread(TLObject):  # type: ignore
         unread (``bool``, *optional*):
             N/A
 
+        parent_peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
+            N/A
+
     Returns:
         ``bool``
     """
 
-    __slots__: List[str] = ["peer", "unread"]
+    __slots__: List[str] = ["peer", "unread", "parent_peer"]
 
-    ID = 0xc286d98f
+    ID = 0x8c5006f8
     QUALNAME = "functions.messages.MarkDialogUnread"
 
-    def __init__(self, *, peer: "raw.base.InputDialogPeer", unread: Optional[bool] = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputDialogPeer", unread: Optional[bool] = None, parent_peer: "raw.base.InputPeer" = None) -> None:
         self.peer = peer  # InputDialogPeer
         self.unread = unread  # flags.0?true
+        self.parent_peer = parent_peer  # flags.1?InputPeer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MarkDialogUnread":
@@ -63,9 +67,11 @@ class MarkDialogUnread(TLObject):  # type: ignore
         flags = Int.read(b)
         
         unread = True if flags & (1 << 0) else False
+        parent_peer = TLObject.read(b) if flags & (1 << 1) else None
+        
         peer = TLObject.read(b)
         
-        return MarkDialogUnread(peer=peer, unread=unread)
+        return MarkDialogUnread(peer=peer, unread=unread, parent_peer=parent_peer)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -73,7 +79,11 @@ class MarkDialogUnread(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.unread else 0
+        flags |= (1 << 1) if self.parent_peer is not None else 0
         b.write(Int(flags))
+        
+        if self.parent_peer is not None:
+            b.write(self.parent_peer.write())
         
         b.write(self.peer.write())
         

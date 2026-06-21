@@ -36,7 +36,7 @@ class TopPeerCategoryChannels(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.TopPeerCategory`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``161D9628``
 
     Parameters:

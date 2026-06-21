@@ -34,7 +34,7 @@ class InviteToGroupCall(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``7B393160``
 
     Parameters:

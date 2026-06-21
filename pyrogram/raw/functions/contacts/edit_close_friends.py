@@ -34,7 +34,7 @@ class EditCloseFriends(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``BA6705F0``
 
     Parameters:

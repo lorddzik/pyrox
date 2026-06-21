@@ -36,7 +36,7 @@ class InputPrivacyValueAllowContacts(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputPrivacyRule`.
 
     Details:
-        - Layer: ``166``
+        - Layer: ``227``
         - ID: ``D09E07B``
 
     Parameters:

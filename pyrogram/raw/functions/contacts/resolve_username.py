@@ -34,39 +34,50 @@ class ResolveUsername(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``166``
-        - ID: ``F93CCBA3``
+        - Layer: ``227``
+        - ID: ``725AFBBC``
 
     Parameters:
         username (``str``):
+            N/A
+
+        referer (``str``, *optional*):
             N/A
 
     Returns:
         :obj:`contacts.ResolvedPeer <pyrogram.raw.base.contacts.ResolvedPeer>`
     """
 
-    __slots__: List[str] = ["username"]
+    __slots__: List[str] = ["username", "referer"]
 
-    ID = 0xf93ccba3
+    ID = 0x725afbbc
     QUALNAME = "functions.contacts.ResolveUsername"
 
-    def __init__(self, *, username: str) -> None:
+    def __init__(self, *, username: str, referer: Optional[str] = None) -> None:
         self.username = username  # string
+        self.referer = referer  # flags.0?string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ResolveUsername":
-        # No flags
+        
+        flags = Int.read(b)
         
         username = String.read(b)
         
-        return ResolveUsername(username=username)
+        referer = String.read(b) if flags & (1 << 0) else None
+        return ResolveUsername(username=username, referer=referer)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        # No flags
+        flags = 0
+        flags |= (1 << 0) if self.referer is not None else 0
+        b.write(Int(flags))
         
         b.write(String(self.username))
+        
+        if self.referer is not None:
+            b.write(String(self.referer))
         
         return b.getvalue()
