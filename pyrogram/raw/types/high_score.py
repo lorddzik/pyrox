@@ -36,7 +36,7 @@ class HighScore(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.HighScore`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``73A379EB``
 
     Parameters:

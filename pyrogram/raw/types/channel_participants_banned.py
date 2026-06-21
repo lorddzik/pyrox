@@ -36,7 +36,7 @@ class ChannelParticipantsBanned(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelParticipantsFilter`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1427A5E1``
 
     Parameters:

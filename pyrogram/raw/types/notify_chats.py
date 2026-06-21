@@ -36,7 +36,7 @@ class NotifyChats(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.NotifyPeer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C007CEC3``
 
     Parameters:

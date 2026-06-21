@@ -36,7 +36,7 @@ class RpcAnswerUnknown(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RpcDropAnswer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5E2AD36E``
 
     Parameters:

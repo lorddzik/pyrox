@@ -34,7 +34,7 @@ class ReqPqMulti(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``BE7E8EF1``
 
     Parameters:

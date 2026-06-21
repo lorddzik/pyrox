@@ -36,7 +36,7 @@ class PageRelatedArticle(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageRelatedArticle`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B390DC08``
 
     Parameters:

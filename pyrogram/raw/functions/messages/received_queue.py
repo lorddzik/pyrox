@@ -34,7 +34,7 @@ class ReceivedQueue(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``55A5BB66``
 
     Parameters:

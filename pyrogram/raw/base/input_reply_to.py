@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-InputReplyTo = Union[raw.types.InputReplyToMessage, raw.types.InputReplyToMonoForum, raw.types.InputReplyToStory]
+InputReplyTo = Union[raw.types.InputReplyToMessage, raw.types.InputReplyToStory]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class InputReplyTo:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 3 constructors available.
+        This base type has 2 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,7 +42,6 @@ class InputReplyTo:  # type: ignore
             :nosignatures:
 
             InputReplyToMessage
-            InputReplyToMonoForum
             InputReplyToStory
     """
 

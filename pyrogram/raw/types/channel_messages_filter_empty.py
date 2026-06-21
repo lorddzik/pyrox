@@ -36,7 +36,7 @@ class ChannelMessagesFilterEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelMessagesFilter`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``94D42EE7``
 
     Parameters:

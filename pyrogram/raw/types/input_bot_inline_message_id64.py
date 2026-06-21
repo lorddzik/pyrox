@@ -36,7 +36,7 @@ class InputBotInlineMessageID64(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputBotInlineMessageID`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B6D915D7``
 
     Parameters:
@@ -52,15 +52,6 @@ class InputBotInlineMessageID64(TLObject):  # type: ignore
         access_hash (``int`` ``64-bit``):
             N/A
 
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            messages.SetBotGuestChatResult
     """
 
     __slots__: List[str] = ["dc_id", "owner_id", "id", "access_hash"]

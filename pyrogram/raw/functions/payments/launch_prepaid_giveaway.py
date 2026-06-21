@@ -34,7 +34,7 @@ class LaunchPrepaidGiveaway(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5FF58F20``
 
     Parameters:

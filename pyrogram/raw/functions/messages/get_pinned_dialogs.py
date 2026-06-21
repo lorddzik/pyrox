@@ -34,7 +34,7 @@ class GetPinnedDialogs(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D6B94DF2``
 
     Parameters:

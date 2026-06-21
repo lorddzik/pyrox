@@ -34,7 +34,7 @@ class CreateChannel(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``91006707``
 
     Parameters:

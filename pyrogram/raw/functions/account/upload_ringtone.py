@@ -34,7 +34,7 @@ class UploadRingtone(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``831A83A2``
 
     Parameters:

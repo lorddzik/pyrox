@@ -36,7 +36,7 @@ class UpdateBotMenuButton(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``14B85813``
 
     Parameters:

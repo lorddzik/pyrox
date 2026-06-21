@@ -36,7 +36,7 @@ class UrlAuthResultDefault(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.UrlAuthResult`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A9D6DB1F``
 
     Parameters:

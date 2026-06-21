@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-SendMessageAction = Union[raw.types.InputSendMessageRichMessageDraftAction, raw.types.SendMessageCancelAction, raw.types.SendMessageChooseContactAction, raw.types.SendMessageChooseStickerAction, raw.types.SendMessageEmojiInteraction, raw.types.SendMessageEmojiInteractionSeen, raw.types.SendMessageGamePlayAction, raw.types.SendMessageGeoLocationAction, raw.types.SendMessageHistoryImportAction, raw.types.SendMessageRecordAudioAction, raw.types.SendMessageRecordRoundAction, raw.types.SendMessageRecordVideoAction, raw.types.SendMessageRichMessageDraftAction, raw.types.SendMessageTextDraftAction, raw.types.SendMessageTypingAction, raw.types.SendMessageUploadAudioAction, raw.types.SendMessageUploadDocumentAction, raw.types.SendMessageUploadPhotoAction, raw.types.SendMessageUploadRoundAction, raw.types.SendMessageUploadVideoAction, raw.types.SpeakingInGroupCallAction]
+SendMessageAction = Union[raw.types.SendMessageCancelAction, raw.types.SendMessageChooseContactAction, raw.types.SendMessageChooseStickerAction, raw.types.SendMessageEmojiInteraction, raw.types.SendMessageEmojiInteractionSeen, raw.types.SendMessageGamePlayAction, raw.types.SendMessageGeoLocationAction, raw.types.SendMessageHistoryImportAction, raw.types.SendMessageRecordAudioAction, raw.types.SendMessageRecordRoundAction, raw.types.SendMessageRecordVideoAction, raw.types.SendMessageTypingAction, raw.types.SendMessageUploadAudioAction, raw.types.SendMessageUploadDocumentAction, raw.types.SendMessageUploadPhotoAction, raw.types.SendMessageUploadRoundAction, raw.types.SendMessageUploadVideoAction, raw.types.SpeakingInGroupCallAction]
 
 
 # noinspection PyRedeclaration
@@ -34,14 +34,13 @@ class SendMessageAction:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 21 constructors available.
+        This base type has 18 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
         .. autosummary::
             :nosignatures:
 
-            InputSendMessageRichMessageDraftAction
             SendMessageCancelAction
             SendMessageChooseContactAction
             SendMessageChooseStickerAction
@@ -53,8 +52,6 @@ class SendMessageAction:  # type: ignore
             SendMessageRecordAudioAction
             SendMessageRecordRoundAction
             SendMessageRecordVideoAction
-            SendMessageRichMessageDraftAction
-            SendMessageTextDraftAction
             SendMessageTypingAction
             SendMessageUploadAudioAction
             SendMessageUploadDocumentAction

@@ -36,7 +36,7 @@ class InputMediaContact(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMedia`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F8AB7DFB``
 
     Parameters:

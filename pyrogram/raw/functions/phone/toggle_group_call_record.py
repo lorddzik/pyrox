@@ -34,7 +34,7 @@ class ToggleGroupCallRecord(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F128C708``
 
     Parameters:

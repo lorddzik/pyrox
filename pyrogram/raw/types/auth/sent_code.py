@@ -36,7 +36,7 @@ class SentCode(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.SentCode`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5E002502``
 
     Parameters:
@@ -53,7 +53,7 @@ class SentCode(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 7 functions.
+        This object can be returned by 6 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -63,7 +63,6 @@ class SentCode(TLObject):  # type: ignore
             auth.SendCode
             auth.ResendCode
             auth.ResetLoginEmail
-            auth.CheckPaidAuth
             account.SendChangePhoneCode
             account.SendConfirmPhoneCode
             account.SendVerifyPhoneCode

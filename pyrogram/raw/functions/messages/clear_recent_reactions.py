@@ -34,7 +34,7 @@ class ClearRecentReactions(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9DFEEFB4``
 
     Parameters:

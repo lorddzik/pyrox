@@ -36,7 +36,7 @@ class MessageEntitySpoiler(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``32CA960F``
 
     Parameters:

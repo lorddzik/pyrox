@@ -36,14 +36,11 @@ class MessageStats(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.stats.MessageStats`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``7FE91C14``
+        - Layer: ``166``
+        - ID: ``8999F295``
 
     Parameters:
         views_graph (:obj:`StatsGraph <pyrogram.raw.base.StatsGraph>`):
-            N/A
-
-        reactions_by_emotion_graph (:obj:`StatsGraph <pyrogram.raw.base.StatsGraph>`):
             N/A
 
     Functions:
@@ -57,14 +54,13 @@ class MessageStats(TLObject):  # type: ignore
             stats.GetMessageStats
     """
 
-    __slots__: List[str] = ["views_graph", "reactions_by_emotion_graph"]
+    __slots__: List[str] = ["views_graph"]
 
-    ID = 0x7fe91c14
+    ID = 0x8999f295
     QUALNAME = "types.stats.MessageStats"
 
-    def __init__(self, *, views_graph: "raw.base.StatsGraph", reactions_by_emotion_graph: "raw.base.StatsGraph") -> None:
+    def __init__(self, *, views_graph: "raw.base.StatsGraph") -> None:
         self.views_graph = views_graph  # StatsGraph
-        self.reactions_by_emotion_graph = reactions_by_emotion_graph  # StatsGraph
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessageStats":
@@ -72,9 +68,7 @@ class MessageStats(TLObject):  # type: ignore
         
         views_graph = TLObject.read(b)
         
-        reactions_by_emotion_graph = TLObject.read(b)
-        
-        return MessageStats(views_graph=views_graph, reactions_by_emotion_graph=reactions_by_emotion_graph)
+        return MessageStats(views_graph=views_graph)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -83,7 +77,5 @@ class MessageStats(TLObject):  # type: ignore
         # No flags
         
         b.write(self.views_graph.write())
-        
-        b.write(self.reactions_by_emotion_graph.write())
         
         return b.getvalue()

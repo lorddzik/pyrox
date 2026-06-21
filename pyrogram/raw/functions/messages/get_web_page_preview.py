@@ -34,8 +34,8 @@ class GetWebPagePreview(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``570D6F6F``
+        - Layer: ``166``
+        - ID: ``8B68B0CC``
 
     Parameters:
         message (``str``):
@@ -45,12 +45,12 @@ class GetWebPagePreview(TLObject):  # type: ignore
             N/A
 
     Returns:
-        :obj:`messages.WebPagePreview <pyrogram.raw.base.messages.WebPagePreview>`
+        :obj:`MessageMedia <pyrogram.raw.base.MessageMedia>`
     """
 
     __slots__: List[str] = ["message", "entities"]
 
-    ID = 0x570d6f6f
+    ID = 0x8b68b0cc
     QUALNAME = "functions.messages.GetWebPagePreview"
 
     def __init__(self, *, message: str, entities: Optional[List["raw.base.MessageEntity"]] = None) -> None:

@@ -34,7 +34,7 @@ class UpdateTheme(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``2BF40CCC``
 
     Parameters:

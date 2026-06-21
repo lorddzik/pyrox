@@ -36,7 +36,7 @@ class MessagePeerVoteMultiple(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessagePeerVote`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``4628F6E6``
 
     Parameters:

@@ -36,7 +36,7 @@ class AttachMenuPeerTypeSameBotPM(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.AttachMenuPeerType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7D6BE90E``
 
     Parameters:

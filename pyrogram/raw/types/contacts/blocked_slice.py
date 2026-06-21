@@ -36,7 +36,7 @@ class BlockedSlice(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.contacts.Blocked`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E1664194``
 
     Parameters:

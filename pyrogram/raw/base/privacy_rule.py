@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-PrivacyRule = Union[raw.types.PrivacyValueAllowAll, raw.types.PrivacyValueAllowBots, raw.types.PrivacyValueAllowChatParticipants, raw.types.PrivacyValueAllowCloseFriends, raw.types.PrivacyValueAllowContacts, raw.types.PrivacyValueAllowPremium, raw.types.PrivacyValueAllowUsers, raw.types.PrivacyValueDisallowAll, raw.types.PrivacyValueDisallowBots, raw.types.PrivacyValueDisallowChatParticipants, raw.types.PrivacyValueDisallowContacts, raw.types.PrivacyValueDisallowUsers]
+PrivacyRule = Union[raw.types.PrivacyValueAllowAll, raw.types.PrivacyValueAllowChatParticipants, raw.types.PrivacyValueAllowCloseFriends, raw.types.PrivacyValueAllowContacts, raw.types.PrivacyValueAllowUsers, raw.types.PrivacyValueDisallowAll, raw.types.PrivacyValueDisallowChatParticipants, raw.types.PrivacyValueDisallowContacts, raw.types.PrivacyValueDisallowUsers]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class PrivacyRule:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 12 constructors available.
+        This base type has 9 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,14 +42,11 @@ class PrivacyRule:  # type: ignore
             :nosignatures:
 
             PrivacyValueAllowAll
-            PrivacyValueAllowBots
             PrivacyValueAllowChatParticipants
             PrivacyValueAllowCloseFriends
             PrivacyValueAllowContacts
-            PrivacyValueAllowPremium
             PrivacyValueAllowUsers
             PrivacyValueDisallowAll
-            PrivacyValueDisallowBots
             PrivacyValueDisallowChatParticipants
             PrivacyValueDisallowContacts
             PrivacyValueDisallowUsers

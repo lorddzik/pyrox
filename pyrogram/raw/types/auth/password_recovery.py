@@ -36,7 +36,7 @@ class PasswordRecovery(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.PasswordRecovery`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``137948A5``
 
     Parameters:

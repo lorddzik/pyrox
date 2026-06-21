@@ -36,7 +36,7 @@ class ChatFull(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.ChatFull`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E5D7D19C``
 
     Parameters:

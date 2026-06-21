@@ -34,8 +34,8 @@ class EditStory(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``2C63A72B``
+        - Layer: ``166``
+        - ID: ``B583BA46``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -59,19 +59,16 @@ class EditStory(TLObject):  # type: ignore
         privacy_rules (List of :obj:`InputPrivacyRule <pyrogram.raw.base.InputPrivacyRule>`, *optional*):
             N/A
 
-        music (:obj:`InputDocument <pyrogram.raw.base.InputDocument>`, *optional*):
-            N/A
-
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["peer", "id", "media", "media_areas", "caption", "entities", "privacy_rules", "music"]
+    __slots__: List[str] = ["peer", "id", "media", "media_areas", "caption", "entities", "privacy_rules"]
 
-    ID = 0x2c63a72b
+    ID = 0xb583ba46
     QUALNAME = "functions.stories.EditStory"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", id: int, media: "raw.base.InputMedia" = None, media_areas: Optional[List["raw.base.MediaArea"]] = None, caption: Optional[str] = None, entities: Optional[List["raw.base.MessageEntity"]] = None, privacy_rules: Optional[List["raw.base.InputPrivacyRule"]] = None, music: "raw.base.InputDocument" = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", id: int, media: "raw.base.InputMedia" = None, media_areas: Optional[List["raw.base.MediaArea"]] = None, caption: Optional[str] = None, entities: Optional[List["raw.base.MessageEntity"]] = None, privacy_rules: Optional[List["raw.base.InputPrivacyRule"]] = None) -> None:
         self.peer = peer  # InputPeer
         self.id = id  # int
         self.media = media  # flags.0?InputMedia
@@ -79,7 +76,6 @@ class EditStory(TLObject):  # type: ignore
         self.caption = caption  # flags.1?string
         self.entities = entities  # flags.1?Vector<MessageEntity>
         self.privacy_rules = privacy_rules  # flags.2?Vector<InputPrivacyRule>
-        self.music = music  # flags.4?InputDocument
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "EditStory":
@@ -99,9 +95,7 @@ class EditStory(TLObject):  # type: ignore
         
         privacy_rules = TLObject.read(b) if flags & (1 << 2) else []
         
-        music = TLObject.read(b) if flags & (1 << 4) else None
-        
-        return EditStory(peer=peer, id=id, media=media, media_areas=media_areas, caption=caption, entities=entities, privacy_rules=privacy_rules, music=music)
+        return EditStory(peer=peer, id=id, media=media, media_areas=media_areas, caption=caption, entities=entities, privacy_rules=privacy_rules)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -113,7 +107,6 @@ class EditStory(TLObject):  # type: ignore
         flags |= (1 << 1) if self.caption is not None else 0
         flags |= (1 << 1) if self.entities else 0
         flags |= (1 << 2) if self.privacy_rules else 0
-        flags |= (1 << 4) if self.music is not None else 0
         b.write(Int(flags))
         
         b.write(self.peer.write())
@@ -134,8 +127,5 @@ class EditStory(TLObject):  # type: ignore
         
         if self.privacy_rules is not None:
             b.write(Vector(self.privacy_rules))
-        
-        if self.music is not None:
-            b.write(self.music.write())
         
         return b.getvalue()

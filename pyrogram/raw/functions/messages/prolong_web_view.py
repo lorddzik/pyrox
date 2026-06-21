@@ -34,7 +34,7 @@ class ProlongWebView(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B0D81A83``
 
     Parameters:

@@ -36,8 +36,8 @@ class MessageEntityBlockquote(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``F1CCAAAC``
+        - Layer: ``166``
+        - ID: ``20DF5D0``
 
     Parameters:
         offset (``int`` ``32-bit``):
@@ -46,40 +46,32 @@ class MessageEntityBlockquote(TLObject):  # type: ignore
         length (``int`` ``32-bit``):
             N/A
 
-        collapsed (``bool``, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["offset", "length", "collapsed"]
+    __slots__: List[str] = ["offset", "length"]
 
-    ID = 0xf1ccaaac
+    ID = 0x20df5d0
     QUALNAME = "types.MessageEntityBlockquote"
 
-    def __init__(self, *, offset: int, length: int, collapsed: Optional[bool] = None) -> None:
+    def __init__(self, *, offset: int, length: int) -> None:
         self.offset = offset  # int
         self.length = length  # int
-        self.collapsed = collapsed  # flags.0?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessageEntityBlockquote":
+        # No flags
         
-        flags = Int.read(b)
-        
-        collapsed = True if flags & (1 << 0) else False
         offset = Int.read(b)
         
         length = Int.read(b)
         
-        return MessageEntityBlockquote(offset=offset, length=length, collapsed=collapsed)
+        return MessageEntityBlockquote(offset=offset, length=length)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.collapsed else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(Int(self.offset))
         

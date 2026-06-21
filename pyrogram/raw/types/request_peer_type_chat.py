@@ -36,7 +36,7 @@ class RequestPeerTypeChat(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RequestPeerType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C9F06E1B``
 
     Parameters:

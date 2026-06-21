@@ -34,7 +34,7 @@ class RenameStickerSet(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``124B1C00``
 
     Parameters:

@@ -36,7 +36,7 @@ class ConfigSimple(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.help.ConfigSimple`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5A592A6C``
 
     Parameters:

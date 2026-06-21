@@ -36,7 +36,7 @@ class InputPaymentCredentialsGooglePay(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputPaymentCredentials`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``8AC32801``
 
     Parameters:

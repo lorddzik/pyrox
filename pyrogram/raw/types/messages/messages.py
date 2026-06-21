@@ -36,14 +36,11 @@ class Messages(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.Messages`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``1D73E7EA``
+        - Layer: ``166``
+        - ID: ``8C718E87``
 
     Parameters:
         messages (List of :obj:`Message <pyrogram.raw.base.Message>`):
-            N/A
-
-        topics (List of :obj:`ForumTopic <pyrogram.raw.base.ForumTopic>`):
             N/A
 
         chats (List of :obj:`Chat <pyrogram.raw.base.Chat>`):
@@ -53,7 +50,7 @@ class Messages(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 18 functions.
+        This object can be returned by 13 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -71,23 +68,17 @@ class Messages(TLObject):  # type: ignore
             messages.GetReplies
             messages.GetUnreadReactions
             messages.SearchSentMedia
-            messages.GetSavedHistory
-            messages.GetQuickReplyMessages
-            messages.GetUnreadPollVotes
-            messages.GetPersonalChannelHistory
-            messages.GetRichMessage
             channels.GetMessages
-            channels.SearchPosts
+            stats.GetMessagePublicForwards
     """
 
-    __slots__: List[str] = ["messages", "topics", "chats", "users"]
+    __slots__: List[str] = ["messages", "chats", "users"]
 
-    ID = 0x1d73e7ea
+    ID = 0x8c718e87
     QUALNAME = "types.messages.Messages"
 
-    def __init__(self, *, messages: List["raw.base.Message"], topics: List["raw.base.ForumTopic"], chats: List["raw.base.Chat"], users: List["raw.base.User"]) -> None:
+    def __init__(self, *, messages: List["raw.base.Message"], chats: List["raw.base.Chat"], users: List["raw.base.User"]) -> None:
         self.messages = messages  # Vector<Message>
-        self.topics = topics  # Vector<ForumTopic>
         self.chats = chats  # Vector<Chat>
         self.users = users  # Vector<User>
 
@@ -97,13 +88,11 @@ class Messages(TLObject):  # type: ignore
         
         messages = TLObject.read(b)
         
-        topics = TLObject.read(b)
-        
         chats = TLObject.read(b)
         
         users = TLObject.read(b)
         
-        return Messages(messages=messages, topics=topics, chats=chats, users=users)
+        return Messages(messages=messages, chats=chats, users=users)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -112,8 +101,6 @@ class Messages(TLObject):  # type: ignore
         # No flags
         
         b.write(Vector(self.messages))
-        
-        b.write(Vector(self.topics))
         
         b.write(Vector(self.chats))
         

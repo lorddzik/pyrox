@@ -34,7 +34,7 @@ class GetAllReadPeerStories(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9B5AE7F9``
 
     Parameters:

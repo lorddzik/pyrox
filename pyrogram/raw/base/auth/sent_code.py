@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-SentCode = Union[raw.types.auth.SentCode, raw.types.auth.SentCodePaymentRequired, raw.types.auth.SentCodeSuccess]
+SentCode = Union[raw.types.auth.SentCode, raw.types.auth.SentCodeSuccess]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class SentCode:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 3 constructors available.
+        This base type has 2 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -42,11 +42,10 @@ class SentCode:  # type: ignore
             :nosignatures:
 
             auth.SentCode
-            auth.SentCodePaymentRequired
             auth.SentCodeSuccess
 
     Functions:
-        This object can be returned by 7 functions.
+        This object can be returned by 6 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -56,7 +55,6 @@ class SentCode:  # type: ignore
             auth.SendCode
             auth.ResendCode
             auth.ResetLoginEmail
-            auth.CheckPaidAuth
             account.SendChangePhoneCode
             account.SendConfirmPhoneCode
             account.SendVerifyPhoneCode

@@ -36,7 +36,7 @@ class InlineQueryPeerTypePM(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InlineQueryPeerType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``833C0FAC``
 
     Parameters:

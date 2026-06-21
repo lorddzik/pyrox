@@ -36,7 +36,7 @@ class ExportedContactToken(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ExportedContactToken`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``41BF109B``
 
     Parameters:

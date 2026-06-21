@@ -34,7 +34,7 @@ class GetMessageEditData(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FDA68D36``
 
     Parameters:

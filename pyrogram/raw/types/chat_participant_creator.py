@@ -36,48 +36,37 @@ class ChatParticipantCreator(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatParticipant`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``E1F867B8``
+        - Layer: ``166``
+        - ID: ``E46BCEE4``
 
     Parameters:
         user_id (``int`` ``64-bit``):
             N/A
 
-        rank (``str``, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["user_id", "rank"]
+    __slots__: List[str] = ["user_id"]
 
-    ID = 0xe1f867b8
+    ID = 0xe46bcee4
     QUALNAME = "types.ChatParticipantCreator"
 
-    def __init__(self, *, user_id: int, rank: Optional[str] = None) -> None:
+    def __init__(self, *, user_id: int) -> None:
         self.user_id = user_id  # long
-        self.rank = rank  # flags.0?string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ChatParticipantCreator":
-        
-        flags = Int.read(b)
+        # No flags
         
         user_id = Long.read(b)
         
-        rank = String.read(b) if flags & (1 << 0) else None
-        return ChatParticipantCreator(user_id=user_id, rank=rank)
+        return ChatParticipantCreator(user_id=user_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.rank is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(Long(self.user_id))
-        
-        if self.rank is not None:
-            b.write(String(self.rank))
         
         return b.getvalue()

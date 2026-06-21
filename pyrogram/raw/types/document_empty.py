@@ -36,7 +36,7 @@ class DocumentEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Document`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``36F8C871``
 
     Parameters:

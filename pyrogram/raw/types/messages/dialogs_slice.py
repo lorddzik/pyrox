@@ -36,7 +36,7 @@ class DialogsSlice(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.Dialogs`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``71E094F3``
 
     Parameters:

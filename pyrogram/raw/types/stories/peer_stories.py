@@ -36,7 +36,7 @@ class PeerStories(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.stories.PeerStories`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``CAE68768``
 
     Parameters:

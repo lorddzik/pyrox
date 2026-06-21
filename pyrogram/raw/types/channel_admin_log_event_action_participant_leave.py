@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionParticipantLeave(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F89777F2``
 
     Parameters:

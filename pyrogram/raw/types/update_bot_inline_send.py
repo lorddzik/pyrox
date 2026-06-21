@@ -36,7 +36,7 @@ class UpdateBotInlineSend(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``12F12A07``
 
     Parameters:

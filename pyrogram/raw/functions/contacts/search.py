@@ -34,8 +34,8 @@ class Search(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``5F58D0F``
+        - Layer: ``166``
+        - ID: ``11F812D8``
 
     Parameters:
         q (``str``):
@@ -44,48 +44,34 @@ class Search(TLObject):  # type: ignore
         limit (``int`` ``32-bit``):
             N/A
 
-        broadcasts (``bool``, *optional*):
-            N/A
-
-        bots (``bool``, *optional*):
-            N/A
-
     Returns:
         :obj:`contacts.Found <pyrogram.raw.base.contacts.Found>`
     """
 
-    __slots__: List[str] = ["q", "limit", "broadcasts", "bots"]
+    __slots__: List[str] = ["q", "limit"]
 
-    ID = 0x5f58d0f
+    ID = 0x11f812d8
     QUALNAME = "functions.contacts.Search"
 
-    def __init__(self, *, q: str, limit: int, broadcasts: Optional[bool] = None, bots: Optional[bool] = None) -> None:
+    def __init__(self, *, q: str, limit: int) -> None:
         self.q = q  # string
         self.limit = limit  # int
-        self.broadcasts = broadcasts  # flags.0?true
-        self.bots = bots  # flags.1?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "Search":
+        # No flags
         
-        flags = Int.read(b)
-        
-        broadcasts = True if flags & (1 << 0) else False
-        bots = True if flags & (1 << 1) else False
         q = String.read(b)
         
         limit = Int.read(b)
         
-        return Search(q=q, limit=limit, broadcasts=broadcasts, bots=bots)
+        return Search(q=q, limit=limit)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.broadcasts else 0
-        flags |= (1 << 1) if self.bots else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(String(self.q))
         

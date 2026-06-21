@@ -34,7 +34,7 @@ class ToggleJoinToSend(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E4CB9580``
 
     Parameters:

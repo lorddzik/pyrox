@@ -36,7 +36,7 @@ class MsgResendAnsReq(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MsgResendReq`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``8610BAEB``
 
     Parameters:

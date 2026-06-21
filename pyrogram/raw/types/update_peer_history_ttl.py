@@ -36,7 +36,7 @@ class UpdatePeerHistoryTTL(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``BB9BB9A5``
 
     Parameters:

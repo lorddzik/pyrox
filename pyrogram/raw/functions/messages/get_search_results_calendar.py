@@ -34,8 +34,8 @@ class GetSearchResultsCalendar(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``6AA3F6BD``
+        - Layer: ``166``
+        - ID: ``49F0BDE9``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -50,33 +50,26 @@ class GetSearchResultsCalendar(TLObject):  # type: ignore
         offset_date (``int`` ``32-bit``):
             N/A
 
-        saved_peer_id (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
-            N/A
-
     Returns:
         :obj:`messages.SearchResultsCalendar <pyrogram.raw.base.messages.SearchResultsCalendar>`
     """
 
-    __slots__: List[str] = ["peer", "filter", "offset_id", "offset_date", "saved_peer_id"]
+    __slots__: List[str] = ["peer", "filter", "offset_id", "offset_date"]
 
-    ID = 0x6aa3f6bd
+    ID = 0x49f0bde9
     QUALNAME = "functions.messages.GetSearchResultsCalendar"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", filter: "raw.base.MessagesFilter", offset_id: int, offset_date: int, saved_peer_id: "raw.base.InputPeer" = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", filter: "raw.base.MessagesFilter", offset_id: int, offset_date: int) -> None:
         self.peer = peer  # InputPeer
         self.filter = filter  # MessagesFilter
         self.offset_id = offset_id  # int
         self.offset_date = offset_date  # int
-        self.saved_peer_id = saved_peer_id  # flags.2?InputPeer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "GetSearchResultsCalendar":
-        
-        flags = Int.read(b)
+        # No flags
         
         peer = TLObject.read(b)
-        
-        saved_peer_id = TLObject.read(b) if flags & (1 << 2) else None
         
         filter = TLObject.read(b)
         
@@ -84,20 +77,15 @@ class GetSearchResultsCalendar(TLObject):  # type: ignore
         
         offset_date = Int.read(b)
         
-        return GetSearchResultsCalendar(peer=peer, filter=filter, offset_id=offset_id, offset_date=offset_date, saved_peer_id=saved_peer_id)
+        return GetSearchResultsCalendar(peer=peer, filter=filter, offset_id=offset_id, offset_date=offset_date)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 2) if self.saved_peer_id is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.peer.write())
-        
-        if self.saved_peer_id is not None:
-            b.write(self.saved_peer_id.write())
         
         b.write(self.filter.write())
         

@@ -34,7 +34,7 @@ class GetEmojiKeywordsDifference(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1508B6AF``
 
     Parameters:

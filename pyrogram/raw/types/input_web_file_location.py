@@ -36,7 +36,7 @@ class InputWebFileLocation(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputWebFileLocation`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C239D686``
 
     Parameters:

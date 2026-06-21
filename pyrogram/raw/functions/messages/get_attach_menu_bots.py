@@ -34,7 +34,7 @@ class GetAttachMenuBots(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``16FCC2CB``
 
     Parameters:

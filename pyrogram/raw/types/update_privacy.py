@@ -36,7 +36,7 @@ class UpdatePrivacy(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``EE3B272A``
 
     Parameters:

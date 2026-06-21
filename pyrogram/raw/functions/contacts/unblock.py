@@ -34,7 +34,7 @@ class Unblock(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B550D328``
 
     Parameters:

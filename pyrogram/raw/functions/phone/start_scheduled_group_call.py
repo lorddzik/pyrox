@@ -34,7 +34,7 @@ class StartScheduledGroupCall(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5680E342``
 
     Parameters:

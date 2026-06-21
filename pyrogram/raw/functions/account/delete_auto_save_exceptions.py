@@ -34,7 +34,7 @@ class DeleteAutoSaveExceptions(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``53BC0020``
 
     Parameters:

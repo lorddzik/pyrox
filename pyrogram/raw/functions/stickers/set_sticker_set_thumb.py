@@ -34,7 +34,7 @@ class SetStickerSetThumb(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A76A5392``
 
     Parameters:

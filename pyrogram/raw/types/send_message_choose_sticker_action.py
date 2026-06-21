@@ -36,7 +36,7 @@ class SendMessageChooseStickerAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B05AC6B1``
 
     Parameters:

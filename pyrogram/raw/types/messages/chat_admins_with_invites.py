@@ -36,7 +36,7 @@ class ChatAdminsWithInvites(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.ChatAdminsWithInvites`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B69B72D7``
 
     Parameters:

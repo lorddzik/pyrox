@@ -34,8 +34,8 @@ class GetSearchResultsPositions(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``9C7F2F10``
+        - Layer: ``166``
+        - ID: ``6E9583A3``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -50,33 +50,26 @@ class GetSearchResultsPositions(TLObject):  # type: ignore
         limit (``int`` ``32-bit``):
             N/A
 
-        saved_peer_id (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
-            N/A
-
     Returns:
         :obj:`messages.SearchResultsPositions <pyrogram.raw.base.messages.SearchResultsPositions>`
     """
 
-    __slots__: List[str] = ["peer", "filter", "offset_id", "limit", "saved_peer_id"]
+    __slots__: List[str] = ["peer", "filter", "offset_id", "limit"]
 
-    ID = 0x9c7f2f10
+    ID = 0x6e9583a3
     QUALNAME = "functions.messages.GetSearchResultsPositions"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", filter: "raw.base.MessagesFilter", offset_id: int, limit: int, saved_peer_id: "raw.base.InputPeer" = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", filter: "raw.base.MessagesFilter", offset_id: int, limit: int) -> None:
         self.peer = peer  # InputPeer
         self.filter = filter  # MessagesFilter
         self.offset_id = offset_id  # int
         self.limit = limit  # int
-        self.saved_peer_id = saved_peer_id  # flags.2?InputPeer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "GetSearchResultsPositions":
-        
-        flags = Int.read(b)
+        # No flags
         
         peer = TLObject.read(b)
-        
-        saved_peer_id = TLObject.read(b) if flags & (1 << 2) else None
         
         filter = TLObject.read(b)
         
@@ -84,20 +77,15 @@ class GetSearchResultsPositions(TLObject):  # type: ignore
         
         limit = Int.read(b)
         
-        return GetSearchResultsPositions(peer=peer, filter=filter, offset_id=offset_id, limit=limit, saved_peer_id=saved_peer_id)
+        return GetSearchResultsPositions(peer=peer, filter=filter, offset_id=offset_id, limit=limit)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 2) if self.saved_peer_id is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.peer.write())
-        
-        if self.saved_peer_id is not None:
-            b.write(self.saved_peer_id.write())
         
         b.write(self.filter.write())
         

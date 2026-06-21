@@ -34,7 +34,7 @@ class EditChatPhoto(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``35DDD674``
 
     Parameters:

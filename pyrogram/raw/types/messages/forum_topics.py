@@ -36,7 +36,7 @@ class ForumTopics(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.ForumTopics`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``367617D3``
 
     Parameters:
@@ -69,8 +69,8 @@ class ForumTopics(TLObject):  # type: ignore
         .. autosummary::
             :nosignatures:
 
-            messages.GetForumTopics
-            messages.GetForumTopicsByID
+            channels.GetForumTopics
+            channels.GetForumTopicsByID
     """
 
     __slots__: List[str] = ["count", "topics", "messages", "chats", "users", "pts", "order_by_create_date"]

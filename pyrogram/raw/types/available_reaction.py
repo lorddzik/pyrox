@@ -36,7 +36,7 @@ class AvailableReaction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.AvailableReaction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C077EC01``
 
     Parameters:

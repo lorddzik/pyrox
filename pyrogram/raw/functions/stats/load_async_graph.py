@@ -34,7 +34,7 @@ class LoadAsyncGraph(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``621D5FA0``
 
     Parameters:

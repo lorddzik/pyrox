@@ -36,7 +36,7 @@ class AuthorizationForm(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.AuthorizationForm`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``AD2E1CD8``
 
     Parameters:

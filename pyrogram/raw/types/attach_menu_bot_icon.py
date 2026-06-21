@@ -36,7 +36,7 @@ class AttachMenuBotIcon(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.AttachMenuBotIcon`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B2A7386B``
 
     Parameters:

@@ -16,8 +16,6 @@
 #  You should have received a copy of the GNU Lesser General Public License
 #  along with Pyrogram.  If not, see <http://www.gnu.org/licenses/>.
 
-from typing import Union, Optional
-
 from pyrogram import raw, types
 from ..object import Object
 
@@ -54,7 +52,7 @@ class KeyboardButton(Object):
         request_location: bool = None,
         web_app: "types.WebAppInfo" = None,
         style: str = None,
-        icon_custom_emoji_id: int = None
+        icon_custom_emoji_id: Union[str, int] = None
     ):
         super().__init__()
 
@@ -91,24 +89,11 @@ class KeyboardButton(Object):
             )
 
     def write(self):
-        style_obj = None
-        if self.style is not None or self.icon_custom_emoji_id is not None:
-            bg_primary = self.style == "primary"
-            bg_danger = self.style == "danger"
-            bg_success = self.style == "success"
-            icon = int(self.icon_custom_emoji_id) if self.icon_custom_emoji_id is not None else None
-            style_obj = raw.types.KeyboardButtonStyle(
-                bg_primary=bg_primary,
-                bg_danger=bg_danger,
-                bg_success=bg_success,
-                icon=icon
-            )
-
         if self.request_contact:
-            return raw.types.KeyboardButtonRequestPhone(text=self.text, style=style_obj)
+            return raw.types.KeyboardButtonRequestPhone(text=self.text)
         elif self.request_location:
-            return raw.types.KeyboardButtonRequestGeoLocation(text=self.text, style=style_obj)
+            return raw.types.KeyboardButtonRequestGeoLocation(text=self.text)
         elif self.web_app:
-            return raw.types.KeyboardButtonSimpleWebView(text=self.text, url=self.web_app.url, style=style_obj)
+            return raw.types.KeyboardButtonSimpleWebView(text=self.text, url=self.web_app.url)
         else:
-            return raw.types.KeyboardButton(text=self.text, style=style_obj)
+            return raw.types.KeyboardButton(text=self.text)

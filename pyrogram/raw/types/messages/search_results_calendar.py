@@ -36,7 +36,7 @@ class SearchResultsCalendar(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.SearchResultsCalendar`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``147EE23C``
 
     Parameters:

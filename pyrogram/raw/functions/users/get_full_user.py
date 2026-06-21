@@ -34,7 +34,7 @@ class GetFullUser(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B60F5918``
 
     Parameters:

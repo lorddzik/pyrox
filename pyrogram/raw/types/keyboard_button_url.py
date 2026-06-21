@@ -36,8 +36,8 @@ class KeyboardButtonUrl(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.KeyboardButton`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``D80C25EC``
+        - Layer: ``166``
+        - ID: ``258AFF05``
 
     Parameters:
         text (``str``):
@@ -46,53 +46,32 @@ class KeyboardButtonUrl(TLObject):  # type: ignore
         url (``str``):
             N/A
 
-        style (:obj:`KeyboardButtonStyle <pyrogram.raw.base.KeyboardButtonStyle>`, *optional*):
-            N/A
-
-    Functions:
-        This object can be returned by 1 function.
-
-        .. currentmodule:: pyrogram.raw.functions
-
-        .. autosummary::
-            :nosignatures:
-
-            bots.GetRequestedWebViewButton
     """
 
-    __slots__: List[str] = ["text", "url", "style"]
+    __slots__: List[str] = ["text", "url"]
 
-    ID = 0xd80c25ec
+    ID = 0x258aff05
     QUALNAME = "types.KeyboardButtonUrl"
 
-    def __init__(self, *, text: str, url: str, style: "raw.base.KeyboardButtonStyle" = None) -> None:
+    def __init__(self, *, text: str, url: str) -> None:
         self.text = text  # string
         self.url = url  # string
-        self.style = style  # flags.10?KeyboardButtonStyle
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "KeyboardButtonUrl":
-        
-        flags = Int.read(b)
-        
-        style = TLObject.read(b) if flags & (1 << 10) else None
+        # No flags
         
         text = String.read(b)
         
         url = String.read(b)
         
-        return KeyboardButtonUrl(text=text, url=url, style=style)
+        return KeyboardButtonUrl(text=text, url=url)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 10) if self.style is not None else 0
-        b.write(Int(flags))
-        
-        if self.style is not None:
-            b.write(self.style.write())
+        # No flags
         
         b.write(String(self.text))
         

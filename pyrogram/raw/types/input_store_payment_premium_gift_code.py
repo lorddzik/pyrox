@@ -36,8 +36,8 @@ class InputStorePaymentPremiumGiftCode(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputStorePaymentPurpose`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``FB790393``
+        - Layer: ``166``
+        - ID: ``A3805F3F``
 
     Parameters:
         users (List of :obj:`InputUser <pyrogram.raw.base.InputUser>`):
@@ -52,22 +52,18 @@ class InputStorePaymentPremiumGiftCode(TLObject):  # type: ignore
         boost_peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`, *optional*):
             N/A
 
-        message (:obj:`TextWithEntities <pyrogram.raw.base.TextWithEntities>`, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["users", "currency", "amount", "boost_peer", "message"]
+    __slots__: List[str] = ["users", "currency", "amount", "boost_peer"]
 
-    ID = 0xfb790393
+    ID = 0xa3805f3f
     QUALNAME = "types.InputStorePaymentPremiumGiftCode"
 
-    def __init__(self, *, users: List["raw.base.InputUser"], currency: str, amount: int, boost_peer: "raw.base.InputPeer" = None, message: "raw.base.TextWithEntities" = None) -> None:
+    def __init__(self, *, users: List["raw.base.InputUser"], currency: str, amount: int, boost_peer: "raw.base.InputPeer" = None) -> None:
         self.users = users  # Vector<InputUser>
         self.currency = currency  # string
         self.amount = amount  # long
         self.boost_peer = boost_peer  # flags.0?InputPeer
-        self.message = message  # flags.1?TextWithEntities
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "InputStorePaymentPremiumGiftCode":
@@ -82,9 +78,7 @@ class InputStorePaymentPremiumGiftCode(TLObject):  # type: ignore
         
         amount = Long.read(b)
         
-        message = TLObject.read(b) if flags & (1 << 1) else None
-        
-        return InputStorePaymentPremiumGiftCode(users=users, currency=currency, amount=amount, boost_peer=boost_peer, message=message)
+        return InputStorePaymentPremiumGiftCode(users=users, currency=currency, amount=amount, boost_peer=boost_peer)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -92,7 +86,6 @@ class InputStorePaymentPremiumGiftCode(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.boost_peer is not None else 0
-        flags |= (1 << 1) if self.message is not None else 0
         b.write(Int(flags))
         
         b.write(Vector(self.users))
@@ -103,8 +96,5 @@ class InputStorePaymentPremiumGiftCode(TLObject):  # type: ignore
         b.write(String(self.currency))
         
         b.write(Long(self.amount))
-        
-        if self.message is not None:
-            b.write(self.message.write())
         
         return b.getvalue()

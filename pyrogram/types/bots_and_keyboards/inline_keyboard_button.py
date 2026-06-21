@@ -87,8 +87,8 @@ class InlineKeyboardButton(Object):
         switch_inline_query_current_chat: str = None,
         callback_game: "types.CallbackGame" = None,
         copy_text: Optional[str] = None,
-        style: Optional[str] = None,
-        icon_custom_emoji_id: Optional[Union[str, int]] = None
+        style: str = None,
+        icon_custom_emoji_id: Union[str, int] = None
     ):
         super().__init__()
 
@@ -172,34 +172,19 @@ class InlineKeyboardButton(Object):
             )
 
     async def write(self, client: "pyrogram.Client"):
-        style_obj = None
-        if self.style is not None or self.icon_custom_emoji_id is not None:
-            bg_primary = self.style == "primary"
-            bg_danger = self.style == "danger"
-            bg_success = self.style == "success"
-            icon = int(self.icon_custom_emoji_id) if self.icon_custom_emoji_id is not None else None
-            style_obj = raw.types.KeyboardButtonStyle(
-                bg_primary=bg_primary,
-                bg_danger=bg_danger,
-                bg_success=bg_success,
-                icon=icon
-            )
-
         if self.callback_data is not None:
             # Telegram only wants bytes, but we are allowed to pass strings too, for convenience.
             data = bytes(self.callback_data, "utf-8") if isinstance(self.callback_data, str) else self.callback_data
 
             return raw.types.KeyboardButtonCallback(
                 text=self.text,
-                data=data,
-                style=style_obj
+                data=data
             )
 
         if self.url is not None:
             return raw.types.KeyboardButtonUrl(
                 text=self.text,
-                url=self.url,
-                style=style_obj
+                url=self.url
             )
 
         if self.login_url is not None:
@@ -217,34 +202,29 @@ class InlineKeyboardButton(Object):
         if self.switch_inline_query is not None:
             return raw.types.KeyboardButtonSwitchInline(
                 text=self.text,
-                query=self.switch_inline_query,
-                style=style_obj
+                query=self.switch_inline_query
             )
 
         if self.switch_inline_query_current_chat is not None:
             return raw.types.KeyboardButtonSwitchInline(
                 text=self.text,
                 query=self.switch_inline_query_current_chat,
-                same_peer=True,
-                style=style_obj
+                same_peer=True
             )
 
         if self.callback_game is not None:
             return raw.types.KeyboardButtonGame(
-                text=self.text,
-                style=style_obj
+                text=self.text
             )
 
         if self.web_app is not None:
             return raw.types.KeyboardButtonWebView(
                 text=self.text,
-                url=self.web_app.url,
-                style=style_obj
+                url=self.web_app.url
             )
         
         if self.copy_text is not None:
             return raw.types.KeyboardButtonCopy(
                 text=self.text,
-                copy_text=self.copy_text,
-                style=style_obj
+                copy_text=self.copy_text
             )

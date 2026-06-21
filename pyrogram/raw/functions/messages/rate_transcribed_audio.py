@@ -34,7 +34,7 @@ class RateTranscribedAudio(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7F1D072F``
 
     Parameters:

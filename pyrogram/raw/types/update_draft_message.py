@@ -36,8 +36,8 @@ class UpdateDraftMessage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``EDFC111E``
+        - Layer: ``166``
+        - ID: ``1B49EC6D``
 
     Parameters:
         peer (:obj:`Peer <pyrogram.raw.base.Peer>`):
@@ -49,21 +49,17 @@ class UpdateDraftMessage(TLObject):  # type: ignore
         top_msg_id (``int`` ``32-bit``, *optional*):
             N/A
 
-        saved_peer_id (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["peer", "draft", "top_msg_id", "saved_peer_id"]
+    __slots__: List[str] = ["peer", "draft", "top_msg_id"]
 
-    ID = 0xedfc111e
+    ID = 0x1b49ec6d
     QUALNAME = "types.UpdateDraftMessage"
 
-    def __init__(self, *, peer: "raw.base.Peer", draft: "raw.base.DraftMessage", top_msg_id: Optional[int] = None, saved_peer_id: "raw.base.Peer" = None) -> None:
+    def __init__(self, *, peer: "raw.base.Peer", draft: "raw.base.DraftMessage", top_msg_id: Optional[int] = None) -> None:
         self.peer = peer  # Peer
         self.draft = draft  # DraftMessage
         self.top_msg_id = top_msg_id  # flags.0?int
-        self.saved_peer_id = saved_peer_id  # flags.1?Peer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UpdateDraftMessage":
@@ -73,11 +69,9 @@ class UpdateDraftMessage(TLObject):  # type: ignore
         peer = TLObject.read(b)
         
         top_msg_id = Int.read(b) if flags & (1 << 0) else None
-        saved_peer_id = TLObject.read(b) if flags & (1 << 1) else None
-        
         draft = TLObject.read(b)
         
-        return UpdateDraftMessage(peer=peer, draft=draft, top_msg_id=top_msg_id, saved_peer_id=saved_peer_id)
+        return UpdateDraftMessage(peer=peer, draft=draft, top_msg_id=top_msg_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -85,16 +79,12 @@ class UpdateDraftMessage(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.top_msg_id is not None else 0
-        flags |= (1 << 1) if self.saved_peer_id is not None else 0
         b.write(Int(flags))
         
         b.write(self.peer.write())
         
         if self.top_msg_id is not None:
             b.write(Int(self.top_msg_id))
-        
-        if self.saved_peer_id is not None:
-            b.write(self.saved_peer_id.write())
         
         b.write(self.draft.write())
         

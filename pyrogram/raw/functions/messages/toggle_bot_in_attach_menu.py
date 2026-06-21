@@ -34,7 +34,7 @@ class ToggleBotInAttachMenu(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``69F59D69``
 
     Parameters:

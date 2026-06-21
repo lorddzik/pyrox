@@ -36,7 +36,7 @@ class AutoDownloadSettings(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.AutoDownloadSettings`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``63CACF26``
 
     Parameters:

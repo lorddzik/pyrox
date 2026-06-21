@@ -36,7 +36,7 @@ class SecureValueTypeDriverLicense(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6E425C4``
 
     Parameters:

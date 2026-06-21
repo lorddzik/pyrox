@@ -36,11 +36,11 @@ class ChatlistInvite(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.chatlists.ChatlistInvite`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``F10ECE2F``
+        - Layer: ``166``
+        - ID: ``1DCD839D``
 
     Parameters:
-        title (:obj:`TextWithEntities <pyrogram.raw.base.TextWithEntities>`):
+        title (``str``):
             N/A
 
         peers (List of :obj:`Peer <pyrogram.raw.base.Peer>`):
@@ -50,9 +50,6 @@ class ChatlistInvite(TLObject):  # type: ignore
             N/A
 
         users (List of :obj:`User <pyrogram.raw.base.User>`):
-            N/A
-
-        title_noanimate (``bool``, *optional*):
             N/A
 
         emoticon (``str``, *optional*):
@@ -69,17 +66,16 @@ class ChatlistInvite(TLObject):  # type: ignore
             chatlists.CheckChatlistInvite
     """
 
-    __slots__: List[str] = ["title", "peers", "chats", "users", "title_noanimate", "emoticon"]
+    __slots__: List[str] = ["title", "peers", "chats", "users", "emoticon"]
 
-    ID = 0xf10ece2f
+    ID = 0x1dcd839d
     QUALNAME = "types.chatlists.ChatlistInvite"
 
-    def __init__(self, *, title: "raw.base.TextWithEntities", peers: List["raw.base.Peer"], chats: List["raw.base.Chat"], users: List["raw.base.User"], title_noanimate: Optional[bool] = None, emoticon: Optional[str] = None) -> None:
-        self.title = title  # TextWithEntities
+    def __init__(self, *, title: str, peers: List["raw.base.Peer"], chats: List["raw.base.Chat"], users: List["raw.base.User"], emoticon: Optional[str] = None) -> None:
+        self.title = title  # string
         self.peers = peers  # Vector<Peer>
         self.chats = chats  # Vector<Chat>
         self.users = users  # Vector<User>
-        self.title_noanimate = title_noanimate  # flags.1?true
         self.emoticon = emoticon  # flags.0?string
 
     @staticmethod
@@ -87,8 +83,7 @@ class ChatlistInvite(TLObject):  # type: ignore
         
         flags = Int.read(b)
         
-        title_noanimate = True if flags & (1 << 1) else False
-        title = TLObject.read(b)
+        title = String.read(b)
         
         emoticon = String.read(b) if flags & (1 << 0) else None
         peers = TLObject.read(b)
@@ -97,18 +92,17 @@ class ChatlistInvite(TLObject):  # type: ignore
         
         users = TLObject.read(b)
         
-        return ChatlistInvite(title=title, peers=peers, chats=chats, users=users, title_noanimate=title_noanimate, emoticon=emoticon)
+        return ChatlistInvite(title=title, peers=peers, chats=chats, users=users, emoticon=emoticon)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
         flags = 0
-        flags |= (1 << 1) if self.title_noanimate else 0
         flags |= (1 << 0) if self.emoticon is not None else 0
         b.write(Int(flags))
         
-        b.write(self.title.write())
+        b.write(String(self.title))
         
         if self.emoticon is not None:
             b.write(String(self.emoticon))

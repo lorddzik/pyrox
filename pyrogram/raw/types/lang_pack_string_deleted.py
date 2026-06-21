@@ -36,7 +36,7 @@ class LangPackStringDeleted(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.LangPackString`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``2979EEB2``
 
     Parameters:

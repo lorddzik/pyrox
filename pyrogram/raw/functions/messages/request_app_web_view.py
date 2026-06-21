@@ -34,8 +34,8 @@ class RequestAppWebView(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``53618BCE``
+        - Layer: ``166``
+        - ID: ``8C5A3B3C``
 
     Parameters:
         peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
@@ -50,12 +50,6 @@ class RequestAppWebView(TLObject):  # type: ignore
         write_allowed (``bool``, *optional*):
             N/A
 
-        compact (``bool``, *optional*):
-            N/A
-
-        fullscreen (``bool``, *optional*):
-            N/A
-
         start_param (``str``, *optional*):
             N/A
 
@@ -63,21 +57,19 @@ class RequestAppWebView(TLObject):  # type: ignore
             N/A
 
     Returns:
-        :obj:`WebViewResult <pyrogram.raw.base.WebViewResult>`
+        :obj:`AppWebViewResult <pyrogram.raw.base.AppWebViewResult>`
     """
 
-    __slots__: List[str] = ["peer", "app", "platform", "write_allowed", "compact", "fullscreen", "start_param", "theme_params"]
+    __slots__: List[str] = ["peer", "app", "platform", "write_allowed", "start_param", "theme_params"]
 
-    ID = 0x53618bce
+    ID = 0x8c5a3b3c
     QUALNAME = "functions.messages.RequestAppWebView"
 
-    def __init__(self, *, peer: "raw.base.InputPeer", app: "raw.base.InputBotApp", platform: str, write_allowed: Optional[bool] = None, compact: Optional[bool] = None, fullscreen: Optional[bool] = None, start_param: Optional[str] = None, theme_params: "raw.base.DataJSON" = None) -> None:
+    def __init__(self, *, peer: "raw.base.InputPeer", app: "raw.base.InputBotApp", platform: str, write_allowed: Optional[bool] = None, start_param: Optional[str] = None, theme_params: "raw.base.DataJSON" = None) -> None:
         self.peer = peer  # InputPeer
         self.app = app  # InputBotApp
         self.platform = platform  # string
         self.write_allowed = write_allowed  # flags.0?true
-        self.compact = compact  # flags.7?true
-        self.fullscreen = fullscreen  # flags.8?true
         self.start_param = start_param  # flags.1?string
         self.theme_params = theme_params  # flags.2?DataJSON
 
@@ -87,8 +79,6 @@ class RequestAppWebView(TLObject):  # type: ignore
         flags = Int.read(b)
         
         write_allowed = True if flags & (1 << 0) else False
-        compact = True if flags & (1 << 7) else False
-        fullscreen = True if flags & (1 << 8) else False
         peer = TLObject.read(b)
         
         app = TLObject.read(b)
@@ -98,7 +88,7 @@ class RequestAppWebView(TLObject):  # type: ignore
         
         platform = String.read(b)
         
-        return RequestAppWebView(peer=peer, app=app, platform=platform, write_allowed=write_allowed, compact=compact, fullscreen=fullscreen, start_param=start_param, theme_params=theme_params)
+        return RequestAppWebView(peer=peer, app=app, platform=platform, write_allowed=write_allowed, start_param=start_param, theme_params=theme_params)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -106,8 +96,6 @@ class RequestAppWebView(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.write_allowed else 0
-        flags |= (1 << 7) if self.compact else 0
-        flags |= (1 << 8) if self.fullscreen else 0
         flags |= (1 << 1) if self.start_param is not None else 0
         flags |= (1 << 2) if self.theme_params is not None else 0
         b.write(Int(flags))

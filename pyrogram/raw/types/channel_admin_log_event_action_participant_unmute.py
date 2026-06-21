@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionParticipantUnmute(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E64429C0``
 
     Parameters:

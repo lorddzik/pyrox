@@ -34,7 +34,7 @@ class GetRecentReactions(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``39461DB2``
 
     Parameters:

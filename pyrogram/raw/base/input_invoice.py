@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-InputInvoice = Union[raw.types.InputInvoiceBusinessBotTransferStars, raw.types.InputInvoiceChatInviteSubscription, raw.types.InputInvoiceMessage, raw.types.InputInvoicePremiumAuthCode, raw.types.InputInvoicePremiumGiftCode, raw.types.InputInvoicePremiumGiftStars, raw.types.InputInvoiceSlug, raw.types.InputInvoiceStarGift, raw.types.InputInvoiceStarGiftAuctionBid, raw.types.InputInvoiceStarGiftDropOriginalDetails, raw.types.InputInvoiceStarGiftPrepaidUpgrade, raw.types.InputInvoiceStarGiftResale, raw.types.InputInvoiceStarGiftTransfer, raw.types.InputInvoiceStarGiftUpgrade, raw.types.InputInvoiceStars]
+InputInvoice = Union[raw.types.InputInvoiceMessage, raw.types.InputInvoicePremiumGiftCode, raw.types.InputInvoiceSlug]
 
 
 # noinspection PyRedeclaration
@@ -34,28 +34,16 @@ class InputInvoice:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 15 constructors available.
+        This base type has 3 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
         .. autosummary::
             :nosignatures:
 
-            InputInvoiceBusinessBotTransferStars
-            InputInvoiceChatInviteSubscription
             InputInvoiceMessage
-            InputInvoicePremiumAuthCode
             InputInvoicePremiumGiftCode
-            InputInvoicePremiumGiftStars
             InputInvoiceSlug
-            InputInvoiceStarGift
-            InputInvoiceStarGiftAuctionBid
-            InputInvoiceStarGiftDropOriginalDetails
-            InputInvoiceStarGiftPrepaidUpgrade
-            InputInvoiceStarGiftResale
-            InputInvoiceStarGiftTransfer
-            InputInvoiceStarGiftUpgrade
-            InputInvoiceStars
     """
 
     QUALNAME = "pyrogram.raw.base.InputInvoice"

@@ -34,7 +34,7 @@ class CancelCode(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1F040578``
 
     Parameters:

@@ -36,7 +36,7 @@ class ContentSettings(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.account.ContentSettings`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``57E28221``
 
     Parameters:

@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionChangeHistoryTTL(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6E941A38``
 
     Parameters:

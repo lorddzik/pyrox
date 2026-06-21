@@ -36,7 +36,7 @@ class BotInlineMessageMediaAuto(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotInlineMessage`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``764CF810``
 
     Parameters:

@@ -36,7 +36,7 @@ class AffectedHistory(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.AffectedHistory`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B45C69D1``
 
     Parameters:
@@ -50,7 +50,7 @@ class AffectedHistory(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 8 functions.
+        This object can be returned by 6 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -61,10 +61,8 @@ class AffectedHistory(TLObject):  # type: ignore
             messages.ReadMentions
             messages.UnpinAllMessages
             messages.ReadReactions
-            messages.DeleteSavedHistory
-            messages.DeleteTopicHistory
-            messages.ReadPollVotes
             channels.DeleteParticipantHistory
+            channels.DeleteTopicHistory
     """
 
     __slots__: List[str] = ["pts", "pts_count", "offset"]

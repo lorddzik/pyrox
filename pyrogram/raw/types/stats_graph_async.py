@@ -36,7 +36,7 @@ class StatsGraphAsync(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StatsGraph`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``4A27EB2D``
 
     Parameters:

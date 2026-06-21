@@ -34,7 +34,7 @@ class ChangeStickerPosition(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FFB6D4CA``
 
     Parameters:

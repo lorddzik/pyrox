@@ -34,7 +34,7 @@ class EditPeerFolders(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6847D0AB``
 
     Parameters:

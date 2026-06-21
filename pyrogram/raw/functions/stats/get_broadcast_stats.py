@@ -34,7 +34,7 @@ class GetBroadcastStats(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``AB42441A``
 
     Parameters:

@@ -34,8 +34,8 @@ class GetMessagePublicForwards(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``5F150144``
+        - Layer: ``166``
+        - ID: ``5630281B``
 
     Parameters:
         channel (:obj:`InputChannel <pyrogram.raw.base.InputChannel>`):
@@ -44,25 +44,33 @@ class GetMessagePublicForwards(TLObject):  # type: ignore
         msg_id (``int`` ``32-bit``):
             N/A
 
-        offset (``str``):
+        offset_rate (``int`` ``32-bit``):
+            N/A
+
+        offset_peer (:obj:`InputPeer <pyrogram.raw.base.InputPeer>`):
+            N/A
+
+        offset_id (``int`` ``32-bit``):
             N/A
 
         limit (``int`` ``32-bit``):
             N/A
 
     Returns:
-        :obj:`stats.PublicForwards <pyrogram.raw.base.stats.PublicForwards>`
+        :obj:`messages.Messages <pyrogram.raw.base.messages.Messages>`
     """
 
-    __slots__: List[str] = ["channel", "msg_id", "offset", "limit"]
+    __slots__: List[str] = ["channel", "msg_id", "offset_rate", "offset_peer", "offset_id", "limit"]
 
-    ID = 0x5f150144
+    ID = 0x5630281b
     QUALNAME = "functions.stats.GetMessagePublicForwards"
 
-    def __init__(self, *, channel: "raw.base.InputChannel", msg_id: int, offset: str, limit: int) -> None:
+    def __init__(self, *, channel: "raw.base.InputChannel", msg_id: int, offset_rate: int, offset_peer: "raw.base.InputPeer", offset_id: int, limit: int) -> None:
         self.channel = channel  # InputChannel
         self.msg_id = msg_id  # int
-        self.offset = offset  # string
+        self.offset_rate = offset_rate  # int
+        self.offset_peer = offset_peer  # InputPeer
+        self.offset_id = offset_id  # int
         self.limit = limit  # int
 
     @staticmethod
@@ -73,11 +81,15 @@ class GetMessagePublicForwards(TLObject):  # type: ignore
         
         msg_id = Int.read(b)
         
-        offset = String.read(b)
+        offset_rate = Int.read(b)
+        
+        offset_peer = TLObject.read(b)
+        
+        offset_id = Int.read(b)
         
         limit = Int.read(b)
         
-        return GetMessagePublicForwards(channel=channel, msg_id=msg_id, offset=offset, limit=limit)
+        return GetMessagePublicForwards(channel=channel, msg_id=msg_id, offset_rate=offset_rate, offset_peer=offset_peer, offset_id=offset_id, limit=limit)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -89,7 +101,11 @@ class GetMessagePublicForwards(TLObject):  # type: ignore
         
         b.write(Int(self.msg_id))
         
-        b.write(String(self.offset))
+        b.write(Int(self.offset_rate))
+        
+        b.write(self.offset_peer.write())
+        
+        b.write(Int(self.offset_id))
         
         b.write(Int(self.limit))
         

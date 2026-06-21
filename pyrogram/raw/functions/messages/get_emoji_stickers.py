@@ -34,7 +34,7 @@ class GetEmojiStickers(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FBFCA18F``
 
     Parameters:

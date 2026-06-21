@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-PageBlock = Union[raw.types.InputPageBlockMap, raw.types.PageBlockAnchor, raw.types.PageBlockAudio, raw.types.PageBlockAuthorDate, raw.types.PageBlockBlockquote, raw.types.PageBlockBlockquoteBlocks, raw.types.PageBlockChannel, raw.types.PageBlockCollage, raw.types.PageBlockCover, raw.types.PageBlockDetails, raw.types.PageBlockDivider, raw.types.PageBlockEmbed, raw.types.PageBlockEmbedPost, raw.types.PageBlockFooter, raw.types.PageBlockHeader, raw.types.PageBlockHeading1, raw.types.PageBlockHeading2, raw.types.PageBlockHeading3, raw.types.PageBlockHeading4, raw.types.PageBlockHeading5, raw.types.PageBlockHeading6, raw.types.PageBlockKicker, raw.types.PageBlockList, raw.types.PageBlockMap, raw.types.PageBlockMath, raw.types.PageBlockOrderedList, raw.types.PageBlockParagraph, raw.types.PageBlockPhoto, raw.types.PageBlockPreformatted, raw.types.PageBlockPullquote, raw.types.PageBlockRelatedArticles, raw.types.PageBlockSlideshow, raw.types.PageBlockSubheader, raw.types.PageBlockSubtitle, raw.types.PageBlockTable, raw.types.PageBlockThinking, raw.types.PageBlockTitle, raw.types.PageBlockUnsupported, raw.types.PageBlockVideo]
+PageBlock = Union[raw.types.PageBlockAnchor, raw.types.PageBlockAudio, raw.types.PageBlockAuthorDate, raw.types.PageBlockBlockquote, raw.types.PageBlockChannel, raw.types.PageBlockCollage, raw.types.PageBlockCover, raw.types.PageBlockDetails, raw.types.PageBlockDivider, raw.types.PageBlockEmbed, raw.types.PageBlockEmbedPost, raw.types.PageBlockFooter, raw.types.PageBlockHeader, raw.types.PageBlockKicker, raw.types.PageBlockList, raw.types.PageBlockMap, raw.types.PageBlockOrderedList, raw.types.PageBlockParagraph, raw.types.PageBlockPhoto, raw.types.PageBlockPreformatted, raw.types.PageBlockPullquote, raw.types.PageBlockRelatedArticles, raw.types.PageBlockSlideshow, raw.types.PageBlockSubheader, raw.types.PageBlockSubtitle, raw.types.PageBlockTable, raw.types.PageBlockTitle, raw.types.PageBlockUnsupported, raw.types.PageBlockVideo]
 
 
 # noinspection PyRedeclaration
@@ -34,19 +34,17 @@ class PageBlock:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 39 constructors available.
+        This base type has 29 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
         .. autosummary::
             :nosignatures:
 
-            InputPageBlockMap
             PageBlockAnchor
             PageBlockAudio
             PageBlockAuthorDate
             PageBlockBlockquote
-            PageBlockBlockquoteBlocks
             PageBlockChannel
             PageBlockCollage
             PageBlockCover
@@ -56,16 +54,9 @@ class PageBlock:  # type: ignore
             PageBlockEmbedPost
             PageBlockFooter
             PageBlockHeader
-            PageBlockHeading1
-            PageBlockHeading2
-            PageBlockHeading3
-            PageBlockHeading4
-            PageBlockHeading5
-            PageBlockHeading6
             PageBlockKicker
             PageBlockList
             PageBlockMap
-            PageBlockMath
             PageBlockOrderedList
             PageBlockParagraph
             PageBlockPhoto
@@ -76,7 +67,6 @@ class PageBlock:  # type: ignore
             PageBlockSubheader
             PageBlockSubtitle
             PageBlockTable
-            PageBlockThinking
             PageBlockTitle
             PageBlockUnsupported
             PageBlockVideo

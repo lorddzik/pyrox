@@ -36,7 +36,7 @@ class Authorization(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.auth.Authorization`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``2EA2C0D4``
 
     Parameters:
@@ -56,7 +56,7 @@ class Authorization(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 8 functions.
+        This object can be returned by 7 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -70,7 +70,6 @@ class Authorization(TLObject):  # type: ignore
             auth.CheckPassword
             auth.RecoverPassword
             auth.ImportWebTokenAuthorization
-            auth.FinishPasskeyLogin
     """
 
     __slots__: List[str] = ["user", "setup_password_required", "otherwise_relogin_days", "tmp_sessions", "future_auth_token"]

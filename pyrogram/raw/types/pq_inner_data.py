@@ -36,7 +36,7 @@ class PQInnerData(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PQInnerData`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``83C95AEC``
 
     Parameters:
