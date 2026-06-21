@@ -40,7 +40,7 @@ class AiComposeToneExample(TLObject):  # type: ignore
         - ID: ``F1D628EC``
 
     Parameters:
-        from (:obj:`TextWithEntities <pyrogram.raw.base.TextWithEntities>`):
+        from_peer (:obj:`TextWithEntities <pyrogram.raw.base.TextWithEntities>`):
             N/A
 
         to (:obj:`TextWithEntities <pyrogram.raw.base.TextWithEntities>`):

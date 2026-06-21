@@ -43,7 +43,7 @@ class StoryFwdHeader(TLObject):  # type: ignore
         modified (``bool``, *optional*):
             N/A
 
-        from (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
+        from_peer (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
             N/A
 
         from_name (``str``, *optional*):
