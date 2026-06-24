@@ -36,7 +36,7 @@ class SponsoredMessagesEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.SponsoredMessages`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1839490F``
 
     Parameters:
@@ -50,7 +50,7 @@ class SponsoredMessagesEmpty(TLObject):  # type: ignore
         .. autosummary::
             :nosignatures:
 
-            messages.GetSponsoredMessages
+            channels.GetSponsoredMessages
     """
 
     __slots__: List[str] = []

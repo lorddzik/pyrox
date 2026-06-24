@@ -36,7 +36,7 @@ class DialogFilterSuggested(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DialogFilterSuggested`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``77744D4A``
 
     Parameters:

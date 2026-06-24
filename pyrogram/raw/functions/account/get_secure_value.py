@@ -34,7 +34,7 @@ class GetSecureValue(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``73665BC2``
 
     Parameters:

@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-RequestPeerType = Union[raw.types.RequestPeerTypeBroadcast, raw.types.RequestPeerTypeChat, raw.types.RequestPeerTypeCreateBot, raw.types.RequestPeerTypeUser]
+RequestPeerType = Union[raw.types.RequestPeerTypeBroadcast, raw.types.RequestPeerTypeChat, raw.types.RequestPeerTypeUser]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class RequestPeerType:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 4 constructors available.
+        This base type has 3 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -43,7 +43,6 @@ class RequestPeerType:  # type: ignore
 
             RequestPeerTypeBroadcast
             RequestPeerTypeChat
-            RequestPeerTypeCreateBot
             RequestPeerTypeUser
     """
 

@@ -36,8 +36,8 @@ class UpdateMessagePoll(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``D64C522B``
+        - Layer: ``166``
+        - ID: ``ACA1657B``
 
     Parameters:
         poll_id (``int`` ``64-bit``):
@@ -46,31 +46,19 @@ class UpdateMessagePoll(TLObject):  # type: ignore
         results (:obj:`PollResults <pyrogram.raw.base.PollResults>`):
             N/A
 
-        peer (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
-            N/A
-
-        msg_id (``int`` ``32-bit``, *optional*):
-            N/A
-
-        top_msg_id (``int`` ``32-bit``, *optional*):
-            N/A
-
         poll (:obj:`Poll <pyrogram.raw.base.Poll>`, *optional*):
             N/A
 
     """
 
-    __slots__: List[str] = ["poll_id", "results", "peer", "msg_id", "top_msg_id", "poll"]
+    __slots__: List[str] = ["poll_id", "results", "poll"]
 
-    ID = 0xd64c522b
+    ID = 0xaca1657b
     QUALNAME = "types.UpdateMessagePoll"
 
-    def __init__(self, *, poll_id: int, results: "raw.base.PollResults", peer: "raw.base.Peer" = None, msg_id: Optional[int] = None, top_msg_id: Optional[int] = None, poll: "raw.base.Poll" = None) -> None:
+    def __init__(self, *, poll_id: int, results: "raw.base.PollResults", poll: "raw.base.Poll" = None) -> None:
         self.poll_id = poll_id  # long
         self.results = results  # PollResults
-        self.peer = peer  # flags.1?Peer
-        self.msg_id = msg_id  # flags.1?int
-        self.top_msg_id = top_msg_id  # flags.2?int
         self.poll = poll  # flags.0?Poll
 
     @staticmethod
@@ -78,37 +66,21 @@ class UpdateMessagePoll(TLObject):  # type: ignore
         
         flags = Int.read(b)
         
-        peer = TLObject.read(b) if flags & (1 << 1) else None
-        
-        msg_id = Int.read(b) if flags & (1 << 1) else None
-        top_msg_id = Int.read(b) if flags & (1 << 2) else None
         poll_id = Long.read(b)
         
         poll = TLObject.read(b) if flags & (1 << 0) else None
         
         results = TLObject.read(b)
         
-        return UpdateMessagePoll(poll_id=poll_id, results=results, peer=peer, msg_id=msg_id, top_msg_id=top_msg_id, poll=poll)
+        return UpdateMessagePoll(poll_id=poll_id, results=results, poll=poll)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
         flags = 0
-        flags |= (1 << 1) if self.peer is not None else 0
-        flags |= (1 << 1) if self.msg_id is not None else 0
-        flags |= (1 << 2) if self.top_msg_id is not None else 0
         flags |= (1 << 0) if self.poll is not None else 0
         b.write(Int(flags))
-        
-        if self.peer is not None:
-            b.write(self.peer.write())
-        
-        if self.msg_id is not None:
-            b.write(Int(self.msg_id))
-        
-        if self.top_msg_id is not None:
-            b.write(Int(self.top_msg_id))
         
         b.write(Long(self.poll_id))
         

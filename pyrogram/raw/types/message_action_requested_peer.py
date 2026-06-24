@@ -36,26 +36,26 @@ class MessageActionRequestedPeer(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``31518E9B``
+        - Layer: ``166``
+        - ID: ``FE77345D``
 
     Parameters:
         button_id (``int`` ``32-bit``):
             N/A
 
-        peers (List of :obj:`Peer <pyrogram.raw.base.Peer>`):
+        peer (:obj:`Peer <pyrogram.raw.base.Peer>`):
             N/A
 
     """
 
-    __slots__: List[str] = ["button_id", "peers"]
+    __slots__: List[str] = ["button_id", "peer"]
 
-    ID = 0x31518e9b
+    ID = 0xfe77345d
     QUALNAME = "types.MessageActionRequestedPeer"
 
-    def __init__(self, *, button_id: int, peers: List["raw.base.Peer"]) -> None:
+    def __init__(self, *, button_id: int, peer: "raw.base.Peer") -> None:
         self.button_id = button_id  # int
-        self.peers = peers  # Vector<Peer>
+        self.peer = peer  # Peer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "MessageActionRequestedPeer":
@@ -63,9 +63,9 @@ class MessageActionRequestedPeer(TLObject):  # type: ignore
         
         button_id = Int.read(b)
         
-        peers = TLObject.read(b)
+        peer = TLObject.read(b)
         
-        return MessageActionRequestedPeer(button_id=button_id, peers=peers)
+        return MessageActionRequestedPeer(button_id=button_id, peer=peer)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -75,6 +75,6 @@ class MessageActionRequestedPeer(TLObject):  # type: ignore
         
         b.write(Int(self.button_id))
         
-        b.write(Vector(self.peers))
+        b.write(self.peer.write())
         
         return b.getvalue()

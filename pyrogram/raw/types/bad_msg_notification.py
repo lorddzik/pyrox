@@ -36,7 +36,7 @@ class BadMsgNotification(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BadMsgNotification`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A7EFF811``
 
     Parameters:

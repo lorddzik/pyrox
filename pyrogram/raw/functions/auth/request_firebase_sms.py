@@ -34,8 +34,8 @@ class RequestFirebaseSms(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``8E39261E``
+        - Layer: ``166``
+        - ID: ``89464B50``
 
     Parameters:
         phone_number (``str``):
@@ -47,9 +47,6 @@ class RequestFirebaseSms(TLObject):  # type: ignore
         safety_net_token (``str``, *optional*):
             N/A
 
-        play_integrity_token (``str``, *optional*):
-            N/A
-
         ios_push_secret (``str``, *optional*):
             N/A
 
@@ -57,16 +54,15 @@ class RequestFirebaseSms(TLObject):  # type: ignore
         ``bool``
     """
 
-    __slots__: List[str] = ["phone_number", "phone_code_hash", "safety_net_token", "play_integrity_token", "ios_push_secret"]
+    __slots__: List[str] = ["phone_number", "phone_code_hash", "safety_net_token", "ios_push_secret"]
 
-    ID = 0x8e39261e
+    ID = 0x89464b50
     QUALNAME = "functions.auth.RequestFirebaseSms"
 
-    def __init__(self, *, phone_number: str, phone_code_hash: str, safety_net_token: Optional[str] = None, play_integrity_token: Optional[str] = None, ios_push_secret: Optional[str] = None) -> None:
+    def __init__(self, *, phone_number: str, phone_code_hash: str, safety_net_token: Optional[str] = None, ios_push_secret: Optional[str] = None) -> None:
         self.phone_number = phone_number  # string
         self.phone_code_hash = phone_code_hash  # string
         self.safety_net_token = safety_net_token  # flags.0?string
-        self.play_integrity_token = play_integrity_token  # flags.2?string
         self.ios_push_secret = ios_push_secret  # flags.1?string
 
     @staticmethod
@@ -79,9 +75,8 @@ class RequestFirebaseSms(TLObject):  # type: ignore
         phone_code_hash = String.read(b)
         
         safety_net_token = String.read(b) if flags & (1 << 0) else None
-        play_integrity_token = String.read(b) if flags & (1 << 2) else None
         ios_push_secret = String.read(b) if flags & (1 << 1) else None
-        return RequestFirebaseSms(phone_number=phone_number, phone_code_hash=phone_code_hash, safety_net_token=safety_net_token, play_integrity_token=play_integrity_token, ios_push_secret=ios_push_secret)
+        return RequestFirebaseSms(phone_number=phone_number, phone_code_hash=phone_code_hash, safety_net_token=safety_net_token, ios_push_secret=ios_push_secret)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -89,7 +84,6 @@ class RequestFirebaseSms(TLObject):  # type: ignore
 
         flags = 0
         flags |= (1 << 0) if self.safety_net_token is not None else 0
-        flags |= (1 << 2) if self.play_integrity_token is not None else 0
         flags |= (1 << 1) if self.ios_push_secret is not None else 0
         b.write(Int(flags))
         
@@ -99,9 +93,6 @@ class RequestFirebaseSms(TLObject):  # type: ignore
         
         if self.safety_net_token is not None:
             b.write(String(self.safety_net_token))
-        
-        if self.play_integrity_token is not None:
-            b.write(String(self.play_integrity_token))
         
         if self.ios_push_secret is not None:
             b.write(String(self.ios_push_secret))

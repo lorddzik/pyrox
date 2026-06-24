@@ -34,7 +34,7 @@ class GetBankCardData(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``2E79D779``
 
     Parameters:

@@ -36,7 +36,7 @@ class BotResults(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.BotResults`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E021F2F6``
 
     Parameters:

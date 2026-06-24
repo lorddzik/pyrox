@@ -36,7 +36,7 @@ class SendMessageRecordVideoAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A187D66F``
 
     Parameters:

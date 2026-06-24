@@ -36,7 +36,7 @@ class SearchResultPosition(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SearchResultsPosition`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7F648B67``
 
     Parameters:

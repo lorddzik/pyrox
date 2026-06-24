@@ -36,8 +36,8 @@ class UpdateMessagePollVote(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``7699F014``
+        - Layer: ``166``
+        - ID: ``24F40E77``
 
     Parameters:
         poll_id (``int`` ``64-bit``):
@@ -49,24 +49,20 @@ class UpdateMessagePollVote(TLObject):  # type: ignore
         options (List of ``bytes``):
             N/A
 
-        positions (List of ``int`` ``32-bit``):
-            N/A
-
         qts (``int`` ``32-bit``):
             N/A
 
     """
 
-    __slots__: List[str] = ["poll_id", "peer", "options", "positions", "qts"]
+    __slots__: List[str] = ["poll_id", "peer", "options", "qts"]
 
-    ID = 0x7699f014
+    ID = 0x24f40e77
     QUALNAME = "types.UpdateMessagePollVote"
 
-    def __init__(self, *, poll_id: int, peer: "raw.base.Peer", options: List[bytes], positions: List[int], qts: int) -> None:
+    def __init__(self, *, poll_id: int, peer: "raw.base.Peer", options: List[bytes], qts: int) -> None:
         self.poll_id = poll_id  # long
         self.peer = peer  # Peer
         self.options = options  # Vector<bytes>
-        self.positions = positions  # Vector<int>
         self.qts = qts  # int
 
     @staticmethod
@@ -79,11 +75,9 @@ class UpdateMessagePollVote(TLObject):  # type: ignore
         
         options = TLObject.read(b, Bytes)
         
-        positions = TLObject.read(b, Int)
-        
         qts = Int.read(b)
         
-        return UpdateMessagePollVote(poll_id=poll_id, peer=peer, options=options, positions=positions, qts=qts)
+        return UpdateMessagePollVote(poll_id=poll_id, peer=peer, options=options, qts=qts)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
@@ -96,8 +90,6 @@ class UpdateMessagePollVote(TLObject):  # type: ignore
         b.write(self.peer.write())
         
         b.write(Vector(self.options, Bytes))
-        
-        b.write(Vector(self.positions, Int))
         
         b.write(Int(self.qts))
         

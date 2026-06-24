@@ -29,23 +29,17 @@ def ikb(rows=None):
     # return {'inline_keyboard': lines}
 
 
-def btn(text, value, type="callback_data", style=None, icon_custom_emoji_id=None):
+def btn(text, value, type="callback_data"):
     """
     Create an InlineKeyboardButton.
 
     :param text: Text of the button.
     :param value: Value of the button.
     :param type: Type of the button. Defaults to "callback_data".
-    :param style: Style of the button. Defaults to None.
-    :param icon_custom_emoji_id: Custom emoji ID. Defaults to None.
     :return: InlineKeyboardButton
     """
-    return InlineKeyboardButton(
-        text,
-        **{type: value},
-        style=style,
-        icon_custom_emoji_id=icon_custom_emoji_id
-    )
+    return InlineKeyboardButton(text, **{type: value})
+    # return {'text': text, type: value}
 
 
 # The inverse of above

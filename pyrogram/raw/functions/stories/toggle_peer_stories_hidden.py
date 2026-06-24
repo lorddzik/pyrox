@@ -34,7 +34,7 @@ class TogglePeerStoriesHidden(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``BD0415C4``
 
     Parameters:

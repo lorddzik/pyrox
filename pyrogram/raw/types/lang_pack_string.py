@@ -36,7 +36,7 @@ class LangPackString(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.LangPackString`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``CAD181F6``
 
     Parameters:

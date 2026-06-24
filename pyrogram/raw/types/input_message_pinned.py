@@ -36,7 +36,7 @@ class InputMessagePinned(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputMessage`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``86872538``
 
     Parameters:

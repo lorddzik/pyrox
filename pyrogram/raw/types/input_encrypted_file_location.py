@@ -36,7 +36,7 @@ class InputEncryptedFileLocation(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputFileLocation`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F5235D55``
 
     Parameters:

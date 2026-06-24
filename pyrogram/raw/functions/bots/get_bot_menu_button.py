@@ -34,7 +34,7 @@ class GetBotMenuButton(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9C60EB28``
 
     Parameters:

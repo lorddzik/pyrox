@@ -36,7 +36,7 @@ class InputReportReasonIllegalDrugs(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ReportReason`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A8EB2BE``
 
     Parameters:

@@ -36,54 +36,44 @@ class UpdateGroupCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``9D2216E0``
+        - Layer: ``166``
+        - ID: ``14B24500``
 
     Parameters:
+        chat_id (``int`` ``64-bit``):
+            N/A
+
         call (:obj:`GroupCall <pyrogram.raw.base.GroupCall>`):
-            N/A
-
-        live_story (``bool``, *optional*):
-            N/A
-
-        peer (:obj:`Peer <pyrogram.raw.base.Peer>`, *optional*):
             N/A
 
     """
 
-    __slots__: List[str] = ["call", "live_story", "peer"]
+    __slots__: List[str] = ["chat_id", "call"]
 
-    ID = 0x9d2216e0
+    ID = 0x14b24500
     QUALNAME = "types.UpdateGroupCall"
 
-    def __init__(self, *, call: "raw.base.GroupCall", live_story: Optional[bool] = None, peer: "raw.base.Peer" = None) -> None:
+    def __init__(self, *, chat_id: int, call: "raw.base.GroupCall") -> None:
+        self.chat_id = chat_id  # long
         self.call = call  # GroupCall
-        self.live_story = live_story  # flags.2?true
-        self.peer = peer  # flags.1?Peer
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "UpdateGroupCall":
+        # No flags
         
-        flags = Int.read(b)
-        
-        live_story = True if flags & (1 << 2) else False
-        peer = TLObject.read(b) if flags & (1 << 1) else None
+        chat_id = Long.read(b)
         
         call = TLObject.read(b)
         
-        return UpdateGroupCall(call=call, live_story=live_story, peer=peer)
+        return UpdateGroupCall(chat_id=chat_id, call=call)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 2) if self.live_story else 0
-        flags |= (1 << 1) if self.peer is not None else 0
-        b.write(Int(flags))
+        # No flags
         
-        if self.peer is not None:
-            b.write(self.peer.write())
+        b.write(Long(self.chat_id))
         
         b.write(self.call.write())
         

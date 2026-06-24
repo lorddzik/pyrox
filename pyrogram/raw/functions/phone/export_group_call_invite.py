@@ -34,7 +34,7 @@ class ExportGroupCallInvite(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E6AA647F``
 
     Parameters:

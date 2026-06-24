@@ -34,7 +34,7 @@ class GetGlobalPrivacySettings(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``EB2B4CF6``
 
     Parameters:

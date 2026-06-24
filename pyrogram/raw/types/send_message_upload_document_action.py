@@ -36,7 +36,7 @@ class SendMessageUploadDocumentAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SendMessageAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``AA0CD9E4``
 
     Parameters:

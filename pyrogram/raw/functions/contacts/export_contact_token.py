@@ -34,7 +34,7 @@ class ExportContactToken(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F8654027``
 
     Parameters:

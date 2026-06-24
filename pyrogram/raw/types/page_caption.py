@@ -36,7 +36,7 @@ class PageCaption(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageCaption`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6F747657``
 
     Parameters:

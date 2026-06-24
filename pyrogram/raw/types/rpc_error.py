@@ -36,7 +36,7 @@ class RpcError(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RpcError`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``2144CA19``
 
     Parameters:

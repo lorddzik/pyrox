@@ -36,7 +36,7 @@ class PremiumGiftCodeOption(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PremiumGiftCodeOption`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``257E962B``
 
     Parameters:

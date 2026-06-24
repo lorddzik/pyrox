@@ -34,7 +34,7 @@ class RequestEncryption(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F64DAF43``
 
     Parameters:

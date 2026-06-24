@@ -36,7 +36,7 @@ class RecentMeUrlUnknown(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.RecentMeUrl`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``46E1D13D``
 
     Parameters:

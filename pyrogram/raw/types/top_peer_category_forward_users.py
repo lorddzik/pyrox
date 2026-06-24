@@ -36,7 +36,7 @@ class TopPeerCategoryForwardUsers(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.TopPeerCategory`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A8406CA9``
 
     Parameters:

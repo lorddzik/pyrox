@@ -34,7 +34,7 @@ class GetDefaultEmojiStatuses(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D6753386``
 
     Parameters:

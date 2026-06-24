@@ -34,7 +34,7 @@ class ToggleAntiSpam(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``68F3E4EB``
 
     Parameters:

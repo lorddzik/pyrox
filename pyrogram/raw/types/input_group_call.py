@@ -36,7 +36,7 @@ class InputGroupCall(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputGroupCall`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D8AA840F``
 
     Parameters:

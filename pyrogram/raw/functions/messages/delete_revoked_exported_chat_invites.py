@@ -34,7 +34,7 @@ class DeleteRevokedExportedChatInvites(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``56987BD5``
 
     Parameters:

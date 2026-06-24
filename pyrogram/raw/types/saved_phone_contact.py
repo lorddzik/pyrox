@@ -36,7 +36,7 @@ class SavedPhoneContact(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SavedContact`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1142BD56``
 
     Parameters:

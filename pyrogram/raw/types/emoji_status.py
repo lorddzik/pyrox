@@ -36,48 +36,37 @@ class EmojiStatus(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.EmojiStatus`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``E7FF068A``
+        - Layer: ``166``
+        - ID: ``929B619D``
 
     Parameters:
         document_id (``int`` ``64-bit``):
             N/A
 
-        until (``int`` ``32-bit``, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["document_id", "until"]
+    __slots__: List[str] = ["document_id"]
 
-    ID = 0xe7ff068a
+    ID = 0x929b619d
     QUALNAME = "types.EmojiStatus"
 
-    def __init__(self, *, document_id: int, until: Optional[int] = None) -> None:
+    def __init__(self, *, document_id: int) -> None:
         self.document_id = document_id  # long
-        self.until = until  # flags.0?int
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "EmojiStatus":
-        
-        flags = Int.read(b)
+        # No flags
         
         document_id = Long.read(b)
         
-        until = Int.read(b) if flags & (1 << 0) else None
-        return EmojiStatus(document_id=document_id, until=until)
+        return EmojiStatus(document_id=document_id)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.until is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(Long(self.document_id))
-        
-        if self.until is not None:
-            b.write(Int(self.until))
         
         return b.getvalue()

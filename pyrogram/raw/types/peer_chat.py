@@ -36,7 +36,7 @@ class PeerChat(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Peer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``36C6019A``
 
     Parameters:

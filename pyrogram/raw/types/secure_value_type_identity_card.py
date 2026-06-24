@@ -36,7 +36,7 @@ class SecureValueTypeIdentityCard(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SecureValueType`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A0D0744B``
 
     Parameters:

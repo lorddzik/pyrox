@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionTogglePreHistoryHidden(TLObject):  # type: ignor
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5F5C95F1``
 
     Parameters:

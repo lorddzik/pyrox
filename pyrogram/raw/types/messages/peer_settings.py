@@ -36,7 +36,7 @@ class PeerSettings(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.PeerSettings`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``6880B94D``
 
     Parameters:

@@ -44,7 +44,7 @@ class Stories:  # type: ignore
             stories.Stories
 
     Functions:
-        This object can be returned by 4 functions.
+        This object can be returned by 3 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -54,7 +54,6 @@ class Stories:  # type: ignore
             stories.GetPinnedStories
             stories.GetStoriesArchive
             stories.GetStoriesByID
-            stories.GetAlbumStories
     """
 
     QUALNAME = "pyrogram.raw.base.stories.Stories"

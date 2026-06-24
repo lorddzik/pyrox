@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionToggleInvites(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1B7907AE``
 
     Parameters:

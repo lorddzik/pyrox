@@ -34,7 +34,7 @@ class GetPeerSettings(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``EFD9A6A2``
 
     Parameters:

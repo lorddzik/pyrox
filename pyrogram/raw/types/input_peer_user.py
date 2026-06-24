@@ -36,7 +36,7 @@ class InputPeerUser(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputPeer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``DDE8A54C``
 
     Parameters:

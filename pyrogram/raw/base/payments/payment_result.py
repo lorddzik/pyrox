@@ -45,7 +45,7 @@ class PaymentResult:  # type: ignore
             payments.PaymentVerificationNeeded
 
     Functions:
-        This object can be returned by 2 functions.
+        This object can be returned by 1 function.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -53,7 +53,6 @@ class PaymentResult:  # type: ignore
             :nosignatures:
 
             payments.SendPaymentForm
-            payments.SendStarsForm
     """
 
     QUALNAME = "pyrogram.raw.base.payments.PaymentResult"

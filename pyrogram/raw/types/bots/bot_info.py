@@ -36,7 +36,7 @@ class BotInfo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.bots.BotInfo`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E8A775B0``
 
     Parameters:

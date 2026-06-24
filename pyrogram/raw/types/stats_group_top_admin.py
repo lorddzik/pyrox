@@ -36,7 +36,7 @@ class StatsGroupTopAdmin(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.StatsGroupTopAdmin`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D7584C87``
 
     Parameters:

@@ -34,7 +34,7 @@ class BindTempAuthKey(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``CDD42A05``
 
     Parameters:

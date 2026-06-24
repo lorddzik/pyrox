@@ -34,7 +34,7 @@ class ApplyGiftCode(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F6E26854``
 
     Parameters:

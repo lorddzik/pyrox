@@ -36,7 +36,7 @@ class MessageReplies(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageReplies`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``83D60FC2``
 
     Parameters:

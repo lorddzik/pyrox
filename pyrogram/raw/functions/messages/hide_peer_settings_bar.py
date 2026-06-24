@@ -34,7 +34,7 @@ class HidePeerSettingsBar(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``4FACB138``
 
     Parameters:

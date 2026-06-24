@@ -45,7 +45,7 @@ class Reactions:  # type: ignore
             messages.ReactionsNotModified
 
     Functions:
-        This object can be returned by 3 functions.
+        This object can be returned by 2 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -54,7 +54,6 @@ class Reactions:  # type: ignore
 
             messages.GetTopReactions
             messages.GetRecentReactions
-            messages.GetDefaultTagReactions
     """
 
     QUALNAME = "pyrogram.raw.base.messages.Reactions"

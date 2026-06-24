@@ -36,7 +36,7 @@ class DataJSON(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DataJSON`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``7D748D04``
 
     Parameters:

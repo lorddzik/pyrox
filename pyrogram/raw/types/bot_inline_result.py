@@ -36,7 +36,7 @@ class BotInlineResult(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.BotInlineResult`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``11965F3A``
 
     Parameters:

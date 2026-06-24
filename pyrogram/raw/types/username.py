@@ -36,7 +36,7 @@ class Username(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Username`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``B4073647``
 
     Parameters:

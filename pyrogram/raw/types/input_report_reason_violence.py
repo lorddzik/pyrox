@@ -36,7 +36,7 @@ class InputReportReasonViolence(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ReportReason`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1E22C78D``
 
     Parameters:

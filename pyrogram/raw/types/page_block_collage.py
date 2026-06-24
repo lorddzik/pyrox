@@ -36,7 +36,7 @@ class PageBlockCollage(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``65A0FA4D``
 
     Parameters:

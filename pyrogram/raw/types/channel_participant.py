@@ -36,8 +36,8 @@ class ChannelParticipant(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelParticipant`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``1BD54456``
+        - Layer: ``166``
+        - ID: ``C00C07C0``
 
     Parameters:
         user_id (``int`` ``64-bit``):
@@ -46,55 +46,35 @@ class ChannelParticipant(TLObject):  # type: ignore
         date (``int`` ``32-bit``):
             N/A
 
-        subscription_until_date (``int`` ``32-bit``, *optional*):
-            N/A
-
-        rank (``str``, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["user_id", "date", "subscription_until_date", "rank"]
+    __slots__: List[str] = ["user_id", "date"]
 
-    ID = 0x1bd54456
+    ID = 0xc00c07c0
     QUALNAME = "types.ChannelParticipant"
 
-    def __init__(self, *, user_id: int, date: int, subscription_until_date: Optional[int] = None, rank: Optional[str] = None) -> None:
+    def __init__(self, *, user_id: int, date: int) -> None:
         self.user_id = user_id  # long
         self.date = date  # int
-        self.subscription_until_date = subscription_until_date  # flags.0?int
-        self.rank = rank  # flags.2?string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ChannelParticipant":
-        
-        flags = Int.read(b)
+        # No flags
         
         user_id = Long.read(b)
         
         date = Int.read(b)
         
-        subscription_until_date = Int.read(b) if flags & (1 << 0) else None
-        rank = String.read(b) if flags & (1 << 2) else None
-        return ChannelParticipant(user_id=user_id, date=date, subscription_until_date=subscription_until_date, rank=rank)
+        return ChannelParticipant(user_id=user_id, date=date)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.subscription_until_date is not None else 0
-        flags |= (1 << 2) if self.rank is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(Long(self.user_id))
         
         b.write(Int(self.date))
-        
-        if self.subscription_until_date is not None:
-            b.write(Int(self.subscription_until_date))
-        
-        if self.rank is not None:
-            b.write(String(self.rank))
         
         return b.getvalue()

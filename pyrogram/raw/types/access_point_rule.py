@@ -36,7 +36,7 @@ class AccessPointRule(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.AccessPointRule`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``4679B65F``
 
     Parameters:

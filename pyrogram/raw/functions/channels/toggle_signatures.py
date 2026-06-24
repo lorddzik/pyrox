@@ -34,53 +34,47 @@ class ToggleSignatures(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``418D549C``
+        - Layer: ``166``
+        - ID: ``1F69B606``
 
     Parameters:
         channel (:obj:`InputChannel <pyrogram.raw.base.InputChannel>`):
             N/A
 
-        signatures_enabled (``bool``, *optional*):
-            N/A
-
-        profiles_enabled (``bool``, *optional*):
+        enabled (``bool``):
             N/A
 
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["channel", "signatures_enabled", "profiles_enabled"]
+    __slots__: List[str] = ["channel", "enabled"]
 
-    ID = 0x418d549c
+    ID = 0x1f69b606
     QUALNAME = "functions.channels.ToggleSignatures"
 
-    def __init__(self, *, channel: "raw.base.InputChannel", signatures_enabled: Optional[bool] = None, profiles_enabled: Optional[bool] = None) -> None:
+    def __init__(self, *, channel: "raw.base.InputChannel", enabled: bool) -> None:
         self.channel = channel  # InputChannel
-        self.signatures_enabled = signatures_enabled  # flags.0?true
-        self.profiles_enabled = profiles_enabled  # flags.1?true
+        self.enabled = enabled  # Bool
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ToggleSignatures":
+        # No flags
         
-        flags = Int.read(b)
-        
-        signatures_enabled = True if flags & (1 << 0) else False
-        profiles_enabled = True if flags & (1 << 1) else False
         channel = TLObject.read(b)
         
-        return ToggleSignatures(channel=channel, signatures_enabled=signatures_enabled, profiles_enabled=profiles_enabled)
+        enabled = Bool.read(b)
+        
+        return ToggleSignatures(channel=channel, enabled=enabled)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.signatures_enabled else 0
-        flags |= (1 << 1) if self.profiles_enabled else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.channel.write())
+        
+        b.write(Bool(self.enabled))
         
         return b.getvalue()

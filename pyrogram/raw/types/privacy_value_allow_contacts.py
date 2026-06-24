@@ -36,7 +36,7 @@ class PrivacyValueAllowContacts(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PrivacyRule`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FFFE1BAC``
 
     Parameters:

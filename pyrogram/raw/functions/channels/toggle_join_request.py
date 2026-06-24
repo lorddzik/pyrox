@@ -34,8 +34,8 @@ class ToggleJoinRequest(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``ECC2618``
+        - Layer: ``166``
+        - ID: ``4C2985B6``
 
     Parameters:
         channel (:obj:`InputChannel <pyrogram.raw.base.InputChannel>`):
@@ -44,55 +44,37 @@ class ToggleJoinRequest(TLObject):  # type: ignore
         enabled (``bool``):
             N/A
 
-        apply_to_invites (``bool``, *optional*):
-            N/A
-
-        guard_bot (:obj:`InputUser <pyrogram.raw.base.InputUser>`, *optional*):
-            N/A
-
     Returns:
         :obj:`Updates <pyrogram.raw.base.Updates>`
     """
 
-    __slots__: List[str] = ["channel", "enabled", "apply_to_invites", "guard_bot"]
+    __slots__: List[str] = ["channel", "enabled"]
 
-    ID = 0xecc2618
+    ID = 0x4c2985b6
     QUALNAME = "functions.channels.ToggleJoinRequest"
 
-    def __init__(self, *, channel: "raw.base.InputChannel", enabled: bool, apply_to_invites: Optional[bool] = None, guard_bot: "raw.base.InputUser" = None) -> None:
+    def __init__(self, *, channel: "raw.base.InputChannel", enabled: bool) -> None:
         self.channel = channel  # InputChannel
         self.enabled = enabled  # Bool
-        self.apply_to_invites = apply_to_invites  # flags.1?true
-        self.guard_bot = guard_bot  # flags.0?InputUser
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "ToggleJoinRequest":
+        # No flags
         
-        flags = Int.read(b)
-        
-        apply_to_invites = True if flags & (1 << 1) else False
         channel = TLObject.read(b)
         
         enabled = Bool.read(b)
         
-        guard_bot = TLObject.read(b) if flags & (1 << 0) else None
-        
-        return ToggleJoinRequest(channel=channel, enabled=enabled, apply_to_invites=apply_to_invites, guard_bot=guard_bot)
+        return ToggleJoinRequest(channel=channel, enabled=enabled)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 1) if self.apply_to_invites else 0
-        flags |= (1 << 0) if self.guard_bot is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.channel.write())
         
         b.write(Bool(self.enabled))
-        
-        if self.guard_bot is not None:
-            b.write(self.guard_bot.write())
         
         return b.getvalue()

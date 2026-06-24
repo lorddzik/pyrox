@@ -26,7 +26,7 @@ from typing import Union
 from pyrogram import raw
 from pyrogram.raw.core import TLObject
 
-MessageMedia = Union[raw.types.MessageMediaContact, raw.types.MessageMediaDice, raw.types.MessageMediaDocument, raw.types.MessageMediaEmpty, raw.types.MessageMediaGame, raw.types.MessageMediaGeo, raw.types.MessageMediaGeoLive, raw.types.MessageMediaGiveaway, raw.types.MessageMediaGiveawayResults, raw.types.MessageMediaInvoice, raw.types.MessageMediaPaidMedia, raw.types.MessageMediaPhoto, raw.types.MessageMediaPoll, raw.types.MessageMediaStory, raw.types.MessageMediaToDo, raw.types.MessageMediaUnsupported, raw.types.MessageMediaVenue, raw.types.MessageMediaVideoStream, raw.types.MessageMediaWebPage]
+MessageMedia = Union[raw.types.MessageMediaContact, raw.types.MessageMediaDice, raw.types.MessageMediaDocument, raw.types.MessageMediaEmpty, raw.types.MessageMediaGame, raw.types.MessageMediaGeo, raw.types.MessageMediaGeoLive, raw.types.MessageMediaGiveaway, raw.types.MessageMediaInvoice, raw.types.MessageMediaPhoto, raw.types.MessageMediaPoll, raw.types.MessageMediaStory, raw.types.MessageMediaUnsupported, raw.types.MessageMediaVenue, raw.types.MessageMediaWebPage]
 
 
 # noinspection PyRedeclaration
@@ -34,7 +34,7 @@ class MessageMedia:  # type: ignore
     """Telegram API base type.
 
     Constructors:
-        This base type has 19 constructors available.
+        This base type has 15 constructors available.
 
         .. currentmodule:: pyrogram.raw.types
 
@@ -49,26 +49,23 @@ class MessageMedia:  # type: ignore
             MessageMediaGeo
             MessageMediaGeoLive
             MessageMediaGiveaway
-            MessageMediaGiveawayResults
             MessageMediaInvoice
-            MessageMediaPaidMedia
             MessageMediaPhoto
             MessageMediaPoll
             MessageMediaStory
-            MessageMediaToDo
             MessageMediaUnsupported
             MessageMediaVenue
-            MessageMediaVideoStream
             MessageMediaWebPage
 
     Functions:
-        This object can be returned by 2 functions.
+        This object can be returned by 3 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
         .. autosummary::
             :nosignatures:
 
+            messages.GetWebPagePreview
             messages.UploadMedia
             messages.UploadImportedMedia
     """

@@ -36,7 +36,7 @@ class ChatsSlice(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.Chats`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9CD81144``
 
     Parameters:
@@ -47,7 +47,7 @@ class ChatsSlice(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 8 functions.
+        This object can be returned by 7 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
@@ -60,7 +60,6 @@ class ChatsSlice(TLObject):  # type: ignore
             channels.GetAdminedPublicChannels
             channels.GetLeftChannels
             channels.GetGroupsForDiscussion
-            channels.GetChannelRecommendations
             stories.GetChatsToSend
     """
 

@@ -36,7 +36,7 @@ class MessageEntityCustomEmoji(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageEntity`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C8CF05F8``
 
     Parameters:

@@ -36,7 +36,7 @@ class SavedInfo(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.payments.SavedInfo`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FB8FE43C``
 
     Parameters:

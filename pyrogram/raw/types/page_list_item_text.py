@@ -36,50 +36,36 @@ class PageListItemText(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageListItem`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``2F58683C``
+        - Layer: ``166``
+        - ID: ``B92FB6CD``
 
     Parameters:
         text (:obj:`RichText <pyrogram.raw.base.RichText>`):
             N/A
 
-        checkbox (``bool``, *optional*):
-            N/A
-
-        checked (``bool``, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["text", "checkbox", "checked"]
+    __slots__: List[str] = ["text"]
 
-    ID = 0x2f58683c
+    ID = 0xb92fb6cd
     QUALNAME = "types.PageListItemText"
 
-    def __init__(self, *, text: "raw.base.RichText", checkbox: Optional[bool] = None, checked: Optional[bool] = None) -> None:
+    def __init__(self, *, text: "raw.base.RichText") -> None:
         self.text = text  # RichText
-        self.checkbox = checkbox  # flags.0?true
-        self.checked = checked  # flags.1?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "PageListItemText":
+        # No flags
         
-        flags = Int.read(b)
-        
-        checkbox = True if flags & (1 << 0) else False
-        checked = True if flags & (1 << 1) else False
         text = TLObject.read(b)
         
-        return PageListItemText(text=text, checkbox=checkbox, checked=checked)
+        return PageListItemText(text=text)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.checkbox else 0
-        flags |= (1 << 1) if self.checked else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(self.text.write())
         

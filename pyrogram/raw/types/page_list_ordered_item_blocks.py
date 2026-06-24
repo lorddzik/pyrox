@@ -36,78 +36,45 @@ class PageListOrderedItemBlocks(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageListOrderedItem`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``8FF2D5F0``
+        - Layer: ``166``
+        - ID: ``98DD8936``
 
     Parameters:
+        num (``str``):
+            N/A
+
         blocks (List of :obj:`PageBlock <pyrogram.raw.base.PageBlock>`):
-            N/A
-
-        checkbox (``bool``, *optional*):
-            N/A
-
-        checked (``bool``, *optional*):
-            N/A
-
-        num (``str``, *optional*):
-            N/A
-
-        value (``int`` ``32-bit``, *optional*):
-            N/A
-
-        type (``str``, *optional*):
             N/A
 
     """
 
-    __slots__: List[str] = ["blocks", "checkbox", "checked", "num", "value", "type"]
+    __slots__: List[str] = ["num", "blocks"]
 
-    ID = 0x8ff2d5f0
+    ID = 0x98dd8936
     QUALNAME = "types.PageListOrderedItemBlocks"
 
-    def __init__(self, *, blocks: List["raw.base.PageBlock"], checkbox: Optional[bool] = None, checked: Optional[bool] = None, num: Optional[str] = None, value: Optional[int] = None, type: Optional[str] = None) -> None:
+    def __init__(self, *, num: str, blocks: List["raw.base.PageBlock"]) -> None:
+        self.num = num  # string
         self.blocks = blocks  # Vector<PageBlock>
-        self.checkbox = checkbox  # flags.0?true
-        self.checked = checked  # flags.1?true
-        self.num = num  # flags.2?string
-        self.value = value  # flags.3?int
-        self.type = type  # flags.4?string
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "PageListOrderedItemBlocks":
+        # No flags
         
-        flags = Int.read(b)
+        num = String.read(b)
         
-        checkbox = True if flags & (1 << 0) else False
-        checked = True if flags & (1 << 1) else False
-        num = String.read(b) if flags & (1 << 2) else None
         blocks = TLObject.read(b)
         
-        value = Int.read(b) if flags & (1 << 3) else None
-        type = String.read(b) if flags & (1 << 4) else None
-        return PageListOrderedItemBlocks(blocks=blocks, checkbox=checkbox, checked=checked, num=num, value=value, type=type)
+        return PageListOrderedItemBlocks(num=num, blocks=blocks)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.checkbox else 0
-        flags |= (1 << 1) if self.checked else 0
-        flags |= (1 << 2) if self.num is not None else 0
-        flags |= (1 << 3) if self.value is not None else 0
-        flags |= (1 << 4) if self.type is not None else 0
-        b.write(Int(flags))
+        # No flags
         
-        if self.num is not None:
-            b.write(String(self.num))
+        b.write(String(self.num))
         
         b.write(Vector(self.blocks))
-        
-        if self.value is not None:
-            b.write(Int(self.value))
-        
-        if self.type is not None:
-            b.write(String(self.type))
         
         return b.getvalue()

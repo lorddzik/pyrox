@@ -34,7 +34,7 @@ class ToggleDialogPin(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``A731E257``
 
     Parameters:

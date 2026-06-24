@@ -36,7 +36,7 @@ class TopPeerCategoryPeers(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.TopPeerCategoryPeers`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FB834291``
 
     Parameters:

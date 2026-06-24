@@ -34,7 +34,7 @@ class GetContacts(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``5DD69E12``
 
     Parameters:

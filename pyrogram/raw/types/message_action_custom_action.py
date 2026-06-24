@@ -36,7 +36,7 @@ class MessageActionCustomAction(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``FAE69F56``
 
     Parameters:

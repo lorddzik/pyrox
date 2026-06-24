@@ -36,7 +36,7 @@ class FileHash(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.FileHash`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F39B035C``
 
     Parameters:

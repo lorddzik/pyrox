@@ -36,7 +36,7 @@ class MessageMediaVenue(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageMedia`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``2EC0533F``
 
     Parameters:
@@ -59,13 +59,14 @@ class MessageMediaVenue(TLObject):  # type: ignore
             N/A
 
     Functions:
-        This object can be returned by 2 functions.
+        This object can be returned by 3 functions.
 
         .. currentmodule:: pyrogram.raw.functions
 
         .. autosummary::
             :nosignatures:
 
+            messages.GetWebPagePreview
             messages.UploadMedia
             messages.UploadImportedMedia
     """

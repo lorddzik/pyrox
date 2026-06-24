@@ -36,7 +36,7 @@ class UpdateBotInlineQuery(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.Update`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``496F379C``
 
     Parameters:

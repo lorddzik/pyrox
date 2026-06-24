@@ -36,7 +36,7 @@ class UserProfilePhotoEmpty(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.UserProfilePhoto`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``4F11BAE1``
 
     Parameters:

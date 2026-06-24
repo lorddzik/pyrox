@@ -36,7 +36,7 @@ class ServerDHParamsOk(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ServerDHParams`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D0E8075C``
 
     Parameters:

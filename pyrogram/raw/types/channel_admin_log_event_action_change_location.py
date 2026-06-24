@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionChangeLocation(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E6B76AE``
 
     Parameters:

@@ -34,7 +34,7 @@ class DestroySession(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``E7512126``
 
     Parameters:

@@ -36,7 +36,7 @@ class MessageActionGeoProximityReached(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.MessageAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``98E0D697``
 
     Parameters:

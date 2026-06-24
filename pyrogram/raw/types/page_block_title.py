@@ -36,7 +36,7 @@ class PageBlockTitle(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.PageBlock`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``70ABC3FD``
 
     Parameters:

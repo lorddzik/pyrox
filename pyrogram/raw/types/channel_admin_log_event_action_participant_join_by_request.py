@@ -36,7 +36,7 @@ class ChannelAdminLogEventActionParticipantJoinByRequest(TLObject):  # type: ign
     Constructor of :obj:`~pyrogram.raw.base.ChannelAdminLogEventAction`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``AFB6144A``
 
     Parameters:

@@ -34,7 +34,7 @@ class GetConfig(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``C4F9186B``
 
     Parameters:

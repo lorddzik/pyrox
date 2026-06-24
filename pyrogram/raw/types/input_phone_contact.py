@@ -36,8 +36,8 @@ class InputPhoneContact(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputContact`.
 
     Details:
-        - Layer: ``227``
-        - ID: ``6A1DC4BE``
+        - Layer: ``166``
+        - ID: ``F392B7F4``
 
     Parameters:
         client_id (``int`` ``64-bit``):
@@ -52,27 +52,22 @@ class InputPhoneContact(TLObject):  # type: ignore
         last_name (``str``):
             N/A
 
-        note (:obj:`TextWithEntities <pyrogram.raw.base.TextWithEntities>`, *optional*):
-            N/A
-
     """
 
-    __slots__: List[str] = ["client_id", "phone", "first_name", "last_name", "note"]
+    __slots__: List[str] = ["client_id", "phone", "first_name", "last_name"]
 
-    ID = 0x6a1dc4be
+    ID = 0xf392b7f4
     QUALNAME = "types.InputPhoneContact"
 
-    def __init__(self, *, client_id: int, phone: str, first_name: str, last_name: str, note: "raw.base.TextWithEntities" = None) -> None:
+    def __init__(self, *, client_id: int, phone: str, first_name: str, last_name: str) -> None:
         self.client_id = client_id  # long
         self.phone = phone  # string
         self.first_name = first_name  # string
         self.last_name = last_name  # string
-        self.note = note  # flags.0?TextWithEntities
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "InputPhoneContact":
-        
-        flags = Int.read(b)
+        # No flags
         
         client_id = Long.read(b)
         
@@ -82,17 +77,13 @@ class InputPhoneContact(TLObject):  # type: ignore
         
         last_name = String.read(b)
         
-        note = TLObject.read(b) if flags & (1 << 0) else None
-        
-        return InputPhoneContact(client_id=client_id, phone=phone, first_name=first_name, last_name=last_name, note=note)
+        return InputPhoneContact(client_id=client_id, phone=phone, first_name=first_name, last_name=last_name)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.note is not None else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(Long(self.client_id))
         
@@ -101,8 +92,5 @@ class InputPhoneContact(TLObject):  # type: ignore
         b.write(String(self.first_name))
         
         b.write(String(self.last_name))
-        
-        if self.note is not None:
-            b.write(self.note.write())
         
         return b.getvalue()

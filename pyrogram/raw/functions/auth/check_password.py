@@ -34,7 +34,7 @@ class CheckPassword(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D18B4D16``
 
     Parameters:

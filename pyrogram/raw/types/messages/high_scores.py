@@ -36,7 +36,7 @@ class HighScores(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.messages.HighScores`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``9A3BFD99``
 
     Parameters:

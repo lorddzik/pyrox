@@ -36,7 +36,7 @@ class InputBotAppShortName(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.InputBotApp`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``908C0407``
 
     Parameters:

@@ -34,7 +34,7 @@ class DeletePhoneCallHistory(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F9CBE409``
 
     Parameters:

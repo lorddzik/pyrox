@@ -36,7 +36,7 @@ class Blocked(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.contacts.Blocked`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``ADE1591``
 
     Parameters:

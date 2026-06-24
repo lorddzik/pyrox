@@ -34,7 +34,7 @@ class SendReaction(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``D30D78D4``
 
     Parameters:

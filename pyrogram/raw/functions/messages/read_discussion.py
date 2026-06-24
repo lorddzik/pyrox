@@ -34,7 +34,7 @@ class ReadDiscussion(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F731A9F4``
 
     Parameters:

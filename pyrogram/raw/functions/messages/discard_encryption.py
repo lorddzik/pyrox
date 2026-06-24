@@ -34,7 +34,7 @@ class DiscardEncryption(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``F393AEA0``
 
     Parameters:

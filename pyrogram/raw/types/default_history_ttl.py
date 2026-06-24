@@ -36,7 +36,7 @@ class DefaultHistoryTTL(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.DefaultHistoryTTL`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``43B46B20``
 
     Parameters:

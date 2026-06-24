@@ -36,7 +36,7 @@ class GroupCallParticipantVideoSourceGroup(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.GroupCallParticipantVideoSourceGroup`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``DCB118B7``
 
     Parameters:

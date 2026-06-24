@@ -34,8 +34,8 @@ class SignUp(TLObject):  # type: ignore
     """Telegram API function.
 
     Details:
-        - Layer: ``227``
-        - ID: ``AAC7B717``
+        - Layer: ``166``
+        - ID: ``80EEE427``
 
     Parameters:
         phone_number (``str``):
@@ -50,31 +50,25 @@ class SignUp(TLObject):  # type: ignore
         last_name (``str``):
             N/A
 
-        no_joined_notifications (``bool``, *optional*):
-            N/A
-
     Returns:
         :obj:`auth.Authorization <pyrogram.raw.base.auth.Authorization>`
     """
 
-    __slots__: List[str] = ["phone_number", "phone_code_hash", "first_name", "last_name", "no_joined_notifications"]
+    __slots__: List[str] = ["phone_number", "phone_code_hash", "first_name", "last_name"]
 
-    ID = 0xaac7b717
+    ID = 0x80eee427
     QUALNAME = "functions.auth.SignUp"
 
-    def __init__(self, *, phone_number: str, phone_code_hash: str, first_name: str, last_name: str, no_joined_notifications: Optional[bool] = None) -> None:
+    def __init__(self, *, phone_number: str, phone_code_hash: str, first_name: str, last_name: str) -> None:
         self.phone_number = phone_number  # string
         self.phone_code_hash = phone_code_hash  # string
         self.first_name = first_name  # string
         self.last_name = last_name  # string
-        self.no_joined_notifications = no_joined_notifications  # flags.0?true
 
     @staticmethod
     def read(b: BytesIO, *args: Any) -> "SignUp":
+        # No flags
         
-        flags = Int.read(b)
-        
-        no_joined_notifications = True if flags & (1 << 0) else False
         phone_number = String.read(b)
         
         phone_code_hash = String.read(b)
@@ -83,15 +77,13 @@ class SignUp(TLObject):  # type: ignore
         
         last_name = String.read(b)
         
-        return SignUp(phone_number=phone_number, phone_code_hash=phone_code_hash, first_name=first_name, last_name=last_name, no_joined_notifications=no_joined_notifications)
+        return SignUp(phone_number=phone_number, phone_code_hash=phone_code_hash, first_name=first_name, last_name=last_name)
 
     def write(self, *args) -> bytes:
         b = BytesIO()
         b.write(Int(self.ID, False))
 
-        flags = 0
-        flags |= (1 << 0) if self.no_joined_notifications else 0
-        b.write(Int(flags))
+        # No flags
         
         b.write(String(self.phone_number))
         

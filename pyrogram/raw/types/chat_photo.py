@@ -36,7 +36,7 @@ class ChatPhoto(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.ChatPhoto`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``1C6E1C11``
 
     Parameters:

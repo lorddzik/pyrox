@@ -36,7 +36,7 @@ class DhGenRetry(TLObject):  # type: ignore
     Constructor of :obj:`~pyrogram.raw.base.SetClientDHParamsAnswer`.
 
     Details:
-        - Layer: ``227``
+        - Layer: ``166``
         - ID: ``46DC1FB9``
 
     Parameters:
